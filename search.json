@@ -1,5 +1,803 @@
 [
   {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "This page provides links to essential course resources including the textbook, R software downloads, and reference materials.\n\n\nLectures - Access all course lectures organized by week and day.\n\n\n\nOptional Textbook: Introductory Statistics for the Life and Biomedical Sciences by Julie Vu and Dave Harrington\nThis textbook is available for free online and provides additional explanations and examples that complement the course materials.\n\n\n\nSTAT 109 uses R for statistical computing. You can use R in several ways:\n\n\nDownload R: R Project Website\nR is free and open-source statistical software. The base R installation includes the core R language and basic packages.\n\nWindows: Download the installer from CRAN (Comprehensive R Archive Network)\nMac: Download the macOS installer from CRAN\nLinux: Install via your distribution’s package manager or from CRAN\n\n\n\n\nDownload RStudio: RStudio Desktop\nRStudio is an integrated development environment (IDE) for R that provides a user-friendly interface, code editor, and helpful features for data analysis. RStudio Desktop is free and works with base R.\nNote: You must install base R first before installing RStudio.\n\n\n\nAccess R in Google Colab: R in Colab\nGoogle Colab provides free access to R in a cloud-based notebook environment. This is useful if you don’t want to install R on your computer or need to work from different devices.\n\n\n\nInstall R for Jupyter: IRkernel Documentation\nJupyter Notebook is another notebook environment that supports R. To use R in Jupyter:\n\nInstall base R first\nInstall Jupyter Notebook or JupyterLab\nInstall the IRkernel package in R\nRegister the kernel with Jupyter\n\nNote: R is also installed on all campus computers, so you can use the computer labs if you prefer not to install software on your personal computer.\n\n\n\n\n\n\nR Quick Reference - A quick reference guide for common R commands and functions used in this course.\n\n\n\nMethods Map - A reference table of statistical methods covered in the course, organized by topic.\n\n\n\n\n\n\n\nComputer Labs: R is installed on all campus computers\nROSE (Reusable Office Supply Exchange): Free used computers may be available if you need a computer\n\n\n\n\n\nOffice Hours: See the Syllabus for instructor office hours\nCanvas: Check Canvas for announcements and course communications\nEmail: Contact the instructor at rho3@humboldt.edu"
+  },
+  {
+    "objectID": "resources.html#lectures",
+    "href": "resources.html#lectures",
+    "title": "Resources",
+    "section": "",
+    "text": "Lectures - Access all course lectures organized by week and day."
+  },
+  {
+    "objectID": "resources.html#textbook",
+    "href": "resources.html#textbook",
+    "title": "Resources",
+    "section": "",
+    "text": "Optional Textbook: Introductory Statistics for the Life and Biomedical Sciences by Julie Vu and Dave Harrington\nThis textbook is available for free online and provides additional explanations and examples that complement the course materials."
+  },
+  {
+    "objectID": "resources.html#r-software-downloads",
+    "href": "resources.html#r-software-downloads",
+    "title": "Resources",
+    "section": "",
+    "text": "STAT 109 uses R for statistical computing. You can use R in several ways:\n\n\nDownload R: R Project Website\nR is free and open-source statistical software. The base R installation includes the core R language and basic packages.\n\nWindows: Download the installer from CRAN (Comprehensive R Archive Network)\nMac: Download the macOS installer from CRAN\nLinux: Install via your distribution’s package manager or from CRAN\n\n\n\n\nDownload RStudio: RStudio Desktop\nRStudio is an integrated development environment (IDE) for R that provides a user-friendly interface, code editor, and helpful features for data analysis. RStudio Desktop is free and works with base R.\nNote: You must install base R first before installing RStudio.\n\n\n\nAccess R in Google Colab: R in Colab\nGoogle Colab provides free access to R in a cloud-based notebook environment. This is useful if you don’t want to install R on your computer or need to work from different devices.\n\n\n\nInstall R for Jupyter: IRkernel Documentation\nJupyter Notebook is another notebook environment that supports R. To use R in Jupyter:\n\nInstall base R first\nInstall Jupyter Notebook or JupyterLab\nInstall the IRkernel package in R\nRegister the kernel with Jupyter\n\nNote: R is also installed on all campus computers, so you can use the computer labs if you prefer not to install software on your personal computer."
+  },
+  {
+    "objectID": "resources.html#course-reference-materials",
+    "href": "resources.html#course-reference-materials",
+    "title": "Resources",
+    "section": "",
+    "text": "R Quick Reference - A quick reference guide for common R commands and functions used in this course.\n\n\n\nMethods Map - A reference table of statistical methods covered in the course, organized by topic."
+  },
+  {
+    "objectID": "resources.html#additional-resources",
+    "href": "resources.html#additional-resources",
+    "title": "Resources",
+    "section": "",
+    "text": "Computer Labs: R is installed on all campus computers\nROSE (Reusable Office Supply Exchange): Free used computers may be available if you need a computer\n\n\n\n\n\nOffice Hours: See the Syllabus for instructor office hours\nCanvas: Check Canvas for announcements and course communications\nEmail: Contact the instructor at rho3@humboldt.edu"
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Course Schedule",
+    "section": "",
+    "text": "Week\nMon\nWed\nThu\nFri\nSun\n\n\n\n\n1 (Jan 20–23)\nHoliday\nLec\nLab 1 + Quiz 1\nLec\n—\n\n\n2 (Jan 26–30)\nLec\nLec\nLab 2 + Quiz 2\nLec\n—\n\n\n3 (Feb 2–6)\nLec\nLec\nLab 3 + Quiz 3\nLec\n—\n\n\n4 (Feb 9–13)\nLec\nLec\nLab 4 + Quiz 4\nLec\n—\n\n\n5 (Feb 16–20)\nLec\nLec\nLab 5 + Quiz 5\nLec\nProject 1 due (Sun Feb 22)\n\n\n6 (Feb 23–27)\nLec\nReview\nReview (no quiz)\nMidterm 1\n—\n\n\n7 (Mar 2–6)\nLec\nLec\nLab 6 + Quiz 6\nLec\n—\n\n\n8 (Mar 9–13)\nLec\nLec\nLab 7 + Quiz 7\nLec\nProject 2 due (Sun Mar 15)\n\n\n— (Mar 16–20)\n—\n—\n—\n—\n—\n\n\n9 (Mar 23–27)\nLec\nLec\nLab 8 + Quiz 8\nLec\n—\n\n\n10 (Mar 30–Apr 3)\nLec\nLec\nLab 9 + Quiz 9\nLec\nProject 3 due (Sun Apr 5)\n\n\n11 (Apr 6–10)\nLec\nLec\nLab 10 + Quiz 10\nLec\n—\n\n\n12 (Apr 13–17)\nLec\nLec\nLab 11 + Quiz 11\nLec\nProject 4 due (Sun Apr 19)\n\n\n13 (Apr 20–24)\nLec\nReview\nReview (no quiz)\nMidterm 2\n—\n\n\n14 (Apr 27–May 1)\nLec\nLec\nLab 12 + Quiz 12\nLec\n—\n\n\n15 (May 4–8)\nLec\nReview\nLab 13 + Quiz 13\nReview\nProject 5 due (Sun May 10)\n\n\nFinals (May 11–15)\n—\nFinal Exam\n—\n—\n—\n\n\n\nNotes:\n\nMon Week 1 = Holiday (No class)\nWeek 10 = Holiday (No class on Tuesday, March 31)"
+  },
+  {
+    "objectID": "schedule.html#spring-2026",
+    "href": "schedule.html#spring-2026",
+    "title": "Course Schedule",
+    "section": "",
+    "text": "Week\nMon\nWed\nThu\nFri\nSun\n\n\n\n\n1 (Jan 20–23)\nHoliday\nLec\nLab 1 + Quiz 1\nLec\n—\n\n\n2 (Jan 26–30)\nLec\nLec\nLab 2 + Quiz 2\nLec\n—\n\n\n3 (Feb 2–6)\nLec\nLec\nLab 3 + Quiz 3\nLec\n—\n\n\n4 (Feb 9–13)\nLec\nLec\nLab 4 + Quiz 4\nLec\n—\n\n\n5 (Feb 16–20)\nLec\nLec\nLab 5 + Quiz 5\nLec\nProject 1 due (Sun Feb 22)\n\n\n6 (Feb 23–27)\nLec\nReview\nReview (no quiz)\nMidterm 1\n—\n\n\n7 (Mar 2–6)\nLec\nLec\nLab 6 + Quiz 6\nLec\n—\n\n\n8 (Mar 9–13)\nLec\nLec\nLab 7 + Quiz 7\nLec\nProject 2 due (Sun Mar 15)\n\n\n— (Mar 16–20)\n—\n—\n—\n—\n—\n\n\n9 (Mar 23–27)\nLec\nLec\nLab 8 + Quiz 8\nLec\n—\n\n\n10 (Mar 30–Apr 3)\nLec\nLec\nLab 9 + Quiz 9\nLec\nProject 3 due (Sun Apr 5)\n\n\n11 (Apr 6–10)\nLec\nLec\nLab 10 + Quiz 10\nLec\n—\n\n\n12 (Apr 13–17)\nLec\nLec\nLab 11 + Quiz 11\nLec\nProject 4 due (Sun Apr 19)\n\n\n13 (Apr 20–24)\nLec\nReview\nReview (no quiz)\nMidterm 2\n—\n\n\n14 (Apr 27–May 1)\nLec\nLec\nLab 12 + Quiz 12\nLec\n—\n\n\n15 (May 4–8)\nLec\nReview\nLab 13 + Quiz 13\nReview\nProject 5 due (Sun May 10)\n\n\nFinals (May 11–15)\n—\nFinal Exam\n—\n—\n—\n\n\n\nNotes:\n\nMon Week 1 = Holiday (No class)\nWeek 10 = Holiday (No class on Tuesday, March 31)"
+  },
+  {
+    "objectID": "quizzes/quiz-12.html",
+    "href": "quizzes/quiz-12.html",
+    "title": "Quiz 12",
+    "section": "",
+    "text": "Quiz 12\nInstructions coming soon."
+  },
+  {
+    "objectID": "quizzes/quiz-4.html",
+    "href": "quizzes/quiz-4.html",
+    "title": "Quiz 4",
+    "section": "",
+    "text": "Quiz 4\nInstructions coming soon."
+  },
+  {
+    "objectID": "quizzes/quiz-8.html",
+    "href": "quizzes/quiz-8.html",
+    "title": "Quiz 8",
+    "section": "",
+    "text": "Quiz 8\nInstructions coming soon."
+  },
+  {
+    "objectID": "quizzes/quiz-10.html",
+    "href": "quizzes/quiz-10.html",
+    "title": "Quiz 10",
+    "section": "",
+    "text": "Quiz 10\nInstructions coming soon."
+  },
+  {
+    "objectID": "quizzes/quiz-3.html",
+    "href": "quizzes/quiz-3.html",
+    "title": "Quiz 3",
+    "section": "",
+    "text": "Quiz 3\nInstructions coming soon."
+  },
+  {
+    "objectID": "quizzes/quiz-5.html",
+    "href": "quizzes/quiz-5.html",
+    "title": "Quiz 5",
+    "section": "",
+    "text": "Quiz 5\nInstructions coming soon."
+  },
+  {
+    "objectID": "quizzes/quiz-6.html",
+    "href": "quizzes/quiz-6.html",
+    "title": "Quiz 6",
+    "section": "",
+    "text": "Quiz 6\nInstructions coming soon."
+  },
+  {
+    "objectID": "exams/midterm-1.html",
+    "href": "exams/midterm-1.html",
+    "title": "Midterm 1",
+    "section": "",
+    "text": "Midterm 1\nInstructions coming soon."
+  },
+  {
+    "objectID": "exams/final-exam.html",
+    "href": "exams/final-exam.html",
+    "title": "Final Exam",
+    "section": "",
+    "text": "Final Exam\nInstructions coming soon."
+  },
+  {
+    "objectID": "GITHUB_SETUP.html",
+    "href": "GITHUB_SETUP.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "GITHUB_SETUP.html#step-1-create-github-repositories",
+    "href": "GITHUB_SETUP.html#step-1-create-github-repositories",
+    "title": "",
+    "section": "Step 1: Create GitHub Repositories",
+    "text": "Step 1: Create GitHub Repositories\n\nCreate the private repository:\n\nGo to GitHub and create a new repository named stat109-private\nMake it private\nDo NOT initialize with README, .gitignore, or license\nCopy the repository URL\n\nCreate the public repository:\n\nGo to GitHub and create a new repository named stat109-public\nMake it public\nDo NOT initialize with README, .gitignore, or license\nCopy the repository URL"
+  },
+  {
+    "objectID": "GITHUB_SETUP.html#step-2-initialize-local-repositories",
+    "href": "GITHUB_SETUP.html#step-2-initialize-local-repositories",
+    "title": "",
+    "section": "Step 2: Initialize Local Repositories",
+    "text": "Step 2: Initialize Local Repositories\n\nInitialize stat109-private:\ncd stat109-private\ngit init\ngit add .\ngit commit -m \"Initial commit: STAT 109 course structure\"\ngit branch -M main\ngit remote add origin https://github.com/roverhol/stat109-private.git\ngit push -u origin main\nInitialize stat109-public:\ncd ../stat109-public\ngit init\ngit add .\ngit commit -m \"Initial commit: Public website\"\ngit branch -M main\ngit remote add origin https://github.com/roverhol/stat109-public.git\ngit push -u origin main"
+  },
+  {
+    "objectID": "GITHUB_SETUP.html#step-3-configure-github-actions",
+    "href": "GITHUB_SETUP.html#step-3-configure-github-actions",
+    "title": "",
+    "section": "Step 3: Configure GitHub Actions",
+    "text": "Step 3: Configure GitHub Actions\nThe GitHub Actions workflow in .github/workflows/quarto-publish.yml needs to be updated with your repository information:\n\nUpdate the workflow file:\n\nOpen .github/workflows/quarto-publish.yml\nReplace [OWNER] with your GitHub username\nThe workflow will use GITHUB_TOKEN automatically (no secrets needed)\n\nAlternative: Use Personal Access Token (if needed):\n\nIf you need more permissions, create a Personal Access Token (PAT)\nGo to GitHub Settings &gt; Developer settings &gt; Personal access tokens &gt; Tokens (classic)\nCreate a token with repo scope\nAdd it as a secret named GH_PAT in the private repository settings\nUpdate the workflow to use ${{ secrets.GH_PAT }} instead of ${{ secrets.GITHUB_TOKEN }}"
+  },
+  {
+    "objectID": "GITHUB_SETUP.html#step-4-enable-github-pages",
+    "href": "GITHUB_SETUP.html#step-4-enable-github-pages",
+    "title": "",
+    "section": "Step 4: Enable GitHub Pages",
+    "text": "Step 4: Enable GitHub Pages\n\nGo to the stat109-public repository settings\nNavigate to Pages\nSource: Deploy from a branch\nBranch: main / / (root)\nSave"
+  },
+  {
+    "objectID": "GITHUB_SETUP.html#step-5-test-deployment",
+    "href": "GITHUB_SETUP.html#step-5-test-deployment",
+    "title": "",
+    "section": "Step 5: Test Deployment",
+    "text": "Step 5: Test Deployment\n\nMake a small change to any .qmd file in stat109-private\nCommit and push:\ngit add .\ngit commit -m \"Test deployment\"\ngit push\nCheck the Actions tab in GitHub to see the workflow run\nAfter a few minutes, check the public repository - it should have the rendered files\nVisit the GitHub Pages URL to see the live site"
+  },
+  {
+    "objectID": "GITHUB_SETUP.html#troubleshooting",
+    "href": "GITHUB_SETUP.html#troubleshooting",
+    "title": "",
+    "section": "Troubleshooting",
+    "text": "Troubleshooting\n\nWorkflow fails: Check the Actions tab for error messages\nPages not updating: Make sure GitHub Pages is enabled and pointing to the main branch\nPermission errors: Ensure the workflow has write permissions (check repository settings &gt; Actions &gt; General &gt; Workflow permissions)"
+  },
+  {
+    "objectID": "scripts/README_CANVAS_API.html",
+    "href": "scripts/README_CANVAS_API.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "scripts/README_CANVAS_API.html#prerequisites",
+    "href": "scripts/README_CANVAS_API.html#prerequisites",
+    "title": "",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nPython 3 installed on your computer\nCanvas Personal Access Token\nCanvas Course ID"
+  },
+  {
+    "objectID": "scripts/README_CANVAS_API.html#step-1-get-your-canvas-personal-access-token",
+    "href": "scripts/README_CANVAS_API.html#step-1-get-your-canvas-personal-access-token",
+    "title": "",
+    "section": "Step 1: Get Your Canvas Personal Access Token",
+    "text": "Step 1: Get Your Canvas Personal Access Token\n\nLog into Canvas\nGo to Account → Settings\nScroll down to Approved Integrations\nClick + New Access Token\nGive it a purpose (e.g., “STAT 109 Assignment Creation”)\nSet an expiration date (optional)\nClick Generate Token\nCopy the token immediately - you won’t be able to see it again!"
+  },
+  {
+    "objectID": "scripts/README_CANVAS_API.html#step-2-find-your-course-id",
+    "href": "scripts/README_CANVAS_API.html#step-2-find-your-course-id",
+    "title": "",
+    "section": "Step 2: Find Your Course ID",
+    "text": "Step 2: Find Your Course ID\n\nGo to your STAT 109 course in Canvas\nLook at the URL - it will be something like: https://humboldt.instructure.com/courses/12345\nThe number at the end (e.g., 12345) is your Course ID"
+  },
+  {
+    "objectID": "scripts/README_CANVAS_API.html#step-3-install-required-python-packages",
+    "href": "scripts/README_CANVAS_API.html#step-3-install-required-python-packages",
+    "title": "",
+    "section": "Step 3: Install Required Python Packages",
+    "text": "Step 3: Install Required Python Packages\npip install requests python-dateutil"
+  },
+  {
+    "objectID": "scripts/README_CANVAS_API.html#step-4-configure-the-script",
+    "href": "scripts/README_CANVAS_API.html#step-4-configure-the-script",
+    "title": "",
+    "section": "Step 4: Configure the Script",
+    "text": "Step 4: Configure the Script\nEdit create_canvas_assignment.py and update these values at the top:\nCANVAS_API_URL = \"https://humboldt.instructure.com/api/v1\"  # Your Canvas instance\nCOURSE_ID = \"12345\"  # Your course ID from Step 2\nCANVAS_TOKEN = \"your-token-here\"  # Your token from Step 1\nPUBLIC_SITE_URL = \"https://roverhol.github.io/stat109-public\"  # Already set correctly\nSecurity Note: For production use, consider storing the token in an environment variable or config file that’s in .gitignore rather than hardcoding it."
+  },
+  {
+    "objectID": "scripts/README_CANVAS_API.html#step-5-test-with-lab-1",
+    "href": "scripts/README_CANVAS_API.html#step-5-test-with-lab-1",
+    "title": "",
+    "section": "Step 5: Test with Lab 1",
+    "text": "Step 5: Test with Lab 1\nRun the script to create Lab 1 assignment:\npython scripts/create_canvas_assignment.py --type lab --number 1\nOr if you want to override the config values:\npython scripts/create_canvas_assignment.py --type lab --number 1 --course-id 12345 --token your-token"
+  },
+  {
+    "objectID": "scripts/README_CANVAS_API.html#what-the-script-does",
+    "href": "scripts/README_CANVAS_API.html#what-the-script-does",
+    "title": "",
+    "section": "What the Script Does",
+    "text": "What the Script Does\n\nCreates an assignment in Canvas with the correct name\nSets the due date based on the schedule\nAdds a description with a link to the public course website\nSets the assignment as unpublished by default (you can publish it in Canvas when ready)"
+  },
+  {
+    "objectID": "scripts/README_CANVAS_API.html#assignment-details-created",
+    "href": "scripts/README_CANVAS_API.html#assignment-details-created",
+    "title": "",
+    "section": "Assignment Details Created",
+    "text": "Assignment Details Created\n\nLabs\n\nName: “Lab 1”, “Lab 2”, etc.\nDue Date: Tuesday at 11:59 PM (Week 2, 3, 4, etc.)\nSubmission Type: Online upload and text entry\nLink: Points to https://roverhol.github.io/stat109-public/labs/lab-1.html\n\n\n\nQuizzes\n\nName: “Quiz 1”, “Quiz 2”, etc.\nDue Date: Thursday at 12:00 PM (beginning of lab)\nSubmission Type: Online quiz\nLink: Points to https://roverhol.github.io/stat109-public/quizzes/quiz-1.html"
+  },
+  {
+    "objectID": "scripts/README_CANVAS_API.html#next-steps",
+    "href": "scripts/README_CANVAS_API.html#next-steps",
+    "title": "",
+    "section": "Next Steps",
+    "text": "Next Steps\nAfter creating assignments: 1. Go to Canvas and review the created assignments 2. Adjust points, assignment groups, or other settings as needed 3. Publish assignments when ready 4. Add rubrics or additional instructions in Canvas if needed"
+  },
+  {
+    "objectID": "scripts/README_CANVAS_API.html#troubleshooting",
+    "href": "scripts/README_CANVAS_API.html#troubleshooting",
+    "title": "",
+    "section": "Troubleshooting",
+    "text": "Troubleshooting\nError: “Course ID is required” - Make sure you’ve set COURSE_ID in the script or used --course-id\nError: “Canvas token is required” - Make sure you’ve set CANVAS_TOKEN in the script or used --token\nError: 401 Unauthorized - Check that your token is correct and hasn’t expired - Make sure you’re using the correct Canvas API URL\nError: 404 Not Found - Check that your Course ID is correct - Verify the Canvas API URL is correct for your institution"
+  },
+  {
+    "objectID": "scripts/README_CANVAS_API.html#security-best-practices",
+    "href": "scripts/README_CANVAS_API.html#security-best-practices",
+    "title": "",
+    "section": "Security Best Practices",
+    "text": "Security Best Practices\n\nDon’t commit your token to git - add scripts/.env or similar to .gitignore\nUse environment variables for sensitive data:\nimport os\nCANVAS_TOKEN = os.getenv(\"CANVAS_TOKEN\")\nSet token expiration dates when creating tokens\nUse minimal permissions - only create tokens with the permissions you need"
+  },
+  {
+    "objectID": "labs/lab-1.html",
+    "href": "labs/lab-1.html",
+    "title": "Lab 1",
+    "section": "",
+    "text": "Lab 1\nInstructions coming soon."
+  },
+  {
+    "objectID": "labs/lab-13.html",
+    "href": "labs/lab-13.html",
+    "title": "Lab 13",
+    "section": "",
+    "text": "Lab 13\nInstructions coming soon."
+  },
+  {
+    "objectID": "labs/lab-7.html",
+    "href": "labs/lab-7.html",
+    "title": "Lab 7",
+    "section": "",
+    "text": "Lab 7\nInstructions coming soon."
+  },
+  {
+    "objectID": "labs/lab-5.html",
+    "href": "labs/lab-5.html",
+    "title": "Lab 5",
+    "section": "",
+    "text": "Lab 5\nInstructions coming soon."
+  },
+  {
+    "objectID": "labs/lab-10.html",
+    "href": "labs/lab-10.html",
+    "title": "Lab 10",
+    "section": "",
+    "text": "Lab 10\nInstructions coming soon."
+  },
+  {
+    "objectID": "labs/lab-3.html",
+    "href": "labs/lab-3.html",
+    "title": "Lab 3",
+    "section": "",
+    "text": "Lab 3\nInstructions coming soon."
+  },
+  {
+    "objectID": "labs/lab-6.html",
+    "href": "labs/lab-6.html",
+    "title": "Lab 6",
+    "section": "",
+    "text": "Lab 6\nInstructions coming soon."
+  },
+  {
+    "objectID": "projects/project-1.html",
+    "href": "projects/project-1.html",
+    "title": "Project 1",
+    "section": "",
+    "text": "Project 1\nInstructions coming soon."
+  },
+  {
+    "objectID": "projects/project-5.html",
+    "href": "projects/project-5.html",
+    "title": "Project 5",
+    "section": "",
+    "text": "Project 5\nInstructions coming soon."
+  },
+  {
+    "objectID": "methods.html",
+    "href": "methods.html",
+    "title": "Methods Map",
+    "section": "",
+    "text": "[Content to be added]\n\n\n\n[Content to be added]\n\n\n\n[Content to be added]\n\n\n\n[Content to be added]\n\n\n\n\n\n\n[Content to be added]\n\n\n\n[Content to be added]\n\n\n\n[Content to be added]\n\n\n\n[Content to be added]"
+  },
+  {
+    "objectID": "methods.html#methods-descriptive",
+    "href": "methods.html#methods-descriptive",
+    "title": "Methods Map",
+    "section": "",
+    "text": "[Content to be added]\n\n\n\n[Content to be added]\n\n\n\n[Content to be added]\n\n\n\n[Content to be added]"
+  },
+  {
+    "objectID": "methods.html#methods-inferential",
+    "href": "methods.html#methods-inferential",
+    "title": "Methods Map",
+    "section": "",
+    "text": "[Content to be added]\n\n\n\n[Content to be added]\n\n\n\n[Content to be added]\n\n\n\n[Content to be added]"
+  },
+  {
+    "objectID": "lectures/lecture-17.html",
+    "href": "lectures/lecture-17.html",
+    "title": "Lecture 17",
+    "section": "",
+    "text": "Lecture 17\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/review-week-15-friday.html",
+    "href": "lectures/review-week-15-friday.html",
+    "title": "Review - Week 15 Friday",
+    "section": "",
+    "text": "Review - Week 15 Friday\nReview materials coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-19.html",
+    "href": "lectures/lecture-19.html",
+    "title": "Lecture 19",
+    "section": "",
+    "text": "Lecture 19\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-28.html",
+    "href": "lectures/lecture-28.html",
+    "title": "Lecture 28",
+    "section": "",
+    "text": "Lecture 28\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-9.html",
+    "href": "lectures/lecture-9.html",
+    "title": "Lecture 9",
+    "section": "",
+    "text": "Lecture 9\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-36.html",
+    "href": "lectures/lecture-36.html",
+    "title": "Lecture 36",
+    "section": "",
+    "text": "Lecture 36\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-25.html",
+    "href": "lectures/lecture-25.html",
+    "title": "Lecture 25",
+    "section": "",
+    "text": "Lecture 25\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-24.html",
+    "href": "lectures/lecture-24.html",
+    "title": "Lecture 24",
+    "section": "",
+    "text": "Lecture 24\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-3.html",
+    "href": "lectures/lecture-3.html",
+    "title": "Lecture 3",
+    "section": "",
+    "text": "Lecture 3\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-34.html",
+    "href": "lectures/lecture-34.html",
+    "title": "Lecture 34",
+    "section": "",
+    "text": "Lecture 34\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-12.html",
+    "href": "lectures/lecture-12.html",
+    "title": "Lecture 12",
+    "section": "",
+    "text": "Lecture 12\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-33.html",
+    "href": "lectures/lecture-33.html",
+    "title": "Lecture 33",
+    "section": "",
+    "text": "Lecture 33\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-29.html",
+    "href": "lectures/lecture-29.html",
+    "title": "Lecture 29",
+    "section": "",
+    "text": "Lecture 29\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-37.html",
+    "href": "lectures/lecture-37.html",
+    "title": "Lecture 37",
+    "section": "",
+    "text": "Lecture 37\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-23.html",
+    "href": "lectures/lecture-23.html",
+    "title": "Lecture 23",
+    "section": "",
+    "text": "Lecture 23\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-18.html",
+    "href": "lectures/lecture-18.html",
+    "title": "Lecture 18",
+    "section": "",
+    "text": "Lecture 18\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-27.html",
+    "href": "lectures/lecture-27.html",
+    "title": "Lecture 27",
+    "section": "",
+    "text": "Lecture 27\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-20.html",
+    "href": "lectures/lecture-20.html",
+    "title": "Lecture 20",
+    "section": "",
+    "text": "Lecture 20\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-7.html",
+    "href": "lectures/lecture-7.html",
+    "title": "Lecture 7",
+    "section": "",
+    "text": "Lecture 7\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-32.html",
+    "href": "lectures/lecture-32.html",
+    "title": "Lecture 32",
+    "section": "",
+    "text": "Lecture 32\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-21.html",
+    "href": "lectures/lecture-21.html",
+    "title": "Lecture 21",
+    "section": "",
+    "text": "Lecture 21\nInstructions coming soon."
+  },
+  {
+    "objectID": "r-reference.html",
+    "href": "r-reference.html",
+    "title": "R Quick Reference (Base R)",
+    "section": "",
+    "text": "[Content to be added]\n\n\n\n[Content to be added]\n\n\n\n[Content to be added]\n\n\n\n[Content to be added]"
+  },
+  {
+    "objectID": "r-reference.html#r-import",
+    "href": "r-reference.html#r-import",
+    "title": "R Quick Reference (Base R)",
+    "section": "",
+    "text": "[Content to be added]"
+  },
+  {
+    "objectID": "r-reference.html#r-summaries",
+    "href": "r-reference.html#r-summaries",
+    "title": "R Quick Reference (Base R)",
+    "section": "",
+    "text": "[Content to be added]"
+  },
+  {
+    "objectID": "r-reference.html#r-plots",
+    "href": "r-reference.html#r-plots",
+    "title": "R Quick Reference (Base R)",
+    "section": "",
+    "text": "[Content to be added]"
+  },
+  {
+    "objectID": "r-reference.html#r-sim",
+    "href": "r-reference.html#r-sim",
+    "title": "R Quick Reference (Base R)",
+    "section": "",
+    "text": "[Content to be added]"
+  },
+  {
+    "objectID": "overallplan_1_26.html",
+    "href": "overallplan_1_26.html",
+    "title": "Mini Project 1: (Title)",
+    "section": "",
+    "text": "Goals For this semester\nPut one canonical version of your course materials in a Quarto+GitHub repo.\nMake it easy to reorder / go faster-slower by editing lists of IDs, not copy/paste.\nConvert enough content to teach smoothly: Weeks 1–3, quiz bank starter, Project 1 (and rubric).\nFor the long term (AI tutor ready)\nEverything is tagged with LO IDs and other metadata so it can later power:\nconcept map / methods-map navigation\ntargeted practice by LO + difficulty\nrubric-aligned feedback\nFinal file structure stat109/ _quarto.yml index.qmd schedule.qmd syllabus.qmd assessments.qmd methods.qmd r-reference.qmd\nconcepts/ learning-objectives.yml\nlessons/ L01.qmd L02.qmd L03.qmd\nactivities/ ACT-01.qmd\nproblems/ P-LO1-01.qmd P-LO1-01-solution.qmd P-LO1-02.qmd\nquizzes/ QZ-01.qmd\nexams/ PMT-01.qmd MT-01.qmd # later MT-02.qmd # later FINAL.qmd # later\nlabs/ LAB-01.qmd\nprojects/ PRJ-01.qmd PRJ-01-rubric.qmd raw/ # exported Canvas rubrics, original docs\nassets/ data/ images/ pdf/\nSamples of each file type 1) concepts/learning-objectives.yml (canonical LO text) LO1.1: text: Describe a physical process using a probability model stage: physical LO1.2: text: Simulate a random process and summarize outcomes stage: simulation LO1.3: text: State conditions for an approximate math model and apply it stage: modeling LO1.4: text: Apply the model by hand and in R stage: application"
+  },
+  {
+    "objectID": "overallplan_1_26.html#lesson-file-lessonsl01.qmd-printable-web",
+    "href": "overallplan_1_26.html#lesson-file-lessonsl01.qmd-printable-web",
+    "title": "Mini Project 1: (Title)",
+    "section": "2) Lesson file lessons/L01.qmd (printable + web)",
+    "text": "2) Lesson file lessons/L01.qmd (printable + web)\ntitle: “Introduction: Models, Simulation, and Data” lesson_id: L01 learning_objectives: [LO1.1, LO1.2] format: html: default pdf: default — ## Physical Model (Your motivating example)"
+  },
+  {
+    "objectID": "overallplan_1_26.html#simulation",
+    "href": "overallplan_1_26.html#simulation",
+    "title": "Mini Project 1: (Title)",
+    "section": "Simulation",
+    "text": "Simulation\n(Conceptual + optional R snippet/link)"
+  },
+  {
+    "objectID": "overallplan_1_26.html#math-model-conditions",
+    "href": "overallplan_1_26.html#math-model-conditions",
+    "title": "Mini Project 1: (Title)",
+    "section": "Math Model + Conditions",
+    "text": "Math Model + Conditions\n(Approximation and when it applies)"
+  },
+  {
+    "objectID": "overallplan_1_26.html#by-hand",
+    "href": "overallplan_1_26.html#by-hand",
+    "title": "Mini Project 1: (Title)",
+    "section": "By Hand",
+    "text": "By Hand\n(Short worked calculation)"
+  },
+  {
+    "objectID": "overallplan_1_26.html#in-r",
+    "href": "overallplan_1_26.html#in-r",
+    "title": "Mini Project 1: (Title)",
+    "section": "In R",
+    "text": "In R\n(Link to LAB-01 or small code chunk)"
+  },
+  {
+    "objectID": "overallplan_1_26.html#practice",
+    "href": "overallplan_1_26.html#practice",
+    "title": "Mini Project 1: (Title)",
+    "section": "Practice",
+    "text": "Practice\n\nP-LO1-01\nP-LO1-02"
+  },
+  {
+    "objectID": "overallplan_1_26.html#problem-file-problemsp-lo1-01.qmd",
+    "href": "overallplan_1_26.html#problem-file-problemsp-lo1-01.qmd",
+    "title": "Mini Project 1: (Title)",
+    "section": "3) Problem file problems/P-LO1-01.qmd",
+    "text": "3) Problem file problems/P-LO1-01.qmd\ntitle: “Coin flips: empirical probability” problem_id: P-LO1-01 learning_objectives: [LO1.2] difficulty: 1 requires_r: false mode: simulation — Prompt. (Problem statement)\nAnswer space: (leave room; in PDF this works well)"
+  },
+  {
+    "objectID": "overallplan_1_26.html#solution-file-problemsp-lo1-01-solution.qmd",
+    "href": "overallplan_1_26.html#solution-file-problemsp-lo1-01-solution.qmd",
+    "title": "Mini Project 1: (Title)",
+    "section": "4) Solution file problems/P-LO1-01-solution.qmd",
+    "text": "4) Solution file problems/P-LO1-01-solution.qmd\nproblem_id: P-LO1-01 solution: true visibility: instructor — Solution. (Your worked solution, reasoning steps, optional R)"
+  },
+  {
+    "objectID": "overallplan_1_26.html#lab-notebook-labslab-01.qmd",
+    "href": "overallplan_1_26.html#lab-notebook-labslab-01.qmd",
+    "title": "Mini Project 1: (Title)",
+    "section": "5) Lab notebook labs/LAB-01.qmd",
+    "text": "5) Lab notebook labs/LAB-01.qmd\ntitle: “Lab 1: Simulation in R” lab_id: LAB-01 learning_objectives: [LO1.2, LO1.4] format: html — ## Setup # minimal setup\nTask 1\n(Instructions)\nWriting code chunk\n\n6) Methods map methods.qmd (your 2-page table as a page with anchors)\n---\ntitle: \"Methods Map\"\n---\n## Descriptive {#methods-descriptive}\n### One quantitative variable {#M-D-1Q}\n...\n\n## Inferential {#methods-inferential}\n### One quantitative variable {#M-I-1Q}\n...\n\n7) R reference r-reference.qmd (base R now)\n---\ntitle: \"R Quick Reference (Base R)\"\n---\n## Import data {#r-import}\n## Summaries {#r-summaries}\n## Plots {#r-plots}\n## Simulation {#r-sim}\n\n8) Project page projects/PRJ-01.qmd\n---\ntitle: \"Mini Project 1: (Title)\"\nproject_id: PRJ-01\nlearning_objectives: [LO1.1, LO1.2, LO1.4]\ndeliverables: [report, code]\n---\n## Prompt\n## Data\n## Instructions\n## Submission (Canvas)\n## Rubric\nSee **PRJ-01-rubric**.\n\n9) Rubric projects/PRJ-01-rubric.qmd\n---\nrubric_id: RUB-PRJ-01\nproject_id: PRJ-01\nlearning_objectives: [LO1.1, LO1.2, LO1.4]\n---\n| Criterion | Excellent | Good | Needs work | Points |\n|---|---|---|---|---:|\n| Modeling | ... | ... | ... | 10 |\n\n10) Quiz page quizzes/QZ-01.qmd (a curated list of problem IDs)\n---\nquiz_id: QZ-01\nlearning_objectives: [LO1.1, LO1.2]\n---\n## Quiz 1\nProblems:\n- P-LO1-01\n- P-LO1-02\n\nStep-by-step: what you need to do (start now)\nStep 1 — Create the repo (1 hour)\n\nCopy your existing Quarto+GitHub Actions template repo.\n\nChange title/theme for STAT109.\n\nCreate folders exactly as in the structure above.\n\nMake sure GitHub Pages deployment works (one test push).\n\nStep 2 — Make the three “canonical maps” (2–3 hours)\n\nCreate concepts/learning-objectives.yml (IDs + text).\n\nCreate methods.qmd (convert your 2-page table; add anchors).\n\nCreate r-reference.qmd (paste base-R cheat sheet; add anchors).\n\nStep 3 — Build your lesson template (30 min)\n\nCreate one file lessons/L00-template.qmd (not linked on site).\n\nInclude the flow sections: Physical → Simulation → Math+Conditions → Hand → R → Practice.\n\nStep 4 — Convert Weeks 1–3 (most important) (one focused day)\n\nFor each of the first 3 lecture outlines:\n\nConvert OneNote outline → lessons/L01.qmd, L02.qmd, L03.qmd.\n\nAdd YAML: lesson_id, learning_objectives, formats (html+pdf).\n\nKeep content concise; preserve whitespace for work.\n\nAdd a “Practice” list with problem IDs (even if those problems aren’t converted yet).\n\nStep 5 — Seed the problem bank + quiz 1 (half day)\n\nConvert 10–15 practice problems into problems/ with IDs + LO tags.\n\nConvert solutions for the 5–8 you’ll reuse most soon.\n\nCreate quizzes/QZ-01.qmd listing problem IDs.\n\nStep 6 — Convert Lab 1 into a notebook (2–4 hours)\n\nTake your R script → labs/LAB-01.qmd.\n\nAdd narrative prompts between chunks.\n\nLink it from Lesson 1 and/or Schedule.\n\nStep 7 — Projects: export + publish Project 1 (2–3 hours)\n\nExport the Canvas rubric for Project 1 into projects/raw/.\n\nCreate projects/PRJ-01.qmd and projects/PRJ-01-rubric.qmd.\n\nPut only the submission link in Canvas; keep everything else on the site.\n\nStep 8 — Build the schedule hub (1–2 hours)\n\nIn schedule.qmd, create a table for Weeks 1–15.\n\nEach week links to: lesson(s), lab, quiz, project (when applicable), readings.\n\n\n\n:::{#quarto-navigation-envelope .hidden}\n[STAT 109 - Introductory Biostatistics]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWludC1zaWRlYmFyLXRpdGxl\"}\n[STAT 109 - Introductory Biostatistics]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWludC1uYXZiYXItdGl0bGU=\"}\n:::\n\n\n\n:::{#quarto-meta-markdown .hidden}\n[Mini Project 1: (Title) – STAT 109 - Introductory Biostatistics]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLW1ldGF0aXRsZQ==\"}\n[Mini Project 1: (Title) – STAT 109 - Introductory Biostatistics]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLXR3aXR0ZXJjYXJkdGl0bGU=\"}\n[Mini Project 1: (Title) – STAT 109 - Introductory Biostatistics]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLW9nY2FyZHRpdGxl\"}\n[STAT 109 - Introductory Biostatistics]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLW1ldGFzaXRlbmFtZQ==\"}\n[]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLXR3aXR0ZXJjYXJkZGVzYw==\"}\n[]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLW9nY2FyZGRkZXNj\"}\n:::\n\n\n\n\n&lt;!-- --&gt;\n\n::: {.quarto-embedded-source-code}\n```````````````````{.markdown shortcodes=\"false\"}\nGoals\nFor this semester\n\nPut one canonical version of your course materials in a Quarto+GitHub repo.\n\nMake it easy to reorder / go faster-slower by editing lists of IDs, not copy/paste.\n\nConvert enough content to teach smoothly: Weeks 1–3, quiz bank starter, Project 1 (and rubric).\n\nFor the long term (AI tutor ready)\n\nEverything is tagged with LO IDs and other metadata so it can later power:\n\nconcept map / methods-map navigation\n\ntargeted practice by LO + difficulty\n\nrubric-aligned feedback\n\nFinal file structure\nstat109/\n  _quarto.yml\n  index.qmd\n  schedule.qmd\n  syllabus.qmd\n  assessments.qmd\n  methods.qmd\n  r-reference.qmd\n\n  concepts/\n    learning-objectives.yml\n\n  lessons/\n    L01.qmd\n    L02.qmd\n    L03.qmd\n\n  activities/\n    ACT-01.qmd\n\n  problems/\n    P-LO1-01.qmd\n    P-LO1-01-solution.qmd\n    P-LO1-02.qmd\n\n  quizzes/\n    QZ-01.qmd\n\n  exams/\n    PMT-01.qmd\n    MT-01.qmd   # later\n    MT-02.qmd   # later\n    FINAL.qmd   # later\n\n  labs/\n    LAB-01.qmd\n\n  projects/\n    PRJ-01.qmd\n    PRJ-01-rubric.qmd\n    raw/        # exported Canvas rubrics, original docs\n\n  assets/\n    data/\n    images/\n    pdf/\n\nSamples of each file type\n1) concepts/learning-objectives.yml (canonical LO text)\nLO1.1:\n  text: Describe a physical process using a probability model\n  stage: physical\nLO1.2:\n  text: Simulate a random process and summarize outcomes\n  stage: simulation\nLO1.3:\n  text: State conditions for an approximate math model and apply it\n  stage: modeling\nLO1.4:\n  text: Apply the model by hand and in R\n  stage: application\n\n2) Lesson file lessons/L01.qmd (printable + web)\n---\ntitle: \"Introduction: Models, Simulation, and Data\"\nlesson_id: L01\nlearning_objectives: [LO1.1, LO1.2]\nformat:\n  html: default\n  pdf: default\n---\n## Physical Model\n(Your motivating example)\n\n## Simulation\n(Conceptual + optional R snippet/link)\n\n## Math Model + Conditions\n(Approximation and when it applies)\n\n## By Hand\n(Short worked calculation)\n\n## In R\n(Link to LAB-01 or small code chunk)\n\n## Practice\n- P-LO1-01\n- P-LO1-02\n\n3) Problem file problems/P-LO1-01.qmd\n---\ntitle: \"Coin flips: empirical probability\"\nproblem_id: P-LO1-01\nlearning_objectives: [LO1.2]\ndifficulty: 1\nrequires_r: false\nmode: [simulation]\n---\n**Prompt.** (Problem statement)\n\n**Answer space:** (leave room; in PDF this works well)\n\n4) Solution file problems/P-LO1-01-solution.qmd\n---\nproblem_id: P-LO1-01\nsolution: true\nvisibility: instructor\n---\n**Solution.**\n(Your worked solution, reasoning steps, optional R)\n\n5) Lab notebook labs/LAB-01.qmd\n---\ntitle: \"Lab 1: Simulation in R\"\nlab_id: LAB-01\nlearning_objectives: [LO1.2, LO1.4]\nformat: html\n---\n## Setup\nquarto-executable-code-5450563D\n\n```r\n# minimal setup\n\nTask 1\n\n(Instructions)\n\nWriting\ncode chunk\n\n### 6) Methods map `methods.qmd` (your 2-page table as a page with anchors)\n```yaml\n---\ntitle: \"Methods Map\"\n---\n## Descriptive {#methods-descriptive}\n### One quantitative variable {#M-D-1Q}\n...\n\n## Inferential {#methods-inferential}\n### One quantitative variable {#M-I-1Q}\n...\n\n7) R reference r-reference.qmd (base R now)\n---\ntitle: \"R Quick Reference (Base R)\"\n---\n## Import data {#r-import}\n## Summaries {#r-summaries}\n## Plots {#r-plots}\n## Simulation {#r-sim}\n\n8) Project page projects/PRJ-01.qmd\n---\ntitle: \"Mini Project 1: (Title)\"\nproject_id: PRJ-01\nlearning_objectives: [LO1.1, LO1.2, LO1.4]\ndeliverables: [report, code]\n---\n## Prompt\n## Data\n## Instructions\n## Submission (Canvas)\n## Rubric\nSee **PRJ-01-rubric**.\n\n9) Rubric projects/PRJ-01-rubric.qmd\n---\nrubric_id: RUB-PRJ-01\nproject_id: PRJ-01\nlearning_objectives: [LO1.1, LO1.2, LO1.4]\n---\n| Criterion | Excellent | Good | Needs work | Points |\n|---|---|---|---|---:|\n| Modeling | ... | ... | ... | 10 |\n\n10) Quiz page quizzes/QZ-01.qmd (a curated list of problem IDs)\n---\nquiz_id: QZ-01\nlearning_objectives: [LO1.1, LO1.2]\n---\n## Quiz 1\nProblems:\n- P-LO1-01\n- P-LO1-02\n\nStep-by-step: what you need to do (start now)\nStep 1 — Create the repo (1 hour)\n\nCopy your existing Quarto+GitHub Actions template repo.\n\nChange title/theme for STAT109.\n\nCreate folders exactly as in the structure above.\n\nMake sure GitHub Pages deployment works (one test push).\n\nStep 2 — Make the three “canonical maps” (2–3 hours)\n\nCreate concepts/learning-objectives.yml (IDs + text).\n\nCreate methods.qmd (convert your 2-page table; add anchors).\n\nCreate r-reference.qmd (paste base-R cheat sheet; add anchors).\n\nStep 3 — Build your lesson template (30 min)\n\nCreate one file lessons/L00-template.qmd (not linked on site).\n\nInclude the flow sections: Physical → Simulation → Math+Conditions → Hand → R → Practice.\n\nStep 4 — Convert Weeks 1–3 (most important) (one focused day)\n\nFor each of the first 3 lecture outlines:\n\nConvert OneNote outline → lessons/L01.qmd, L02.qmd, L03.qmd.\n\nAdd YAML: lesson_id, learning_objectives, formats (html+pdf).\n\nKeep content concise; preserve whitespace for work.\n\nAdd a “Practice” list with problem IDs (even if those problems aren’t converted yet).\n\nStep 5 — Seed the problem bank + quiz 1 (half day)\n\nConvert 10–15 practice problems into problems/ with IDs + LO tags.\n\nConvert solutions for the 5–8 you’ll reuse most soon.\n\nCreate quizzes/QZ-01.qmd listing problem IDs.\n\nStep 6 — Convert Lab 1 into a notebook (2–4 hours)\n\nTake your R script → labs/LAB-01.qmd.\n\nAdd narrative prompts between chunks.\n\nLink it from Lesson 1 and/or Schedule.\n\nStep 7 — Projects: export + publish Project 1 (2–3 hours)\n\nExport the Canvas rubric for Project 1 into projects/raw/.\n\nCreate projects/PRJ-01.qmd and projects/PRJ-01-rubric.qmd.\n\nPut only the submission link in Canvas; keep everything else on the site.\n\nStep 8 — Build the schedule hub (1–2 hours)\n\nIn schedule.qmd, create a table for Weeks 1–15.\n\nEach week links to: lesson(s), lab, quiz, project (when applicable), readings.\n:::"
+  },
+  {
+    "objectID": "lectures/lecture-16.html",
+    "href": "lectures/lecture-16.html",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "Lecture 16\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-22.html",
+    "href": "lectures/lecture-22.html",
+    "title": "Lecture 22",
+    "section": "",
+    "text": "Lecture 22\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-35.html",
+    "href": "lectures/lecture-35.html",
+    "title": "Lecture 35",
+    "section": "",
+    "text": "Lecture 35\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-38.html",
+    "href": "lectures/lecture-38.html",
+    "title": "Lecture 38",
+    "section": "",
+    "text": "Lecture 38\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/review-week-13-wednesday.html",
+    "href": "lectures/review-week-13-wednesday.html",
+    "title": "Review - Week 13 Wednesday",
+    "section": "",
+    "text": "Review - Week 13 Wednesday\nReview materials coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-10.html",
+    "href": "lectures/lecture-10.html",
+    "title": "Lecture 10",
+    "section": "",
+    "text": "Lecture 10\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/review-week-15-wednesday.html",
+    "href": "lectures/review-week-15-wednesday.html",
+    "title": "Review - Week 15 Wednesday",
+    "section": "",
+    "text": "Review - Week 15 Wednesday\nReview materials coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-5.html",
+    "href": "lectures/lecture-5.html",
+    "title": "Lecture 5",
+    "section": "",
+    "text": "Lecture 5\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-30.html",
+    "href": "lectures/lecture-30.html",
+    "title": "Lecture 30",
+    "section": "",
+    "text": "Lecture 30\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-6.html",
+    "href": "lectures/lecture-6.html",
+    "title": "Lecture 6",
+    "section": "",
+    "text": "Lecture 6\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-8.html",
+    "href": "lectures/lecture-8.html",
+    "title": "Lecture 8",
+    "section": "",
+    "text": "Lecture 8\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-2.html",
+    "href": "lectures/lecture-2.html",
+    "title": "Lecture 2",
+    "section": "",
+    "text": "Lecture 2\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-11.html",
+    "href": "lectures/lecture-11.html",
+    "title": "Lecture 11",
+    "section": "",
+    "text": "Lecture 11\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-15.html",
+    "href": "lectures/lecture-15.html",
+    "title": "Lecture 15",
+    "section": "",
+    "text": "Lecture 15\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-26.html",
+    "href": "lectures/lecture-26.html",
+    "title": "Lecture 26",
+    "section": "",
+    "text": "Lecture 26\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-14.html",
+    "href": "lectures/lecture-14.html",
+    "title": "Lecture 14",
+    "section": "",
+    "text": "Lecture 14\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/review-week-6-wednesday.html",
+    "href": "lectures/review-week-6-wednesday.html",
+    "title": "Review - Week 6 Wednesday",
+    "section": "",
+    "text": "Review - Week 6 Wednesday\nReview materials coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-31.html",
+    "href": "lectures/lecture-31.html",
+    "title": "Lecture 31",
+    "section": "",
+    "text": "Lecture 31\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-1.html",
+    "href": "lectures/lecture-1.html",
+    "title": "Lecture 1",
+    "section": "",
+    "text": "Lecture 1\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-4.html",
+    "href": "lectures/lecture-4.html",
+    "title": "Lecture 4",
+    "section": "",
+    "text": "Lecture 4\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures/lecture-13.html",
+    "href": "lectures/lecture-13.html",
+    "title": "Lecture 13",
+    "section": "",
+    "text": "Lecture 13\nInstructions coming soon."
+  },
+  {
+    "objectID": "projects/project-2.html",
+    "href": "projects/project-2.html",
+    "title": "Project 2",
+    "section": "",
+    "text": "Project 2\nInstructions coming soon."
+  },
+  {
+    "objectID": "projects/project-4.html",
+    "href": "projects/project-4.html",
+    "title": "Project 4",
+    "section": "",
+    "text": "Project 4\nInstructions coming soon."
+  },
+  {
+    "objectID": "projects/project-3.html",
+    "href": "projects/project-3.html",
+    "title": "Project 3",
+    "section": "",
+    "text": "Project 3\nInstructions coming soon."
+  },
+  {
+    "objectID": "labs/lab-8.html",
+    "href": "labs/lab-8.html",
+    "title": "Lab 8",
+    "section": "",
+    "text": "Lab 8\nInstructions coming soon."
+  },
+  {
+    "objectID": "labs/lab-2.html",
+    "href": "labs/lab-2.html",
+    "title": "Lab 2",
+    "section": "",
+    "text": "Lab 2\nInstructions coming soon."
+  },
+  {
+    "objectID": "labs/lab-9.html",
+    "href": "labs/lab-9.html",
+    "title": "Lab 9",
+    "section": "",
+    "text": "Lab 9\nInstructions coming soon."
+  },
+  {
+    "objectID": "labs/lab-4.html",
+    "href": "labs/lab-4.html",
+    "title": "Lab 4",
+    "section": "",
+    "text": "Lab 4\nInstructions coming soon."
+  },
+  {
+    "objectID": "labs/lab-11.html",
+    "href": "labs/lab-11.html",
+    "title": "Lab 11",
+    "section": "",
+    "text": "Lab 11\nInstructions coming soon."
+  },
+  {
+    "objectID": "labs/lab-12.html",
+    "href": "labs/lab-12.html",
+    "title": "Lab 12",
+    "section": "",
+    "text": "Lab 12\nInstructions coming soon."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "STAT 109: Introductory Biostatistics",
@@ -33,5 +831,320 @@
     "title": "STAT 109: Introductory Biostatistics",
     "section": "Instructor Information",
     "text": "Instructor Information\nInstructor: Dr. Rosanna Overholser\nOffice: BSS 334\nEmail: rho3@humboldt.edu\nOffice Hours: Mondays 2-3pm, Wednesdays 12-12:50pm, Fridays 10-10:50am, or by appointment"
+  },
+  {
+    "objectID": "SETUP_COMPLETE.html",
+    "href": "SETUP_COMPLETE.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "SETUP_COMPLETE.html#what-was-created",
+    "href": "SETUP_COMPLETE.html#what-was-created",
+    "title": "",
+    "section": "What Was Created",
+    "text": "What Was Created\n\nDirectory Structure\n\n✅ stat109-private/ - Source files repository\n✅ stat109-public/ - Public website repository (for rendered files)\n\n\n\nCore Files\n\n✅ _quarto.yml - Quarto configuration with STAT 109 navigation\n✅ index.qmd - Homepage\n✅ syllabus.qmd - Course syllabus (placeholder)\n✅ schedule.qmd - Course schedule (integrated from existing file)\n✅ assessments.qmd - Assessments overview\n✅ methods.qmd - Methods map (placeholder)\n✅ r-reference.qmd - R reference (placeholder)\n✅ README.md - Repository documentation\n✅ .gitignore - Git ignore rules\n\n\n\nFolder Structure (from plan.md)\n\n✅ concepts/learning-objectives.yml - Learning objectives\n✅ lessons/ - Lesson files\n✅ activities/ - Activity files\n✅ problems/ - Problem files\n✅ quizzes/ - Quiz files\n✅ exams/ - Exam files\n✅ labs/ - Lab files\n✅ projects/ - Project files (with raw/ subfolder)\n✅ assets/ - Assets (with data/, images/, pdf/ subfolders)\n\n\n\nTheme Assets\n\n✅ assets/css/humboldt-theme.scss - SCSS theme file\n✅ assets/css/humboldt-theme.css - Compiled CSS theme file\n\n\n\nGitHub Actions\n\n✅ .github/workflows/quarto-publish.yml - Automatic deployment workflow\n\n\n\nPublic Repository\n\n✅ README.md - Auto-generated notice\n✅ .nojekyll - Jekyll disable file\n\n\n\nDocumentation\n\n✅ GITHUB_SETUP.md - GitHub repository setup instructions"
+  },
+  {
+    "objectID": "SETUP_COMPLETE.html#testing",
+    "href": "SETUP_COMPLETE.html#testing",
+    "title": "",
+    "section": "Testing",
+    "text": "Testing\n✅ Local Build Test: Successfully rendered with quarto render - All 6 main pages rendered: index, syllabus, schedule, assessments, methods, r-reference - Output directory _site/ created with HTML files - No errors during rendering"
+  },
+  {
+    "objectID": "SETUP_COMPLETE.html#next-steps",
+    "href": "SETUP_COMPLETE.html#next-steps",
+    "title": "",
+    "section": "Next Steps",
+    "text": "Next Steps\n\nSet up GitHub repositories:\n\nFollow instructions in GITHUB_SETUP.md\nCreate stat109-private and stat109-public repositories\nPush initial commits\n\nTest GitHub Actions:\n\nAfter pushing, verify the workflow runs successfully\nCheck that files are deployed to the public repository\nEnable GitHub Pages for the public repository\n\nContinue with Step 2:\n\nCreate the three “canonical maps” (learning objectives, methods map, R reference)\nSee plan.md for details"
+  },
+  {
+    "objectID": "SETUP_COMPLETE.html#notes",
+    "href": "SETUP_COMPLETE.html#notes",
+    "title": "",
+    "section": "Notes",
+    "text": "Notes\n\nThe site uses the Humboldt theme (same as data311) for consistency\nGitHub Actions will automatically deploy on push to main branch\nPublic repository will be auto-populated, don’t edit it manually\nAll placeholder content can be filled in as you develop the course\n\n\nStatus: ✅ Step 1 Complete - Ready for GitHub setup and Step 2"
+  },
+  {
+    "objectID": "assessments.html",
+    "href": "assessments.html",
+    "title": "Assessments",
+    "section": "",
+    "text": "This course includes several types of assessments designed to help you learn and to demonstrate your understanding of statistical concepts and methods.\n\n\n\n\n\n\n\n\nComponent\nWeight\nDescription\n\n\n\n\nDaily Participation\n5%\nWarm-up problems in lecture (Mondays, Wednesdays, Fridays)\n\n\nWeekly quizzes\n30%\nQuizzes on Thursdays at the beginning of lab\n\n\nWeekly labs\n15%\nProgramming labs due Tuesdays in Canvas\n\n\nTwo midterms\n30%\nMidterm 1 (Week 6, Friday) and Midterm 2 (Week 13, Friday)\n\n\nFive projects\n20%\nProjects due Sundays at ends of weeks 5, 8, 10, 12, and 15\n\n\nTotal\n100%\n\n\n\n\n\n\n\nDaily warm-up problems are completed at the beginning of each lecture (Mondays, Wednesdays, and Fridays). These collaborative activities give you an opportunity to work as a team with your classmates and practice key concepts.\n\n\n\nWeekly programming labs provide hands-on practice with statistical analysis using R. Labs are due Tuesdays in Canvas. I’ll help you write the code during the Thursday lab session before they’re due. Labs are graded on completion and your reflection. After the due date, a solution will be posted, so late submissions are generally not accepted except in documented emergencies.\n\n\n\nLab 1 - Week 1 (due Tuesday, Week 2)\nLab 2 - Week 2 (due Tuesday, Week 3)\nLab 3 - Week 3 (due Tuesday, Week 4)\nLab 4 - Week 4 (due Tuesday, Week 5)\nLab 5 - Week 5 (due Tuesday, Week 6)\nLab 6 - Week 7 (due Tuesday, Week 8)\nLab 7 - Week 8 (due Tuesday, Week 9)\nLab 8 - Week 9 (due Tuesday, Week 10)\nLab 9 - Week 10 (due Tuesday, Week 11)\nLab 10 - Week 11 (due Tuesday, Week 12)\nLab 11 - Week 12 (due Tuesday, Week 13)\nLab 12 - Week 14 (due Tuesday, Week 15)\nLab 13 - Week 15 (due Tuesday, Finals Week)\n\n\n\n\n\nWeekly quizzes are administered on Thursdays at the beginning of lab. They assess your understanding of key concepts from the lessons, practice problems, and labs. If you need to miss a quiz due to illness or other emergencies, please contact me to make an arrangement to take it at another time.\n\n\n\nQuiz 1 - Week 1\nQuiz 2 - Week 2\nQuiz 3 - Week 3\nQuiz 4 - Week 4\nQuiz 5 - Week 5\nQuiz 6 - Week 7\nQuiz 7 - Week 8\nQuiz 8 - Week 9\nQuiz 9 - Week 10\nQuiz 10 - Week 11\nQuiz 11 - Week 12\nQuiz 12 - Week 14\nQuiz 13 - Week 15\n\n\n\n\n\nFive projects throughout the semester allow you to apply statistical methods to practical, real-world problems. Projects are due on Sundays at the ends of weeks 5, 8, 10, 12, and 15 in Canvas. You may submit a late project up to a week late with no penalty. After a week, a project can be turned in for 70% of the grade. Projects can be used as part of a portfolio.\n\n\n\nProject 1 - Due Sunday, Week 5 (Feb 22)\nProject 2 - Due Sunday, Week 8 (Mar 15)\nProject 3 - Due Sunday, Week 10 (Apr 5)\nProject 4 - Due Sunday, Week 12 (Apr 19)\nProject 5 - Due Sunday, Week 15 (May 10)\n\n\n\n\n\n\n\n\nMidterm 1: Week 6, Friday (in lecture)\nMidterm 2: Week 13, Friday (in lecture)\n\nMidterms require you to demonstrate your understanding of the course material. If you need to miss a midterm due to illness or other emergencies, please communicate with me as soon as possible to reschedule it. Alternatively, you may take the optional final exam to replace a missed midterm grade.\n\n\n\nFinal Exam: Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166\nThe final exam is optional and may be taken to replace a midterm grade. It is held during the scheduled final exam period.\n\n\n\n\nFinal letter grades will be assigned based on overall performance:\nA: 93-100% | A-: 90-92% | B+: 87-89% | B: 83-86% | B-: 80-82% | C+: 77-79% | C: 73-76% | C-: 70-72% | D: 60-69% | F: 0-59%\nA minimum grade of C- is required for the course to count toward GE Area 2."
+  },
+  {
+    "objectID": "assessments.html#overview",
+    "href": "assessments.html#overview",
+    "title": "Assessments",
+    "section": "",
+    "text": "This course includes several types of assessments designed to help you learn and to demonstrate your understanding of statistical concepts and methods.\n\n\n\n\n\n\n\n\nComponent\nWeight\nDescription\n\n\n\n\nDaily Participation\n5%\nWarm-up problems in lecture (Mondays, Wednesdays, Fridays)\n\n\nWeekly quizzes\n30%\nQuizzes on Thursdays at the beginning of lab\n\n\nWeekly labs\n15%\nProgramming labs due Tuesdays in Canvas\n\n\nTwo midterms\n30%\nMidterm 1 (Week 6, Friday) and Midterm 2 (Week 13, Friday)\n\n\nFive projects\n20%\nProjects due Sundays at ends of weeks 5, 8, 10, 12, and 15\n\n\nTotal\n100%"
+  },
+  {
+    "objectID": "assessments.html#daily-participation-5",
+    "href": "assessments.html#daily-participation-5",
+    "title": "Assessments",
+    "section": "",
+    "text": "Daily warm-up problems are completed at the beginning of each lecture (Mondays, Wednesdays, and Fridays). These collaborative activities give you an opportunity to work as a team with your classmates and practice key concepts."
+  },
+  {
+    "objectID": "assessments.html#weekly-labs-15",
+    "href": "assessments.html#weekly-labs-15",
+    "title": "Assessments",
+    "section": "",
+    "text": "Weekly programming labs provide hands-on practice with statistical analysis using R. Labs are due Tuesdays in Canvas. I’ll help you write the code during the Thursday lab session before they’re due. Labs are graded on completion and your reflection. After the due date, a solution will be posted, so late submissions are generally not accepted except in documented emergencies.\n\n\n\nLab 1 - Week 1 (due Tuesday, Week 2)\nLab 2 - Week 2 (due Tuesday, Week 3)\nLab 3 - Week 3 (due Tuesday, Week 4)\nLab 4 - Week 4 (due Tuesday, Week 5)\nLab 5 - Week 5 (due Tuesday, Week 6)\nLab 6 - Week 7 (due Tuesday, Week 8)\nLab 7 - Week 8 (due Tuesday, Week 9)\nLab 8 - Week 9 (due Tuesday, Week 10)\nLab 9 - Week 10 (due Tuesday, Week 11)\nLab 10 - Week 11 (due Tuesday, Week 12)\nLab 11 - Week 12 (due Tuesday, Week 13)\nLab 12 - Week 14 (due Tuesday, Week 15)\nLab 13 - Week 15 (due Tuesday, Finals Week)"
+  },
+  {
+    "objectID": "assessments.html#weekly-quizzes-30",
+    "href": "assessments.html#weekly-quizzes-30",
+    "title": "Assessments",
+    "section": "",
+    "text": "Weekly quizzes are administered on Thursdays at the beginning of lab. They assess your understanding of key concepts from the lessons, practice problems, and labs. If you need to miss a quiz due to illness or other emergencies, please contact me to make an arrangement to take it at another time.\n\n\n\nQuiz 1 - Week 1\nQuiz 2 - Week 2\nQuiz 3 - Week 3\nQuiz 4 - Week 4\nQuiz 5 - Week 5\nQuiz 6 - Week 7\nQuiz 7 - Week 8\nQuiz 8 - Week 9\nQuiz 9 - Week 10\nQuiz 10 - Week 11\nQuiz 11 - Week 12\nQuiz 12 - Week 14\nQuiz 13 - Week 15"
+  },
+  {
+    "objectID": "assessments.html#projects-20",
+    "href": "assessments.html#projects-20",
+    "title": "Assessments",
+    "section": "",
+    "text": "Five projects throughout the semester allow you to apply statistical methods to practical, real-world problems. Projects are due on Sundays at the ends of weeks 5, 8, 10, 12, and 15 in Canvas. You may submit a late project up to a week late with no penalty. After a week, a project can be turned in for 70% of the grade. Projects can be used as part of a portfolio.\n\n\n\nProject 1 - Due Sunday, Week 5 (Feb 22)\nProject 2 - Due Sunday, Week 8 (Mar 15)\nProject 3 - Due Sunday, Week 10 (Apr 5)\nProject 4 - Due Sunday, Week 12 (Apr 19)\nProject 5 - Due Sunday, Week 15 (May 10)"
+  },
+  {
+    "objectID": "assessments.html#exams-30",
+    "href": "assessments.html#exams-30",
+    "title": "Assessments",
+    "section": "",
+    "text": "Midterm 1: Week 6, Friday (in lecture)\nMidterm 2: Week 13, Friday (in lecture)\n\nMidterms require you to demonstrate your understanding of the course material. If you need to miss a midterm due to illness or other emergencies, please communicate with me as soon as possible to reschedule it. Alternatively, you may take the optional final exam to replace a missed midterm grade.\n\n\n\nFinal Exam: Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166\nThe final exam is optional and may be taken to replace a midterm grade. It is held during the scheduled final exam period."
+  },
+  {
+    "objectID": "assessments.html#grading-scale",
+    "href": "assessments.html#grading-scale",
+    "title": "Assessments",
+    "section": "",
+    "text": "Final letter grades will be assigned based on overall performance:\nA: 93-100% | A-: 90-92% | B+: 87-89% | B: 83-86% | B-: 80-82% | C+: 77-79% | C: 73-76% | C-: 70-72% | D: 60-69% | F: 0-59%\nA minimum grade of C- is required for the course to count toward GE Area 2."
+  },
+  {
+    "objectID": "exams/midterm-2.html",
+    "href": "exams/midterm-2.html",
+    "title": "Midterm 2",
+    "section": "",
+    "text": "Midterm 2\nInstructions coming soon."
+  },
+  {
+    "objectID": "lectures.html",
+    "href": "lectures.html",
+    "title": "Lectures",
+    "section": "",
+    "text": "Holiday - No class\n\n\n\nLecture 1\n\n\n\nLecture 2\n\n\n\n\n\n\nLecture 3\n\n\n\nLecture 4\n\n\n\nLecture 5\n\n\n\n\n\n\nLecture 6\n\n\n\nLecture 7\n\n\n\nLecture 8\n\n\n\n\n\n\nLecture 9\n\n\n\nLecture 10\n\n\n\nLecture 11\n\n\n\n\n\n\nLecture 12\n\n\n\nLecture 13\n\n\n\nLecture 14\n\n\n\n\n\n\nLecture 15\n\n\n\nReview\n\n\n\nMidterm 1\n\n\n\n\n\n\nLecture 16\n\n\n\nLecture 17\n\n\n\nLecture 18\n\n\n\n\n\n\nLecture 19\n\n\n\nLecture 20\n\n\n\nLecture 21\n\n\n\n\n\n\nLecture 22\n\n\n\nLecture 23\n\n\n\nLecture 24\n\n\n\n\n\n\nLecture 25\n\n\n\nLecture 26\n\n\n\nLecture 27\n\n\n\n\n\n\nLecture 28\n\n\n\nLecture 29\n\n\n\nLecture 30\n\n\n\n\n\n\nLecture 31\n\n\n\nLecture 32\n\n\n\nLecture 33\n\n\n\n\n\n\nLecture 34\n\n\n\nReview\n\n\n\nMidterm 2\n\n\n\n\n\n\nLecture 35\n\n\n\nLecture 36\n\n\n\nLecture 37\n\n\n\n\n\n\nLecture 38\n\n\n\nReview\n\n\n\nReview"
+  },
+  {
+    "objectID": "lectures.html#week-1",
+    "href": "lectures.html#week-1",
+    "title": "Lectures",
+    "section": "",
+    "text": "Holiday - No class\n\n\n\nLecture 1\n\n\n\nLecture 2"
+  },
+  {
+    "objectID": "lectures.html#week-2",
+    "href": "lectures.html#week-2",
+    "title": "Lectures",
+    "section": "",
+    "text": "Lecture 3\n\n\n\nLecture 4\n\n\n\nLecture 5"
+  },
+  {
+    "objectID": "lectures.html#week-3",
+    "href": "lectures.html#week-3",
+    "title": "Lectures",
+    "section": "",
+    "text": "Lecture 6\n\n\n\nLecture 7\n\n\n\nLecture 8"
+  },
+  {
+    "objectID": "lectures.html#week-4",
+    "href": "lectures.html#week-4",
+    "title": "Lectures",
+    "section": "",
+    "text": "Lecture 9\n\n\n\nLecture 10\n\n\n\nLecture 11"
+  },
+  {
+    "objectID": "lectures.html#week-5",
+    "href": "lectures.html#week-5",
+    "title": "Lectures",
+    "section": "",
+    "text": "Lecture 12\n\n\n\nLecture 13\n\n\n\nLecture 14"
+  },
+  {
+    "objectID": "lectures.html#week-6",
+    "href": "lectures.html#week-6",
+    "title": "Lectures",
+    "section": "",
+    "text": "Lecture 15\n\n\n\nReview\n\n\n\nMidterm 1"
+  },
+  {
+    "objectID": "lectures.html#week-7",
+    "href": "lectures.html#week-7",
+    "title": "Lectures",
+    "section": "",
+    "text": "Lecture 16\n\n\n\nLecture 17\n\n\n\nLecture 18"
+  },
+  {
+    "objectID": "lectures.html#week-8",
+    "href": "lectures.html#week-8",
+    "title": "Lectures",
+    "section": "",
+    "text": "Lecture 19\n\n\n\nLecture 20\n\n\n\nLecture 21"
+  },
+  {
+    "objectID": "lectures.html#week-9",
+    "href": "lectures.html#week-9",
+    "title": "Lectures",
+    "section": "",
+    "text": "Lecture 22\n\n\n\nLecture 23\n\n\n\nLecture 24"
+  },
+  {
+    "objectID": "lectures.html#week-10",
+    "href": "lectures.html#week-10",
+    "title": "Lectures",
+    "section": "",
+    "text": "Lecture 25\n\n\n\nLecture 26\n\n\n\nLecture 27"
+  },
+  {
+    "objectID": "lectures.html#week-11",
+    "href": "lectures.html#week-11",
+    "title": "Lectures",
+    "section": "",
+    "text": "Lecture 28\n\n\n\nLecture 29\n\n\n\nLecture 30"
+  },
+  {
+    "objectID": "lectures.html#week-12",
+    "href": "lectures.html#week-12",
+    "title": "Lectures",
+    "section": "",
+    "text": "Lecture 31\n\n\n\nLecture 32\n\n\n\nLecture 33"
+  },
+  {
+    "objectID": "lectures.html#week-13",
+    "href": "lectures.html#week-13",
+    "title": "Lectures",
+    "section": "",
+    "text": "Lecture 34\n\n\n\nReview\n\n\n\nMidterm 2"
+  },
+  {
+    "objectID": "lectures.html#week-14",
+    "href": "lectures.html#week-14",
+    "title": "Lectures",
+    "section": "",
+    "text": "Lecture 35\n\n\n\nLecture 36\n\n\n\nLecture 37"
+  },
+  {
+    "objectID": "lectures.html#week-15",
+    "href": "lectures.html#week-15",
+    "title": "Lectures",
+    "section": "",
+    "text": "Lecture 38\n\n\n\nReview\n\n\n\nReview"
+  },
+  {
+    "objectID": "quizzes/quiz-11.html",
+    "href": "quizzes/quiz-11.html",
+    "title": "Quiz 11",
+    "section": "",
+    "text": "Quiz 11\nInstructions coming soon."
+  },
+  {
+    "objectID": "quizzes/quiz-7.html",
+    "href": "quizzes/quiz-7.html",
+    "title": "Quiz 7",
+    "section": "",
+    "text": "Quiz 7\nInstructions coming soon."
+  },
+  {
+    "objectID": "quizzes/quiz-9.html",
+    "href": "quizzes/quiz-9.html",
+    "title": "Quiz 9",
+    "section": "",
+    "text": "Quiz 9\nInstructions coming soon."
+  },
+  {
+    "objectID": "quizzes/quiz-13.html",
+    "href": "quizzes/quiz-13.html",
+    "title": "Quiz 13",
+    "section": "",
+    "text": "Quiz 13\nInstructions coming soon."
+  },
+  {
+    "objectID": "quizzes/quiz-1.html",
+    "href": "quizzes/quiz-1.html",
+    "title": "Quiz 1",
+    "section": "",
+    "text": "Quiz 1\nInstructions coming soon."
+  },
+  {
+    "objectID": "quizzes/quiz-2.html",
+    "href": "quizzes/quiz-2.html",
+    "title": "Quiz 2",
+    "section": "",
+    "text": "Quiz 2\nInstructions coming soon."
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Course Syllabus",
+    "section": "",
+    "text": "Cal Poly Humboldt — Spring 2026\n\n\n\nCourse Number: STAT 109\nCourse Title: Introductory Biostatistics\nUnits: 4\nSemester: Spring 2026\nMode of Instruction: In-person\nGeneral Education: Lower Division GE Area B4 – Mathematical Concepts & Quantitative Reasoning\n\n\nDays/Time: Monday, Wednesday, Friday, 11:00–11:50 AM\nLocation: BSS 166\n\n\n\n9:00–10:50 AM, LOCATION: FH 202\n11:00–12:50 PM, LOCATION: FH 202\n1:00–2:50 PM, LOCATION: FH 202\n\n\n\nOptional Final Exam (held during the scheduled final exam period): Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166.The final exam is optional and may be taken to replace a midterm grade.\n\n\n\nTeacher: Dr. Rosanna Overholser\nEmail: rho3@humboldt.edu\nOffice Location: BSS 334\nOffice Phone: 707-826-4022\nOffice Hours: Mondays 2-3pm, Wednesdays 12-12:50pm, and Fridays 10-10:50am or by appointment\nPlease use your Cal Poly Humboldt email account to contact me and check both Canvas and your Cal Poly Humboldt email regularly for course communications.\n\n\n\n\n\nDescriptive statistics, probability, random variables, discrete and continuous distributions, confidence intervals, contingency tests, regression and correlation, tests of hypothesis, analysis of variance. Emphasis: methods and applications used in the biological and natural resource sciences.\nDivision: Lower Division  Weekly: Lecture 3 hrs. Activity 2 hrs.  Instruction Mode: In-person\nPrerequisite: MATH 101 or MATH 101I or MATH 102 or MATH 109B (may be taken concurrently with instructor approval) with a grade of C- or better or ALEKS PPL assessment score over 65 or appropriate high school coursework. See Math Placement and ALEKS PPL for details. MATH 102 may be taken concurrently with instructor approval.\nNote: if you plan to use STAT 109 as a prerequisite for another MATH, DATA or STAT course, you must have a grade of C- or better in this course.\n\n\nBy the end of this course, students will be able to:\n\nUse numerical and graphical descriptive statistics to summarize and interpret data.\nExplain the role of randomness, probability, and sampling in statistical inference.\nApply probability rules and work with common probability distributions.\nConstruct and interpret confidence intervals for means and proportions.\nConduct and interpret basic hypothesis tests.\nAnalyze relationships between pairs of variables using correlation and regression.\nUse a statistical programming language to analyze data and communicate results.\nDistinguish between correlation and causation and recognize limitations of statistical conclusions.\n\n\n\n\nThis course fulfills Lower Division General Education Area 2 (Quantitative Reasoning) and supports Cal Poly Humboldt’s Institutional Learning Outcomes related to quantitative reasoning, critical thinking, and communication.\n\n\n\n\n\nSTAT 109 includes:\n\nThree weekly lecture meetings\nOne weekly laboratory session\n\nIn this 4-unit course, students should expect to spend approximately 12 hours per week on course-related work, including time in lecture (3 hours), lab time (2 hours), and time outside of class to do practice problems, projects and prepare for exams and quizzes (7 hours).\n\n\nLecture Notes: I’ll provide packets of guided notes to you in class. These notes have key concepts, definitions and word problems that we’ll solve during class time. These notes have spaces for you to fill in during lecture as we go. If you need to miss class, please ask me for the packet you will be missing.\nOptional Textbook: Introductory Statistics for the Life and Biomedical Sciences by Julie Vu and Dave Harrington, available for free online.\nThree Binder: Please bring a three-ring binder to class to keep the lecture note packets in.\nPen or Pencil: Please bring a pen or pencil to class to take notes with.\nSoftware: R (free and installed on all campus computers; see R download page to install on your own computer) \nCalculator: Scientific (not graphing) calculator \nOther Technology: Regular access to a computer with reliable internet\n\n\n\nStudents who do not have personal access to required technology may use campus computer labs and library resources. If you want to get a free used computer, please check to see if our campus’s Reuseable Office Supply Exchange (ROSE) has one available.\n\n\n\nThere are no additional course fees beyond standard tuition and registration fees.\n\n\n\n\n\n\nStudents will complete a variety of assessments:\n\nDaily warm-up problems (Mondays, Wednesdays and Fridays, in lecture)\nWeekly programming labs (due Tuesdays, in Canvas: I’ll help you write the code the Thursday before)\nWeekly quizzes based on practice problems and labs (Thursdays at the beginning of lab)\nTwo midterms (Week 6 and Week 13 Fridays, in lecture)\nFive projects (Sundays at the ends of the weeks 5, 8, 10, 12, and 15, in Canvas)\n\nDaily warm-up problems are designed to give you an opportunity to work as a team with your classmates. Weekly labs and quizzes are designed to provide regular formative feedback through practice problems, posted solutions, and in-lab support. Midterms require students to demonstrate their understanding of the course material. Projects allow students to apply their knowledge to practical, real-world problems and can be used as part of a portfolio.\nOptionally, students may take a final exam (held during the scheduled final exam period: Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166) to replace a midterm grade.\n\n\n\n\n\n\nComponent\nWeight\n\n\n\n\nDaily Participation\n5%\n\n\nWeekly quizzes\n30%\n\n\nWeekly labs\n15%\n\n\nTwo midterms\n30%\n\n\nFive projects\n20%\n\n\nTotal\n100%\n\n\n\nFinal letter grades will be assigned based on overall performance according to the following:\nA: 93-100% A-: 90-92% B+: 87-89% B: 83-86% B-: 80-82% C+: 77-79% C: 73-76% C-: 70-72% D: 60-69% F: 0-59%\nNote:\n\nGrade Mode: Letter grade by default. Students may elect Credit/No Credit grading according to university deadlines and procedures.\nA minimum grade of C- is required for the course to count toward GE Area B4.\nIf you stop attending class and stop doing assignments without communicating with me, you will receive a grade of WU (Withdrawal Unsatisfactory). Please communicate with me early if you are having difficulties: it’s possible that I can help you get back on track, or help you obtain a more appropriate grade (W or I) for your situation.\n\n\n\n\nRegular attendance and active participation are expected and essential for success in this course.\n\nAttendance in lecture will be tracked via participation in the warm-up problems.\nAttendance in lab will be tracked via participation in the quizzes.\n\nIf you must miss class, you are responsible for obtaining notes and keeping up with course material.\n\n\n\n\n\nThe policies for late or missed work are as follows:\n\nDaily attendance in lecture is required, but I know that sometimes you will need to miss class due to illness or other emergencies. Each student may miss up to 10 days of lecture without penalty and without contacting me. It’s up to you to reserve these days for emergencies only. In my experience, it is rare for a student to succeed if they regularly miss lecture or are absent for more than two weeks so if you find yourself in this situation, please communicate with me and your advisor so we can help you find a solution to getting back on track.\nWeekly quizzes during Thursday lab sessions are required, but I know that sometimes you will need to miss lab due to illness or other emergencies. If this happens, please contact me to make an arrangement to take the quiz at another time.\nWeekly programming labs are due Tuesdays in Canvas. After the due date, a solution will be posted, so late submissions are generally not accepted except in documented emergencies. These labs will be graded on completion and your reflection.\nProjects are due on the specified date in Canvas. You may submit a late project up to a week late with no penalty. After a week, a project can be turn in for 70% of the grade.\nMidterms are required. If you need to miss a midterm due to illness or other emergencies, please communicate with me as soon as possible to reschedule it. Alternatively, you may take the optional final exam (Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166) to replace a missed midterm grade.\n\nNote: Technology issues (internet access, device failure, software problems) are not automatically considered valid excuses for late or missed work; students are expected to plan accordingly.\n\n\n\nMuch of your course grade will be based on materials that you produce in-class without having AI as a resource. But you may use AI, such as NotebookLM or ChatGPT, in this course to help you learn the materials or to perform data analyses or on the projects.\nFor work that you do at home that is turned in for a grade I have two requirements:\n\nif you used AI, acknowledge this briefly in the document (you don’t need to state in detail how you used AI or give your prompts, just the name of the AI service you used).\n\nBe responsible for the correctness and appropriateness of all (AI assisted or not) materials you turn in.\n\nI may use AI to assist me in my delivery of the course material, such as asking AI to see if an assignment is appropriate for a college level course or if the wording of a quiz question could be improved. I will not use AI to grade your work or use an AI detection tool to check your work.\n\n\n\n\n\n\n\n\nIntroduction to data, simulation, and statistical reasoning\nSelected topics in probability\nBinomial Random Process\nA simple hypothesis test\nNormal probability distribution\nSampling distributions and the Central Limit Theorem\nSampling methods\nConfidence intervals\nStudy design\nMore Hypothesis testing\nSimple predictive modeling via Linear regression\n\n\n\n\nNote: This schedule is subject to change. Any changes will be communicated through Canvas.\n\n\n\n\n\n\n\nDate\nEvent\n\n\n\n\nJanuary 20\nHoliday (No class)\n\n\nJanuary 23\nQuiz 1 (during lab)\n\n\nFebruary 2\nAdd/Drop Deadline without a serious and compelling reason\n\n\nFebruary 22\nProject 1 due\n\n\nFebruary 27\nMidterm 1\n\n\nMarch 15\nProject 2 due\n\n\nMarch 16-20\nSpring Break (No classes)\n\n\nMarch 31\nCesar Chavez Day (No class)\n\n\nApril 5\nProject 3 due\n\n\nApril 19\nProject 4 due\n\n\nApril 24\nMidterm 2\n\n\nMay 10\nProject 5 due\n\n\nMay 13\nFinal Exam (Optional, to replace a midterm grade) - 10:20 AM–12:10 PM, BSS 166\n\n\n\nWeekly Schedule:\n\nQuizzes: Weekly quizzes (Quiz 1-12) on Thursdays during lab sessions\nLectures: Monday, Wednesday, Friday, 11:00-11:50 AM with warm-ups in the first 5 minutes of class\nLabs: Get help on the code for your programming lab on Thursday (select one section: 9:00-10:50 AM, 11:00-12:50 PM, or 1:00-2:50 PM), then turn into Canvas by the following Tuesday. Elements of a lab may appear on the quiz, in addition to questions from that week’s practice problem set.\n\n\n\n\nThis class is accompanied by a 1-unit Supplemental Instruction course designed to assist students in better understanding course materials. There is room for 20 students within the SI course, and it can be accessed through the normal enrollment process.\n\nSI Course name: Stat 198 - 31 Supplemental Instruction\nClass number: 22835\nTime and place: TR 4:00 - 4:50 PM FH 179\nInstructor: Em Madrid\nContact: ebm37@humboldt.edu\n\n\n\n\n\n\nStudents are responsible for reviewing the Cal Poly Humboldt Syllabus Addendum, which includes policies and resources related to:\n\nAcademic honesty\nDisability accommodations\nEmergency procedures\nTitle IX\nStudent conduct and support services\n\n\n\nStudents who wish to request disability-related accommodations should contact the Student Disability Resource Center (SDRC) as early as possible and then email me (Rosanna Overholser, rho3@humboldt.edu) your letter of accommodation.\n\n\n\nStandards of respectful and professional behavior apply to all course interactions, including in-person classes, assignments, and email communication.\n\n\n\n\nThis syllabus is subject to change. Any changes will be communicated through Canvas announcements."
+  },
+  {
+    "objectID": "syllabus.html#course-information",
+    "href": "syllabus.html#course-information",
+    "title": "Course Syllabus",
+    "section": "",
+    "text": "Course Number: STAT 109\nCourse Title: Introductory Biostatistics\nUnits: 4\nSemester: Spring 2026\nMode of Instruction: In-person\nGeneral Education: Lower Division GE Area B4 – Mathematical Concepts & Quantitative Reasoning\n\n\nDays/Time: Monday, Wednesday, Friday, 11:00–11:50 AM\nLocation: BSS 166\n\n\n\n9:00–10:50 AM, LOCATION: FH 202\n11:00–12:50 PM, LOCATION: FH 202\n1:00–2:50 PM, LOCATION: FH 202\n\n\n\nOptional Final Exam (held during the scheduled final exam period): Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166.The final exam is optional and may be taken to replace a midterm grade.\n\n\n\nTeacher: Dr. Rosanna Overholser\nEmail: rho3@humboldt.edu\nOffice Location: BSS 334\nOffice Phone: 707-826-4022\nOffice Hours: Mondays 2-3pm, Wednesdays 12-12:50pm, and Fridays 10-10:50am or by appointment\nPlease use your Cal Poly Humboldt email account to contact me and check both Canvas and your Cal Poly Humboldt email regularly for course communications."
+  },
+  {
+    "objectID": "syllabus.html#course-description-catalog-description",
+    "href": "syllabus.html#course-description-catalog-description",
+    "title": "Course Syllabus",
+    "section": "",
+    "text": "Descriptive statistics, probability, random variables, discrete and continuous distributions, confidence intervals, contingency tests, regression and correlation, tests of hypothesis, analysis of variance. Emphasis: methods and applications used in the biological and natural resource sciences.\nDivision: Lower Division  Weekly: Lecture 3 hrs. Activity 2 hrs.  Instruction Mode: In-person\nPrerequisite: MATH 101 or MATH 101I or MATH 102 or MATH 109B (may be taken concurrently with instructor approval) with a grade of C- or better or ALEKS PPL assessment score over 65 or appropriate high school coursework. See Math Placement and ALEKS PPL for details. MATH 102 may be taken concurrently with instructor approval.\nNote: if you plan to use STAT 109 as a prerequisite for another MATH, DATA or STAT course, you must have a grade of C- or better in this course.\n\n\nBy the end of this course, students will be able to:\n\nUse numerical and graphical descriptive statistics to summarize and interpret data.\nExplain the role of randomness, probability, and sampling in statistical inference.\nApply probability rules and work with common probability distributions.\nConstruct and interpret confidence intervals for means and proportions.\nConduct and interpret basic hypothesis tests.\nAnalyze relationships between pairs of variables using correlation and regression.\nUse a statistical programming language to analyze data and communicate results.\nDistinguish between correlation and causation and recognize limitations of statistical conclusions.\n\n\n\n\nThis course fulfills Lower Division General Education Area 2 (Quantitative Reasoning) and supports Cal Poly Humboldt’s Institutional Learning Outcomes related to quantitative reasoning, critical thinking, and communication."
+  },
+  {
+    "objectID": "syllabus.html#course-materials-workload",
+    "href": "syllabus.html#course-materials-workload",
+    "title": "Course Syllabus",
+    "section": "",
+    "text": "STAT 109 includes:\n\nThree weekly lecture meetings\nOne weekly laboratory session\n\nIn this 4-unit course, students should expect to spend approximately 12 hours per week on course-related work, including time in lecture (3 hours), lab time (2 hours), and time outside of class to do practice problems, projects and prepare for exams and quizzes (7 hours).\n\n\nLecture Notes: I’ll provide packets of guided notes to you in class. These notes have key concepts, definitions and word problems that we’ll solve during class time. These notes have spaces for you to fill in during lecture as we go. If you need to miss class, please ask me for the packet you will be missing.\nOptional Textbook: Introductory Statistics for the Life and Biomedical Sciences by Julie Vu and Dave Harrington, available for free online.\nThree Binder: Please bring a three-ring binder to class to keep the lecture note packets in.\nPen or Pencil: Please bring a pen or pencil to class to take notes with.\nSoftware: R (free and installed on all campus computers; see R download page to install on your own computer) \nCalculator: Scientific (not graphing) calculator \nOther Technology: Regular access to a computer with reliable internet\n\n\n\nStudents who do not have personal access to required technology may use campus computer labs and library resources. If you want to get a free used computer, please check to see if our campus’s Reuseable Office Supply Exchange (ROSE) has one available.\n\n\n\nThere are no additional course fees beyond standard tuition and registration fees."
+  },
+  {
+    "objectID": "syllabus.html#course-feedback-assessment",
+    "href": "syllabus.html#course-feedback-assessment",
+    "title": "Course Syllabus",
+    "section": "",
+    "text": "Students will complete a variety of assessments:\n\nDaily warm-up problems (Mondays, Wednesdays and Fridays, in lecture)\nWeekly programming labs (due Tuesdays, in Canvas: I’ll help you write the code the Thursday before)\nWeekly quizzes based on practice problems and labs (Thursdays at the beginning of lab)\nTwo midterms (Week 6 and Week 13 Fridays, in lecture)\nFive projects (Sundays at the ends of the weeks 5, 8, 10, 12, and 15, in Canvas)\n\nDaily warm-up problems are designed to give you an opportunity to work as a team with your classmates. Weekly labs and quizzes are designed to provide regular formative feedback through practice problems, posted solutions, and in-lab support. Midterms require students to demonstrate their understanding of the course material. Projects allow students to apply their knowledge to practical, real-world problems and can be used as part of a portfolio.\nOptionally, students may take a final exam (held during the scheduled final exam period: Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166) to replace a midterm grade.\n\n\n\n\n\n\nComponent\nWeight\n\n\n\n\nDaily Participation\n5%\n\n\nWeekly quizzes\n30%\n\n\nWeekly labs\n15%\n\n\nTwo midterms\n30%\n\n\nFive projects\n20%\n\n\nTotal\n100%\n\n\n\nFinal letter grades will be assigned based on overall performance according to the following:\nA: 93-100% A-: 90-92% B+: 87-89% B: 83-86% B-: 80-82% C+: 77-79% C: 73-76% C-: 70-72% D: 60-69% F: 0-59%\nNote:\n\nGrade Mode: Letter grade by default. Students may elect Credit/No Credit grading according to university deadlines and procedures.\nA minimum grade of C- is required for the course to count toward GE Area B4.\nIf you stop attending class and stop doing assignments without communicating with me, you will receive a grade of WU (Withdrawal Unsatisfactory). Please communicate with me early if you are having difficulties: it’s possible that I can help you get back on track, or help you obtain a more appropriate grade (W or I) for your situation.\n\n\n\n\nRegular attendance and active participation are expected and essential for success in this course.\n\nAttendance in lecture will be tracked via participation in the warm-up problems.\nAttendance in lab will be tracked via participation in the quizzes.\n\nIf you must miss class, you are responsible for obtaining notes and keeping up with course material."
+  },
+  {
+    "objectID": "syllabus.html#late-or-missed-work-policies",
+    "href": "syllabus.html#late-or-missed-work-policies",
+    "title": "Course Syllabus",
+    "section": "",
+    "text": "The policies for late or missed work are as follows:\n\nDaily attendance in lecture is required, but I know that sometimes you will need to miss class due to illness or other emergencies. Each student may miss up to 10 days of lecture without penalty and without contacting me. It’s up to you to reserve these days for emergencies only. In my experience, it is rare for a student to succeed if they regularly miss lecture or are absent for more than two weeks so if you find yourself in this situation, please communicate with me and your advisor so we can help you find a solution to getting back on track.\nWeekly quizzes during Thursday lab sessions are required, but I know that sometimes you will need to miss lab due to illness or other emergencies. If this happens, please contact me to make an arrangement to take the quiz at another time.\nWeekly programming labs are due Tuesdays in Canvas. After the due date, a solution will be posted, so late submissions are generally not accepted except in documented emergencies. These labs will be graded on completion and your reflection.\nProjects are due on the specified date in Canvas. You may submit a late project up to a week late with no penalty. After a week, a project can be turn in for 70% of the grade.\nMidterms are required. If you need to miss a midterm due to illness or other emergencies, please communicate with me as soon as possible to reschedule it. Alternatively, you may take the optional final exam (Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166) to replace a missed midterm grade.\n\nNote: Technology issues (internet access, device failure, software problems) are not automatically considered valid excuses for late or missed work; students are expected to plan accordingly.\n\n\n\nMuch of your course grade will be based on materials that you produce in-class without having AI as a resource. But you may use AI, such as NotebookLM or ChatGPT, in this course to help you learn the materials or to perform data analyses or on the projects.\nFor work that you do at home that is turned in for a grade I have two requirements:\n\nif you used AI, acknowledge this briefly in the document (you don’t need to state in detail how you used AI or give your prompts, just the name of the AI service you used).\n\nBe responsible for the correctness and appropriateness of all (AI assisted or not) materials you turn in.\n\nI may use AI to assist me in my delivery of the course material, such as asking AI to see if an assignment is appropriate for a college level course or if the wording of a quiz question could be improved. I will not use AI to grade your work or use an AI detection tool to check your work."
+  },
+  {
+    "objectID": "syllabus.html#course-topics-schedule",
+    "href": "syllabus.html#course-topics-schedule",
+    "title": "Course Syllabus",
+    "section": "",
+    "text": "Introduction to data, simulation, and statistical reasoning\nSelected topics in probability\nBinomial Random Process\nA simple hypothesis test\nNormal probability distribution\nSampling distributions and the Central Limit Theorem\nSampling methods\nConfidence intervals\nStudy design\nMore Hypothesis testing\nSimple predictive modeling via Linear regression\n\n\n\n\nNote: This schedule is subject to change. Any changes will be communicated through Canvas.\n\n\n\n\n\n\n\nDate\nEvent\n\n\n\n\nJanuary 20\nHoliday (No class)\n\n\nJanuary 23\nQuiz 1 (during lab)\n\n\nFebruary 2\nAdd/Drop Deadline without a serious and compelling reason\n\n\nFebruary 22\nProject 1 due\n\n\nFebruary 27\nMidterm 1\n\n\nMarch 15\nProject 2 due\n\n\nMarch 16-20\nSpring Break (No classes)\n\n\nMarch 31\nCesar Chavez Day (No class)\n\n\nApril 5\nProject 3 due\n\n\nApril 19\nProject 4 due\n\n\nApril 24\nMidterm 2\n\n\nMay 10\nProject 5 due\n\n\nMay 13\nFinal Exam (Optional, to replace a midterm grade) - 10:20 AM–12:10 PM, BSS 166\n\n\n\nWeekly Schedule:\n\nQuizzes: Weekly quizzes (Quiz 1-12) on Thursdays during lab sessions\nLectures: Monday, Wednesday, Friday, 11:00-11:50 AM with warm-ups in the first 5 minutes of class\nLabs: Get help on the code for your programming lab on Thursday (select one section: 9:00-10:50 AM, 11:00-12:50 PM, or 1:00-2:50 PM), then turn into Canvas by the following Tuesday. Elements of a lab may appear on the quiz, in addition to questions from that week’s practice problem set.\n\n\n\n\nThis class is accompanied by a 1-unit Supplemental Instruction course designed to assist students in better understanding course materials. There is room for 20 students within the SI course, and it can be accessed through the normal enrollment process.\n\nSI Course name: Stat 198 - 31 Supplemental Instruction\nClass number: 22835\nTime and place: TR 4:00 - 4:50 PM FH 179\nInstructor: Em Madrid\nContact: ebm37@humboldt.edu"
+  },
+  {
+    "objectID": "syllabus.html#university-policies-resources",
+    "href": "syllabus.html#university-policies-resources",
+    "title": "Course Syllabus",
+    "section": "",
+    "text": "Students are responsible for reviewing the Cal Poly Humboldt Syllabus Addendum, which includes policies and resources related to:\n\nAcademic honesty\nDisability accommodations\nEmergency procedures\nTitle IX\nStudent conduct and support services\n\n\n\nStudents who wish to request disability-related accommodations should contact the Student Disability Resource Center (SDRC) as early as possible and then email me (Rosanna Overholser, rho3@humboldt.edu) your letter of accommodation.\n\n\n\nStandards of respectful and professional behavior apply to all course interactions, including in-person classes, assignments, and email communication."
+  },
+  {
+    "objectID": "syllabus.html#changes-to-the-syllabus",
+    "href": "syllabus.html#changes-to-the-syllabus",
+    "title": "Course Syllabus",
+    "section": "",
+    "text": "This syllabus is subject to change. Any changes will be communicated through Canvas announcements."
   }
 ]
