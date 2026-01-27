@@ -103,28 +103,91 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/css/humboldt-theme.css">
 </head>
 
-<body class="quarto-light">
+<body class="floating quarto-light">
 
 <div id="quarto-search-results"></div>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#quiz-2" id="toc-quiz-2" class="nav-link active" data-scroll-target="#quiz-2">Quiz 2</a></li>
+  <li><a href="#quiz-2" id="toc-quiz-2" class="nav-link active" data-scroll-target="#quiz-2">Quiz 2</a>
+  <ul class="collapse">
+  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#part-a-r-syntax-and-computing-basics" id="toc-part-a-r-syntax-and-computing-basics" class="nav-link" data-scroll-target="#part-a-r-syntax-and-computing-basics">Part A: R Syntax and Computing Basics</a>
+  <ul class="collapse">
+  <li><a href="#arithmetic-in-r" id="toc-arithmetic-in-r" class="nav-link" data-scroll-target="#arithmetic-in-r">1. Arithmetic in R</a></li>
+  <li><a href="#multiplication-in-r" id="toc-multiplication-in-r" class="nav-link" data-scroll-target="#multiplication-in-r">2. Multiplication in R</a></li>
+  <li><a href="#assignment-and-functions" id="toc-assignment-and-functions" class="nav-link" data-scroll-target="#assignment-and-functions">3. Assignment and functions</a></li>
+  <li><a href="#creating-a-vector" id="toc-creating-a-vector" class="nav-link" data-scroll-target="#creating-a-vector">4. Creating a vector</a></li>
+  <li><a href="#indexing-a-vector" id="toc-indexing-a-vector" class="nav-link" data-scroll-target="#indexing-a-vector">5. Indexing a vector</a></li>
+  <li><a href="#vector-arithmetic" id="toc-vector-arithmetic" class="nav-link" data-scroll-target="#vector-arithmetic">6. Vector arithmetic</a></li>
+  <li><a href="#computing-a-summary" id="toc-computing-a-summary" class="nav-link" data-scroll-target="#computing-a-summary">7. Computing a summary</a></li>
+  <li><a href="#counting-outcomes" id="toc-counting-outcomes" class="nav-link" data-scroll-target="#counting-outcomes">8. Counting outcomes</a></li>
+  </ul></li>
+  <li><a href="#part-b-counts-proportions-and-percentages" id="toc-part-b-counts-proportions-and-percentages" class="nav-link" data-scroll-target="#part-b-counts-proportions-and-percentages">Part B: Counts, Proportions, and Percentages</a>
+  <ul class="collapse">
+  <li><a href="#counts" id="toc-counts" class="nav-link" data-scroll-target="#counts">9. Counts</a></li>
+  <li><a href="#proportion" id="toc-proportion" class="nav-link" data-scroll-target="#proportion">10. Proportion</a></li>
+  <li><a href="#percentage" id="toc-percentage" class="nav-link" data-scroll-target="#percentage">11. Percentage</a></li>
+  </ul></li>
+  <li><a href="#part-c-probability-notation-and-interpretation" id="toc-part-c-probability-notation-and-interpretation" class="nav-link" data-scroll-target="#part-c-probability-notation-and-interpretation">Part C: Probability Notation and Interpretation</a>
+  <ul class="collapse">
+  <li><a href="#observed-vs.-theoretical-probability" id="toc-observed-vs.-theoretical-probability" class="nav-link" data-scroll-target="#observed-vs.-theoretical-probability">12. Observed vs.&nbsp;theoretical probability</a></li>
+  <li><a href="#interpreting-symbols" id="toc-interpreting-symbols" class="nav-link" data-scroll-target="#interpreting-symbols">13. Interpreting symbols</a></li>
+  </ul></li>
+  <li><a href="#part-d-definitions" id="toc-part-d-definitions" class="nav-link" data-scroll-target="#part-d-definitions">Part D: Definitions</a>
+  <ul class="collapse">
+  <li><a href="#definition-of-probability" id="toc-definition-of-probability" class="nav-link" data-scroll-target="#definition-of-probability">14. Definition of probability</a></li>
+  <li><a href="#vocabulary" id="toc-vocabulary" class="nav-link" data-scroll-target="#vocabulary">15. Vocabulary</a></li>
+  <li><a href="#identifying-components" id="toc-identifying-components" class="nav-link" data-scroll-target="#identifying-components">16. Identifying components</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="quiz-2.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -134,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-page-right">
 
     
   
@@ -148,14 +211,154 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="quiz-2" class="level1">
 <h1>Quiz 2</h1>
-<p><em>Instructions coming soon.</em></p>
+<p><strong>Topics:</strong><br>
+- Basic R syntax (from Lab 1)<br>
+- Counts, proportions, and percentages (from Lecture 2)<br>
+- Probability language and definitions (from Lecture 2)</p>
+<hr>
+<section id="instructions" class="level2">
+<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
+<ul>
+<li>This quiz will be graded on correctness during the first twenty minutes of our Thursday lab.</li>
+<li>You may not use notes, the internet, or a peer.</li>
+<li>For R questions, <strong>write</strong> by hand valid R code exactly as you would type it in R.</li>
+</ul>
+<hr>
+</section>
+<section id="part-a-r-syntax-and-computing-basics" class="level2">
+<h2 class="anchored" data-anchor-id="part-a-r-syntax-and-computing-basics">Part A: R Syntax and Computing Basics</h2>
+<p>Write <strong>valid R code</strong> for each question by hand.</p>
+<hr>
+<section id="arithmetic-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="arithmetic-in-r">1. Arithmetic in R</h3>
+<p>Write a single line of R code that produces the value <strong>10</strong> by adding two numbers.</p>
+<hr>
+</section>
+<section id="multiplication-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="multiplication-in-r">2. Multiplication in R</h3>
+<p>Write a single line of R code that produces the value <strong>6</strong> by multiplying two numbers.</p>
+<hr>
+</section>
+<section id="assignment-and-functions" class="level3">
+<h3 class="anchored" data-anchor-id="assignment-and-functions">3. Assignment and functions</h3>
+<p>Write R code that: 1. assigns the value <strong>16</strong> to a variable named <code>x</code>, and<br>
+2. computes the square root of <code>x</code>.</p>
+<hr>
+</section>
+<section id="creating-a-vector" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-vector">4. Creating a vector</h3>
+<p>Write R code that creates a vector named <code>numbers</code> containing the values:</p>
+<p>2, 4, 6, 8, 10</p>
+<hr>
+</section>
+<section id="indexing-a-vector" class="level3">
+<h3 class="anchored" data-anchor-id="indexing-a-vector">5. Indexing a vector</h3>
+<p>Using the vector <code>numbers</code> from Question 4, write R code that returns the <strong>third element</strong> of the vector.</p>
+<hr>
+</section>
+<section id="vector-arithmetic" class="level3">
+<h3 class="anchored" data-anchor-id="vector-arithmetic">6. Vector arithmetic</h3>
+<p>Using the vector <code>numbers</code>, write R code that creates a new vector called <code>numbers_plus_one</code> that adds <strong>1 to every element</strong> of <code>numbers</code>.</p>
+<hr>
+</section>
+<section id="computing-a-summary" class="level3">
+<h3 class="anchored" data-anchor-id="computing-a-summary">7. Computing a summary</h3>
+<p>Write R code that computes the <strong>mean</strong> of the vector <code>numbers</code>.</p>
+<hr>
+</section>
+<section id="counting-outcomes" class="level3">
+<h3 class="anchored" data-anchor-id="counting-outcomes">8. Counting outcomes</h3>
+<p>Suppose the vector below stores the results of 6 coin flips:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flips <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"H"</span>, <span class="st">"T"</span>, <span class="st">"H"</span>, <span class="st">"H"</span>, <span class="st">"T"</span>, <span class="st">"H"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Write R code that counts how many times <code>"H"</code> appears in the vector by using ‘==’ and a second vector, <code>heads &lt;- c("H", "H", "H", "H", "H", "H")</code>. Hint: use the <code>sum()</code> function and the fact that <code>TRUE</code> is equivalent to 1 and <code>FALSE</code> is equivalent to 0.</p>
+<hr>
+</section>
+</section>
+<section id="part-b-counts-proportions-and-percentages" class="level2">
+<h2 class="anchored" data-anchor-id="part-b-counts-proportions-and-percentages">Part B: Counts, Proportions, and Percentages</h2>
+<p>A student flips a fair coin <strong>20 times</strong> and records the results.<br>
+They observe <strong>9 heads</strong>.</p>
+<hr>
+<section id="counts" class="level3">
+<h3 class="anchored" data-anchor-id="counts">9. Counts</h3>
+<p>What is the value of: - <span class="math inline">\(x\)</span>, the number of times the event “head” occurred?<br>
+- <span class="math inline">\(n\)</span>, the total number of trials?</p>
+<hr>
+</section>
+<section id="proportion" class="level3">
+<h3 class="anchored" data-anchor-id="proportion">10. Proportion</h3>
+<p>Compute the <strong>observed proportion</strong> of heads, <span class="math inline">\(\hat{p}\)</span>.</p>
+<p>Show your calculation.</p>
+<hr>
+</section>
+<section id="percentage" class="level3">
+<h3 class="anchored" data-anchor-id="percentage">11. Percentage</h3>
+<p>Convert the observed proportion of heads into a <strong>percentage</strong>.</p>
+<hr>
+</section>
+</section>
+<section id="part-c-probability-notation-and-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="part-c-probability-notation-and-interpretation">Part C: Probability Notation and Interpretation</h2>
+<hr>
+<section id="observed-vs.-theoretical-probability" class="level3">
+<h3 class="anchored" data-anchor-id="observed-vs.-theoretical-probability">12. Observed vs.&nbsp;theoretical probability</h3>
+<p>Using correct notation, clearly state: - the <strong>observed proportion</strong> of heads using <span class="math inline">\(\hat{p}\)</span> - the <strong>theoretical probability</strong> of heads for a fair coin using <span class="math inline">\(P(\text{head})\)</span></p>
+<hr>
+</section>
+<section id="interpreting-symbols" class="level3">
+<h3 class="anchored" data-anchor-id="interpreting-symbols">13. Interpreting symbols</h3>
+<p>In one or two sentences, explain the difference between:</p>
+<ul>
+<li><span class="math inline">\(\hat{p}\)</span><br>
+</li>
+<li><span class="math inline">\(P(\text{event})\)</span></li>
+</ul>
+<p>Your answer should refer to <strong>data</strong> and <strong>long-run behavior</strong>.</p>
+<hr>
+</section>
+</section>
+<section id="part-d-definitions" class="level2">
+<h2 class="anchored" data-anchor-id="part-d-definitions">Part D: Definitions</h2>
+<hr>
+<section id="definition-of-probability" class="level3">
+<h3 class="anchored" data-anchor-id="definition-of-probability">14. Definition of probability</h3>
+<p>State the definition of probability that involves: - a <strong>repeatable random process</strong><br>
+- a <strong>proportion</strong><br>
+- the idea that the process continues <strong>forever</strong></p>
+<p>You may write this in words.</p>
+<hr>
+</section>
+<section id="vocabulary" class="level3">
+<h3 class="anchored" data-anchor-id="vocabulary">15. Vocabulary</h3>
+<p>Give a clear definition of each term:</p>
+<ol type="a">
+<li><strong>Sample space</strong><br>
+</li>
+<li><strong>Outcome</strong><br>
+</li>
+<li><strong>Event</strong></li>
+</ol>
+<hr>
+</section>
+<section id="identifying-components" class="level3">
+<h3 class="anchored" data-anchor-id="identifying-components">16. Identifying components</h3>
+<p>Consider rolling a single six-sided die.</p>
+<ul>
+<li>What is the <strong>sample space</strong>?<br>
+</li>
+<li>Give one <strong>outcome</strong>.<br>
+</li>
+<li>Give one <strong>event</strong>.</li>
+</ul>
 
 
 <!-- -->
 
 </section>
+</section>
+</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>Creative Commons Attribution-NonCommercial 4.0 International<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">(View License)</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -612,14 +815,177 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Quiz 2"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "STAT 109: Introductory Biostatistics"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Quiz 2</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>*Instructions coming soon.*</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Quiz 2"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "STAT 109: Introductory Biostatistics"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Quiz 2</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>**Topics:**  </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Basic R syntax (from Lab 1)  </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Counts, proportions, and percentages (from Lecture 2)  </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Probability language and definitions (from Lecture 2)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Instructions</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>This quiz will be graded on correctness during the first twenty minutes of our Thursday lab.</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>You may not use notes, the internet, or a peer.</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>For R questions, **write** by hand valid R code exactly as you would type it in R.</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part A: R Syntax and Computing Basics</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>Write **valid R code** for each question by hand.</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. Arithmetic in R</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>Write a single line of R code that produces the value **10** by adding two numbers.</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. Multiplication in R</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>Write a single line of R code that produces the value **6** by multiplying two numbers.</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. Assignment and functions</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>Write R code that:</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>assigns the value **16** to a variable named <span class="in">`x`</span>, and  </span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>computes the square root of <span class="in">`x`</span>.</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4. Creating a vector</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>Write R code that creates a vector named <span class="in">`numbers`</span> containing the values:</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>2, 4, 6, 8, 10</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="fu">### 5. Indexing a vector</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>Using the vector <span class="in">`numbers`</span> from Question 4, write R code that returns the **third element** of the vector.</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="fu">### 6. Vector arithmetic</span></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>Using the vector <span class="in">`numbers`</span>, write R code that creates a new vector called <span class="in">`numbers_plus_one`</span> that adds **1 to every element** of <span class="in">`numbers`</span>.</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="fu">### 7. Computing a summary</span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>Write R code that computes the **mean** of the vector <span class="in">`numbers`</span>.</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="fu">### 8. Counting outcomes</span></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>Suppose the vector below stores the results of 6 coin flips:</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>flips <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"H"</span>, <span class="st">"T"</span>, <span class="st">"H"</span>, <span class="st">"H"</span>, <span class="st">"T"</span>, <span class="st">"H"</span>)</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>Write R code that counts how many times <span class="in">`"H"`</span> appears in the vector by using '==' and a second vector, <span class="in">`heads &lt;- c("H", "H", "H", "H", "H", "H")`</span>.  Hint: use the <span class="in">`sum()`</span> function and the fact that <span class="in">`TRUE`</span> is equivalent to 1 and <span class="in">`FALSE`</span> is equivalent to 0.</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part B: Counts, Proportions, and Percentages</span></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>A student flips a fair coin **20 times** and records the results.  </span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>They observe **9 heads**.</span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a><span class="fu">### 9. Counts</span></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>What is the value of:</span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$x$, the number of times the event “head” occurred?  </span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$n$, the total number of trials?</span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a><span class="fu">### 10. Proportion</span></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>Compute the **observed proportion** of heads, $\hat{p}$.</span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>Show your calculation.</span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a><span class="fu">### 11. Percentage</span></span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>Convert the observed proportion of heads into a **percentage**.</span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part C: Probability Notation and Interpretation</span></span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a><span class="fu">### 12. Observed vs. theoretical probability</span></span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>Using correct notation, clearly state:</span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the **observed proportion** of heads using $\hat{p}$ </span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the **theoretical probability** of heads for a fair coin using $P(\text{head})$</span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a><span class="fu">### 13. Interpreting symbols</span></span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>In one or two sentences, explain the difference between:</span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$\hat{p}$  </span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$P(\text{event})$</span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>Your answer should refer to **data** and **long-run behavior**.</span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part D: Definitions</span></span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a><span class="fu">### 14. Definition of probability</span></span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>State the definition of probability that involves:</span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>a **repeatable random process**  </span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>a **proportion**  </span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the idea that the process continues **forever**</span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>You may write this in words.</span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a><span class="fu">### 15. Vocabulary</span></span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>Give a clear definition of each term:</span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a>a) **Sample space**  </span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>b) **Outcome**  </span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a>c) **Event**</span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a><span class="fu">### 16. Identifying components</span></span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a>Consider rolling a single six-sided die.</span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What is the **sample space**?  </span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Give one **outcome**.  </span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Give one **event**.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
