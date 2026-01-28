@@ -107,24 +107,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../assets/css/humboldt-theme.css">
 </head>
 
-<body class="quarto-light">
+<body class="floating quarto-light">
 
 <div id="quarto-search-results"></div>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
   <li><a href="#lecture-4" id="toc-lecture-4" class="nav-link active" data-scroll-target="#lecture-4">Lecture 4</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lecture-4.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -134,7 +137,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-page-right">
 
     
   
@@ -148,14 +151,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="lecture-4" class="level1">
 <h1>Lecture 4</h1>
-<p><em>Instructions coming soon.</em></p>
+<p><strong>Random babies, what are the chances?</strong></p>
+<p>The purpose of this activity is to practice to computing a probability using brute force math (a.k.a “careful counting”)</p>
+<p>Note: this activity was developed by Allen Rossman and Beth Chance of Cal Poly, SLO. You can see their write-up <a href="https://www.causeweb.org/cause/resources/library/r1012/">here</a>.</p>
+<p><strong>Story</strong></p>
+<p>Suppose that four mothers gave birth to four babies at a hospital and that the we decide to prank the mothers by randomly pairing the babies with mothers.</p>
+<p>What is the probability that all four mothers will get their own baby?&nbsp; Only three mothers? Two? One? None?</p>
+<p><strong>Mathematics</strong></p>
+<ol type="1">
+<li><p>List the sample space of the experiment of four babies being randomly returned to their mothers.</p></li>
+<li><p>Count the number of outcomes that correspond to the event all four mothers get their own baby</p></li>
+<li><p>Count the total number of ways four babies could be returned to mothers</p></li>
+<li><p>Compute the probability that all four babies are correctly returned, assuming they are randomly returned so each possible pairing in the sample space is equally likely.</p></li>
+<li><p>Compare your exact answer in part 4 with the estimate from the simulation shown in class: <a href="https://www.rossmanchance.com/applets/2021/randombabies/RandomBabies.html">Random Babies (rossmanchance.com)</a></p></li>
+<li><p>Repeat 2 and 4 for the events of exactly 0, 1, 2, or 3 mothers getting the correct baby.</p></li>
+</ol>
 
 
 <!-- -->
 
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>Creative Commons Attribution-NonCommercial 4.0 International<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">(View License)</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -619,7 +636,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Lecture 4</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>*Instructions coming soon.*</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>**Random babies, what are the chances?**</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>The purpose of this activity is to practice to computing a probability using brute force math (a.k.a "careful counting")</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Note: this activity was developed by Allen Rossman and Beth Chance of Cal Poly, SLO. You can see their write-up <span class="co">[</span><span class="ot">here</span><span class="co">](https://www.causeweb.org/cause/resources/library/r1012/)</span>.</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>**Story**</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Suppose that four mothers gave birth to four babies at a hospital and that the we decide to prank the mothers by randomly pairing the babies with mothers.</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>What is the probability that all four mothers will get their own baby?&nbsp; Only three mothers? Two? One? None?</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>**Mathematics**</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>List the sample space of the experiment of four babies being randomly returned to their mothers.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Count the number of outcomes that correspond to the event all four mothers get their own baby</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Count the total number of ways four babies could be returned to mothers</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Compute the probability that all four babies are correctly returned, assuming they are randomly returned so each possible pairing in the sample space is equally likely.</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>Compare your exact answer in part 4 with the estimate from the simulation shown in class: <span class="co">[</span><span class="ot">Random Babies (rossmanchance.com)</span><span class="co">](https://www.rossmanchance.com/applets/2021/randombabies/RandomBabies.html)</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>Repeat 2 and 4 for the events of exactly 0, 1, 2, or 3 mothers getting the correct baby.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
