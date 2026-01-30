@@ -35,52 +35,381 @@
     "text": "Instructor Information\nInstructor: Dr. Rosanna Overholser\nOffice: BSS 334\nEmail: rho3@humboldt.edu\nOffice Hours: Mondays 2-3pm, Wednesdays 12-12:50pm, Fridays 10-10:50am, or by appointment"
   },
   {
-    "objectID": "quizzes/quiz-3.html",
-    "href": "quizzes/quiz-3.html",
-    "title": "Quiz 3",
+    "objectID": "lectures/lecture-2.html",
+    "href": "lectures/lecture-2.html",
+    "title": "Lecture 2",
     "section": "",
-    "text": "These are practice problems covering:\n\nLectures 3–4: sample spaces, outcomes, events, and probability calculations when the outcomes are equally likely\nLecture 5: addition rule\nLab 2 (R code by hand): types, vectors, matrices, bracketing, length(), dim(), and basic for loops + simulation structure\n\n\n\n\n\n\nWork without notes first; then check your answers. I’ll post my solutions to Lab 2 after the due date.\nFor R questions, write valid R code exactly as you would type it (by hand).\nThe in-class quiz in lab on Thursday will be created from these practice problems.\n\n\n\n\n\n\n\nConsider the trial of rolling a single six-sided die one time.\n\nWrite the sample space \\(S\\).\nGive one outcome.\nDefine an event \\(A\\) and list the outcomes in \\(A\\).\n\n\n\n\n\nSuppose a trial has sample space \\(S\\) and two events \\(A\\) and \\(B\\).\n\nIn words, what does “\\(A\\) and \\(B\\)” mean?\nIn words, what does “\\(A\\) or \\(B\\)” mean?\nIn words, what does “not \\(A\\)” mean?\n\n\n\n\n\nWrite a one-sentence interpretation for each:\n\n\\(P(A) = 0.7\\)\n\\(P(A \\text{ and } B) = 0.2\\)\n\\(P(\\text{not } A) = 0.1\\)\n\n\n\n\n\n\n\n\nState the probability rule for an event \\(A\\) if the outcomes in \\(S\\) are equally likely:\n\\[\nP(A) = \\quad ?\n\\]\nBe sure to define what \\(|A|\\) and \\(|S|\\) mean in words.\n\n\n\nState the condition that must be true for the probability rule \\(P(A) = |A|/|S|\\) to be valid.\n\n\n\n\nSuppose a fair coin is tossed two times.\n\nList the sample space \\(S\\) so that all outcomes are equally likely.\nLet \\(A\\) be the event “at least one tail.” List the outcomes in \\(A\\).\nCompute \\(P(A)\\).\n\n\n\n\n\nSuppose a fair die is rolled twice.\n\nHow many outcomes are in the sample space \\(S\\) written so that all outcomes are equally likely?\nList the outcomes from \\(S\\) in the event \\(C =\\) “the sum is 11.”\nCompute \\(P(C)\\).\n\n\n\n\n\nThree babies are randomly returned to three mothers (assume all pairings are equally likely).\n\nHow many outcomes are in the sample space?\nLet \\(A\\) be the event “all 3 mothers get the correct baby.” Compute \\(P(A)\\).\nLet \\(B\\) be the event “none of the mothers get the correct baby.” Compute \\(P(B)\\)\n\n\n\n\n\n\n\n\nState the Addition Rule for any two events \\(A\\) and \\(B\\).\n\n\n\n\nA class has 65 students:\n\n40 have backpacks\n10 have hats\n5 have both a backpack and a hat\n\nLet \\(A\\) be the event a randomly selected student “has a backpack” and \\(B\\) be “has a hat.”\n\nCompute \\(P(A)\\) and \\(P(B)\\).\nCompute \\(P(A \\text{ and } B)\\).\nUse the addition rule to compute \\(P(A \\text{ or } B)\\).\n\n\n\n\n\nIf \\(P(\\text{rains at least once in July}) = 0.91\\), compute:\n\\[\nP(\\text{no rain in July})\n\\]\n\n\n\n\nSuppose \\(A\\) and \\(B\\) are non-overlapping (mutually exclusive) events.\n\nWhat does “non-overlapping” mean in words?\nWhat does it imply about \\(P(A \\text{ and } B)\\)?\nWrite the simplified formula for \\(P(A \\text{ or } B)\\) in this case.\n\n\n\n\n\n\n\n\nWrite R code that:\n\ncreates x_num as the numeric value of 0,\ncreates x_int as an integer (use the L),\nprints the class of each.\n\n\n\n\n\nWrite R code that:\n\ncreates a numeric vector v that contains the values 2, 4, 6, 8 and 10.\nprints the length of v\ncreates a new vector called v_plus_one that is v with 1 added to each of it’s values.\n\n\n\n\n\nUsing v &lt;- c(2, 4, 6, 8, 10), write R code for each:\n\nthe 3rd element\nthe 2nd through 4th elements\neverything except the 3rd element\nall elements greater than 5\n\n\n\n\n\nWrite R code that:\n\ncreates a 2x3 matrix m filled by column using 1:6,\nprints the dimensions of m\nextracts the value of m in the second row and first column\nextracts the first row\nextracts the second column\n\n\n\n\n\nWrite R code that uses a for loop to fill a vector named squares with the squares of 1 through 5:\nExpected result for squares\n[1]  1  4  9 16 25\n\n\n\n\nWrite R code to estimate the probability that a fair die roll is even using simulation:\n\nsimulate n &lt;- 10000 die rolls using sample(1:6, size = n, replace = TRUE)\ncompute the estimated probability with mean(...)\n\nYour code should create objects named n, rolls, and p_even."
+    "text": "Learning Outcomes:\nBy the end of today’s lecture, you should be able to:\n\nCompute counts, proportions, and percentages of a particular event occurring in a number of trials.\nUse symbols \\((x, n, \\hat{p}, P(\\text{event}))\\) correctly to describe observed data and theoretical probability.\nDistinguish between observed outcomes (data) and theoretical probability.\nDescribe three rules that probabilities must satisfy.\nState the definition of probability and connect it to the idea of long-run relative frequency in a repeatable random process.\n\n\n\n\nLet’s toss a coin a few times in class, keeping track of the tosses that land “heads.”\n\n\n\nCount of heads (\\(x\\)): ________\nTotal tosses (\\(n\\)): ________\nProportion (\\(\\hat{p}\\)): ________\nPercentage: ________\n\n\n\n\n\nCount of heads (\\(x\\)): ________\nTotal tosses (\\(n\\)): ________\nProportion (\\(\\hat{p}\\)): ________\nPercentage: ________\n\n\n\n\nYour neighbor, ___________________________’s data:\n\nCount of heads (\\(x\\)): ________\nTotal tosses (\\(n\\)): ________\nProportion (\\(\\hat{p}\\)): ________\nPercentage: ________\n\n\n\n\nWhat’s the highest count of heads? ______________________\nMost tosses? ______________________\nHighest proportion of heads? ______________________\nHighest percentage of heads? ______________________\n\n\n\nComments:\nIf we care about comparing coins, then ______________________ is the best summary.\nIf we care about getting lots of “heads” then ______________________ is the best summary.\nThe summary of total tosses (\\(n\\)) tells us ______________________________________.\n\n\n\nQuestion: Rosanna keeps tossing her coin forever. What would we expect?\n\nData (what happened): ________\nTheory (long run): ________\n\n\n\n\n\n\nFill in each definition in your own words:\n\nSample space:\n\n\n\n\n\nOutcome:\n\n\n\n\n\nEvent:\n\n\n\n\n\n\n\n\n\n\nWe’ll use two colors: one for observed data and another for theoretical quantities.\nClass action required!\nWhat color should Rosanna use for theoretical quantities that we imagine? ______________________\nWhat color should Rosanna use for quantities that we can actually observe? ______________________\n\n\n\n\n\\(x\\) = count of “successes” in \\(n\\) observed trials\n\\(n\\) = number of observed trials\n\\(\\hat{p} = x/n\\) = observed proportion of successes in our trials\nPercentage of observed trials that were a success \\(= 100 \\cdot \\hat{p}\\)\n\\(P(\\text{event})\\) = probability of an event\n\nThe notation for probability, \\(P(\\text{event})\\), is in the same format as notation for functions in high school algebra:\n\n\\(=\\) reads as ______________________\n\\(()\\) reads as ___________________________ (not multiplication!)\n\n\\(Y = f(x)\\) reads as “\\(y\\) is the value of the function whose name is \\(f\\) when \\(x\\) is put in.”\n\\(Y = P(A)\\) reads as “\\(y\\) is the value of probability when the event under consideration is \\(A\\).”\n\n\n\n\n\nSuppose we toss a coin 20 times and see 15 heads.\n\n\\(x = 15\\)\n\\(n = 20\\)\n\\(\\hat{p} = 15/20 = 0.75\\)\nPercentage \\(= 75\\%\\)\nTheoretical \\(P(\\text{Heads}) = 0.5\\) (for a fair coin)\n\n\n\n\n\n\n\nA coin is tossed 10 times and comes up heads 3 times. Fill in:\n\n\\(x =\\) ________\n\\(n =\\) ________\n\\(\\hat{p} =\\) ________\nPercentage \\(=\\) ________ \\(\\%\\)\nTheoretical \\(P(\\text{Heads}) =\\) ______________________\n\n\n\n\n\n\n\nSuppose a fair 6-sided die is rolled 24 times and we see the number “5” exactly 2 times.\n\n\\(x =\\) ______________\n\\(n =\\) ______________\n\\(\\hat{p} =\\) ______________\nPercentage \\(=\\) ______________\nTheoretical \\(P(\\text{\"5\"}) =\\) ______________________\n\n\n\n\n\n\n\nA die is rolled 30 times and shows “1” exactly 10 times. Fill in:\n\n\\(x =\\) ________\n\\(n =\\) ________\n\\(\\hat{p} =\\) ________\nPercentage \\(=\\) ________ \\(\\%\\)\nTheoretical \\(P(\\text{\"1\"}) =\\) ______________________\n\n\n\n\n\n\n\n\nAll probabilities must satisfy:\n\n\\(0 \\le P(A) \\le 1\\) for any event \\(A\\)\nTotal probability across all possible outcomes \\(= 1\\)\nIf \\(A\\) and \\(B\\) are two events with no overlap, then \\(P(A \\text{ or } B) = P(A) + P(B)\\)\n\n\n\n\nCoin: \\(P(\\text{Heads}) + P(\\text{Tails}) =\\) ________\nDie: \\(P(\\text{\"1\"}) + P(\\text{\"2\"}) + \\cdots + P(\\text{\"6\"}) =\\) ________\nDie: \\(P(\\text{\"1\"}) + P(\\text{\"2\"}) =\\) ________\n\\(P(A) = 70\\) is ______________________\n\\(-0.5 = P(B)\\) is ______________________\n\\(P(D) = 0.7\\) is ______________________\n\n\n\n\n\n\n\\(P(\\text{Event})\\) = the proportion of times the event occurs out of the number of trials as the trial is repeated infinitely many times.\nProbability is tied to:\n\nA specific random process (repeating a trial with uncertain outcome infinitely many times)\nLong-run relative frequency (a.k.a. “proportion”) of an event occurring"
   },
   {
-    "objectID": "quizzes/quiz-3.html#quiz-3-practice-problems",
-    "href": "quizzes/quiz-3.html#quiz-3-practice-problems",
-    "title": "Quiz 3",
+    "objectID": "lectures/lecture-2.html#physical-randomness-tossing-a-coin",
+    "href": "lectures/lecture-2.html#physical-randomness-tossing-a-coin",
+    "title": "Lecture 2",
     "section": "",
-    "text": "These are practice problems covering:\n\nLectures 3–4: sample spaces, outcomes, events, and probability calculations when the outcomes are equally likely\nLecture 5: addition rule\nLab 2 (R code by hand): types, vectors, matrices, bracketing, length(), dim(), and basic for loops + simulation structure"
+    "text": "Let’s toss a coin a few times in class, keeping track of the tosses that land “heads.”\n\n\n\nCount of heads (\\(x\\)): ________\nTotal tosses (\\(n\\)): ________\nProportion (\\(\\hat{p}\\)): ________\nPercentage: ________\n\n\n\n\n\nCount of heads (\\(x\\)): ________\nTotal tosses (\\(n\\)): ________\nProportion (\\(\\hat{p}\\)): ________\nPercentage: ________\n\n\n\n\nYour neighbor, ___________________________’s data:\n\nCount of heads (\\(x\\)): ________\nTotal tosses (\\(n\\)): ________\nProportion (\\(\\hat{p}\\)): ________\nPercentage: ________\n\n\n\n\nWhat’s the highest count of heads? ______________________\nMost tosses? ______________________\nHighest proportion of heads? ______________________\nHighest percentage of heads? ______________________\n\n\n\nComments:\nIf we care about comparing coins, then ______________________ is the best summary.\nIf we care about getting lots of “heads” then ______________________ is the best summary.\nThe summary of total tosses (\\(n\\)) tells us ______________________________________.\n\n\n\nQuestion: Rosanna keeps tossing her coin forever. What would we expect?\n\nData (what happened): ________\nTheory (long run): ________"
   },
   {
-    "objectID": "quizzes/quiz-3.html#instructions",
-    "href": "quizzes/quiz-3.html#instructions",
-    "title": "Quiz 3",
+    "objectID": "lectures/lecture-2.html#key-definitions-related-to-a-trial",
+    "href": "lectures/lecture-2.html#key-definitions-related-to-a-trial",
+    "title": "Lecture 2",
     "section": "",
-    "text": "Work without notes first; then check your answers. I’ll post my solutions to Lab 2 after the due date.\nFor R questions, write valid R code exactly as you would type it (by hand).\nThe in-class quiz in lab on Thursday will be created from these practice problems."
+    "text": "Fill in each definition in your own words:\n\nSample space:\n\n\n\n\n\nOutcome:\n\n\n\n\n\nEvent:"
   },
   {
-    "objectID": "quizzes/quiz-3.html#part-a-vocabulary-and-notation-lecture-3",
-    "href": "quizzes/quiz-3.html#part-a-vocabulary-and-notation-lecture-3",
-    "title": "Quiz 3",
+    "objectID": "lectures/lecture-2.html#notes-on-notation",
+    "href": "lectures/lecture-2.html#notes-on-notation",
+    "title": "Lecture 2",
     "section": "",
-    "text": "Consider the trial of rolling a single six-sided die one time.\n\nWrite the sample space \\(S\\).\nGive one outcome.\nDefine an event \\(A\\) and list the outcomes in \\(A\\).\n\n\n\n\n\nSuppose a trial has sample space \\(S\\) and two events \\(A\\) and \\(B\\).\n\nIn words, what does “\\(A\\) and \\(B\\)” mean?\nIn words, what does “\\(A\\) or \\(B\\)” mean?\nIn words, what does “not \\(A\\)” mean?\n\n\n\n\n\nWrite a one-sentence interpretation for each:\n\n\\(P(A) = 0.7\\)\n\\(P(A \\text{ and } B) = 0.2\\)\n\\(P(\\text{not } A) = 0.1\\)"
+    "text": "We’ll use two colors: one for observed data and another for theoretical quantities.\nClass action required!\nWhat color should Rosanna use for theoretical quantities that we imagine? ______________________\nWhat color should Rosanna use for quantities that we can actually observe? ______________________\n\n\n\n\n\\(x\\) = count of “successes” in \\(n\\) observed trials\n\\(n\\) = number of observed trials\n\\(\\hat{p} = x/n\\) = observed proportion of successes in our trials\nPercentage of observed trials that were a success \\(= 100 \\cdot \\hat{p}\\)\n\\(P(\\text{event})\\) = probability of an event\n\nThe notation for probability, \\(P(\\text{event})\\), is in the same format as notation for functions in high school algebra:\n\n\\(=\\) reads as ______________________\n\\(()\\) reads as ___________________________ (not multiplication!)\n\n\\(Y = f(x)\\) reads as “\\(y\\) is the value of the function whose name is \\(f\\) when \\(x\\) is put in.”\n\\(Y = P(A)\\) reads as “\\(y\\) is the value of probability when the event under consideration is \\(A\\).”"
   },
   {
-    "objectID": "quizzes/quiz-3.html#part-b-equally-likely-outcomes-and-careful-counting-lectures-34",
-    "href": "quizzes/quiz-3.html#part-b-equally-likely-outcomes-and-careful-counting-lectures-34",
-    "title": "Quiz 3",
+    "objectID": "lectures/lecture-2.html#example-1-coin-tosses",
+    "href": "lectures/lecture-2.html#example-1-coin-tosses",
+    "title": "Lecture 2",
     "section": "",
-    "text": "State the probability rule for an event \\(A\\) if the outcomes in \\(S\\) are equally likely:\n\\[\nP(A) = \\quad ?\n\\]\nBe sure to define what \\(|A|\\) and \\(|S|\\) mean in words.\n\n\n\nState the condition that must be true for the probability rule \\(P(A) = |A|/|S|\\) to be valid.\n\n\n\n\nSuppose a fair coin is tossed two times.\n\nList the sample space \\(S\\) so that all outcomes are equally likely.\nLet \\(A\\) be the event “at least one tail.” List the outcomes in \\(A\\).\nCompute \\(P(A)\\).\n\n\n\n\n\nSuppose a fair die is rolled twice.\n\nHow many outcomes are in the sample space \\(S\\) written so that all outcomes are equally likely?\nList the outcomes from \\(S\\) in the event \\(C =\\) “the sum is 11.”\nCompute \\(P(C)\\).\n\n\n\n\n\nThree babies are randomly returned to three mothers (assume all pairings are equally likely).\n\nHow many outcomes are in the sample space?\nLet \\(A\\) be the event “all 3 mothers get the correct baby.” Compute \\(P(A)\\).\nLet \\(B\\) be the event “none of the mothers get the correct baby.” Compute \\(P(B)\\)"
+    "text": "Suppose we toss a coin 20 times and see 15 heads.\n\n\\(x = 15\\)\n\\(n = 20\\)\n\\(\\hat{p} = 15/20 = 0.75\\)\nPercentage \\(= 75\\%\\)\nTheoretical \\(P(\\text{Heads}) = 0.5\\) (for a fair coin)"
   },
   {
-    "objectID": "quizzes/quiz-3.html#part-c-addition-rule-and-special-cases-lecture-5",
-    "href": "quizzes/quiz-3.html#part-c-addition-rule-and-special-cases-lecture-5",
-    "title": "Quiz 3",
+    "objectID": "lectures/lecture-2.html#student-exercise-1-coin-tosses",
+    "href": "lectures/lecture-2.html#student-exercise-1-coin-tosses",
+    "title": "Lecture 2",
     "section": "",
-    "text": "State the Addition Rule for any two events \\(A\\) and \\(B\\).\n\n\n\n\nA class has 65 students:\n\n40 have backpacks\n10 have hats\n5 have both a backpack and a hat\n\nLet \\(A\\) be the event a randomly selected student “has a backpack” and \\(B\\) be “has a hat.”\n\nCompute \\(P(A)\\) and \\(P(B)\\).\nCompute \\(P(A \\text{ and } B)\\).\nUse the addition rule to compute \\(P(A \\text{ or } B)\\).\n\n\n\n\n\nIf \\(P(\\text{rains at least once in July}) = 0.91\\), compute:\n\\[\nP(\\text{no rain in July})\n\\]\n\n\n\n\nSuppose \\(A\\) and \\(B\\) are non-overlapping (mutually exclusive) events.\n\nWhat does “non-overlapping” mean in words?\nWhat does it imply about \\(P(A \\text{ and } B)\\)?\nWrite the simplified formula for \\(P(A \\text{ or } B)\\) in this case."
+    "text": "A coin is tossed 10 times and comes up heads 3 times. Fill in:\n\n\\(x =\\) ________\n\\(n =\\) ________\n\\(\\hat{p} =\\) ________\nPercentage \\(=\\) ________ \\(\\%\\)\nTheoretical \\(P(\\text{Heads}) =\\) ______________________"
   },
   {
-    "objectID": "quizzes/quiz-3.html#part-d-r-code-by-hand-lab-2",
-    "href": "quizzes/quiz-3.html#part-d-r-code-by-hand-lab-2",
-    "title": "Quiz 3",
+    "objectID": "lectures/lecture-2.html#example-2-die-rolls",
+    "href": "lectures/lecture-2.html#example-2-die-rolls",
+    "title": "Lecture 2",
     "section": "",
-    "text": "Write R code that:\n\ncreates x_num as the numeric value of 0,\ncreates x_int as an integer (use the L),\nprints the class of each.\n\n\n\n\n\nWrite R code that:\n\ncreates a numeric vector v that contains the values 2, 4, 6, 8 and 10.\nprints the length of v\ncreates a new vector called v_plus_one that is v with 1 added to each of it’s values.\n\n\n\n\n\nUsing v &lt;- c(2, 4, 6, 8, 10), write R code for each:\n\nthe 3rd element\nthe 2nd through 4th elements\neverything except the 3rd element\nall elements greater than 5\n\n\n\n\n\nWrite R code that:\n\ncreates a 2x3 matrix m filled by column using 1:6,\nprints the dimensions of m\nextracts the value of m in the second row and first column\nextracts the first row\nextracts the second column\n\n\n\n\n\nWrite R code that uses a for loop to fill a vector named squares with the squares of 1 through 5:\nExpected result for squares\n[1]  1  4  9 16 25\n\n\n\n\nWrite R code to estimate the probability that a fair die roll is even using simulation:\n\nsimulate n &lt;- 10000 die rolls using sample(1:6, size = n, replace = TRUE)\ncompute the estimated probability with mean(...)\n\nYour code should create objects named n, rolls, and p_even."
+    "text": "Suppose a fair 6-sided die is rolled 24 times and we see the number “5” exactly 2 times.\n\n\\(x =\\) ______________\n\\(n =\\) ______________\n\\(\\hat{p} =\\) ______________\nPercentage \\(=\\) ______________\nTheoretical \\(P(\\text{\"5\"}) =\\) ______________________"
+  },
+  {
+    "objectID": "lectures/lecture-2.html#student-exercise-2-die-rolls",
+    "href": "lectures/lecture-2.html#student-exercise-2-die-rolls",
+    "title": "Lecture 2",
+    "section": "",
+    "text": "A die is rolled 30 times and shows “1” exactly 10 times. Fill in:\n\n\\(x =\\) ________\n\\(n =\\) ________\n\\(\\hat{p} =\\) ________\nPercentage \\(=\\) ________ \\(\\%\\)\nTheoretical \\(P(\\text{\"1\"}) =\\) ______________________"
+  },
+  {
+    "objectID": "lectures/lecture-2.html#three-rules-for-probabilities",
+    "href": "lectures/lecture-2.html#three-rules-for-probabilities",
+    "title": "Lecture 2",
+    "section": "",
+    "text": "All probabilities must satisfy:\n\n\\(0 \\le P(A) \\le 1\\) for any event \\(A\\)\nTotal probability across all possible outcomes \\(= 1\\)\nIf \\(A\\) and \\(B\\) are two events with no overlap, then \\(P(A \\text{ or } B) = P(A) + P(B)\\)\n\n\n\n\nCoin: \\(P(\\text{Heads}) + P(\\text{Tails}) =\\) ________\nDie: \\(P(\\text{\"1\"}) + P(\\text{\"2\"}) + \\cdots + P(\\text{\"6\"}) =\\) ________\nDie: \\(P(\\text{\"1\"}) + P(\\text{\"2\"}) =\\) ________\n\\(P(A) = 70\\) is ______________________\n\\(-0.5 = P(B)\\) is ______________________\n\\(P(D) = 0.7\\) is ______________________"
+  },
+  {
+    "objectID": "lectures/lecture-2.html#definition-of-probability",
+    "href": "lectures/lecture-2.html#definition-of-probability",
+    "title": "Lecture 2",
+    "section": "",
+    "text": "\\(P(\\text{Event})\\) = the proportion of times the event occurs out of the number of trials as the trial is repeated infinitely many times.\nProbability is tied to:\n\nA specific random process (repeating a trial with uncertain outcome infinitely many times)\nLong-run relative frequency (a.k.a. “proportion”) of an event occurring"
+  },
+  {
+    "objectID": "lectures/lecture-6.html",
+    "href": "lectures/lecture-6.html",
+    "title": "Lecture 6",
+    "section": "",
+    "text": "Lecture 6: Conditional Probability & Multiplication Rule\nLearning Outcomes:\n\nState the definition of conditional probability and compute \\(P(A \\mid B)\\).\nUse the multiplication rule to compute \\(P(A \\text{ and } B)\\).\nDetermine whether two events are independent (using equivalent criteria).\n\n\nConditional Probability\nNotation: \\(P(A \\mid B)\\) means “the probability event \\(A\\) occurs given event \\(B\\) occurred.”\nDefinition: For events \\(A\\) and \\(B\\) with \\(P(B) &gt; 0\\),\n\\[\nP(A \\mid B) = \\frac{P(A \\text{ and } B)}{P(B)}\n\\]\n\n\n\nExample 1 (die roll): Consider the trial of rolling a fair six-sided die once.\nLet \\(A\\) be the event “the roll is a 3” and let \\(B\\) be the event “the roll is odd.”\n\nList the outcomes in \\(A\\), in \\(B\\), and in \\(A \\text{ and } B\\).\nCompute \\(P(A)\\), \\(P(B)\\), and \\(P(A \\text{ and } B)\\).\nFind \\(P(A \\mid B)\\): the probability of getting a 3 given the roll resulted in an odd number.\nFind \\(P(B \\mid A)\\): the probability of getting an odd number given the roll resulted in a 3.\n\n\n\n\nPractice Problem 1: A jar contains 10 candies: 6 are red and 4 are blue. Two candies are selected without replacement.\nLet \\(A\\) be the event “the first candy is red” and \\(B\\) be the event “the second candy is red.”\n\nFind \\(P(A)\\).\nFind \\(P(B \\mid A)\\).\nUse the multiplication rule (below) to find \\(P(A \\text{ and } B)\\).\n\n\n\n\n\nMultiplication Rule\nFor any two events \\(A\\) and \\(B\\) with \\(P(B) &gt; 0\\),\n\\[\nP(A \\text{ and } B) = P(A \\mid B)\\,P(B)\n\\]\nEquivalently (if \\(P(A) &gt; 0\\)),\n\\[\nP(A \\text{ and } B) = P(B \\mid A)\\,P(A)\n\\]\n\n\n\nExample 2 (two cards, no replacement): A card is drawn from a standard 52-card deck, then a second card is drawn without replacement.\nFind the probability the first card is an Ace and the second card is a King.\n\n\n\n\nIndependence\nEvents \\(A\\) and \\(B\\) are independent if knowing that one event occurred does not change the probability of the other.\nEquivalent ways to check independence:\n\n\\(P(A \\mid B) = P(A)\\) (when \\(P(B) &gt; 0\\))\n\\(P(B \\mid A) = P(B)\\) (when \\(P(A) &gt; 0\\))\n\\(P(A \\text{ and } B) = P(A)\\,P(B)\\)\n\n\n\n\nExample 3 (king vs spade): Suppose a card is randomly dealt from a standard 52-card deck.\nIs the event “the card is a king” independent of the event “the card is a spade”?\n\n\n\n\nMultiplication Rule for Two Independent Events\nIf \\(A\\) and \\(B\\) are independent, then\n\\[\nP(A \\text{ and } B) = P(A)\\,P(B)\n\\]\n\n\n\nExample 4 (two coin tosses): Suppose a fair coin is tossed twice.\nFind the probability of getting “heads” on the first toss and “tails” on the second toss.\n\n\n\nPractice Problem 2: Suppose a fair six-sided die is rolled twice.\nLet \\(A\\) be the event “the first roll is even” and let \\(B\\) be the event “the second roll is 6.”\n\nAre \\(A\\) and \\(B\\) independent? (Explain briefly.)\nCompute \\(P(A \\text{ and } B)\\).\n\n\n\n\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Cal Poly Humboldt — Spring 2026\n\n\n\nCourse Number: STAT 109\nCourse Title: Introductory Biostatistics\nUnits: 4\nSemester: Spring 2026\nMode of Instruction: In-person\nGeneral Education: Lower Division GE Area B4 – Mathematical Concepts & Quantitative Reasoning\n\n\nDays/Time: Monday, Wednesday, Friday, 11:00–11:50 AM\nLocation: BSS 166\n\n\n\n9:00–10:50 AM, LOCATION: FH 202\n11:00–12:50 PM, LOCATION: FH 202\n1:00–2:50 PM, LOCATION: FH 202\n\n\n\nOptional Final Exam (held during the scheduled final exam period): Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166.The final exam is optional and may be taken to replace a midterm grade.\n\n\n\nTeacher: Dr. Rosanna Overholser\nEmail: rho3@humboldt.edu\nOffice Location: BSS 334\nOffice Phone: 707-826-4022\nOffice Hours: Mondays 2-3pm, Wednesdays 12-12:50pm, and Fridays 10-10:50am or by appointment\nPlease use your Cal Poly Humboldt email account to contact me and check both Canvas and your Cal Poly Humboldt email regularly for course communications.\n\n\n\n\n\nDescriptive statistics, probability, random variables, discrete and continuous distributions, confidence intervals, contingency tests, regression and correlation, tests of hypothesis, analysis of variance. Emphasis: methods and applications used in the biological and natural resource sciences.\nDivision: Lower Division  Weekly: Lecture 3 hrs. Activity 2 hrs.  Instruction Mode: In-person\nPrerequisite: MATH 101 or MATH 101I or MATH 102 or MATH 109B (may be taken concurrently with instructor approval) with a grade of C- or better or ALEKS PPL assessment score over 65 or appropriate high school coursework. See Math Placement and ALEKS PPL for details. MATH 102 may be taken concurrently with instructor approval.\nNote: if you plan to use STAT 109 as a prerequisite for another MATH, DATA or STAT course, you must have a grade of C- or better in this course.\n\n\nBy the end of this course, students will be able to:\n\nUse numerical and graphical descriptive statistics to summarize and interpret data.\nExplain the role of randomness, probability, and sampling in statistical inference.\nApply probability rules and work with common probability distributions.\nConstruct and interpret confidence intervals for means and proportions.\nConduct and interpret basic hypothesis tests.\nAnalyze relationships between pairs of variables using correlation and regression.\nUse a statistical programming language to analyze data and communicate results.\nDistinguish between correlation and causation and recognize limitations of statistical conclusions.\n\n\n\n\nThis course fulfills Lower Division General Education Area 2 (Quantitative Reasoning) and supports Cal Poly Humboldt’s Institutional Learning Outcomes related to quantitative reasoning, critical thinking, and communication.\n\n\n\n\n\nSTAT 109 includes:\n\nThree weekly lecture meetings\nOne weekly laboratory session\n\nIn this 4-unit course, students should expect to spend approximately 12 hours per week on course-related work, including time in lecture (3 hours), lab time (2 hours), and time outside of class to do practice problems, projects and prepare for exams and quizzes (7 hours).\n\n\nLecture Notes: I’ll provide packets of guided notes to you in class. These notes have key concepts, definitions and word problems that we’ll solve during class time. These notes have spaces for you to fill in during lecture as we go. If you need to miss class, please ask me for the packet you will be missing.\nOptional Textbook: Introductory Statistics for the Life and Biomedical Sciences by Julie Vu and Dave Harrington, available for free online.\nThree Binder: Please bring a three-ring binder to class to keep the lecture note packets in.\nPen or Pencil: Please bring a pen or pencil to class to take notes with.\nSoftware: R (free and installed on all campus computers; see R download page to install on your own computer) \nCalculator: Scientific (not graphing) calculator \nOther Technology: Regular access to a computer with reliable internet\n\n\n\nStudents who do not have personal access to required technology may use campus computer labs and library resources. If you want to get a free used computer, please check to see if our campus’s Reuseable Office Supply Exchange (ROSE) has one available.\n\n\n\nThere are no additional course fees beyond standard tuition and registration fees.\n\n\n\n\n\n\nStudents will complete a variety of assessments:\n\nDaily warm-up problems (Mondays, Wednesdays and Fridays, in lecture)\nWeekly programming labs (due Tuesdays, in Canvas: I’ll help you write the code the Thursday before)\nWeekly quizzes based on practice problems and labs (Thursdays at the beginning of lab)\nTwo midterms (Week 6 and Week 13 Fridays, in lecture)\nFive projects (Sundays at the ends of the weeks 5, 8, 10, 12, and 15, in Canvas)\n\nDaily warm-up problems are designed to give you an opportunity to work as a team with your classmates. Weekly labs and quizzes are designed to provide regular formative feedback through practice problems, posted solutions, and in-lab support. Midterms require students to demonstrate their understanding of the course material. Projects allow students to apply their knowledge to practical, real-world problems and can be used as part of a portfolio.\nOptionally, students may take a final exam (held during the scheduled final exam period: Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166) to replace a midterm grade.\n\n\n\n\n\n\nComponent\nWeight\n\n\n\n\nDaily Participation\n5%\n\n\nWeekly quizzes\n30%\n\n\nWeekly labs\n15%\n\n\nTwo midterms\n30%\n\n\nFive projects\n20%\n\n\nTotal\n100%\n\n\n\nFinal letter grades will be assigned based on overall performance according to the following:\nA: 93-100% A-: 90-92% B+: 87-89% B: 83-86% B-: 80-82% C+: 77-79% C: 73-76% C-: 70-72% D: 60-69% F: 0-59%\nNote:\n\nGrade Mode: Letter grade by default. Students may elect Credit/No Credit grading according to university deadlines and procedures.\nA minimum grade of C- is required for the course to count toward GE Area B4.\nIf you stop attending class and stop doing assignments without communicating with me, you will receive a grade of WU (Withdrawal Unsatisfactory). Please communicate with me early if you are having difficulties: it’s possible that I can help you get back on track, or help you obtain a more appropriate grade (W or I) for your situation.\n\n\n\n\nRegular attendance and active participation are expected and essential for success in this course.\n\nAttendance in lecture will be tracked via participation in the warm-up problems.\nAttendance in lab will be tracked via participation in the quizzes.\n\nIf you must miss class, you are responsible for obtaining notes and keeping up with course material.\n\n\n\n\n\nThe policies for late or missed work are as follows:\n\nDaily attendance in lecture is required, but I know that sometimes you will need to miss class due to illness or other emergencies. Each student may miss up to 10 days of lecture without penalty and without contacting me. It’s up to you to reserve these days for emergencies only. In my experience, it is rare for a student to succeed if they regularly miss lecture or are absent for more than two weeks so if you find yourself in this situation, please communicate with me and your advisor so we can help you find a solution to getting back on track.\nWeekly quizzes during Thursday lab sessions are required, but I know that sometimes you will need to miss lab due to illness or other emergencies. If this happens, please contact me to make an arrangement to take the quiz at another time.\nWeekly programming labs are due Tuesdays in Canvas. After the due date, a solution will be posted, so late submissions are generally not accepted except in documented emergencies. These labs will be graded on completion and your reflection.\nProjects are due on the specified date in Canvas. You may submit a late project up to a week late with no penalty. After a week, a project can be turn in for 70% of the grade.\nMidterms are required. If you need to miss a midterm due to illness or other emergencies, please communicate with me as soon as possible to reschedule it. Alternatively, you may take the optional final exam (Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166) to replace a missed midterm grade.\n\nNote: Technology issues (internet access, device failure, software problems) are not automatically considered valid excuses for late or missed work; students are expected to plan accordingly.\n\n\n\nMuch of your course grade will be based on materials that you produce in-class without having AI as a resource. But you may use AI, such as NotebookLM or ChatGPT, in this course to help you learn the materials or to perform data analyses or on the projects.\nFor work that you do at home that is turned in for a grade I have two requirements:\n\nif you used AI, acknowledge this briefly in the document (you don’t need to state in detail how you used AI or give your prompts, just the name of the AI service you used).\n\nBe responsible for the correctness and appropriateness of all (AI assisted or not) materials you turn in.\n\nI may use AI to assist me in my delivery of the course material, such as asking AI to see if an assignment is appropriate for a college level course or if the wording of a quiz question could be improved. I will not use AI to grade your work or use an AI detection tool to check your work.\n\n\n\n\n\n\n\n\nIntroduction to data, simulation, and statistical reasoning\nSelected topics in probability\nBinomial Random Process\nA simple hypothesis test\nNormal probability distribution\nSampling distributions and the Central Limit Theorem\nSampling methods\nConfidence intervals\nStudy design\nMore Hypothesis testing\nSimple predictive modeling via Linear regression\n\n\n\n\nNote: This schedule is subject to change. Any changes will be communicated through Canvas.\n\n\n\n\n\n\n\nDate\nEvent\n\n\n\n\nJanuary 20\nHoliday (No class)\n\n\nJanuary 23\nQuiz 1 (during lab)\n\n\nFebruary 2\nAdd/Drop Deadline without a serious and compelling reason\n\n\nFebruary 22\nProject 1 due\n\n\nFebruary 27\nMidterm 1\n\n\nMarch 15\nProject 2 due\n\n\nMarch 16-20\nSpring Break (No classes)\n\n\nMarch 31\nCesar Chavez Day (No class)\n\n\nApril 5\nProject 3 due\n\n\nApril 19\nProject 4 due\n\n\nApril 24\nMidterm 2\n\n\nMay 10\nProject 5 due\n\n\nMay 13\nFinal Exam (Optional, to replace a midterm grade) - 10:20 AM–12:10 PM, BSS 166\n\n\n\nWeekly Schedule:\n\nQuizzes: Weekly quizzes (Quiz 1-12) on Thursdays during lab sessions\nLectures: Monday, Wednesday, Friday, 11:00-11:50 AM with warm-ups in the first 5 minutes of class\nLabs: Get help on the code for your programming lab on Thursday (select one section: 9:00-10:50 AM, 11:00-12:50 PM, or 1:00-2:50 PM), then turn into Canvas by the following Tuesday. Elements of a lab may appear on the quiz, in addition to questions from that week’s practice problem set.\n\n\n\n\nThis class is accompanied by a 1-unit Supplemental Instruction course designed to assist students in better understanding course materials. There is room for 20 students within the SI course, and it can be accessed through the normal enrollment process.\n\nSI Course name: Stat 198 - 31 Supplemental Instruction\nClass number: 22835\nTime and place: TR 4:00 - 4:50 PM FH 179\nInstructor: Em Madrid\nContact: ebm37@humboldt.edu\n\n\n\n\n\n\nStudents are responsible for reviewing the Cal Poly Humboldt Syllabus Addendum, which includes policies and resources related to:\n\nAcademic honesty\nDisability accommodations\nEmergency procedures\nTitle IX\nStudent conduct and support services\n\n\n\nStudents who wish to request disability-related accommodations should contact the Student Disability Resource Center (SDRC) as early as possible and then email me (Rosanna Overholser, rho3@humboldt.edu) your letter of accommodation.\n\n\n\nStandards of respectful and professional behavior apply to all course interactions, including in-person classes, assignments, and email communication.\n\n\n\n\nThis syllabus is subject to change. Any changes will be communicated through Canvas announcements."
+  },
+  {
+    "objectID": "syllabus.html#course-information",
+    "href": "syllabus.html#course-information",
+    "title": "Resources",
+    "section": "",
+    "text": "Course Number: STAT 109\nCourse Title: Introductory Biostatistics\nUnits: 4\nSemester: Spring 2026\nMode of Instruction: In-person\nGeneral Education: Lower Division GE Area B4 – Mathematical Concepts & Quantitative Reasoning\n\n\nDays/Time: Monday, Wednesday, Friday, 11:00–11:50 AM\nLocation: BSS 166\n\n\n\n9:00–10:50 AM, LOCATION: FH 202\n11:00–12:50 PM, LOCATION: FH 202\n1:00–2:50 PM, LOCATION: FH 202\n\n\n\nOptional Final Exam (held during the scheduled final exam period): Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166.The final exam is optional and may be taken to replace a midterm grade.\n\n\n\nTeacher: Dr. Rosanna Overholser\nEmail: rho3@humboldt.edu\nOffice Location: BSS 334\nOffice Phone: 707-826-4022\nOffice Hours: Mondays 2-3pm, Wednesdays 12-12:50pm, and Fridays 10-10:50am or by appointment\nPlease use your Cal Poly Humboldt email account to contact me and check both Canvas and your Cal Poly Humboldt email regularly for course communications."
+  },
+  {
+    "objectID": "syllabus.html#course-description-catalog-description",
+    "href": "syllabus.html#course-description-catalog-description",
+    "title": "Resources",
+    "section": "",
+    "text": "Descriptive statistics, probability, random variables, discrete and continuous distributions, confidence intervals, contingency tests, regression and correlation, tests of hypothesis, analysis of variance. Emphasis: methods and applications used in the biological and natural resource sciences.\nDivision: Lower Division  Weekly: Lecture 3 hrs. Activity 2 hrs.  Instruction Mode: In-person\nPrerequisite: MATH 101 or MATH 101I or MATH 102 or MATH 109B (may be taken concurrently with instructor approval) with a grade of C- or better or ALEKS PPL assessment score over 65 or appropriate high school coursework. See Math Placement and ALEKS PPL for details. MATH 102 may be taken concurrently with instructor approval.\nNote: if you plan to use STAT 109 as a prerequisite for another MATH, DATA or STAT course, you must have a grade of C- or better in this course.\n\n\nBy the end of this course, students will be able to:\n\nUse numerical and graphical descriptive statistics to summarize and interpret data.\nExplain the role of randomness, probability, and sampling in statistical inference.\nApply probability rules and work with common probability distributions.\nConstruct and interpret confidence intervals for means and proportions.\nConduct and interpret basic hypothesis tests.\nAnalyze relationships between pairs of variables using correlation and regression.\nUse a statistical programming language to analyze data and communicate results.\nDistinguish between correlation and causation and recognize limitations of statistical conclusions.\n\n\n\n\nThis course fulfills Lower Division General Education Area 2 (Quantitative Reasoning) and supports Cal Poly Humboldt’s Institutional Learning Outcomes related to quantitative reasoning, critical thinking, and communication."
+  },
+  {
+    "objectID": "syllabus.html#course-materials-workload",
+    "href": "syllabus.html#course-materials-workload",
+    "title": "Resources",
+    "section": "",
+    "text": "STAT 109 includes:\n\nThree weekly lecture meetings\nOne weekly laboratory session\n\nIn this 4-unit course, students should expect to spend approximately 12 hours per week on course-related work, including time in lecture (3 hours), lab time (2 hours), and time outside of class to do practice problems, projects and prepare for exams and quizzes (7 hours).\n\n\nLecture Notes: I’ll provide packets of guided notes to you in class. These notes have key concepts, definitions and word problems that we’ll solve during class time. These notes have spaces for you to fill in during lecture as we go. If you need to miss class, please ask me for the packet you will be missing.\nOptional Textbook: Introductory Statistics for the Life and Biomedical Sciences by Julie Vu and Dave Harrington, available for free online.\nThree Binder: Please bring a three-ring binder to class to keep the lecture note packets in.\nPen or Pencil: Please bring a pen or pencil to class to take notes with.\nSoftware: R (free and installed on all campus computers; see R download page to install on your own computer) \nCalculator: Scientific (not graphing) calculator \nOther Technology: Regular access to a computer with reliable internet\n\n\n\nStudents who do not have personal access to required technology may use campus computer labs and library resources. If you want to get a free used computer, please check to see if our campus’s Reuseable Office Supply Exchange (ROSE) has one available.\n\n\n\nThere are no additional course fees beyond standard tuition and registration fees."
+  },
+  {
+    "objectID": "syllabus.html#course-feedback-assessment",
+    "href": "syllabus.html#course-feedback-assessment",
+    "title": "Resources",
+    "section": "",
+    "text": "Students will complete a variety of assessments:\n\nDaily warm-up problems (Mondays, Wednesdays and Fridays, in lecture)\nWeekly programming labs (due Tuesdays, in Canvas: I’ll help you write the code the Thursday before)\nWeekly quizzes based on practice problems and labs (Thursdays at the beginning of lab)\nTwo midterms (Week 6 and Week 13 Fridays, in lecture)\nFive projects (Sundays at the ends of the weeks 5, 8, 10, 12, and 15, in Canvas)\n\nDaily warm-up problems are designed to give you an opportunity to work as a team with your classmates. Weekly labs and quizzes are designed to provide regular formative feedback through practice problems, posted solutions, and in-lab support. Midterms require students to demonstrate their understanding of the course material. Projects allow students to apply their knowledge to practical, real-world problems and can be used as part of a portfolio.\nOptionally, students may take a final exam (held during the scheduled final exam period: Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166) to replace a midterm grade.\n\n\n\n\n\n\nComponent\nWeight\n\n\n\n\nDaily Participation\n5%\n\n\nWeekly quizzes\n30%\n\n\nWeekly labs\n15%\n\n\nTwo midterms\n30%\n\n\nFive projects\n20%\n\n\nTotal\n100%\n\n\n\nFinal letter grades will be assigned based on overall performance according to the following:\nA: 93-100% A-: 90-92% B+: 87-89% B: 83-86% B-: 80-82% C+: 77-79% C: 73-76% C-: 70-72% D: 60-69% F: 0-59%\nNote:\n\nGrade Mode: Letter grade by default. Students may elect Credit/No Credit grading according to university deadlines and procedures.\nA minimum grade of C- is required for the course to count toward GE Area B4.\nIf you stop attending class and stop doing assignments without communicating with me, you will receive a grade of WU (Withdrawal Unsatisfactory). Please communicate with me early if you are having difficulties: it’s possible that I can help you get back on track, or help you obtain a more appropriate grade (W or I) for your situation.\n\n\n\n\nRegular attendance and active participation are expected and essential for success in this course.\n\nAttendance in lecture will be tracked via participation in the warm-up problems.\nAttendance in lab will be tracked via participation in the quizzes.\n\nIf you must miss class, you are responsible for obtaining notes and keeping up with course material."
+  },
+  {
+    "objectID": "syllabus.html#late-or-missed-work-policies",
+    "href": "syllabus.html#late-or-missed-work-policies",
+    "title": "Resources",
+    "section": "",
+    "text": "The policies for late or missed work are as follows:\n\nDaily attendance in lecture is required, but I know that sometimes you will need to miss class due to illness or other emergencies. Each student may miss up to 10 days of lecture without penalty and without contacting me. It’s up to you to reserve these days for emergencies only. In my experience, it is rare for a student to succeed if they regularly miss lecture or are absent for more than two weeks so if you find yourself in this situation, please communicate with me and your advisor so we can help you find a solution to getting back on track.\nWeekly quizzes during Thursday lab sessions are required, but I know that sometimes you will need to miss lab due to illness or other emergencies. If this happens, please contact me to make an arrangement to take the quiz at another time.\nWeekly programming labs are due Tuesdays in Canvas. After the due date, a solution will be posted, so late submissions are generally not accepted except in documented emergencies. These labs will be graded on completion and your reflection.\nProjects are due on the specified date in Canvas. You may submit a late project up to a week late with no penalty. After a week, a project can be turn in for 70% of the grade.\nMidterms are required. If you need to miss a midterm due to illness or other emergencies, please communicate with me as soon as possible to reschedule it. Alternatively, you may take the optional final exam (Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166) to replace a missed midterm grade.\n\nNote: Technology issues (internet access, device failure, software problems) are not automatically considered valid excuses for late or missed work; students are expected to plan accordingly.\n\n\n\nMuch of your course grade will be based on materials that you produce in-class without having AI as a resource. But you may use AI, such as NotebookLM or ChatGPT, in this course to help you learn the materials or to perform data analyses or on the projects.\nFor work that you do at home that is turned in for a grade I have two requirements:\n\nif you used AI, acknowledge this briefly in the document (you don’t need to state in detail how you used AI or give your prompts, just the name of the AI service you used).\n\nBe responsible for the correctness and appropriateness of all (AI assisted or not) materials you turn in.\n\nI may use AI to assist me in my delivery of the course material, such as asking AI to see if an assignment is appropriate for a college level course or if the wording of a quiz question could be improved. I will not use AI to grade your work or use an AI detection tool to check your work."
+  },
+  {
+    "objectID": "syllabus.html#course-topics-schedule",
+    "href": "syllabus.html#course-topics-schedule",
+    "title": "Resources",
+    "section": "",
+    "text": "Introduction to data, simulation, and statistical reasoning\nSelected topics in probability\nBinomial Random Process\nA simple hypothesis test\nNormal probability distribution\nSampling distributions and the Central Limit Theorem\nSampling methods\nConfidence intervals\nStudy design\nMore Hypothesis testing\nSimple predictive modeling via Linear regression\n\n\n\n\nNote: This schedule is subject to change. Any changes will be communicated through Canvas.\n\n\n\n\n\n\n\nDate\nEvent\n\n\n\n\nJanuary 20\nHoliday (No class)\n\n\nJanuary 23\nQuiz 1 (during lab)\n\n\nFebruary 2\nAdd/Drop Deadline without a serious and compelling reason\n\n\nFebruary 22\nProject 1 due\n\n\nFebruary 27\nMidterm 1\n\n\nMarch 15\nProject 2 due\n\n\nMarch 16-20\nSpring Break (No classes)\n\n\nMarch 31\nCesar Chavez Day (No class)\n\n\nApril 5\nProject 3 due\n\n\nApril 19\nProject 4 due\n\n\nApril 24\nMidterm 2\n\n\nMay 10\nProject 5 due\n\n\nMay 13\nFinal Exam (Optional, to replace a midterm grade) - 10:20 AM–12:10 PM, BSS 166\n\n\n\nWeekly Schedule:\n\nQuizzes: Weekly quizzes (Quiz 1-12) on Thursdays during lab sessions\nLectures: Monday, Wednesday, Friday, 11:00-11:50 AM with warm-ups in the first 5 minutes of class\nLabs: Get help on the code for your programming lab on Thursday (select one section: 9:00-10:50 AM, 11:00-12:50 PM, or 1:00-2:50 PM), then turn into Canvas by the following Tuesday. Elements of a lab may appear on the quiz, in addition to questions from that week’s practice problem set.\n\n\n\n\nThis class is accompanied by a 1-unit Supplemental Instruction course designed to assist students in better understanding course materials. There is room for 20 students within the SI course, and it can be accessed through the normal enrollment process.\n\nSI Course name: Stat 198 - 31 Supplemental Instruction\nClass number: 22835\nTime and place: TR 4:00 - 4:50 PM FH 179\nInstructor: Em Madrid\nContact: ebm37@humboldt.edu"
+  },
+  {
+    "objectID": "syllabus.html#university-policies-resources",
+    "href": "syllabus.html#university-policies-resources",
+    "title": "Resources",
+    "section": "",
+    "text": "Students are responsible for reviewing the Cal Poly Humboldt Syllabus Addendum, which includes policies and resources related to:\n\nAcademic honesty\nDisability accommodations\nEmergency procedures\nTitle IX\nStudent conduct and support services\n\n\n\nStudents who wish to request disability-related accommodations should contact the Student Disability Resource Center (SDRC) as early as possible and then email me (Rosanna Overholser, rho3@humboldt.edu) your letter of accommodation.\n\n\n\nStandards of respectful and professional behavior apply to all course interactions, including in-person classes, assignments, and email communication."
+  },
+  {
+    "objectID": "syllabus.html#changes-to-the-syllabus",
+    "href": "syllabus.html#changes-to-the-syllabus",
+    "title": "Resources",
+    "section": "",
+    "text": "This syllabus is subject to change. Any changes will be communicated through Canvas announcements."
+  },
+  {
+    "objectID": "syllabus.html#spring-2026",
+    "href": "syllabus.html#spring-2026",
+    "title": "Resources",
+    "section": "Spring 2026",
+    "text": "Spring 2026\n\n\n\nWeek\nMon\nWed\nThu\nFri\nSun\n\n\n\n\n1 (Jan 20–23)\nHoliday\nLec\nLab 1 + Quiz 1\nLec\n—\n\n\n2 (Jan 26–30)\nLec\nLec\nLab 2 + Quiz 2\nLec\n—\n\n\n3 (Feb 2–6)\nLec\nLec\nLab 3 + Quiz 3\nLec\n—\n\n\n4 (Feb 9–13)\nLec\nLec\nLab 4 + Quiz 4\nLec\n—\n\n\n5 (Feb 16–20)\nLec\nLec\nLab 5 + Quiz 5\nLec\nProject 1 due (Sun Feb 22)\n\n\n6 (Feb 23–27)\nLec\nReview\nReview (no quiz)\nMidterm 1\n—\n\n\n7 (Mar 2–6)\nLec\nLec\nLab 6 + Quiz 6\nLec\n—\n\n\n8 (Mar 9–13)\nLec\nLec\nLab 7 + Quiz 7\nLec\nProject 2 due (Sun Mar 15)\n\n\n— (Mar 16–20)\n—\n—\n—\n—\n—\n\n\n9 (Mar 23–27)\nLec\nLec\nLab 8 + Quiz 8\nLec\n—\n\n\n10 (Mar 30–Apr 3)\nLec\nLec\nLab 9 + Quiz 9\nLec\nProject 3 due (Sun Apr 5)\n\n\n11 (Apr 6–10)\nLec\nLec\nLab 10 + Quiz 10\nLec\n—\n\n\n12 (Apr 13–17)\nLec\nLec\nLab 11 + Quiz 11\nLec\nProject 4 due (Sun Apr 19)\n\n\n13 (Apr 20–24)\nLec\nReview\nReview (no quiz)\nMidterm 2\n—\n\n\n14 (Apr 27–May 1)\nLec\nLec\nLab 12 + Quiz 12\nLec\n—\n\n\n15 (May 4–8)\nLec\nReview\nLab 13 + Quiz 13\nReview\nProject 5 due (Sun May 10)\n\n\nFinals (May 11–15)\n—\nFinal Exam\n—\n—\n—\n\n\n\nNotes:\n\nMon Week 1 = Holiday (No class)\nWeek 10 = Holiday (No class on Tuesday, March 31)"
+  },
+  {
+    "objectID": "syllabus.html#overview",
+    "href": "syllabus.html#overview",
+    "title": "Resources",
+    "section": "Overview",
+    "text": "Overview\nThis course includes several types of assessments designed to help you learn and to demonstrate your understanding of statistical concepts and methods.\n\n\n\n\n\n\n\n\nComponent\nWeight\nDescription\n\n\n\n\nDaily Participation\n5%\nWarm-up problems in lecture (Mondays, Wednesdays, Fridays)\n\n\nWeekly quizzes\n30%\nQuizzes on Thursdays at the beginning of lab\n\n\nWeekly labs\n15%\nProgramming labs due Tuesdays in Canvas\n\n\nTwo midterms\n30%\nMidterm 1 (Week 6, Friday) and Midterm 2 (Week 13, Friday)\n\n\nFive projects\n20%\nProjects due Sundays at ends of weeks 5, 8, 10, 12, and 15\n\n\nTotal\n100%"
+  },
+  {
+    "objectID": "syllabus.html#daily-participation-5",
+    "href": "syllabus.html#daily-participation-5",
+    "title": "Resources",
+    "section": "Daily Participation (5%)",
+    "text": "Daily Participation (5%)\nDaily warm-up problems are completed at the beginning of each lecture (Mondays, Wednesdays, and Fridays). These collaborative activities give you an opportunity to work as a team with your classmates and practice key concepts."
+  },
+  {
+    "objectID": "syllabus.html#weekly-labs-15",
+    "href": "syllabus.html#weekly-labs-15",
+    "title": "Resources",
+    "section": "Weekly Labs (15%)",
+    "text": "Weekly Labs (15%)\nWeekly programming labs provide hands-on practice with statistical analysis using R. Labs are due Tuesdays in Canvas. I’ll help you write the code during the Thursday lab session before they’re due. Labs are graded on completion and your reflection. After the due date, a solution will be posted, so late submissions are generally not accepted except in documented emergencies.\n\nIndividual Labs\n\nLab 1 - Week 1 (due Tuesday, Week 2)\nLab 2 - Week 2 (due Tuesday, Week 3)\nLab 3 - Week 3 (due Tuesday, Week 4)\nLab 4 - Week 4 (due Tuesday, Week 5)\nLab 5 - Week 5 (due Tuesday, Week 6)\nLab 6 - Week 7 (due Tuesday, Week 8)\nLab 7 - Week 8 (due Tuesday, Week 9)\nLab 8 - Week 9 (due Tuesday, Week 10)\nLab 9 - Week 10 (due Tuesday, Week 11)\nLab 10 - Week 11 (due Tuesday, Week 12)\nLab 11 - Week 12 (due Tuesday, Week 13)\nLab 12 - Week 14 (due Tuesday, Week 15)\nLab 13 - Week 15 (due Tuesday, Finals Week)"
+  },
+  {
+    "objectID": "syllabus.html#weekly-quizzes-30",
+    "href": "syllabus.html#weekly-quizzes-30",
+    "title": "Resources",
+    "section": "Weekly Quizzes (30%)",
+    "text": "Weekly Quizzes (30%)\nWeekly quizzes are administered on Thursdays at the beginning of lab. They assess your understanding of key concepts from the lessons, practice problems, and labs. If you need to miss a quiz due to illness or other emergencies, please contact me to make an arrangement to take it at another time.\n\nIndividual Quizzes\n\nQuiz 1 - Week 1\nQuiz 2 - Week 2\nQuiz 3 - Week 3\nQuiz 4 - Week 4\nQuiz 5 - Week 5\nQuiz 6 - Week 7\nQuiz 7 - Week 8\nQuiz 8 - Week 9\nQuiz 9 - Week 10\nQuiz 10 - Week 11\nQuiz 11 - Week 12\nQuiz 12 - Week 14\nQuiz 13 - Week 15"
+  },
+  {
+    "objectID": "syllabus.html#projects-20",
+    "href": "syllabus.html#projects-20",
+    "title": "Resources",
+    "section": "Projects (20%)",
+    "text": "Projects (20%)\nFive projects throughout the semester allow you to apply statistical methods to practical, real-world problems. Projects are due on Sundays at the ends of weeks 5, 8, 10, 12, and 15 in Canvas. You may submit a late project up to a week late with no penalty. After a week, a project can be turned in for 70% of the grade. Projects can be used as part of a portfolio.\n\nIndividual Projects\n\nProject 1 - Due Sunday, Week 5 (Feb 22)\nProject 2 - Due Sunday, Week 8 (Mar 15)\nProject 3 - Due Sunday, Week 10 (Apr 5)\nProject 4 - Due Sunday, Week 12 (Apr 19)\nProject 5 - Due Sunday, Week 15 (May 10)"
+  },
+  {
+    "objectID": "syllabus.html#exams-30",
+    "href": "syllabus.html#exams-30",
+    "title": "Resources",
+    "section": "Exams (30%)",
+    "text": "Exams (30%)\n\nMidterms\n\nMidterm 1: Week 6, Friday (in lecture)\nMidterm 2: Week 13, Friday (in lecture)\n\nMidterms require you to demonstrate your understanding of the course material. If you need to miss a midterm due to illness or other emergencies, please communicate with me as soon as possible to reschedule it. Alternatively, you may take the optional final exam to replace a missed midterm grade.\n\n\nFinal Exam (Optional)\nFinal Exam: Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166\nThe final exam is optional and may be taken to replace a midterm grade. It is held during the scheduled final exam period."
+  },
+  {
+    "objectID": "syllabus.html#grading-scale",
+    "href": "syllabus.html#grading-scale",
+    "title": "Resources",
+    "section": "Grading Scale",
+    "text": "Grading Scale\nFinal letter grades will be assigned based on overall performance:\nA: 93-100% | A-: 90-92% | B+: 87-89% | B: 83-86% | B-: 80-82% | C+: 77-79% | C: 73-76% | C-: 70-72% | D: 60-69% | F: 0-59%\nA minimum grade of C- is required for the course to count toward GE Area 2."
+  },
+  {
+    "objectID": "syllabus.html#week-1",
+    "href": "syllabus.html#week-1",
+    "title": "Resources",
+    "section": "Week 1",
+    "text": "Week 1\n\nMonday\nHoliday - No class\n\n\nWednesday\nLecture 1\n\n\nFriday\nLecture 2"
+  },
+  {
+    "objectID": "syllabus.html#week-2",
+    "href": "syllabus.html#week-2",
+    "title": "Resources",
+    "section": "Week 2",
+    "text": "Week 2\n\nMonday\nLecture 3\n\n\nWednesday\nLecture 4\n\n\nFriday\nLecture 5"
+  },
+  {
+    "objectID": "syllabus.html#week-3",
+    "href": "syllabus.html#week-3",
+    "title": "Resources",
+    "section": "Week 3",
+    "text": "Week 3\n\nMonday\nLecture 6\n\n\nWednesday\nLecture 7\n\n\nFriday\nLecture 8"
+  },
+  {
+    "objectID": "syllabus.html#week-4",
+    "href": "syllabus.html#week-4",
+    "title": "Resources",
+    "section": "Week 4",
+    "text": "Week 4\n\nMonday\nLecture 9\n\n\nWednesday\nLecture 10\n\n\nFriday\nLecture 11"
+  },
+  {
+    "objectID": "syllabus.html#week-5",
+    "href": "syllabus.html#week-5",
+    "title": "Resources",
+    "section": "Week 5",
+    "text": "Week 5\n\nMonday\nLecture 12\n\n\nWednesday\nLecture 13\n\n\nFriday\nLecture 14"
+  },
+  {
+    "objectID": "syllabus.html#week-6",
+    "href": "syllabus.html#week-6",
+    "title": "Resources",
+    "section": "Week 6",
+    "text": "Week 6\n\nMonday\nLecture 15\n\n\nWednesday\nReview\n\n\nFriday\nMidterm 1"
+  },
+  {
+    "objectID": "syllabus.html#week-7",
+    "href": "syllabus.html#week-7",
+    "title": "Resources",
+    "section": "Week 7",
+    "text": "Week 7\n\nMonday\nLecture 16\n\n\nWednesday\nLecture 17\n\n\nFriday\nLecture 18"
+  },
+  {
+    "objectID": "syllabus.html#week-8",
+    "href": "syllabus.html#week-8",
+    "title": "Resources",
+    "section": "Week 8",
+    "text": "Week 8\n\nMonday\nLecture 19\n\n\nWednesday\nLecture 20\n\n\nFriday\nLecture 21"
+  },
+  {
+    "objectID": "syllabus.html#week-9",
+    "href": "syllabus.html#week-9",
+    "title": "Resources",
+    "section": "Week 9",
+    "text": "Week 9\n\nMonday\nLecture 22\n\n\nWednesday\nLecture 23\n\n\nFriday\nLecture 24"
+  },
+  {
+    "objectID": "syllabus.html#week-10",
+    "href": "syllabus.html#week-10",
+    "title": "Resources",
+    "section": "Week 10",
+    "text": "Week 10\n\nMonday\nLecture 25\n\n\nWednesday\nLecture 26\n\n\nFriday\nLecture 27"
+  },
+  {
+    "objectID": "syllabus.html#week-11",
+    "href": "syllabus.html#week-11",
+    "title": "Resources",
+    "section": "Week 11",
+    "text": "Week 11\n\nMonday\nLecture 28\n\n\nWednesday\nLecture 29\n\n\nFriday\nLecture 30"
+  },
+  {
+    "objectID": "syllabus.html#week-12",
+    "href": "syllabus.html#week-12",
+    "title": "Resources",
+    "section": "Week 12",
+    "text": "Week 12\n\nMonday\nLecture 31\n\n\nWednesday\nLecture 32\n\n\nFriday\nLecture 33"
+  },
+  {
+    "objectID": "syllabus.html#week-13",
+    "href": "syllabus.html#week-13",
+    "title": "Resources",
+    "section": "Week 13",
+    "text": "Week 13\n\nMonday\nLecture 34\n\n\nWednesday\nReview\n\n\nFriday\nMidterm 2"
+  },
+  {
+    "objectID": "syllabus.html#week-14",
+    "href": "syllabus.html#week-14",
+    "title": "Resources",
+    "section": "Week 14",
+    "text": "Week 14\n\nMonday\nLecture 35\n\n\nWednesday\nLecture 36\n\n\nFriday\nLecture 37"
+  },
+  {
+    "objectID": "syllabus.html#week-15",
+    "href": "syllabus.html#week-15",
+    "title": "Resources",
+    "section": "Week 15",
+    "text": "Week 15\n\nMonday\nLecture 38\n\n\nWednesday\nReview\n\n\nFriday\nReview"
+  },
+  {
+    "objectID": "syllabus.html#methods-descriptive",
+    "href": "syllabus.html#methods-descriptive",
+    "title": "Resources",
+    "section": "Descriptive Statistics",
+    "text": "Descriptive Statistics\n\nOne Quantitative Variable\n[Content to be added]\n\n\nTwo Quantitative Variables\n[Content to be added]\n\n\nOne Categorical Variable\n[Content to be added]\n\n\nTwo Categorical Variables\n[Content to be added]"
+  },
+  {
+    "objectID": "syllabus.html#methods-inferential",
+    "href": "syllabus.html#methods-inferential",
+    "title": "Resources",
+    "section": "Inferential Statistics",
+    "text": "Inferential Statistics\n\nOne Quantitative Variable\n[Content to be added]\n\n\nTwo Quantitative Variables\n[Content to be added]\n\n\nOne Categorical Variable\n[Content to be added]\n\n\nTwo Categorical Variables\n[Content to be added]"
+  },
+  {
+    "objectID": "syllabus.html#r-import",
+    "href": "syllabus.html#r-import",
+    "title": "Resources",
+    "section": "Import Data",
+    "text": "Import Data\n[Content to be added]"
+  },
+  {
+    "objectID": "syllabus.html#r-summaries",
+    "href": "syllabus.html#r-summaries",
+    "title": "Resources",
+    "section": "Summaries",
+    "text": "Summaries\n[Content to be added]"
+  },
+  {
+    "objectID": "syllabus.html#r-plots",
+    "href": "syllabus.html#r-plots",
+    "title": "Resources",
+    "section": "Plots",
+    "text": "Plots\n[Content to be added]"
+  },
+  {
+    "objectID": "syllabus.html#r-sim",
+    "href": "syllabus.html#r-sim",
+    "title": "Resources",
+    "section": "Simulation",
+    "text": "Simulation\n[Content to be added]"
+  },
+  {
+    "objectID": "syllabus.html#lectures-1",
+    "href": "syllabus.html#lectures-1",
+    "title": "Resources",
+    "section": "Lectures",
+    "text": "Lectures\nLectures - Access all course lectures organized by week and day."
+  },
+  {
+    "objectID": "syllabus.html#textbook",
+    "href": "syllabus.html#textbook",
+    "title": "Resources",
+    "section": "Textbook",
+    "text": "Textbook\nOptional Textbook: Introductory Statistics for the Life and Biomedical Sciences by Julie Vu and Dave Harrington\nThis textbook is available for free online and provides additional explanations and examples that complement the course materials."
+  },
+  {
+    "objectID": "syllabus.html#r-software-downloads",
+    "href": "syllabus.html#r-software-downloads",
+    "title": "Resources",
+    "section": "R Software Downloads",
+    "text": "R Software Downloads\nSTAT 109 uses R for statistical computing. You can use R in several ways:\n\nBase R\nDownload R: R Project Website\nR is free and open-source statistical software. The base R installation includes the core R language and basic packages.\n\nWindows: Download the installer from CRAN (Comprehensive R Archive Network)\nMac: Download the macOS installer from CRAN\nLinux: Install via your distribution’s package manager or from CRAN\n\n\n\nRStudio\nDownload RStudio: RStudio Desktop\nRStudio is an integrated development environment (IDE) for R that provides a user-friendly interface, code editor, and helpful features for data analysis. RStudio Desktop is free and works with base R.\nNote: You must install base R first before installing RStudio.\n\n\nR in Google Colab\nAccess R in Google Colab: R in Colab\nGoogle Colab provides free access to R in a cloud-based notebook environment. This is useful if you don’t want to install R on your computer or need to work from different devices.\n\n\nR in Jupyter Notebook\nInstall R for Jupyter: IRkernel Documentation\nJupyter Notebook is another notebook environment that supports R. To use R in Jupyter:\n\nInstall base R first\nInstall Jupyter Notebook or JupyterLab\nInstall the IRkernel package in R\nRegister the kernel with Jupyter\n\nNote: R is also installed on all campus computers, so you can use the computer labs if you prefer not to install software on your personal computer."
+  },
+  {
+    "objectID": "syllabus.html#course-reference-materials",
+    "href": "syllabus.html#course-reference-materials",
+    "title": "Resources",
+    "section": "Course Reference Materials",
+    "text": "Course Reference Materials\n\nR Reference\nR Quick Reference - A quick reference guide for common R commands and functions used in this course.\n\n\nMethods Map\nMethods Map - A reference table of statistical methods covered in the course, organized by topic."
+  },
+  {
+    "objectID": "syllabus.html#additional-resources",
+    "href": "syllabus.html#additional-resources",
+    "title": "Resources",
+    "section": "Additional Resources",
+    "text": "Additional Resources\n\nCampus Resources\n\nComputer Labs: R is installed on all campus computers\nROSE (Reusable Office Supply Exchange): Free used computers may be available if you need a computer\n\n\n\nGetting Help\n\nOffice Hours: See the Syllabus for instructor office hours\nCanvas: Check Canvas for announcements and course communications\nEmail: Contact the instructor at rho3@humboldt.edu"
   }
 ]
