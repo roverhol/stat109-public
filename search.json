@@ -35,87 +35,311 @@
     "text": "Instructor Information\nInstructor: Dr. Rosanna Overholser\nOffice: BSS 334\nEmail: rho3@humboldt.edu\nOffice Hours: Mondays 2-3pm, Wednesdays 12-12:50pm, Fridays 10-10:50am, or by appointment"
   },
   {
-    "objectID": "labs/demo_lab2.html",
-    "href": "labs/demo_lab2.html",
-    "title": "Lab 2 Demo: Random grid sites",
+    "objectID": "lectures/lecture-5.html",
+    "href": "lectures/lecture-5.html",
+    "title": "Lecture 5",
     "section": "",
-    "text": "Goal: Start Lab 2 with a probability question on an equally likely sample space, then show how to compute it by counting and by simulation in R.\n\n\nBefore the 2D grid, we practice the same ideas on a 1D line of 5 sites.\nWe label sites as:\n\\[\nS = \\{1,2,3,4,5\\}\n\\]\nWe choose 2 distinct sites without replacement, so the equally likely sample space is all 2-site sets:\n\\[\n|S_2| = \\binom{5}{2} = 10\n\\]\n\n\nThe “end sites” are 1 and 5.\nUse the complement (“no ends” means both picks are from {2,3,4}):\n\\[\nP(\\text{at least one end})\n= 1 - \\frac{\\binom{3}{2}}{\\binom{5}{2}}\n= 1 - \\frac{3}{10}\n= \\frac{7}{10}\n\\]\n\n\n\nAdjacent pairs are:\n\n{1,2}, {2,3}, {3,4}, {4,5} (4 pairs total)\n\nSo:\n\\[\nP(\\text{adjacent}) = \\frac{4}{\\binom{5}{2}} = \\frac{4}{10} = 0.4\n\\]\n\n\n\nset.seed(109)\n\nsites &lt;- 1:5\nB &lt;- 10000\n\nat_least_one_end &lt;- logical(B)\nadjacent &lt;- logical(B)\n\nfor (b in 1:B) {\n  draws &lt;- sample(sites, size = 2, replace = FALSE)\n  a &lt;- draws[1]\n  c &lt;- draws[2]\n\n  # \"at least one end\" using the Lab 1 sum idea\n  at_least_one_end[b] &lt;- sum(c(a == 1, a == 5, c == 1, c == 5)) &gt; 0\n\n  # adjacent on a line if they differ by 1\n  adjacent[b] &lt;- (abs(a - c) == 1)\n}\n\nmean(at_least_one_end)\nmean(adjacent)\n\n\n\n\n\nWe have an \\(N \\times N\\) grid of possible sampling sites. Each site is equally likely.\nFor this demo, we will keep things realistic and simple:\n\nWe select 2 distinct sites without replacement from the grid.\nEvery unordered pair of sites is equally likely.\n\nSo the sample space size is:\n\\[\n|S| = \\binom{N^2}{2}\n\\]\n\nTotal sites: \\(N^2\\)\nCorner sites: \\(4\\)\nEdge sites (including corners): \\(4N - 4\\)\n\nDefine:\n\n\\(p_\\text{corner} = \\frac{4}{N^2}\\)\n\\(p_\\text{edge} = \\frac{4N-4}{N^2}\\)\n\n\n\n\n\n\nTypes\n\nnumeric vs integer vs character vs logical\nclass(x) (and optionally typeof(x))\n\nVectors\n\nc(...) to create vectors\nlength(x) to check size\nbracketing x[i] and bracketing with a logical vector x[x &gt; 5]\nelement-by-element operations: x + 1, x * 2, x == y\n\nMatrices\n\nmatrix(...) to create a matrix\ndim(m) to check size\nbracketing m[row, col], extracting rows/cols with m[1, ], m[, 2]\n\nSimulation + loops\n\nsample(..., replace = FALSE) (choose distinct sites)\n%in% for “is it in this set?”\nplaceholders: logical(B), numeric(B)\nfor (b in 1:B) { ... } storing one result per run\nprobability by simulation: mean(TRUE/FALSE)\n\n\n\n\n# Types\nx_num &lt;- 3.5\nx_int &lt;- 3L\nx_chr &lt;- \"site\"\nx_log &lt;- (3 &lt; 5)\n\nclass(x_num); class(x_int); class(x_chr); class(x_log)\n\n# Vector + length + scalar operations\nv &lt;- c(2, 4, 6, 8, 10)\nlength(v)\nv + 1\nv * 2\n\n# Matrix + dim + bracketing\nm &lt;- matrix(1:6, nrow = 2, ncol = 3)\ndim(m)\nm[2, 2]\nm[1, ]\nm[, 2]\n\n\n\n\n\nWe are choosing 2 distinct sites from \\(N^2\\) equally likely sites.\nThere are 4 corners and \\(N^2 - 4\\) non-corners.\nUse the complement (“no corners”):\n\\[\nP(\\text{at least one corner})\n= 1 - P(\\text{no corners})\n= 1 - \\frac{\\binom{N^2 - 4}{2}}{\\binom{N^2}{2}}\n\\]\n\n\n\n\nEdges (including corners) total \\(4N - 4\\) sites, so non-edges total:\n\\[\nN^2 - (4N - 4) = (N-2)^2\n\\]\nUse the complement (“no edges”):\n\\[\nP(\\text{at least one edge})\n= 1 - P(\\text{no edges})\n= 1 - \\frac{\\binom{(N-2)^2}{2}}{\\binom{N^2}{2}}\n\\]\n\n\n\n\nWe will say two sites are adjacent if they are 4-neighbors (up/down/left/right).\n\n\nIn an \\(N\\times N\\) grid:\n\nHorizontal adjacent pairs: \\(N(N-1)\\)\nVertical adjacent pairs: \\(N(N-1)\\)\n\nSo total adjacent (unordered) pairs:\n\\[\n2N(N-1)\n\\]\nTotal possible unordered pairs of sites:\n\\[\n\\binom{N^2}{2}\n\\]\nTherefore:\n\\[\nP(\\text{adjacent}) = \\frac{2N(N-1)}{\\binom{N^2}{2}}\n\\]\n\n\n\n\n\nPick values that are easy to talk through in class. For example:\n\n\\(N = 5\\) (a \\(5\\times 5\\) grid, 25 sites)\n\nThen:\n\nTotal pairs: \\(\\binom{25}{2} = 300\\)\nAdjacent pairs: \\(2N(N-1)=2\\cdot 5\\cdot 4=40\\)\n\nWe can compute the three probabilities in R.\nN &lt;- 5\ntotal_pairs &lt;- choose(N^2, 2)\n\n# 1) at least one corner\np_at_least_one_corner &lt;- 1 - choose(N^2 - 4, 2) / total_pairs\n\n# 2) at least one edge\np_at_least_one_edge &lt;- 1 - choose((N - 2)^2, 2) / total_pairs\n\n# 3) adjacent\np_adjacent &lt;- (2 * N * (N - 1)) / total_pairs\n\np_at_least_one_corner\np_at_least_one_edge\np_adjacent\n\n\n\n\nWe simulate \\(B\\) random samples of 2 distinct sites, and estimate probabilities by proportions (mean(TRUE/FALSE)).\nWe label each grid cell with a string \"i,j\" so the sampled sites look like coordinates you’d write by hand.\nNew-to-Lab-1/2 note: this uses paste() to create \"i,j\" labels and strsplit() + as.numeric() to turn \"i,j\" back into numbers for the adjacency check.\nset.seed(109)\n\nN &lt;- 5\nB &lt;- 10000\n\n# Make a grid whose entries look like \"i,j\" (row,col)\ngrid &lt;- matrix(\"\", nrow = N, ncol = N)\nfor (i in 1:N) {\n  for (j in 1:N) {\n    grid[i, j] &lt;- paste(i, j, sep = \",\")\n  }\n}\n\ncorners &lt;- c(grid[1,1], grid[1,N], grid[N,1], grid[N,N])\nedges   &lt;- c(grid[1, ], grid[N, ], grid[2:(N-1), 1], grid[2:(N-1), N])\n\nat_least_one_corner &lt;- logical(B)\nat_least_one_edge   &lt;- logical(B)\nadjacent            &lt;- logical(B)\n\nfor (b in 1:B) {\n  picks &lt;- sample(grid, size = 2, replace = FALSE)\n  s1 &lt;- picks[1]\n  s2 &lt;- picks[2]\n\n  rc1 &lt;- as.numeric(strsplit(s1, \",\")[[1]])\n  rc2 &lt;- as.numeric(strsplit(s2, \",\")[[1]])\n\n  r1 &lt;- rc1[1]; c1 &lt;- rc1[2]\n  r2 &lt;- rc2[1]; c2 &lt;- rc2[2]\n\n  # keep the Lab 1 \"sum of TRUE/FALSE\" idea (avoid new | and & operators)\n  at_least_one_corner[b] &lt;- sum(c(s1 %in% corners, s2 %in% corners)) &gt; 0\n  at_least_one_edge[b]   &lt;- sum(c(s1 %in% edges,   s2 %in% edges))   &gt; 0\n\n  same_row_adj &lt;- (r1 == r2) * (abs(c1 - c2) == 1)\n  same_col_adj &lt;- (c1 == c2) * (abs(r1 - r2) == 1)\n  adjacent[b] &lt;- sum(c(same_row_adj, same_col_adj)) &gt; 0\n}\n\nmean(at_least_one_corner)\nmean(at_least_one_edge)\nmean(adjacent)\n\n\n\n\n\nEqually likely sample space: every 2-site sample (without replacement) is equally likely.\nCounting: corners = 4; edges = \\(4N-4\\); total sites = \\(N^2\\); total pairs = \\(\\binom{N^2}{2}\\).\nMatrices + bracketing: grid &lt;- matrix(\"\", ...), corners &lt;- c(grid[1,1], ...), etc.\nFor loop: pre-allocate storage (logical(B)) and store one result per iteration.\nProbability by simulation: mean(TRUE/FALSE) gives a proportion."
+    "text": "Lecture 5: Addition Rule for Probability\nLearning Outcomes:\n\nState the Addition Rule for any two events\nUse the addition rule to compute the probability of events A or B, being aware of special cases.\n\n\nAddition Rule\nFor any two events A and B…\nVisualizing the Addition Rule with a Venn Diagram\nExample: Suppose a class consists of 20 students.  Of these students, 12 have backpacks and 3 have hats.  There is only 1 student with both a backpack and a hat. \nSuppose one student is randomly selected from the 20.  What is the probability this student will either have a backpack OR have a hat?\nPractice Problem: Suppose a class consists of 30 students.  Of these students, 8 like to go sky diving and 20 like to go surfing.  There are 7 students that like both sky diving and surfing.\nSuppose one student is randomly selected from the 30.  What is the probability this student will like sky diving OR surfing\n\nSpecial Cases of the Addition Rule\nComplement Rule\nNon-overlapping Events\nExample: Suppose the probability of it snowing at least once this November is 0.83.  what is the probability that it will not snow at all this November?\nExample: Suppose that a brand of gummy vitamins come in three animal shapes: Lions, tigers or bears .  The company creates the gummies as follows: 30% of the shapes are bears, 30% are tigers and 40% are lions. \nWhat is the probability that a randomly selected gummy will be either a bear or a tiger?\nPractice Problem: Suppose a card is drawn from a standard 52 card deck.  What is the probability the card is…\n\nA “face” card (king, queen or jack)?\nAn Ace?\nNot an Ace?\n\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
   },
   {
-    "objectID": "labs/demo_lab2.html#warm-up-a-1d-grid-51-line-of-sites",
-    "href": "labs/demo_lab2.html#warm-up-a-1d-grid-51-line-of-sites",
-    "title": "Lab 2 Demo: Random grid sites",
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Resources",
     "section": "",
-    "text": "Before the 2D grid, we practice the same ideas on a 1D line of 5 sites.\nWe label sites as:\n\\[\nS = \\{1,2,3,4,5\\}\n\\]\nWe choose 2 distinct sites without replacement, so the equally likely sample space is all 2-site sets:\n\\[\n|S_2| = \\binom{5}{2} = 10\n\\]\n\n\nThe “end sites” are 1 and 5.\nUse the complement (“no ends” means both picks are from {2,3,4}):\n\\[\nP(\\text{at least one end})\n= 1 - \\frac{\\binom{3}{2}}{\\binom{5}{2}}\n= 1 - \\frac{3}{10}\n= \\frac{7}{10}\n\\]\n\n\n\nAdjacent pairs are:\n\n{1,2}, {2,3}, {3,4}, {4,5} (4 pairs total)\n\nSo:\n\\[\nP(\\text{adjacent}) = \\frac{4}{\\binom{5}{2}} = \\frac{4}{10} = 0.4\n\\]\n\n\n\nset.seed(109)\n\nsites &lt;- 1:5\nB &lt;- 10000\n\nat_least_one_end &lt;- logical(B)\nadjacent &lt;- logical(B)\n\nfor (b in 1:B) {\n  draws &lt;- sample(sites, size = 2, replace = FALSE)\n  a &lt;- draws[1]\n  c &lt;- draws[2]\n\n  # \"at least one end\" using the Lab 1 sum idea\n  at_least_one_end[b] &lt;- sum(c(a == 1, a == 5, c == 1, c == 5)) &gt; 0\n\n  # adjacent on a line if they differ by 1\n  adjacent[b] &lt;- (abs(a - c) == 1)\n}\n\nmean(at_least_one_end)\nmean(adjacent)"
+    "text": "Cal Poly Humboldt — Spring 2026\n\n\n\nCourse Number: STAT 109\nCourse Title: Introductory Biostatistics\nUnits: 4\nSemester: Spring 2026\nMode of Instruction: In-person\nGeneral Education: Lower Division GE Area B4 – Mathematical Concepts & Quantitative Reasoning\n\n\nDays/Time: Monday, Wednesday, Friday, 11:00–11:50 AM\nLocation: BSS 166\n\n\n\n9:00–10:50 AM, LOCATION: FH 202\n11:00–12:50 PM, LOCATION: FH 202\n1:00–2:50 PM, LOCATION: FH 202\n\n\n\nOptional Final Exam (held during the scheduled final exam period): Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166.The final exam is optional and may be taken to replace a midterm grade.\n\n\n\nTeacher: Dr. Rosanna Overholser\nEmail: rho3@humboldt.edu\nOffice Location: BSS 334\nOffice Phone: 707-826-4022\nOffice Hours: Mondays 2-3pm, Wednesdays 12-12:50pm, and Fridays 10-10:50am or by appointment\nPlease use your Cal Poly Humboldt email account to contact me and check both Canvas and your Cal Poly Humboldt email regularly for course communications.\n\n\n\n\n\nDescriptive statistics, probability, random variables, discrete and continuous distributions, confidence intervals, contingency tests, regression and correlation, tests of hypothesis, analysis of variance. Emphasis: methods and applications used in the biological and natural resource sciences.\nDivision: Lower Division  Weekly: Lecture 3 hrs. Activity 2 hrs.  Instruction Mode: In-person\nPrerequisite: MATH 101 or MATH 101I or MATH 102 or MATH 109B (may be taken concurrently with instructor approval) with a grade of C- or better or ALEKS PPL assessment score over 65 or appropriate high school coursework. See Math Placement and ALEKS PPL for details. MATH 102 may be taken concurrently with instructor approval.\nNote: if you plan to use STAT 109 as a prerequisite for another MATH, DATA or STAT course, you must have a grade of C- or better in this course.\n\n\nBy the end of this course, students will be able to:\n\nUse numerical and graphical descriptive statistics to summarize and interpret data.\nExplain the role of randomness, probability, and sampling in statistical inference.\nApply probability rules and work with common probability distributions.\nConstruct and interpret confidence intervals for means and proportions.\nConduct and interpret basic hypothesis tests.\nAnalyze relationships between pairs of variables using correlation and regression.\nUse a statistical programming language to analyze data and communicate results.\nDistinguish between correlation and causation and recognize limitations of statistical conclusions.\n\n\n\n\nThis course fulfills Lower Division General Education Area 2 (Quantitative Reasoning) and supports Cal Poly Humboldt’s Institutional Learning Outcomes related to quantitative reasoning, critical thinking, and communication.\n\n\n\n\n\nSTAT 109 includes:\n\nThree weekly lecture meetings\nOne weekly laboratory session\n\nIn this 4-unit course, students should expect to spend approximately 12 hours per week on course-related work, including time in lecture (3 hours), lab time (2 hours), and time outside of class to do practice problems, projects and prepare for exams and quizzes (7 hours).\n\n\nLecture Notes: I’ll provide packets of guided notes to you in class. These notes have key concepts, definitions and word problems that we’ll solve during class time. These notes have spaces for you to fill in during lecture as we go. If you need to miss class, please ask me for the packet you will be missing.\nOptional Textbook: Introductory Statistics for the Life and Biomedical Sciences by Julie Vu and Dave Harrington, available for free online.\nThree Binder: Please bring a three-ring binder to class to keep the lecture note packets in.\nPen or Pencil: Please bring a pen or pencil to class to take notes with.\nSoftware: R (free and installed on all campus computers; see R download page to install on your own computer) \nCalculator: Scientific (not graphing) calculator \nOther Technology: Regular access to a computer with reliable internet\n\n\n\nStudents who do not have personal access to required technology may use campus computer labs and library resources. If you want to get a free used computer, please check to see if our campus’s Reuseable Office Supply Exchange (ROSE) has one available.\n\n\n\nThere are no additional course fees beyond standard tuition and registration fees.\n\n\n\n\n\n\nStudents will complete a variety of assessments:\n\nDaily warm-up problems (Mondays, Wednesdays and Fridays, in lecture)\nWeekly programming labs (due Tuesdays, in Canvas: I’ll help you write the code the Thursday before)\nWeekly quizzes based on practice problems and labs (Thursdays at the beginning of lab)\nTwo midterms (Week 6 and Week 13 Fridays, in lecture)\nFive projects (Sundays at the ends of the weeks 5, 8, 10, 12, and 15, in Canvas)\n\nDaily warm-up problems are designed to give you an opportunity to work as a team with your classmates. Weekly labs and quizzes are designed to provide regular formative feedback through practice problems, posted solutions, and in-lab support. Midterms require students to demonstrate their understanding of the course material. Projects allow students to apply their knowledge to practical, real-world problems and can be used as part of a portfolio.\nOptionally, students may take a final exam (held during the scheduled final exam period: Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166) to replace a midterm grade.\n\n\n\n\n\n\nComponent\nWeight\n\n\n\n\nDaily Participation\n5%\n\n\nWeekly quizzes\n30%\n\n\nWeekly labs\n15%\n\n\nTwo midterms\n30%\n\n\nFive projects\n20%\n\n\nTotal\n100%\n\n\n\nFinal letter grades will be assigned based on overall performance according to the following:\nA: 93-100% A-: 90-92% B+: 87-89% B: 83-86% B-: 80-82% C+: 77-79% C: 73-76% C-: 70-72% D: 60-69% F: 0-59%\nNote:\n\nGrade Mode: Letter grade by default. Students may elect Credit/No Credit grading according to university deadlines and procedures.\nA minimum grade of C- is required for the course to count toward GE Area B4.\nIf you stop attending class and stop doing assignments without communicating with me, you will receive a grade of WU (Withdrawal Unsatisfactory). Please communicate with me early if you are having difficulties: it’s possible that I can help you get back on track, or help you obtain a more appropriate grade (W or I) for your situation.\n\n\n\n\nRegular attendance and active participation are expected and essential for success in this course.\n\nAttendance in lecture will be tracked via participation in the warm-up problems.\nAttendance in lab will be tracked via participation in the quizzes.\n\nIf you must miss class, you are responsible for obtaining notes and keeping up with course material.\n\n\n\n\n\nThe policies for late or missed work are as follows:\n\nDaily attendance in lecture is required, but I know that sometimes you will need to miss class due to illness or other emergencies. Each student may miss up to 10 days of lecture without penalty and without contacting me. It’s up to you to reserve these days for emergencies only. In my experience, it is rare for a student to succeed if they regularly miss lecture or are absent for more than two weeks so if you find yourself in this situation, please communicate with me and your advisor so we can help you find a solution to getting back on track.\nWeekly quizzes during Thursday lab sessions are required, but I know that sometimes you will need to miss lab due to illness or other emergencies. If this happens, please contact me to make an arrangement to take the quiz at another time.\nWeekly programming labs are due Tuesdays in Canvas. After the due date, a solution will be posted, so late submissions are generally not accepted except in documented emergencies. These labs will be graded on completion and your reflection.\nProjects are due on the specified date in Canvas. You may submit a late project up to a week late with no penalty. After a week, a project can be turn in for 70% of the grade.\nMidterms are required. If you need to miss a midterm due to illness or other emergencies, please communicate with me as soon as possible to reschedule it. Alternatively, you may take the optional final exam (Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166) to replace a missed midterm grade.\n\nNote: Technology issues (internet access, device failure, software problems) are not automatically considered valid excuses for late or missed work; students are expected to plan accordingly.\n\n\n\nMuch of your course grade will be based on materials that you produce in-class without having AI as a resource. But you may use AI, such as NotebookLM or ChatGPT, in this course to help you learn the materials or to perform data analyses or on the projects.\nFor work that you do at home that is turned in for a grade I have two requirements:\n\nif you used AI, acknowledge this briefly in the document (you don’t need to state in detail how you used AI or give your prompts, just the name of the AI service you used).\n\nBe responsible for the correctness and appropriateness of all (AI assisted or not) materials you turn in.\n\nI may use AI to assist me in my delivery of the course material, such as asking AI to see if an assignment is appropriate for a college level course or if the wording of a quiz question could be improved. I will not use AI to grade your work or use an AI detection tool to check your work.\n\n\n\n\n\n\n\n\nIntroduction to data, simulation, and statistical reasoning\nSelected topics in probability\nBinomial Random Process\nA simple hypothesis test\nNormal probability distribution\nSampling distributions and the Central Limit Theorem\nSampling methods\nConfidence intervals\nStudy design\nMore Hypothesis testing\nSimple predictive modeling via Linear regression\n\n\n\n\nNote: This schedule is subject to change. Any changes will be communicated through Canvas.\n\n\n\n\n\n\n\nDate\nEvent\n\n\n\n\nJanuary 20\nHoliday (No class)\n\n\nJanuary 23\nQuiz 1 (during lab)\n\n\nFebruary 2\nAdd/Drop Deadline without a serious and compelling reason\n\n\nFebruary 22\nProject 1 due\n\n\nFebruary 27\nMidterm 1\n\n\nMarch 15\nProject 2 due\n\n\nMarch 16-20\nSpring Break (No classes)\n\n\nMarch 31\nCesar Chavez Day (No class)\n\n\nApril 5\nProject 3 due\n\n\nApril 19\nProject 4 due\n\n\nApril 24\nMidterm 2\n\n\nMay 10\nProject 5 due\n\n\nMay 13\nFinal Exam (Optional, to replace a midterm grade) - 10:20 AM–12:10 PM, BSS 166\n\n\n\nWeekly Schedule:\n\nQuizzes: Weekly quizzes (Quiz 1-12) on Thursdays during lab sessions\nLectures: Monday, Wednesday, Friday, 11:00-11:50 AM with warm-ups in the first 5 minutes of class\nLabs: Get help on the code for your programming lab on Thursday (select one section: 9:00-10:50 AM, 11:00-12:50 PM, or 1:00-2:50 PM), then turn into Canvas by the following Tuesday. Elements of a lab may appear on the quiz, in addition to questions from that week’s practice problem set.\n\n\n\n\nThis class is accompanied by a 1-unit Supplemental Instruction course designed to assist students in better understanding course materials. There is room for 20 students within the SI course, and it can be accessed through the normal enrollment process.\n\nSI Course name: Stat 198 - 31 Supplemental Instruction\nClass number: 22835\nTime and place: TR 4:00 - 4:50 PM FH 179\nInstructor: Em Madrid\nContact: ebm37@humboldt.edu\n\n\n\n\n\n\nStudents are responsible for reviewing the Cal Poly Humboldt Syllabus Addendum, which includes policies and resources related to:\n\nAcademic honesty\nDisability accommodations\nEmergency procedures\nTitle IX\nStudent conduct and support services\n\n\n\nStudents who wish to request disability-related accommodations should contact the Student Disability Resource Center (SDRC) as early as possible and then email me (Rosanna Overholser, rho3@humboldt.edu) your letter of accommodation.\n\n\n\nStandards of respectful and professional behavior apply to all course interactions, including in-person classes, assignments, and email communication.\n\n\n\n\nThis syllabus is subject to change. Any changes will be communicated through Canvas announcements."
   },
   {
-    "objectID": "labs/demo_lab2.html#setup-2d-grid-equally-likely-sample-space",
-    "href": "labs/demo_lab2.html#setup-2d-grid-equally-likely-sample-space",
-    "title": "Lab 2 Demo: Random grid sites",
+    "objectID": "syllabus.html#course-information",
+    "href": "syllabus.html#course-information",
+    "title": "Resources",
     "section": "",
-    "text": "We have an \\(N \\times N\\) grid of possible sampling sites. Each site is equally likely.\nFor this demo, we will keep things realistic and simple:\n\nWe select 2 distinct sites without replacement from the grid.\nEvery unordered pair of sites is equally likely.\n\nSo the sample space size is:\n\\[\n|S| = \\binom{N^2}{2}\n\\]\n\nTotal sites: \\(N^2\\)\nCorner sites: \\(4\\)\nEdge sites (including corners): \\(4N - 4\\)\n\nDefine:\n\n\\(p_\\text{corner} = \\frac{4}{N^2}\\)\n\\(p_\\text{edge} = \\frac{4N-4}{N^2}\\)"
+    "text": "Course Number: STAT 109\nCourse Title: Introductory Biostatistics\nUnits: 4\nSemester: Spring 2026\nMode of Instruction: In-person\nGeneral Education: Lower Division GE Area B4 – Mathematical Concepts & Quantitative Reasoning\n\n\nDays/Time: Monday, Wednesday, Friday, 11:00–11:50 AM\nLocation: BSS 166\n\n\n\n9:00–10:50 AM, LOCATION: FH 202\n11:00–12:50 PM, LOCATION: FH 202\n1:00–2:50 PM, LOCATION: FH 202\n\n\n\nOptional Final Exam (held during the scheduled final exam period): Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166.The final exam is optional and may be taken to replace a midterm grade.\n\n\n\nTeacher: Dr. Rosanna Overholser\nEmail: rho3@humboldt.edu\nOffice Location: BSS 334\nOffice Phone: 707-826-4022\nOffice Hours: Mondays 2-3pm, Wednesdays 12-12:50pm, and Fridays 10-10:50am or by appointment\nPlease use your Cal Poly Humboldt email account to contact me and check both Canvas and your Cal Poly Humboldt email regularly for course communications."
   },
   {
-    "objectID": "labs/demo_lab2.html#what-rosanna-will-demo",
-    "href": "labs/demo_lab2.html#what-rosanna-will-demo",
-    "title": "Lab 2 Demo: Random grid sites",
+    "objectID": "syllabus.html#course-description-catalog-description",
+    "href": "syllabus.html#course-description-catalog-description",
+    "title": "Resources",
     "section": "",
-    "text": "Types\n\nnumeric vs integer vs character vs logical\nclass(x) (and optionally typeof(x))\n\nVectors\n\nc(...) to create vectors\nlength(x) to check size\nbracketing x[i] and bracketing with a logical vector x[x &gt; 5]\nelement-by-element operations: x + 1, x * 2, x == y\n\nMatrices\n\nmatrix(...) to create a matrix\ndim(m) to check size\nbracketing m[row, col], extracting rows/cols with m[1, ], m[, 2]\n\nSimulation + loops\n\nsample(..., replace = FALSE) (choose distinct sites)\n%in% for “is it in this set?”\nplaceholders: logical(B), numeric(B)\nfor (b in 1:B) { ... } storing one result per run\nprobability by simulation: mean(TRUE/FALSE)\n\n\n\n\n# Types\nx_num &lt;- 3.5\nx_int &lt;- 3L\nx_chr &lt;- \"site\"\nx_log &lt;- (3 &lt; 5)\n\nclass(x_num); class(x_int); class(x_chr); class(x_log)\n\n# Vector + length + scalar operations\nv &lt;- c(2, 4, 6, 8, 10)\nlength(v)\nv + 1\nv * 2\n\n# Matrix + dim + bracketing\nm &lt;- matrix(1:6, nrow = 2, ncol = 3)\ndim(m)\nm[2, 2]\nm[1, ]\nm[, 2]"
+    "text": "Descriptive statistics, probability, random variables, discrete and continuous distributions, confidence intervals, contingency tests, regression and correlation, tests of hypothesis, analysis of variance. Emphasis: methods and applications used in the biological and natural resource sciences.\nDivision: Lower Division  Weekly: Lecture 3 hrs. Activity 2 hrs.  Instruction Mode: In-person\nPrerequisite: MATH 101 or MATH 101I or MATH 102 or MATH 109B (may be taken concurrently with instructor approval) with a grade of C- or better or ALEKS PPL assessment score over 65 or appropriate high school coursework. See Math Placement and ALEKS PPL for details. MATH 102 may be taken concurrently with instructor approval.\nNote: if you plan to use STAT 109 as a prerequisite for another MATH, DATA or STAT course, you must have a grade of C- or better in this course.\n\n\nBy the end of this course, students will be able to:\n\nUse numerical and graphical descriptive statistics to summarize and interpret data.\nExplain the role of randomness, probability, and sampling in statistical inference.\nApply probability rules and work with common probability distributions.\nConstruct and interpret confidence intervals for means and proportions.\nConduct and interpret basic hypothesis tests.\nAnalyze relationships between pairs of variables using correlation and regression.\nUse a statistical programming language to analyze data and communicate results.\nDistinguish between correlation and causation and recognize limitations of statistical conclusions.\n\n\n\n\nThis course fulfills Lower Division General Education Area 2 (Quantitative Reasoning) and supports Cal Poly Humboldt’s Institutional Learning Outcomes related to quantitative reasoning, critical thinking, and communication."
   },
   {
-    "objectID": "labs/demo_lab2.html#probability-of-at-least-one-corner",
-    "href": "labs/demo_lab2.html#probability-of-at-least-one-corner",
-    "title": "Lab 2 Demo: Random grid sites",
+    "objectID": "syllabus.html#course-materials-workload",
+    "href": "syllabus.html#course-materials-workload",
+    "title": "Resources",
     "section": "",
-    "text": "We are choosing 2 distinct sites from \\(N^2\\) equally likely sites.\nThere are 4 corners and \\(N^2 - 4\\) non-corners.\nUse the complement (“no corners”):\n\\[\nP(\\text{at least one corner})\n= 1 - P(\\text{no corners})\n= 1 - \\frac{\\binom{N^2 - 4}{2}}{\\binom{N^2}{2}}\n\\]"
+    "text": "STAT 109 includes:\n\nThree weekly lecture meetings\nOne weekly laboratory session\n\nIn this 4-unit course, students should expect to spend approximately 12 hours per week on course-related work, including time in lecture (3 hours), lab time (2 hours), and time outside of class to do practice problems, projects and prepare for exams and quizzes (7 hours).\n\n\nLecture Notes: I’ll provide packets of guided notes to you in class. These notes have key concepts, definitions and word problems that we’ll solve during class time. These notes have spaces for you to fill in during lecture as we go. If you need to miss class, please ask me for the packet you will be missing.\nOptional Textbook: Introductory Statistics for the Life and Biomedical Sciences by Julie Vu and Dave Harrington, available for free online.\nThree Binder: Please bring a three-ring binder to class to keep the lecture note packets in.\nPen or Pencil: Please bring a pen or pencil to class to take notes with.\nSoftware: R (free and installed on all campus computers; see R download page to install on your own computer) \nCalculator: Scientific (not graphing) calculator \nOther Technology: Regular access to a computer with reliable internet\n\n\n\nStudents who do not have personal access to required technology may use campus computer labs and library resources. If you want to get a free used computer, please check to see if our campus’s Reuseable Office Supply Exchange (ROSE) has one available.\n\n\n\nThere are no additional course fees beyond standard tuition and registration fees."
   },
   {
-    "objectID": "labs/demo_lab2.html#probability-of-at-least-one-edge",
-    "href": "labs/demo_lab2.html#probability-of-at-least-one-edge",
-    "title": "Lab 2 Demo: Random grid sites",
+    "objectID": "syllabus.html#course-feedback-assessment",
+    "href": "syllabus.html#course-feedback-assessment",
+    "title": "Resources",
     "section": "",
-    "text": "Edges (including corners) total \\(4N - 4\\) sites, so non-edges total:\n\\[\nN^2 - (4N - 4) = (N-2)^2\n\\]\nUse the complement (“no edges”):\n\\[\nP(\\text{at least one edge})\n= 1 - P(\\text{no edges})\n= 1 - \\frac{\\binom{(N-2)^2}{2}}{\\binom{N^2}{2}}\n\\]"
+    "text": "Students will complete a variety of assessments:\n\nDaily warm-up problems (Mondays, Wednesdays and Fridays, in lecture)\nWeekly programming labs (due Tuesdays, in Canvas: I’ll help you write the code the Thursday before)\nWeekly quizzes based on practice problems and labs (Thursdays at the beginning of lab)\nTwo midterms (Week 6 and Week 13 Fridays, in lecture)\nFive projects (Sundays at the ends of the weeks 5, 8, 10, 12, and 15, in Canvas)\n\nDaily warm-up problems are designed to give you an opportunity to work as a team with your classmates. Weekly labs and quizzes are designed to provide regular formative feedback through practice problems, posted solutions, and in-lab support. Midterms require students to demonstrate their understanding of the course material. Projects allow students to apply their knowledge to practical, real-world problems and can be used as part of a portfolio.\nOptionally, students may take a final exam (held during the scheduled final exam period: Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166) to replace a midterm grade.\n\n\n\n\n\n\nComponent\nWeight\n\n\n\n\nDaily Participation\n5%\n\n\nWeekly quizzes\n30%\n\n\nWeekly labs\n15%\n\n\nTwo midterms\n30%\n\n\nFive projects\n20%\n\n\nTotal\n100%\n\n\n\nFinal letter grades will be assigned based on overall performance according to the following:\nA: 93-100% A-: 90-92% B+: 87-89% B: 83-86% B-: 80-82% C+: 77-79% C: 73-76% C-: 70-72% D: 60-69% F: 0-59%\nNote:\n\nGrade Mode: Letter grade by default. Students may elect Credit/No Credit grading according to university deadlines and procedures.\nA minimum grade of C- is required for the course to count toward GE Area B4.\nIf you stop attending class and stop doing assignments without communicating with me, you will receive a grade of WU (Withdrawal Unsatisfactory). Please communicate with me early if you are having difficulties: it’s possible that I can help you get back on track, or help you obtain a more appropriate grade (W or I) for your situation.\n\n\n\n\nRegular attendance and active participation are expected and essential for success in this course.\n\nAttendance in lecture will be tracked via participation in the warm-up problems.\nAttendance in lab will be tracked via participation in the quizzes.\n\nIf you must miss class, you are responsible for obtaining notes and keeping up with course material."
   },
   {
-    "objectID": "labs/demo_lab2.html#probability-the-two-sites-are-adjacent-connected",
-    "href": "labs/demo_lab2.html#probability-the-two-sites-are-adjacent-connected",
-    "title": "Lab 2 Demo: Random grid sites",
+    "objectID": "syllabus.html#late-or-missed-work-policies",
+    "href": "syllabus.html#late-or-missed-work-policies",
+    "title": "Resources",
     "section": "",
-    "text": "We will say two sites are adjacent if they are 4-neighbors (up/down/left/right).\n\n\nIn an \\(N\\times N\\) grid:\n\nHorizontal adjacent pairs: \\(N(N-1)\\)\nVertical adjacent pairs: \\(N(N-1)\\)\n\nSo total adjacent (unordered) pairs:\n\\[\n2N(N-1)\n\\]\nTotal possible unordered pairs of sites:\n\\[\n\\binom{N^2}{2}\n\\]\nTherefore:\n\\[\nP(\\text{adjacent}) = \\frac{2N(N-1)}{\\binom{N^2}{2}}\n\\]"
+    "text": "The policies for late or missed work are as follows:\n\nDaily attendance in lecture is required, but I know that sometimes you will need to miss class due to illness or other emergencies. Each student may miss up to 10 days of lecture without penalty and without contacting me. It’s up to you to reserve these days for emergencies only. In my experience, it is rare for a student to succeed if they regularly miss lecture or are absent for more than two weeks so if you find yourself in this situation, please communicate with me and your advisor so we can help you find a solution to getting back on track.\nWeekly quizzes during Thursday lab sessions are required, but I know that sometimes you will need to miss lab due to illness or other emergencies. If this happens, please contact me to make an arrangement to take the quiz at another time.\nWeekly programming labs are due Tuesdays in Canvas. After the due date, a solution will be posted, so late submissions are generally not accepted except in documented emergencies. These labs will be graded on completion and your reflection.\nProjects are due on the specified date in Canvas. You may submit a late project up to a week late with no penalty. After a week, a project can be turn in for 70% of the grade.\nMidterms are required. If you need to miss a midterm due to illness or other emergencies, please communicate with me as soon as possible to reschedule it. Alternatively, you may take the optional final exam (Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166) to replace a missed midterm grade.\n\nNote: Technology issues (internet access, device failure, software problems) are not automatically considered valid excuses for late or missed work; students are expected to plan accordingly.\n\n\n\nMuch of your course grade will be based on materials that you produce in-class without having AI as a resource. But you may use AI, such as NotebookLM or ChatGPT, in this course to help you learn the materials or to perform data analyses or on the projects.\nFor work that you do at home that is turned in for a grade I have two requirements:\n\nif you used AI, acknowledge this briefly in the document (you don’t need to state in detail how you used AI or give your prompts, just the name of the AI service you used).\n\nBe responsible for the correctness and appropriateness of all (AI assisted or not) materials you turn in.\n\nI may use AI to assist me in my delivery of the course material, such as asking AI to see if an assignment is appropriate for a college level course or if the wording of a quiz question could be improved. I will not use AI to grade your work or use an AI detection tool to check your work."
   },
   {
-    "objectID": "labs/demo_lab2.html#plug-in-numbers-quick-numeric-example",
-    "href": "labs/demo_lab2.html#plug-in-numbers-quick-numeric-example",
-    "title": "Lab 2 Demo: Random grid sites",
+    "objectID": "syllabus.html#course-topics-schedule",
+    "href": "syllabus.html#course-topics-schedule",
+    "title": "Resources",
     "section": "",
-    "text": "Pick values that are easy to talk through in class. For example:\n\n\\(N = 5\\) (a \\(5\\times 5\\) grid, 25 sites)\n\nThen:\n\nTotal pairs: \\(\\binom{25}{2} = 300\\)\nAdjacent pairs: \\(2N(N-1)=2\\cdot 5\\cdot 4=40\\)\n\nWe can compute the three probabilities in R.\nN &lt;- 5\ntotal_pairs &lt;- choose(N^2, 2)\n\n# 1) at least one corner\np_at_least_one_corner &lt;- 1 - choose(N^2 - 4, 2) / total_pairs\n\n# 2) at least one edge\np_at_least_one_edge &lt;- 1 - choose((N - 2)^2, 2) / total_pairs\n\n# 3) adjacent\np_adjacent &lt;- (2 * N * (N - 1)) / total_pairs\n\np_at_least_one_corner\np_at_least_one_edge\np_adjacent"
+    "text": "Introduction to data, simulation, and statistical reasoning\nSelected topics in probability\nBinomial Random Process\nA simple hypothesis test\nNormal probability distribution\nSampling distributions and the Central Limit Theorem\nSampling methods\nConfidence intervals\nStudy design\nMore Hypothesis testing\nSimple predictive modeling via Linear regression\n\n\n\n\nNote: This schedule is subject to change. Any changes will be communicated through Canvas.\n\n\n\n\n\n\n\nDate\nEvent\n\n\n\n\nJanuary 20\nHoliday (No class)\n\n\nJanuary 23\nQuiz 1 (during lab)\n\n\nFebruary 2\nAdd/Drop Deadline without a serious and compelling reason\n\n\nFebruary 22\nProject 1 due\n\n\nFebruary 27\nMidterm 1\n\n\nMarch 15\nProject 2 due\n\n\nMarch 16-20\nSpring Break (No classes)\n\n\nMarch 31\nCesar Chavez Day (No class)\n\n\nApril 5\nProject 3 due\n\n\nApril 19\nProject 4 due\n\n\nApril 24\nMidterm 2\n\n\nMay 10\nProject 5 due\n\n\nMay 13\nFinal Exam (Optional, to replace a midterm grade) - 10:20 AM–12:10 PM, BSS 166\n\n\n\nWeekly Schedule:\n\nQuizzes: Weekly quizzes (Quiz 1-12) on Thursdays during lab sessions\nLectures: Monday, Wednesday, Friday, 11:00-11:50 AM with warm-ups in the first 5 minutes of class\nLabs: Get help on the code for your programming lab on Thursday (select one section: 9:00-10:50 AM, 11:00-12:50 PM, or 1:00-2:50 PM), then turn into Canvas by the following Tuesday. Elements of a lab may appear on the quiz, in addition to questions from that week’s practice problem set.\n\n\n\n\nThis class is accompanied by a 1-unit Supplemental Instruction course designed to assist students in better understanding course materials. There is room for 20 students within the SI course, and it can be accessed through the normal enrollment process.\n\nSI Course name: Stat 198 - 31 Supplemental Instruction\nClass number: 22835\nTime and place: TR 4:00 - 4:50 PM FH 179\nInstructor: Em Madrid\nContact: ebm37@humboldt.edu"
   },
   {
-    "objectID": "labs/demo_lab2.html#simulation-in-r-for-loops-without-replacement",
-    "href": "labs/demo_lab2.html#simulation-in-r-for-loops-without-replacement",
-    "title": "Lab 2 Demo: Random grid sites",
+    "objectID": "syllabus.html#university-policies-resources",
+    "href": "syllabus.html#university-policies-resources",
+    "title": "Resources",
     "section": "",
-    "text": "We simulate \\(B\\) random samples of 2 distinct sites, and estimate probabilities by proportions (mean(TRUE/FALSE)).\nWe label each grid cell with a string \"i,j\" so the sampled sites look like coordinates you’d write by hand.\nNew-to-Lab-1/2 note: this uses paste() to create \"i,j\" labels and strsplit() + as.numeric() to turn \"i,j\" back into numbers for the adjacency check.\nset.seed(109)\n\nN &lt;- 5\nB &lt;- 10000\n\n# Make a grid whose entries look like \"i,j\" (row,col)\ngrid &lt;- matrix(\"\", nrow = N, ncol = N)\nfor (i in 1:N) {\n  for (j in 1:N) {\n    grid[i, j] &lt;- paste(i, j, sep = \",\")\n  }\n}\n\ncorners &lt;- c(grid[1,1], grid[1,N], grid[N,1], grid[N,N])\nedges   &lt;- c(grid[1, ], grid[N, ], grid[2:(N-1), 1], grid[2:(N-1), N])\n\nat_least_one_corner &lt;- logical(B)\nat_least_one_edge   &lt;- logical(B)\nadjacent            &lt;- logical(B)\n\nfor (b in 1:B) {\n  picks &lt;- sample(grid, size = 2, replace = FALSE)\n  s1 &lt;- picks[1]\n  s2 &lt;- picks[2]\n\n  rc1 &lt;- as.numeric(strsplit(s1, \",\")[[1]])\n  rc2 &lt;- as.numeric(strsplit(s2, \",\")[[1]])\n\n  r1 &lt;- rc1[1]; c1 &lt;- rc1[2]\n  r2 &lt;- rc2[1]; c2 &lt;- rc2[2]\n\n  # keep the Lab 1 \"sum of TRUE/FALSE\" idea (avoid new | and & operators)\n  at_least_one_corner[b] &lt;- sum(c(s1 %in% corners, s2 %in% corners)) &gt; 0\n  at_least_one_edge[b]   &lt;- sum(c(s1 %in% edges,   s2 %in% edges))   &gt; 0\n\n  same_row_adj &lt;- (r1 == r2) * (abs(c1 - c2) == 1)\n  same_col_adj &lt;- (c1 == c2) * (abs(r1 - r2) == 1)\n  adjacent[b] &lt;- sum(c(same_row_adj, same_col_adj)) &gt; 0\n}\n\nmean(at_least_one_corner)\nmean(at_least_one_edge)\nmean(adjacent)"
+    "text": "Students are responsible for reviewing the Cal Poly Humboldt Syllabus Addendum, which includes policies and resources related to:\n\nAcademic honesty\nDisability accommodations\nEmergency procedures\nTitle IX\nStudent conduct and support services\n\n\n\nStudents who wish to request disability-related accommodations should contact the Student Disability Resource Center (SDRC) as early as possible and then email me (Rosanna Overholser, rho3@humboldt.edu) your letter of accommodation.\n\n\n\nStandards of respectful and professional behavior apply to all course interactions, including in-person classes, assignments, and email communication."
   },
   {
-    "objectID": "labs/demo_lab2.html#teaching-notes-how-this-sets-up-lab-2",
-    "href": "labs/demo_lab2.html#teaching-notes-how-this-sets-up-lab-2",
-    "title": "Lab 2 Demo: Random grid sites",
+    "objectID": "syllabus.html#changes-to-the-syllabus",
+    "href": "syllabus.html#changes-to-the-syllabus",
+    "title": "Resources",
     "section": "",
-    "text": "Equally likely sample space: every 2-site sample (without replacement) is equally likely.\nCounting: corners = 4; edges = \\(4N-4\\); total sites = \\(N^2\\); total pairs = \\(\\binom{N^2}{2}\\).\nMatrices + bracketing: grid &lt;- matrix(\"\", ...), corners &lt;- c(grid[1,1], ...), etc.\nFor loop: pre-allocate storage (logical(B)) and store one result per iteration.\nProbability by simulation: mean(TRUE/FALSE) gives a proportion."
+    "text": "This syllabus is subject to change. Any changes will be communicated through Canvas announcements."
   },
   {
-    "objectID": "labs/lab-2.html",
-    "href": "labs/lab-2.html",
-    "title": "Lab 2",
-    "section": "",
-    "text": "This lab introduces data structures in R (types, vectors, matrices), bracketing, and for loops, with a short probability simulation component.\n\n\n\nLab 2 Demo: Random grid sites"
+    "objectID": "syllabus.html#spring-2026",
+    "href": "syllabus.html#spring-2026",
+    "title": "Resources",
+    "section": "Spring 2026",
+    "text": "Spring 2026\n\n\n\nWeek\nMon\nWed\nThu\nFri\nSun\n\n\n\n\n1 (Jan 20–23)\nHoliday\nLec\nLab 1 + Quiz 1\nLec\n—\n\n\n2 (Jan 26–30)\nLec\nLec\nLab 2 + Quiz 2\nLec\n—\n\n\n3 (Feb 2–6)\nLec\nLec\nLab 3 + Quiz 3\nLec\n—\n\n\n4 (Feb 9–13)\nLec\nLec\nLab 4 + Quiz 4\nLec\n—\n\n\n5 (Feb 16–20)\nLec\nLec\nLab 5 + Quiz 5\nLec\nProject 1 due (Sun Feb 22)\n\n\n6 (Feb 23–27)\nLec\nReview\nReview (no quiz)\nMidterm 1\n—\n\n\n7 (Mar 2–6)\nLec\nLec\nLab 6 + Quiz 6\nLec\n—\n\n\n8 (Mar 9–13)\nLec\nLec\nLab 7 + Quiz 7\nLec\nProject 2 due (Sun Mar 15)\n\n\n— (Mar 16–20)\n—\n—\n—\n—\n—\n\n\n9 (Mar 23–27)\nLec\nLec\nLab 8 + Quiz 8\nLec\n—\n\n\n10 (Mar 30–Apr 3)\nLec\nLec\nLab 9 + Quiz 9\nLec\nProject 3 due (Sun Apr 5)\n\n\n11 (Apr 6–10)\nLec\nLec\nLab 10 + Quiz 10\nLec\n—\n\n\n12 (Apr 13–17)\nLec\nLec\nLab 11 + Quiz 11\nLec\nProject 4 due (Sun Apr 19)\n\n\n13 (Apr 20–24)\nLec\nReview\nReview (no quiz)\nMidterm 2\n—\n\n\n14 (Apr 27–May 1)\nLec\nLec\nLab 12 + Quiz 12\nLec\n—\n\n\n15 (May 4–8)\nLec\nReview\nLab 13 + Quiz 13\nReview\nProject 5 due (Sun May 10)\n\n\nFinals (May 11–15)\n—\nFinal Exam\n—\n—\n—\n\n\n\nNotes:\n\nMon Week 1 = Holiday (No class)\nWeek 10 = Holiday (No class on Tuesday, March 31)"
   },
   {
-    "objectID": "labs/lab-2.html#demo",
-    "href": "labs/lab-2.html#demo",
-    "title": "Lab 2",
-    "section": "",
-    "text": "Lab 2 Demo: Random grid sites"
+    "objectID": "syllabus.html#overview",
+    "href": "syllabus.html#overview",
+    "title": "Resources",
+    "section": "Overview",
+    "text": "Overview\nThis course includes several types of assessments designed to help you learn and to demonstrate your understanding of statistical concepts and methods.\n\n\n\n\n\n\n\n\nComponent\nWeight\nDescription\n\n\n\n\nDaily Participation\n5%\nWarm-up problems in lecture (Mondays, Wednesdays, Fridays)\n\n\nWeekly quizzes\n30%\nQuizzes on Thursdays at the beginning of lab\n\n\nWeekly labs\n15%\nProgramming labs due Tuesdays in Canvas\n\n\nTwo midterms\n30%\nMidterm 1 (Week 6, Friday) and Midterm 2 (Week 13, Friday)\n\n\nFive projects\n20%\nProjects due Sundays at ends of weeks 5, 8, 10, 12, and 15\n\n\nTotal\n100%"
+  },
+  {
+    "objectID": "syllabus.html#daily-participation-5",
+    "href": "syllabus.html#daily-participation-5",
+    "title": "Resources",
+    "section": "Daily Participation (5%)",
+    "text": "Daily Participation (5%)\nDaily warm-up problems are completed at the beginning of each lecture (Mondays, Wednesdays, and Fridays). These collaborative activities give you an opportunity to work as a team with your classmates and practice key concepts."
+  },
+  {
+    "objectID": "syllabus.html#weekly-labs-15",
+    "href": "syllabus.html#weekly-labs-15",
+    "title": "Resources",
+    "section": "Weekly Labs (15%)",
+    "text": "Weekly Labs (15%)\nWeekly programming labs provide hands-on practice with statistical analysis using R. Labs are due Tuesdays in Canvas. I’ll help you write the code during the Thursday lab session before they’re due. Labs are graded on completion and your reflection. After the due date, a solution will be posted, so late submissions are generally not accepted except in documented emergencies.\n\nIndividual Labs\n\nLab 1 - Week 1 (due Tuesday, Week 2)\nLab 2 - Week 2 (due Tuesday, Week 3)\nLab 3 - Week 3 (due Tuesday, Week 4)\nLab 4 - Week 4 (due Tuesday, Week 5)\nLab 5 - Week 5 (due Tuesday, Week 6)\nLab 6 - Week 7 (due Tuesday, Week 8)\nLab 7 - Week 8 (due Tuesday, Week 9)\nLab 8 - Week 9 (due Tuesday, Week 10)\nLab 9 - Week 10 (due Tuesday, Week 11)\nLab 10 - Week 11 (due Tuesday, Week 12)\nLab 11 - Week 12 (due Tuesday, Week 13)\nLab 12 - Week 14 (due Tuesday, Week 15)\nLab 13 - Week 15 (due Tuesday, Finals Week)"
+  },
+  {
+    "objectID": "syllabus.html#weekly-quizzes-30",
+    "href": "syllabus.html#weekly-quizzes-30",
+    "title": "Resources",
+    "section": "Weekly Quizzes (30%)",
+    "text": "Weekly Quizzes (30%)\nWeekly quizzes are administered on Thursdays at the beginning of lab. They assess your understanding of key concepts from the lessons, practice problems, and labs. If you need to miss a quiz due to illness or other emergencies, please contact me to make an arrangement to take it at another time.\n\nIndividual Quizzes\n\nQuiz 1 - Week 1\nQuiz 2 - Week 2\nQuiz 3 - Week 3\nQuiz 4 - Week 4\nQuiz 5 - Week 5\nQuiz 6 - Week 7\nQuiz 7 - Week 8\nQuiz 8 - Week 9\nQuiz 9 - Week 10\nQuiz 10 - Week 11\nQuiz 11 - Week 12\nQuiz 12 - Week 14\nQuiz 13 - Week 15"
+  },
+  {
+    "objectID": "syllabus.html#projects-20",
+    "href": "syllabus.html#projects-20",
+    "title": "Resources",
+    "section": "Projects (20%)",
+    "text": "Projects (20%)\nFive projects throughout the semester allow you to apply statistical methods to practical, real-world problems. Projects are due on Sundays at the ends of weeks 5, 8, 10, 12, and 15 in Canvas. You may submit a late project up to a week late with no penalty. After a week, a project can be turned in for 70% of the grade. Projects can be used as part of a portfolio.\n\nIndividual Projects\n\nProject 1 - Due Sunday, Week 5 (Feb 22)\nProject 2 - Due Sunday, Week 8 (Mar 15)\nProject 3 - Due Sunday, Week 10 (Apr 5)\nProject 4 - Due Sunday, Week 12 (Apr 19)\nProject 5 - Due Sunday, Week 15 (May 10)"
+  },
+  {
+    "objectID": "syllabus.html#exams-30",
+    "href": "syllabus.html#exams-30",
+    "title": "Resources",
+    "section": "Exams (30%)",
+    "text": "Exams (30%)\n\nMidterms\n\nMidterm 1: Week 6, Friday (in lecture)\nMidterm 2: Week 13, Friday (in lecture)\n\nMidterms require you to demonstrate your understanding of the course material. If you need to miss a midterm due to illness or other emergencies, please communicate with me as soon as possible to reschedule it. Alternatively, you may take the optional final exam to replace a missed midterm grade.\n\n\nFinal Exam (Optional)\nFinal Exam: Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166\nThe final exam is optional and may be taken to replace a midterm grade. It is held during the scheduled final exam period."
+  },
+  {
+    "objectID": "syllabus.html#grading-scale",
+    "href": "syllabus.html#grading-scale",
+    "title": "Resources",
+    "section": "Grading Scale",
+    "text": "Grading Scale\nFinal letter grades will be assigned based on overall performance:\nA: 93-100% | A-: 90-92% | B+: 87-89% | B: 83-86% | B-: 80-82% | C+: 77-79% | C: 73-76% | C-: 70-72% | D: 60-69% | F: 0-59%\nA minimum grade of C- is required for the course to count toward GE Area 2."
+  },
+  {
+    "objectID": "syllabus.html#week-1",
+    "href": "syllabus.html#week-1",
+    "title": "Resources",
+    "section": "Week 1",
+    "text": "Week 1\n\nMonday\nHoliday - No class\n\n\nWednesday\nLecture 1\n\n\nFriday\nLecture 2"
+  },
+  {
+    "objectID": "syllabus.html#week-2",
+    "href": "syllabus.html#week-2",
+    "title": "Resources",
+    "section": "Week 2",
+    "text": "Week 2\n\nMonday\nLecture 3\n\n\nWednesday\nLecture 4\n\n\nFriday\nLecture 5"
+  },
+  {
+    "objectID": "syllabus.html#week-3",
+    "href": "syllabus.html#week-3",
+    "title": "Resources",
+    "section": "Week 3",
+    "text": "Week 3\n\nMonday\nLecture 6\n\n\nWednesday\nLecture 7\n\n\nFriday\nLecture 8"
+  },
+  {
+    "objectID": "syllabus.html#week-4",
+    "href": "syllabus.html#week-4",
+    "title": "Resources",
+    "section": "Week 4",
+    "text": "Week 4\n\nMonday\nLecture 9\n\n\nWednesday\nLecture 10\n\n\nFriday\nLecture 11"
+  },
+  {
+    "objectID": "syllabus.html#week-5",
+    "href": "syllabus.html#week-5",
+    "title": "Resources",
+    "section": "Week 5",
+    "text": "Week 5\n\nMonday\nLecture 12\n\n\nWednesday\nLecture 13\n\n\nFriday\nLecture 14"
+  },
+  {
+    "objectID": "syllabus.html#week-6",
+    "href": "syllabus.html#week-6",
+    "title": "Resources",
+    "section": "Week 6",
+    "text": "Week 6\n\nMonday\nLecture 15\n\n\nWednesday\nReview\n\n\nFriday\nMidterm 1"
+  },
+  {
+    "objectID": "syllabus.html#week-7",
+    "href": "syllabus.html#week-7",
+    "title": "Resources",
+    "section": "Week 7",
+    "text": "Week 7\n\nMonday\nLecture 16\n\n\nWednesday\nLecture 17\n\n\nFriday\nLecture 18"
+  },
+  {
+    "objectID": "syllabus.html#week-8",
+    "href": "syllabus.html#week-8",
+    "title": "Resources",
+    "section": "Week 8",
+    "text": "Week 8\n\nMonday\nLecture 19\n\n\nWednesday\nLecture 20\n\n\nFriday\nLecture 21"
+  },
+  {
+    "objectID": "syllabus.html#week-9",
+    "href": "syllabus.html#week-9",
+    "title": "Resources",
+    "section": "Week 9",
+    "text": "Week 9\n\nMonday\nLecture 22\n\n\nWednesday\nLecture 23\n\n\nFriday\nLecture 24"
+  },
+  {
+    "objectID": "syllabus.html#week-10",
+    "href": "syllabus.html#week-10",
+    "title": "Resources",
+    "section": "Week 10",
+    "text": "Week 10\n\nMonday\nLecture 25\n\n\nWednesday\nLecture 26\n\n\nFriday\nLecture 27"
+  },
+  {
+    "objectID": "syllabus.html#week-11",
+    "href": "syllabus.html#week-11",
+    "title": "Resources",
+    "section": "Week 11",
+    "text": "Week 11\n\nMonday\nLecture 28\n\n\nWednesday\nLecture 29\n\n\nFriday\nLecture 30"
+  },
+  {
+    "objectID": "syllabus.html#week-12",
+    "href": "syllabus.html#week-12",
+    "title": "Resources",
+    "section": "Week 12",
+    "text": "Week 12\n\nMonday\nLecture 31\n\n\nWednesday\nLecture 32\n\n\nFriday\nLecture 33"
+  },
+  {
+    "objectID": "syllabus.html#week-13",
+    "href": "syllabus.html#week-13",
+    "title": "Resources",
+    "section": "Week 13",
+    "text": "Week 13\n\nMonday\nLecture 34\n\n\nWednesday\nReview\n\n\nFriday\nMidterm 2"
+  },
+  {
+    "objectID": "syllabus.html#week-14",
+    "href": "syllabus.html#week-14",
+    "title": "Resources",
+    "section": "Week 14",
+    "text": "Week 14\n\nMonday\nLecture 35\n\n\nWednesday\nLecture 36\n\n\nFriday\nLecture 37"
+  },
+  {
+    "objectID": "syllabus.html#week-15",
+    "href": "syllabus.html#week-15",
+    "title": "Resources",
+    "section": "Week 15",
+    "text": "Week 15\n\nMonday\nLecture 38\n\n\nWednesday\nReview\n\n\nFriday\nReview"
+  },
+  {
+    "objectID": "syllabus.html#methods-descriptive",
+    "href": "syllabus.html#methods-descriptive",
+    "title": "Resources",
+    "section": "Descriptive Statistics",
+    "text": "Descriptive Statistics\n\nOne Quantitative Variable\n[Content to be added]\n\n\nTwo Quantitative Variables\n[Content to be added]\n\n\nOne Categorical Variable\n[Content to be added]\n\n\nTwo Categorical Variables\n[Content to be added]"
+  },
+  {
+    "objectID": "syllabus.html#methods-inferential",
+    "href": "syllabus.html#methods-inferential",
+    "title": "Resources",
+    "section": "Inferential Statistics",
+    "text": "Inferential Statistics\n\nOne Quantitative Variable\n[Content to be added]\n\n\nTwo Quantitative Variables\n[Content to be added]\n\n\nOne Categorical Variable\n[Content to be added]\n\n\nTwo Categorical Variables\n[Content to be added]"
+  },
+  {
+    "objectID": "syllabus.html#r-import",
+    "href": "syllabus.html#r-import",
+    "title": "Resources",
+    "section": "Import Data",
+    "text": "Import Data\n[Content to be added]"
+  },
+  {
+    "objectID": "syllabus.html#r-summaries",
+    "href": "syllabus.html#r-summaries",
+    "title": "Resources",
+    "section": "Summaries",
+    "text": "Summaries\n[Content to be added]"
+  },
+  {
+    "objectID": "syllabus.html#r-plots",
+    "href": "syllabus.html#r-plots",
+    "title": "Resources",
+    "section": "Plots",
+    "text": "Plots\n[Content to be added]"
+  },
+  {
+    "objectID": "syllabus.html#r-sim",
+    "href": "syllabus.html#r-sim",
+    "title": "Resources",
+    "section": "Simulation",
+    "text": "Simulation\n[Content to be added]"
+  },
+  {
+    "objectID": "syllabus.html#lectures-1",
+    "href": "syllabus.html#lectures-1",
+    "title": "Resources",
+    "section": "Lectures",
+    "text": "Lectures\nLectures - Access all course lectures organized by week and day."
+  },
+  {
+    "objectID": "syllabus.html#textbook",
+    "href": "syllabus.html#textbook",
+    "title": "Resources",
+    "section": "Textbook",
+    "text": "Textbook\nOptional Textbook: Introductory Statistics for the Life and Biomedical Sciences by Julie Vu and Dave Harrington\nThis textbook is available for free online and provides additional explanations and examples that complement the course materials."
+  },
+  {
+    "objectID": "syllabus.html#r-software-downloads",
+    "href": "syllabus.html#r-software-downloads",
+    "title": "Resources",
+    "section": "R Software Downloads",
+    "text": "R Software Downloads\nSTAT 109 uses R for statistical computing. You can use R in several ways:\n\nBase R\nDownload R: R Project Website\nR is free and open-source statistical software. The base R installation includes the core R language and basic packages.\n\nWindows: Download the installer from CRAN (Comprehensive R Archive Network)\nMac: Download the macOS installer from CRAN\nLinux: Install via your distribution’s package manager or from CRAN\n\n\n\nRStudio\nDownload RStudio: RStudio Desktop\nRStudio is an integrated development environment (IDE) for R that provides a user-friendly interface, code editor, and helpful features for data analysis. RStudio Desktop is free and works with base R.\nNote: You must install base R first before installing RStudio.\n\n\nR in Google Colab\nAccess R in Google Colab: R in Colab\nGoogle Colab provides free access to R in a cloud-based notebook environment. This is useful if you don’t want to install R on your computer or need to work from different devices.\n\n\nR in Jupyter Notebook\nInstall R for Jupyter: IRkernel Documentation\nJupyter Notebook is another notebook environment that supports R. To use R in Jupyter:\n\nInstall base R first\nInstall Jupyter Notebook or JupyterLab\nInstall the IRkernel package in R\nRegister the kernel with Jupyter\n\nNote: R is also installed on all campus computers, so you can use the computer labs if you prefer not to install software on your personal computer."
+  },
+  {
+    "objectID": "syllabus.html#course-reference-materials",
+    "href": "syllabus.html#course-reference-materials",
+    "title": "Resources",
+    "section": "Course Reference Materials",
+    "text": "Course Reference Materials\n\nR Reference\nR Quick Reference - A quick reference guide for common R commands and functions used in this course.\n\n\nMethods Map\nMethods Map - A reference table of statistical methods covered in the course, organized by topic."
+  },
+  {
+    "objectID": "syllabus.html#additional-resources",
+    "href": "syllabus.html#additional-resources",
+    "title": "Resources",
+    "section": "Additional Resources",
+    "text": "Additional Resources\n\nCampus Resources\n\nComputer Labs: R is installed on all campus computers\nROSE (Reusable Office Supply Exchange): Free used computers may be available if you need a computer\n\n\n\nGetting Help\n\nOffice Hours: See the Syllabus for instructor office hours\nCanvas: Check Canvas for announcements and course communications\nEmail: Contact the instructor at rho3@humboldt.edu"
   }
 ]
