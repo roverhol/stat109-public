@@ -35,81 +35,18 @@
     "text": "Instructor Information\nInstructor: Dr. Rosanna Overholser\nOffice: BSS 334\nEmail: rho3@humboldt.edu\nOffice Hours: Mondays 2-3pm, Wednesdays 12-12:50pm, Fridays 10-10:50am, or by appointment"
   },
   {
-    "objectID": "lectures/lecture-2.html",
-    "href": "lectures/lecture-2.html",
-    "title": "Lecture 2",
+    "objectID": "lectures/lecture-8.html",
+    "href": "lectures/lecture-8.html",
+    "title": "Lecture 8",
     "section": "",
-    "text": "Learning Outcomes:\nBy the end of today’s lecture, you should be able to:\n\nCompute counts, proportions, and percentages of a particular event occurring in a number of trials.\nUse symbols \\((x, n, \\hat{p}, P(\\text{event}))\\) correctly to describe observed data and theoretical probability.\nDistinguish between observed outcomes (data) and theoretical probability.\nDescribe three rules that probabilities must satisfy.\nState the definition of probability and connect it to the idea of long-run relative frequency in a repeatable random process.\n\n\n\n\nLet’s toss a coin a few times in class, keeping track of the tosses that land “heads.”\n\n\n\nCount of heads (\\(x\\)): ________\nTotal tosses (\\(n\\)): ________\nProportion (\\(\\hat{p}\\)): ________\nPercentage: ________\n\n\n\n\n\nCount of heads (\\(x\\)): ________\nTotal tosses (\\(n\\)): ________\nProportion (\\(\\hat{p}\\)): ________\nPercentage: ________\n\n\n\n\nYour neighbor, ___________________________’s data:\n\nCount of heads (\\(x\\)): ________\nTotal tosses (\\(n\\)): ________\nProportion (\\(\\hat{p}\\)): ________\nPercentage: ________\n\n\n\n\nWhat’s the highest count of heads? ______________________\nMost tosses? ______________________\nHighest proportion of heads? ______________________\nHighest percentage of heads? ______________________\n\n\n\nComments:\nIf we care about comparing coins, then ______________________ is the best summary.\nIf we care about getting lots of “heads” then ______________________ is the best summary.\nThe summary of total tosses (\\(n\\)) tells us ______________________________________.\n\n\n\nQuestion: Rosanna keeps tossing her coin forever. What would we expect?\n\nData (what happened): ________\nTheory (long run): ________\n\n\n\n\n\n\nFill in each definition in your own words:\n\nSample space:\n\n\n\n\n\nOutcome:\n\n\n\n\n\nEvent:\n\n\n\n\n\n\n\n\n\n\nWe’ll use two colors: one for observed data and another for theoretical quantities.\nClass action required!\nWhat color should Rosanna use for theoretical quantities that we imagine? ______________________\nWhat color should Rosanna use for quantities that we can actually observe? ______________________\n\n\n\n\n\\(x\\) = count of “successes” in \\(n\\) observed trials\n\\(n\\) = number of observed trials\n\\(\\hat{p} = x/n\\) = observed proportion of successes in our trials\nPercentage of observed trials that were a success \\(= 100 \\cdot \\hat{p}\\)\n\\(P(\\text{event})\\) = probability of an event\n\nThe notation for probability, \\(P(\\text{event})\\), is in the same format as notation for functions in high school algebra:\n\n\\(=\\) reads as ______________________\n\\(()\\) reads as ___________________________ (not multiplication!)\n\n\\(Y = f(x)\\) reads as “\\(y\\) is the value of the function whose name is \\(f\\) when \\(x\\) is put in.”\n\\(Y = P(A)\\) reads as “\\(y\\) is the value of probability when the event under consideration is \\(A\\).”\n\n\n\n\n\nSuppose we toss a coin 20 times and see 15 heads.\n\n\\(x = 15\\)\n\\(n = 20\\)\n\\(\\hat{p} = 15/20 = 0.75\\)\nPercentage \\(= 75\\%\\)\nTheoretical \\(P(\\text{Heads}) = 0.5\\) (for a fair coin)\n\n\n\n\n\n\n\nA coin is tossed 10 times and comes up heads 3 times. Fill in:\n\n\\(x =\\) ________\n\\(n =\\) ________\n\\(\\hat{p} =\\) ________\nPercentage \\(=\\) ________ \\(\\%\\)\nTheoretical \\(P(\\text{Heads}) =\\) ______________________\n\n\n\n\n\n\n\nSuppose a fair 6-sided die is rolled 24 times and we see the number “5” exactly 2 times.\n\n\\(x =\\) ______________\n\\(n =\\) ______________\n\\(\\hat{p} =\\) ______________\nPercentage \\(=\\) ______________\nTheoretical \\(P(\\text{\"5\"}) =\\) ______________________\n\n\n\n\n\n\n\nA die is rolled 30 times and shows “1” exactly 10 times. Fill in:\n\n\\(x =\\) ________\n\\(n =\\) ________\n\\(\\hat{p} =\\) ________\nPercentage \\(=\\) ________ \\(\\%\\)\nTheoretical \\(P(\\text{\"1\"}) =\\) ______________________\n\n\n\n\n\n\n\n\nAll probabilities must satisfy:\n\n\\(0 \\le P(A) \\le 1\\) for any event \\(A\\)\nTotal probability across all possible outcomes \\(= 1\\)\nIf \\(A\\) and \\(B\\) are two events with no overlap, then \\(P(A \\text{ or } B) = P(A) + P(B)\\)\n\n\n\n\nCoin: \\(P(\\text{Heads}) + P(\\text{Tails}) =\\) ________\nDie: \\(P(\\text{\"1\"}) + P(\\text{\"2\"}) + \\cdots + P(\\text{\"6\"}) =\\) ________\nDie: \\(P(\\text{\"1\"}) + P(\\text{\"2\"}) =\\) ________\n\\(P(A) = 70\\) is ______________________\n\\(-0.5 = P(B)\\) is ______________________\n\\(P(D) = 0.7\\) is ______________________\n\n\n\n\n\n\n\\(P(\\text{Event})\\) = the proportion of times the event occurs out of the number of trials as the trial is repeated infinitely many times.\nProbability is tied to:\n\nA specific random process (repeating a trial with uncertain outcome infinitely many times)\nLong-run relative frequency (a.k.a. “proportion”) of an event occurring"
+    "text": "Practice Problem 1. A clinic is testing a new rapid test for COVID on 1000 people. Of these, 20 are known to have COVID and 980 do not. Among those known to have COVID, 17 test positive on the rapid test; among those known to not have COVID, 78 test positive.\nLet \\(C\\) = “has COVID” and \\(T^+\\) = “tests positive on the new rapid test”\n\nFind \\(P(C)\\) and \\(P(\\text{not } C)\\) for a randomly selected people from the 1000 people in the study.\nFind \\(P(T^+ \\mid C)\\) (sensitivity) and \\(P(T^+ \\mid \\text{not } C)\\) (false positive rate).\nFind \\(P(C \\text{ and } T^+)\\) and \\(P(\\text{not } C \\text{ and } T^+)\\).\n\n\n\n\n\nPractice Problem 2. Using the COVID data from 1:\n\nIf \\(C\\) and \\(T^+\\) were independent, what would \\(P(C \\text{ and } T^+)\\) equal?\nIs it reasonable to assume that test result (\\(T^+\\) or \\(T^-\\)) and COVID status (\\(C\\) or not \\(C\\)) are independent? Explain briefly.\n\n\n\n\n\nPractice Problem 3. In the COVID example from 1, are \\(C\\) and \\(T^+\\) actually independent? Explain briefly using the definition of independence.\n\n\n\n\nPractice Problem 4. Using the COVID data from 1, find \\(P(T^+)\\)\n\n\n\n\nPractice Problem 5. Suppose the prevalence of COVID-19 in a population is \\(P(C) = 0.02\\) (2%). A rapid test has sensitivity \\(P(T^+ \\mid C) = 0.85\\) and specificity \\(P(T^- \\mid \\text{not } C) = 0.92\\) (where \\(T^-\\) = “tests negative”).\n\nCreate tree diagram of the sample space of a person with a disease status and rapid test result, labeling each branch.\nWhat is \\(P(T^+ \\mid C)\\)?\nFind \\(P(T^+ \\mid \\text{not } C)\\) (the false positive rate).\nFind \\(P(T^+)\\) — the overall probability of a positive test.\nFind \\(P(C \\mid T^+)\\) — the probability a person has COVID given they test positive.\nInterpret your answer in part (d) in one sentence.\nThe method of computing \\(P(A|B)\\) using information from items like $P(B|A) is called Bayes Rule. Match each piece of the calculation in e with the rules shown in Lecture 7.\n\n\n\n\n\n\n\nPractice Problem 6. Recompute \\(P(C \\mid T^+)\\) like in problem 5 but assume the prevalence were \\(P(C) = 0.10\\) (10%) instead of 2%. How does the result change, and why?"
   },
   {
-    "objectID": "lectures/lecture-2.html#physical-randomness-tossing-a-coin",
-    "href": "lectures/lecture-2.html#physical-randomness-tossing-a-coin",
-    "title": "Lecture 2",
+    "objectID": "lectures/lecture-8.html#on-your-own",
+    "href": "lectures/lecture-8.html#on-your-own",
+    "title": "Lecture 8",
     "section": "",
-    "text": "Let’s toss a coin a few times in class, keeping track of the tosses that land “heads.”\n\n\n\nCount of heads (\\(x\\)): ________\nTotal tosses (\\(n\\)): ________\nProportion (\\(\\hat{p}\\)): ________\nPercentage: ________\n\n\n\n\n\nCount of heads (\\(x\\)): ________\nTotal tosses (\\(n\\)): ________\nProportion (\\(\\hat{p}\\)): ________\nPercentage: ________\n\n\n\n\nYour neighbor, ___________________________’s data:\n\nCount of heads (\\(x\\)): ________\nTotal tosses (\\(n\\)): ________\nProportion (\\(\\hat{p}\\)): ________\nPercentage: ________\n\n\n\n\nWhat’s the highest count of heads? ______________________\nMost tosses? ______________________\nHighest proportion of heads? ______________________\nHighest percentage of heads? ______________________\n\n\n\nComments:\nIf we care about comparing coins, then ______________________ is the best summary.\nIf we care about getting lots of “heads” then ______________________ is the best summary.\nThe summary of total tosses (\\(n\\)) tells us ______________________________________.\n\n\n\nQuestion: Rosanna keeps tossing her coin forever. What would we expect?\n\nData (what happened): ________\nTheory (long run): ________"
-  },
-  {
-    "objectID": "lectures/lecture-2.html#key-definitions-related-to-a-trial",
-    "href": "lectures/lecture-2.html#key-definitions-related-to-a-trial",
-    "title": "Lecture 2",
-    "section": "",
-    "text": "Fill in each definition in your own words:\n\nSample space:\n\n\n\n\n\nOutcome:\n\n\n\n\n\nEvent:"
-  },
-  {
-    "objectID": "lectures/lecture-2.html#notes-on-notation",
-    "href": "lectures/lecture-2.html#notes-on-notation",
-    "title": "Lecture 2",
-    "section": "",
-    "text": "We’ll use two colors: one for observed data and another for theoretical quantities.\nClass action required!\nWhat color should Rosanna use for theoretical quantities that we imagine? ______________________\nWhat color should Rosanna use for quantities that we can actually observe? ______________________\n\n\n\n\n\\(x\\) = count of “successes” in \\(n\\) observed trials\n\\(n\\) = number of observed trials\n\\(\\hat{p} = x/n\\) = observed proportion of successes in our trials\nPercentage of observed trials that were a success \\(= 100 \\cdot \\hat{p}\\)\n\\(P(\\text{event})\\) = probability of an event\n\nThe notation for probability, \\(P(\\text{event})\\), is in the same format as notation for functions in high school algebra:\n\n\\(=\\) reads as ______________________\n\\(()\\) reads as ___________________________ (not multiplication!)\n\n\\(Y = f(x)\\) reads as “\\(y\\) is the value of the function whose name is \\(f\\) when \\(x\\) is put in.”\n\\(Y = P(A)\\) reads as “\\(y\\) is the value of probability when the event under consideration is \\(A\\).”"
-  },
-  {
-    "objectID": "lectures/lecture-2.html#example-1-coin-tosses",
-    "href": "lectures/lecture-2.html#example-1-coin-tosses",
-    "title": "Lecture 2",
-    "section": "",
-    "text": "Suppose we toss a coin 20 times and see 15 heads.\n\n\\(x = 15\\)\n\\(n = 20\\)\n\\(\\hat{p} = 15/20 = 0.75\\)\nPercentage \\(= 75\\%\\)\nTheoretical \\(P(\\text{Heads}) = 0.5\\) (for a fair coin)"
-  },
-  {
-    "objectID": "lectures/lecture-2.html#student-exercise-1-coin-tosses",
-    "href": "lectures/lecture-2.html#student-exercise-1-coin-tosses",
-    "title": "Lecture 2",
-    "section": "",
-    "text": "A coin is tossed 10 times and comes up heads 3 times. Fill in:\n\n\\(x =\\) ________\n\\(n =\\) ________\n\\(\\hat{p} =\\) ________\nPercentage \\(=\\) ________ \\(\\%\\)\nTheoretical \\(P(\\text{Heads}) =\\) ______________________"
-  },
-  {
-    "objectID": "lectures/lecture-2.html#example-2-die-rolls",
-    "href": "lectures/lecture-2.html#example-2-die-rolls",
-    "title": "Lecture 2",
-    "section": "",
-    "text": "Suppose a fair 6-sided die is rolled 24 times and we see the number “5” exactly 2 times.\n\n\\(x =\\) ______________\n\\(n =\\) ______________\n\\(\\hat{p} =\\) ______________\nPercentage \\(=\\) ______________\nTheoretical \\(P(\\text{\"5\"}) =\\) ______________________"
-  },
-  {
-    "objectID": "lectures/lecture-2.html#student-exercise-2-die-rolls",
-    "href": "lectures/lecture-2.html#student-exercise-2-die-rolls",
-    "title": "Lecture 2",
-    "section": "",
-    "text": "A die is rolled 30 times and shows “1” exactly 10 times. Fill in:\n\n\\(x =\\) ________\n\\(n =\\) ________\n\\(\\hat{p} =\\) ________\nPercentage \\(=\\) ________ \\(\\%\\)\nTheoretical \\(P(\\text{\"1\"}) =\\) ______________________"
-  },
-  {
-    "objectID": "lectures/lecture-2.html#three-rules-for-probabilities",
-    "href": "lectures/lecture-2.html#three-rules-for-probabilities",
-    "title": "Lecture 2",
-    "section": "",
-    "text": "All probabilities must satisfy:\n\n\\(0 \\le P(A) \\le 1\\) for any event \\(A\\)\nTotal probability across all possible outcomes \\(= 1\\)\nIf \\(A\\) and \\(B\\) are two events with no overlap, then \\(P(A \\text{ or } B) = P(A) + P(B)\\)\n\n\n\n\nCoin: \\(P(\\text{Heads}) + P(\\text{Tails}) =\\) ________\nDie: \\(P(\\text{\"1\"}) + P(\\text{\"2\"}) + \\cdots + P(\\text{\"6\"}) =\\) ________\nDie: \\(P(\\text{\"1\"}) + P(\\text{\"2\"}) =\\) ________\n\\(P(A) = 70\\) is ______________________\n\\(-0.5 = P(B)\\) is ______________________\n\\(P(D) = 0.7\\) is ______________________"
-  },
-  {
-    "objectID": "lectures/lecture-2.html#definition-of-probability",
-    "href": "lectures/lecture-2.html#definition-of-probability",
-    "title": "Lecture 2",
-    "section": "",
-    "text": "\\(P(\\text{Event})\\) = the proportion of times the event occurs out of the number of trials as the trial is repeated infinitely many times.\nProbability is tied to:\n\nA specific random process (repeating a trial with uncertain outcome infinitely many times)\nLong-run relative frequency (a.k.a. “proportion”) of an event occurring"
-  },
-  {
-    "objectID": "lectures/lecture-6.html",
-    "href": "lectures/lecture-6.html",
-    "title": "Lecture 6",
-    "section": "",
-    "text": "Lecture 6: Conditional Probability & Multiplication Rule\nLearning Outcomes:\n\nState the definition of conditional probability and compute \\(P(A \\mid B)\\).\nUse the multiplication rule to compute \\(P(A \\text{ and } B)\\).\nDetermine whether two events are independent (using equivalent criteria).\n\n\nConditional Probability\nNotation: \\(P(A \\mid B)\\) means “the probability event \\(A\\) occurs given event \\(B\\) occurred.”\nDefinition: For events \\(A\\) and \\(B\\) with \\(P(B) &gt; 0\\),\n\\[\nP(A \\mid B) = \\frac{P(A \\text{ and } B)}{P(B)}\n\\]\n\n\n\nExample 1 (die roll): Consider the trial of rolling a fair six-sided die once.\nLet \\(A\\) be the event “the roll is a 3” and let \\(B\\) be the event “the roll is odd.”\n\nList the outcomes in \\(A\\), in \\(B\\), and in \\(A \\text{ and } B\\).\nCompute \\(P(A)\\), \\(P(B)\\), and \\(P(A \\text{ and } B)\\).\nFind \\(P(A \\mid B)\\): the probability of getting a 3 given the roll resulted in an odd number.\nFind \\(P(B \\mid A)\\): the probability of getting an odd number given the roll resulted in a 3.\n\n\n\n\nPractice Problem 1: A jar contains 10 candies: 6 are red and 4 are blue. Two candies are selected without replacement.\nLet \\(A\\) be the event “the first candy is red” and \\(B\\) be the event “the second candy is red.”\n\nFind \\(P(A)\\).\nFind \\(P(B \\mid A)\\).\nUse the multiplication rule (below) to find \\(P(A \\text{ and } B)\\).\n\n\n\n\n\nMultiplication Rule\nFor any two events \\(A\\) and \\(B\\) with \\(P(B) &gt; 0\\),\n\\[\nP(A \\text{ and } B) = P(A \\mid B)\\,P(B)\n\\]\nEquivalently (if \\(P(A) &gt; 0\\)),\n\\[\nP(A \\text{ and } B) = P(B \\mid A)\\,P(A)\n\\]\n\n\n\nExample 2 (two cards, no replacement): A card is drawn from a standard 52-card deck, then a second card is drawn without replacement.\nFind the probability the first card is an Ace and the second card is a King.\n\n\n\n\nIndependence\nEvents \\(A\\) and \\(B\\) are independent if knowing that one event occurred does not change the probability of the other.\nEquivalent ways to check independence:\n\n\\(P(A \\mid B) = P(A)\\) (when \\(P(B) &gt; 0\\))\n\\(P(B \\mid A) = P(B)\\) (when \\(P(A) &gt; 0\\))\n\\(P(A \\text{ and } B) = P(A)\\,P(B)\\)\n\n\n\n\nExample 3 (king vs spade): Suppose a card is randomly dealt from a standard 52-card deck.\nIs the event “the card is a king” independent of the event “the card is a spade”?\n\n\n\n\nMultiplication Rule for Two Independent Events\nIf \\(A\\) and \\(B\\) are independent, then\n\\[\nP(A \\text{ and } B) = P(A)\\,P(B)\n\\]\n\n\n\nExample 4 (two coin tosses): Suppose a fair coin is tossed twice.\nFind the probability of getting “heads” on the first toss and “tails” on the second toss.\n\n\n\nPractice Problem 2: Suppose a fair six-sided die is rolled twice.\nLet \\(A\\) be the event “the first roll is even” and let \\(B\\) be the event “the second roll is 6.”\n\nAre \\(A\\) and \\(B\\) independent? (Explain briefly.)\nCompute \\(P(A \\text{ and } B)\\).\n\n\n\n\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
+    "text": "Practice Problem 6. Recompute \\(P(C \\mid T^+)\\) like in problem 5 but assume the prevalence were \\(P(C) = 0.10\\) (10%) instead of 2%. How does the result change, and why?"
   },
   {
     "objectID": "syllabus.html",
