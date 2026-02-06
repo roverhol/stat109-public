@@ -35,11 +35,53 @@
     "text": "Instructor Information\nInstructor: Dr. Rosanna Overholser\nOffice: BSS 334\nEmail: rho3@humboldt.edu\nOffice Hours: Mondays 2-3pm, Wednesdays 12-12:50pm, Fridays 10-10:50am, or by appointment"
   },
   {
-    "objectID": "lectures/lecture-7.html",
-    "href": "lectures/lecture-7.html",
-    "title": "Lecture 7",
+    "objectID": "lectures/lecture-9.html",
+    "href": "lectures/lecture-9.html",
+    "title": "Lecture 9",
     "section": "",
-    "text": "Lecture 7: Bayes’ Rule\nLearning Outcomes:\n\nState the law of total probability..\nState Bayes’ rule.\n\n\nLaw of Total Probability\nSuppose events \\(A_1, A_2, \\ldots, A_k\\) are mutually exclusive (no two can occur together) and exhaustive (one of them must occur). Then for any event \\(B\\),\n\\[\nP(B) = P(B \\mid A_1)\\,P(A_1) + P(B \\mid A_2)\\,P(A_2) + \\cdots + P(B \\mid A_k)\\,P(A_k).\n\\]\nNote: Each term \\(P(B \\mid A_i)\\,P(A_i)\\) is just \\(P(B \\text{ and } A_i)\\) by the multiplication rule (Lecture 6), so this law just says: split \\(B\\) into the cases “\\(B\\) and \\(A_1\\),” “\\(B\\) and \\(A_2\\),” …, add their probabilities.\nSpecial case (two events): Since \\(A\\) and “not \\(A\\)” partition the sample space, then\n\\[\nP(B) = P(B \\mid A)\\,P(A) + P(B \\mid \\text{not } A)\\,P(\\text{not } A).\n\\]\n\n\n\n\nBayes’ Rule\nFor events \\(A\\) and \\(B\\) with \\(P(B) &gt; 0\\),\n\\[\nP(A \\mid B) = \\frac{P(B \\mid A)\\,P(A)}{P(B)}\n\\]\nIn words: the probability of \\(A\\) given \\(B\\) equals the probability of \\(B\\) given \\(A\\) times the probability of \\(A\\), divided by the probability of \\(B\\).\n\n\n\n\nOptional Derivation of Bayes’ Rule (using facts from Lecture 6)\nWe use two facts from Lecture 6:\n\nDefinition of conditional probability: For \\(P(B) &gt; 0\\), \\[\nP(A \\mid B) = \\frac{P(A \\text{ and } B)}{P(B)}.\n\\]\nMultiplication rule: For any two events \\(A\\) and \\(B\\) (with \\(P(A) &gt; 0\\)), \\[\nP(A \\text{ and } B) = P(B \\mid A)\\,P(A).\n\\]\n\nDerivation: Start with the definition of \\(P(A \\mid B)\\). In the numerator, replace \\(P(A \\text{ and } B)\\) using the multiplication rule:\n\\[\nP(A \\mid B) = \\frac{P(A \\text{ and } B)}{P(B)} = \\frac{P(B \\mid A)\\,P(A)}{P(B)}.\n\\]\nThe right-hand side is Bayes’ rule. So Bayes’ rule follows directly from the definition of conditional probability and the multiplication rule.\nIn practice, the denominator \\(P(B)\\) is often not given directly. We usually compute it using the law of total probability by partitioning the sample space (e.g., into “\\(A\\)” and “not \\(A\\),” or into disease / no disease) and writing \\(P(B)\\) as a sum of terms \\(P(B \\mid A_i)\\,P(A_i)\\).\n\nTree diagram (binary case: partition \\(A\\) / not \\(A\\), then \\(B\\) / not \\(B\\))\nFirst branch on \\(A\\) vs not \\(A\\); from each, branch on \\(B\\) vs not \\(B\\). Edge labels are the probabilities on each branch.\n\nPath probabilities: \\(P(A)\\,P(B \\mid A)\\) and \\(P(A)\\,P(\\text{not } B \\mid A)\\) for the two paths through \\(A\\); \\(P(\\text{not } A)\\,P(B \\mid \\text{not } A)\\) and \\(P(\\text{not } A)\\,P(\\text{not } B \\mid \\text{not } A)\\) for the two through not \\(A\\).\n\\(P(B)\\) = sum of paths that end at \\(B\\): \\(P(A)\\,P(B \\mid A) + P(\\text{not } A)\\,P(B \\mid \\text{not } A)\\) (law of total probability).\nBayes: \\(P(A \\mid B)\\) = (path through \\(A\\) to \\(B\\)) \\(\\div\\) \\(P(B)\\) = \\(\\dfrac{P(B \\mid A)\\,P(A)}{P(B)}\\).\n\n\n\n\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
+    "text": "Learning Outcomes:\n\nDistinguish between situations where order matters (permutations) and where order does not matter (combinations).\nUse the formulas for \\(_nP_r\\) and \\(_nC_r\\) to solve counting problems.\n\n\n\n\nProblem (a). Find the number of ways to distribute 3 distinct flavors of ice cream to 3 distinct bowls.\n\n\n\n\nProblem (b). Find the number of ways to choose 2 distinct flavors of ice cream from 26 flavors to create an ice cream cone with one scoop on the top and one scoop on the bottom.\n\n\n\n\nProblem (c). Find the number of ways to choose 2 distinct flavors of ice cream from 26 flavors to create a dish with two scoops of ice cream, where the order of the scoops doesn’t matter.\n\n\n\n\n\n\n\n\nPermutation: An arrangement of objects where order matters. (Chocolate on top, vanilla on bottom \\(\\neq\\) vanilla on top, chocolate on bottom.)\nCombination: A selection of objects where order does not matter. (Chocolate + vanilla in a dish = vanilla + chocolate.)\n\n\n\n\n\nThe factorial of a nonnegative integer \\(n\\), written \\(n!\\), is the product of all positive integers from \\(n\\) down to 1:\n\\[\nn! = n \\times (n-1) \\times (n-2) \\times \\cdots \\times 2 \\times 1\n\\]\nConvention: \\(0! = 1\\). (This is defined so that our permutation and combination formulas work correctly when \\(r = n\\) or \\(r = 0\\).)\nExamples:\n\n\\(3! = 3 \\times 2 \\times 1 = 6\\)\n\\(5! = 5 \\times 4 \\times 3 \\times 2 \\times 1 = 120\\)\n\\(1! = 1\\)\n\n\n\n\n\n\n\n\nPermutations \\(_nP_r\\) (or \\(P(n,r)\\)): The number of ways to arrange \\(r\\) objects chosen from \\(n\\) distinct objects, where order matters.\n\\[\n_nP_r = \\frac{n!}{(n-r)!} = n(n-1)(n-2)\\cdots(n-r+1)\n\\]\nCombinations \\(_nC_r\\) (or \\(\\binom{n}{r}\\) or \\(C(n,r)\\)): The number of ways to choose \\(r\\) objects from \\(n\\) distinct objects, where order does not matter.\n\\[\n_nC_r = \\binom{n}{r} = \\frac{n!}{r!(n-r)!} = \\frac{_nP_r}{r!}\n\\]\nRelationship: \\(_nC_r = \\dfrac{_nP_r}{r!}\\) — we divide by \\(r!\\) because each combination of \\(r\\) objects can be arranged in \\(r!\\) different orders, and we want to count them once.\n\n\n\n\n\n\n\nSuppose we have 5 letters: A, B, C, D, E. We want to choose 3 of them.\nPart 1 (order matters): How many ways can we choose 3 letters if the order of our choice matters? (e.g., for a 3-letter code)?\n\n\n\n\nPart 2 (order doesn’t matter): How many ways can we choose 3 letters if the order of our choice does not matter (e.g., for a committee of 3)?\n\n\n\n\n\n\n\nRule of thumb: Ask yourself: “If I swap two of the chosen items, do I get a different outcome?” If yes → permutation. If no → combination."
+  },
+  {
+    "objectID": "lectures/lecture-9.html#motivating-example-ice-cream",
+    "href": "lectures/lecture-9.html#motivating-example-ice-cream",
+    "title": "Lecture 9",
+    "section": "",
+    "text": "Problem (a). Find the number of ways to distribute 3 distinct flavors of ice cream to 3 distinct bowls.\n\n\n\n\nProblem (b). Find the number of ways to choose 2 distinct flavors of ice cream from 26 flavors to create an ice cream cone with one scoop on the top and one scoop on the bottom.\n\n\n\n\nProblem (c). Find the number of ways to choose 2 distinct flavors of ice cream from 26 flavors to create a dish with two scoops of ice cream, where the order of the scoops doesn’t matter."
+  },
+  {
+    "objectID": "lectures/lecture-9.html#key-idea-does-order-matter",
+    "href": "lectures/lecture-9.html#key-idea-does-order-matter",
+    "title": "Lecture 9",
+    "section": "",
+    "text": "Permutation: An arrangement of objects where order matters. (Chocolate on top, vanilla on bottom \\(\\neq\\) vanilla on top, chocolate on bottom.)\nCombination: A selection of objects where order does not matter. (Chocolate + vanilla in a dish = vanilla + chocolate.)"
+  },
+  {
+    "objectID": "lectures/lecture-9.html#factorial-notation",
+    "href": "lectures/lecture-9.html#factorial-notation",
+    "title": "Lecture 9",
+    "section": "",
+    "text": "The factorial of a nonnegative integer \\(n\\), written \\(n!\\), is the product of all positive integers from \\(n\\) down to 1:\n\\[\nn! = n \\times (n-1) \\times (n-2) \\times \\cdots \\times 2 \\times 1\n\\]\nConvention: \\(0! = 1\\). (This is defined so that our permutation and combination formulas work correctly when \\(r = n\\) or \\(r = 0\\).)\nExamples:\n\n\\(3! = 3 \\times 2 \\times 1 = 6\\)\n\\(5! = 5 \\times 4 \\times 3 \\times 2 \\times 1 = 120\\)\n\\(1! = 1\\)"
+  },
+  {
+    "objectID": "lectures/lecture-9.html#definitions-and-formulas",
+    "href": "lectures/lecture-9.html#definitions-and-formulas",
+    "title": "Lecture 9",
+    "section": "",
+    "text": "Permutations \\(_nP_r\\) (or \\(P(n,r)\\)): The number of ways to arrange \\(r\\) objects chosen from \\(n\\) distinct objects, where order matters.\n\\[\n_nP_r = \\frac{n!}{(n-r)!} = n(n-1)(n-2)\\cdots(n-r+1)\n\\]\nCombinations \\(_nC_r\\) (or \\(\\binom{n}{r}\\) or \\(C(n,r)\\)): The number of ways to choose \\(r\\) objects from \\(n\\) distinct objects, where order does not matter.\n\\[\n_nC_r = \\binom{n}{r} = \\frac{n!}{r!(n-r)!} = \\frac{_nP_r}{r!}\n\\]\nRelationship: \\(_nC_r = \\dfrac{_nP_r}{r!}\\) — we divide by \\(r!\\) because each combination of \\(r\\) objects can be arranged in \\(r!\\) different orders, and we want to count them once."
+  },
+  {
+    "objectID": "lectures/lecture-9.html#second-example-choosing-3-letters-from-a-b-c-d-e",
+    "href": "lectures/lecture-9.html#second-example-choosing-3-letters-from-a-b-c-d-e",
+    "title": "Lecture 9",
+    "section": "",
+    "text": "Suppose we have 5 letters: A, B, C, D, E. We want to choose 3 of them.\nPart 1 (order matters): How many ways can we choose 3 letters if the order of our choice matters? (e.g., for a 3-letter code)?\n\n\n\n\nPart 2 (order doesn’t matter): How many ways can we choose 3 letters if the order of our choice does not matter (e.g., for a committee of 3)?"
+  },
+  {
+    "objectID": "lectures/lecture-9.html#summary",
+    "href": "lectures/lecture-9.html#summary",
+    "title": "Lecture 9",
+    "section": "",
+    "text": "Rule of thumb: Ask yourself: “If I swap two of the chosen items, do I get a different outcome?” If yes → permutation. If no → combination."
   },
   {
     "objectID": "syllabus.html",
