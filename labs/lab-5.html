@@ -74,7 +74,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-0b37c64f34216b628666a8dac638b53b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-afa37c5c79185640b9c231024f4fe5ea.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -103,28 +103,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/css/humboldt-theme.css">
 </head>
 
-<body class="quarto-light">
+<body class="floating quarto-light">
 
 <div id="quarto-search-results"></div>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#lab-5" id="toc-lab-5" class="nav-link active" data-scroll-target="#lab-5">Lab 5</a></li>
+  <li><a href="#lab-5-project-1-precheck-hypotheses-and-binomial-graph" id="toc-lab-5-project-1-precheck-hypotheses-and-binomial-graph" class="nav-link active" data-scroll-target="#lab-5-project-1-precheck-hypotheses-and-binomial-graph">Lab 5: Project 1 Precheck — Hypotheses and Binomial Graph</a>
+  <ul class="collapse">
+  <li><a href="#step-1-your-research-question" id="toc-step-1-your-research-question" class="nav-link" data-scroll-target="#step-1-your-research-question">Step 1: Your research question</a></li>
+  <li><a href="#step-2-what-is-p-in-your-context" id="toc-step-2-what-is-p-in-your-context" class="nav-link" data-scroll-target="#step-2-what-is-p-in-your-context">Step 2: What is <span class="math inline">\(p\)</span> in your context?</a></li>
+  <li><a href="#step-3-null-and-alternative-hypotheses-conventional-notation" id="toc-step-3-null-and-alternative-hypotheses-conventional-notation" class="nav-link" data-scroll-target="#step-3-null-and-alternative-hypotheses-conventional-notation">Step 3: Null and alternative hypotheses (conventional notation)</a></li>
+  <li><a href="#step-4-values-of-n-and-p-for-the-r-code" id="toc-step-4-values-of-n-and-p-for-the-r-code" class="nav-link" data-scroll-target="#step-4-values-of-n-and-p-for-the-r-code">Step 4: Values of <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> for the R code</a></li>
+  <li><a href="#step-5-create-your-binomial-graph-in-r" id="toc-step-5-create-your-binomial-graph-in-r" class="nav-link" data-scroll-target="#step-5-create-your-binomial-graph-in-r">Step 5: Create your binomial graph in R</a></li>
+  <li><a href="#what-to-turn-in-for-lab-5-precheck-for-project-1" id="toc-what-to-turn-in-for-lab-5-precheck-for-project-1" class="nav-link" data-scroll-target="#what-to-turn-in-for-lab-5-precheck-for-project-1">What to turn in for Lab 5, Precheck for Project 1</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-5.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -134,7 +174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-page-right">
 
     
   
@@ -146,16 +186,73 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="lab-5" class="level1">
-<h1>Lab 5</h1>
-<p><em>Instructions coming soon.</em></p>
+<section id="lab-5-project-1-precheck-hypotheses-and-binomial-graph" class="level1">
+<h1>Lab 5: Project 1 Precheck — Hypotheses and Binomial Graph</h1>
+<p>This lab walks you through the planning steps for <strong>Project 1</strong>. You will state your research question, define <span class="math inline">\(p\)</span> in context, write your null and alternative hypotheses, and create the <strong>graph of the binomial distribution</strong> you will use in your project. This is a <strong>precheck</strong>: you don’t need to have collecting data yet; you are just locking in your question, hypotheses, and the updating values of <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> for the R code from Lecture 12 and 13.</p>
+<p><strong>What you will turn in:</strong> Your research question, a sentence stating what <span class="math inline">\(p\)</span> represents in context, the direction of your best guess for <span class="math inline">\(p\)</span> (your alternative hypothesis), and your <strong>graph of the binomial distribution</strong> (using your <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>).</p>
+<hr>
+<section id="step-1-your-research-question" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-your-research-question">Step 1: Your research question</h2>
+<p>From Project 1, you chose a <strong>Binomial Random Process</strong> you can observe (with <span class="math inline">\(n = 25\)</span> trials). It must satisfy the four BRP conditions, and it must <strong>not</strong> be a class example (e.g., not coin tosses or ESP).</p>
+<p><strong>Your turn.</strong> In one or two sentences, state the <strong>research question</strong> you are trying to answer with your process.</p>
+<p><strong>My research question:</strong></p>
+<hr>
+</section>
+<section id="step-2-what-is-p-in-your-context" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-what-is-p-in-your-context">Step 2: What is <span class="math inline">\(p\)</span> in your context?</h2>
+<p>The parameter <span class="math inline">\(p\)</span> is the <strong>probability of a “success” on a single trial</strong> in your process. For your project, “success” might mean a correct guess, a “yes” response, a left turn, etc. — it depends on your question.</p>
+<p><strong>Your turn.</strong> Write <strong>one sentence</strong> that states what <span class="math inline">\(p\)</span> represents in your context (in words, for a reader who doesn’t know your study).</p>
+<p><span class="math inline">\(p\)</span> in context:</p>
+<hr>
+</section>
+<section id="step-3-null-and-alternative-hypotheses-conventional-notation" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-null-and-alternative-hypotheses-conventional-notation">Step 3: Null and alternative hypotheses (conventional notation)</h2>
+<p>Before observing data, you made a best guess about whether <span class="math inline">\(p\)</span> is larger than, smaller than, or not equal to some number. That guess is your <strong>alternative hypothesis</strong> (<span class="math inline">\(H_a\)</span>). The <strong>null hypothesis</strong> (<span class="math inline">\(H_0\)</span>) is the equality that goes with it.</p>
+<p><strong>Your turn.</strong> Write your null and alternative hypotheses in conventional notation. Use the <strong>same number</strong> for <span class="math inline">\(p\)</span> in both (the value under the null).</p>
+<p><span class="math inline">\(H_0\)</span>: <span class="math inline">\(p\)</span> =</p>
+<p><span class="math inline">\(H_a\)</span>: <span class="math inline">\(p\)</span> (choose one: <span class="math inline">\(&gt;\)</span>, <span class="math inline">\(&lt;\)</span>, <span class="math inline">\(\neq\)</span>)</p>
+<hr>
+</section>
+<section id="step-4-values-of-n-and-p-for-the-r-code" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-values-of-n-and-p-for-the-r-code">Step 4: Values of <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> for the R code</h2>
+<p>The R code in the Lecture 12 / Lecture 13 Colab notebook builds the binomial distribution and plot using <span class="math inline">\(n\)</span> (number of trials) and <span class="math inline">\(p\)</span> (probability of success under the null).</p>
+<p><strong>Your turn.</strong> From your process and <span class="math inline">\(H_0\)</span>, identify the values you will use in the notebook:</p>
+<ul>
+<li><span class="math inline">\(n\)</span> = (Project 1 uses <span class="math inline">\(n = 25\)</span> trials.)</li>
+<li><span class="math inline">\(p\)</span> = (Use the number that appears in <span class="math inline">\(H_0\)</span>.)</li>
+</ul>
+<hr>
+</section>
+<section id="step-5-create-your-binomial-graph-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-create-your-binomial-graph-in-r">Step 5: Create your binomial graph in R</h2>
+<ol type="1">
+<li>Open the <a href="https://colab.research.google.com/drive/1Fq_sQeObKt4KXhoWw47i_3HzEa43YCIA?usp=sharing"><strong>Lecture 12 — Binomial Test (R code)</strong></a> Colab notebook (same one used in Lectures 12 and 13).</li>
+<li>In the notebook, find where <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> are set (in the lecture example they are <span class="math inline">\(n = 25\)</span> and <span class="math inline">\(p = 0.2\)</span>).</li>
+<li><strong>Change</strong> those to <strong>your</strong> values of <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> from Step 4.</li>
+<li><strong>Run all the code</strong> so that the notebook produces the bar plot of the binomial distribution (the graph of <span class="math inline">\(P(X = x)\)</span> for <span class="math inline">\(x = 0, 1, \ldots, n\)</span>).</li>
+<li><strong>Export or save</strong> that graph so you can turn it in (e.g., screenshot or download from Colab).</li>
+</ol>
+<p>You will use this same graph later in your Project 1 report; for the precheck you only need to submit this graph with your <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>.</p>
+<hr>
+</section>
+<section id="what-to-turn-in-for-lab-5-precheck-for-project-1" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-turn-in-for-lab-5-precheck-for-project-1">What to turn in for Lab 5, Precheck for Project 1</h2>
+<p>Submit the following in a word or google document to Canvas by Midnight on Tuesday, Feb.&nbsp;24th:</p>
+<ol type="1">
+<li><strong>Research question</strong> — The question you wrote in Step 1.</li>
+<li><strong>What</strong> <span class="math inline">\(p\)</span> represents — The one-sentence description of <span class="math inline">\(p\)</span> in context from Step 2.</li>
+<li><strong>Direction of your best guess (alternative)</strong> — Your <span class="math inline">\(H_a\)</span> in words or in notation (e.g., “<span class="math inline">\(p &gt; 0.5\)</span>” or “I think <span class="math inline">\(p\)</span> is greater than 0.5”).</li>
+<li><strong>Your binomial graph</strong> — The bar plot of the binomial distribution from Step 5 (using your <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>).</li>
+</ol>
+<p>This precheck confirms your question, parameter, hypotheses, and graph before you add your data and write the full Project 1 report.</p>
 
 
 <!-- -->
 
 </section>
+</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>Creative Commons Attribution-NonCommercial 4.0 International<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">(View License)</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -617,9 +714,79 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "STAT 109: Introductory Biostatistics"</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Lab 5</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Lab 5: Project 1 Precheck — Hypotheses and Binomial Graph</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>*Instructions coming soon.*</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>This lab walks you through the planning steps for **Project 1**. You will state your research question, define $p$ in context, write your null and alternative hypotheses, and create the **graph of the binomial distribution** you will use in your project. This is a **precheck**: you don't need to have collecting data yet; you are just locking in your question, hypotheses, and the updating values of $n$ and $p$ for the R code from Lecture 12 and 13.</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>**What you will turn in:** Your research question, a sentence stating what $p$ represents in context, the direction of your best guess for $p$ (your alternative hypothesis), and your **graph of the binomial distribution** (using your $n$ and $p$).</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 1: Your research question</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>From Project 1, you chose a **Binomial Random Process** you can observe (with $n = 25$ trials). It must satisfy the four BRP conditions, and it must **not** be a class example (e.g., not coin tosses or ESP).</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>**Your turn.** In one or two sentences, state the **research question** you are trying to answer with your process.</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>**My research question:**</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 2: What is $p$ in your context?</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>The parameter $p$ is the **probability of a "success" on a single trial** in your process. For your project, "success" might mean a correct guess, a "yes" response, a left turn, etc. — it depends on your question.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>**Your turn.** Write **one sentence** that states what $p$ represents in your context (in words, for a reader who doesn’t know your study).</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>$p$ in context:</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 3: Null and alternative hypotheses (conventional notation)</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>Before observing data, you made a best guess about whether $p$ is larger than, smaller than, or not equal to some number. That guess is your **alternative hypothesis** ($H_a$). The **null hypothesis** ($H_0$) is the equality that goes with it.</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>**Your turn.** Write your null and alternative hypotheses in conventional notation. Use the **same number** for $p$ in both (the value under the null).</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>$H_0$: $p$ =</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>$H_a$: $p$ (choose one: $&gt;$, $&lt;$, $\neq$)</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 4: Values of $n$ and $p$ for the R code</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>The R code in the Lecture 12 / Lecture 13 Colab notebook builds the binomial distribution and plot using $n$ (number of trials) and $p$ (probability of success under the null).</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>**Your turn.** From your process and $H_0$, identify the values you will use in the notebook:</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>$n$ = (Project 1 uses $n = 25$ trials.)</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>$p$ = (Use the number that appears in $H_0$.)</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 5: Create your binomial graph in R</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Open the <span class="co">[</span><span class="ot">**Lecture 12 — Binomial Test (R code)**</span><span class="co">](https://colab.research.google.com/drive/1Fq_sQeObKt4KXhoWw47i_3HzEa43YCIA?usp=sharing)</span> Colab notebook (same one used in Lectures 12 and 13).</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>In the notebook, find where $n$ and $p$ are set (in the lecture example they are $n = 25$ and $p = 0.2$).</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Change** those to **your** values of $n$ and $p$ from Step 4.</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Run all the code** so that the notebook produces the bar plot of the binomial distribution (the graph of $P(X = x)$ for $x = 0, 1, \ldots, n$).</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Export or save** that graph so you can turn it in (e.g., screenshot or download from Colab).</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>You will use this same graph later in your Project 1 report; for the precheck you only need to submit this graph with your $n$ and $p$.</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## What to turn in for Lab 5, Precheck for Project 1</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>Submit the following in a word or google document to Canvas by Midnight on Tuesday, Feb. 24th:</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Research question** — The question you wrote in Step 1.</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**What** $p$ represents — The one-sentence description of $p$ in context from Step 2.</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Direction of your best guess (alternative)** — Your $H_a$ in words or in notation (e.g., “$p &gt; 0.5$” or “I think $p$ is greater than 0.5”).</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Your binomial graph** — The bar plot of the binomial distribution from Step 5 (using your $n$ and $p$).</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>This precheck confirms your question, parameter, hypotheses, and graph before you add your data and write the full Project 1 report.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
