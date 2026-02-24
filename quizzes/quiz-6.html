@@ -103,28 +103,86 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/css/humboldt-theme.css">
 </head>
 
-<body class="quarto-light">
+<body class="floating quarto-light">
 
 <div id="quarto-search-results"></div>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#quiz-6" id="toc-quiz-6" class="nav-link active" data-scroll-target="#quiz-6">Quiz 6</a></li>
+  <li><a href="#quiz-6" id="toc-quiz-6" class="nav-link active" data-scroll-target="#quiz-6">Quiz 6</a>
+  <ul class="collapse">
+  <li><a href="#quiz-6-practice-problems" id="toc-quiz-6-practice-problems" class="nav-link" data-scroll-target="#quiz-6-practice-problems">Quiz 6 Practice Problems</a></li>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#part-a-lecture-12-hypotheses-and-brp-esp" id="toc-part-a-lecture-12-hypotheses-and-brp-esp" class="nav-link" data-scroll-target="#part-a-lecture-12-hypotheses-and-brp-esp">Part A: Lecture 12 — Hypotheses and BRP (ESP)</a>
+  <ul class="collapse">
+  <li><a href="#a1.-esp-hypotheses" id="toc-a1.-esp-hypotheses" class="nav-link" data-scroll-target="#a1.-esp-hypotheses">A1. ESP hypotheses</a></li>
+  <li><a href="#a2.-four-conditions-of-a-binomial-random-process" id="toc-a2.-four-conditions-of-a-binomial-random-process" class="nav-link" data-scroll-target="#a2.-four-conditions-of-a-binomial-random-process">A2. Four conditions of a Binomial Random Process</a></li>
+  </ul></li>
+  <li><a href="#part-b-lecture-13-esp-worksheet-style" id="toc-part-b-lecture-13-esp-worksheet-style" class="nav-link" data-scroll-target="#part-b-lecture-13-esp-worksheet-style">Part B: Lecture 13 — ESP worksheet style</a>
+  <ul class="collapse">
+  <li><a href="#b1.-n-and-p-under-the-null" id="toc-b1.-n-and-p-under-the-null" class="nav-link" data-scroll-target="#b1.-n-and-p-under-the-null">B1. <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> under the null</a></li>
+  <li><a href="#b2.-observed-data-and-p-value-direction" id="toc-b2.-observed-data-and-p-value-direction" class="nav-link" data-scroll-target="#b2.-observed-data-and-p-value-direction">B2. Observed data and p-value direction</a></li>
+  </ul></li>
+  <li><a href="#part-c-graphs-add-the-data-and-shade-the-p-value" id="toc-part-c-graphs-add-the-data-and-shade-the-p-value" class="nav-link" data-scroll-target="#part-c-graphs-add-the-data-and-shade-the-p-value">Part C: Graphs — add the data and shade the p-value</a>
+  <ul class="collapse">
+  <li><a href="#c1.-left-handed-students" id="toc-c1.-left-handed-students" class="nav-link" data-scroll-target="#c1.-left-handed-students">C1. Left-handed students</a></li>
+  <li><a href="#c2.-defective-items" id="toc-c2.-defective-items" class="nav-link" data-scroll-target="#c2.-defective-items">C2. Defective items</a></li>
+  <li><a href="#c3.-dice-sum-7-or-11" id="toc-c3.-dice-sum-7-or-11" class="nav-link" data-scroll-target="#c3.-dice-sum-7-or-11">C3. Dice (sum 7 or 11)</a></li>
+  <li><a href="#c4.-gym-use" id="toc-c4.-gym-use" class="nav-link" data-scroll-target="#c4.-gym-use">C4. Gym use</a></li>
+  </ul></li>
+  <li><a href="#part-d-full-steps-and-one--vs-two-sided" id="toc-part-d-full-steps-and-one--vs-two-sided" class="nav-link" data-scroll-target="#part-d-full-steps-and-one--vs-two-sided">Part D: Full steps and one- vs two-sided</a>
+  <ul class="collapse">
+  <li><a href="#d1.-order-the-steps" id="toc-d1.-order-the-steps" class="nav-link" data-scroll-target="#d1.-order-the-steps">D1. Order the steps</a></li>
+  <li><a href="#d2.-one-sided-vs-two-sided" id="toc-d2.-one-sided-vs-two-sided" class="nav-link" data-scroll-target="#d2.-one-sided-vs-two-sided">D2. One-sided vs two-sided</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="quiz-6.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -134,7 +192,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-page-right">
 
     
   
@@ -148,14 +206,192 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="quiz-6" class="level1">
 <h1>Quiz 6</h1>
-<p><em>Instructions coming soon.</em></p>
+<section id="quiz-6-practice-problems" class="level2">
+<h2 class="anchored" data-anchor-id="quiz-6-practice-problems">Quiz 6 Practice Problems</h2>
+<p>These practice problems cover:</p>
+<ul>
+<li><strong>Lecture 12:</strong> Introduction to the binomial test (ESP example), hypotheses <span class="math inline">\(H_0\)</span> vs <span class="math inline">\(H_a\)</span>, the 4 conditions of a Binomial Random Process (BRP), and the steps of the test.</li>
+<li><strong>Lecture 13:</strong> ESP worksheet — stating hypotheses, verifying BRP conditions, identifying <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>, and finding the p-value.</li>
+<li><strong>Lecture 14:</strong> Binomial test steps and examples (left-handed, defective items, dice, gym use): research question, parameter, hypotheses, null distribution plot, <strong>adding the observed data and shading the p-value</strong> on the graph, and drawing conclusions.</li>
+</ul>
+<hr>
+</section>
+<section id="instructions" class="level2">
+<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
+<ul>
+<li>Work <strong>without notes</strong> first; then check your answers against the solutions in Canvas.</li>
+<li>For <strong>graph questions:</strong> The figures show the <strong>null distribution</strong> (bar plot of <span class="math inline">\(x\)</span> vs <span class="math inline">\(P(X=x)\)</span>) with <strong>no shading</strong>. On each figure, <strong>by hand</strong>: (1) draw a <strong>vertical line</strong> at the observed value of <span class="math inline">\(x\)</span> given in the problem, and (2) <strong>shade the bar(s)</strong> that correspond to the p-value (in the direction of <span class="math inline">\(H_a\)</span>).</li>
+<li>The in-person quiz in lab will be created from these practice problems.</li>
+</ul>
+<hr>
+</section>
+<section id="part-a-lecture-12-hypotheses-and-brp-esp" class="level2">
+<h2 class="anchored" data-anchor-id="part-a-lecture-12-hypotheses-and-brp-esp">Part A: Lecture 12 — Hypotheses and BRP (ESP)</h2>
+<section id="a1.-esp-hypotheses" class="level3">
+<h3 class="anchored" data-anchor-id="a1.-esp-hypotheses">A1. ESP hypotheses</h3>
+<p><strong>Research question (in words):</strong> We want to test whether a person has <em>Extra Sensory Perception (ESP)</em> — the ability to predict outcomes better than chance. To do this, we use an online test: on each of 25 trials, the computer randomly shows one of <strong>5 possible symbols</strong> (e.g.&nbsp;circle, cross, star), and the person guesses which symbol it is. If they do <em>not</em> have ESP, they are just guessing among 5 options on each trial. If they <em>do</em> have ESP, we expect them to get more than chance correct.</p>
+<p>Let <span class="math inline">\(p\)</span> = probability of a correct prediction on a single trial (when the person makes one guess).</p>
+<ol type="1">
+<li>Write the <strong>null hypothesis</strong> <span class="math inline">\(H_0\)</span> and <strong>alternative hypothesis</strong> <span class="math inline">\(H_a\)</span> in symbols.</li>
+<li>In words, what does it mean if <span class="math inline">\(H_0\)</span> is true? What are we claiming if we believe <span class="math inline">\(H_a\)</span>?</li>
+</ol>
+<hr>
+</section>
+<section id="a2.-four-conditions-of-a-binomial-random-process" class="level3">
+<h3 class="anchored" data-anchor-id="a2.-four-conditions-of-a-binomial-random-process">A2. Four conditions of a Binomial Random Process</h3>
+<p><strong>Setting:</strong> The same ESP test as in A1: 25 trials, 5 possible symbols per trial, the computer picks one symbol at random each time (“open deck”), and the person sees the card (or result) after each guess. We record the number of correct predictions out of 25.</p>
+<p>List the <strong>4 conditions</strong> of a Binomial Random Process and briefly state why each is satisfied in this setting.</p>
+<hr>
+</section>
+</section>
+<section id="part-b-lecture-13-esp-worksheet-style" class="level2">
+<h2 class="anchored" data-anchor-id="part-b-lecture-13-esp-worksheet-style">Part B: Lecture 13 — ESP worksheet style</h2>
+<section id="b1.-n-and-p-under-the-null" class="level3">
+<h3 class="anchored" data-anchor-id="b1.-n-and-p-under-the-null">B1. <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> under the null</h3>
+<p><strong>Setting:</strong> The same ESP test as in Part A: 25 trials, 5 symbols, the person guesses on each trial. Under the null hypothesis, the person is just guessing (no ESP).</p>
+<ul>
+<li>What is <span class="math inline">\(n\)</span>?</li>
+<li>What is <span class="math inline">\(p\)</span> (the probability of a correct guess on one trial under <span class="math inline">\(H_0\)</span>)?</li>
+</ul>
+<hr>
+</section>
+<section id="b2.-observed-data-and-p-value-direction" class="level3">
+<h3 class="anchored" data-anchor-id="b2.-observed-data-and-p-value-direction">B2. Observed data and p-value direction</h3>
+<p><strong>Setting:</strong> Same ESP test: 25 trials, 5 symbols. Under the null, <span class="math inline">\(p = 0.2\)</span> (just guessing). We test <span class="math inline">\(H_0: p = 0.2\)</span> vs <span class="math inline">\(H_a: p &gt; 0.2\)</span>. Suppose you took the test and got <strong>7</strong> correct out of 25.</p>
+<ol type="1">
+<li>What is the observed value of <span class="math inline">\(x\)</span>?</li>
+<li>The p-value is the probability, assuming <span class="math inline">\(H_0\)</span> is true, of observing data <strong>as or more extreme than</strong> the observed <span class="math inline">\(x\)</span> in the direction of <span class="math inline">\(H_a\)</span>. Write the p-value as a probability involving <span class="math inline">\(X\)</span> (e.g.&nbsp;<span class="math inline">\(P(X \geq \ldots)\)</span> or <span class="math inline">\(P(X \leq \ldots)\)</span>).</li>
+<li>Would you need the <strong>right tail</strong>, the <strong>left tail</strong>, or <strong>both tails</strong> of the null distribution to compute this p-value?</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="part-c-graphs-add-the-data-and-shade-the-p-value" class="level2">
+<h2 class="anchored" data-anchor-id="part-c-graphs-add-the-data-and-shade-the-p-value">Part C: Graphs — add the data and shade the p-value</h2>
+<p>Each figure below shows the <strong>null distribution</strong> for a scenario (bar plot of <span class="math inline">\(x\)</span> vs <span class="math inline">\(P(X=x)\)</span>). The plots are <strong>unshaded</strong>. For each problem:</p>
+<ol type="1">
+<li><strong>On the figure:</strong> Draw a <strong>vertical line</strong> at the <strong>observed value of</strong> <span class="math inline">\(x\)</span> (given in the problem).</li>
+<li><strong>On the figure:</strong> <strong>Shade the bar(s)</strong> that represent the <strong>p-value</strong> (i.e.&nbsp;the region in the direction of <span class="math inline">\(H_a\)</span>: right tail for <span class="math inline">\(H_a: p &gt; \ldots\)</span>, left tail for <span class="math inline">\(H_a: p &lt; \ldots\)</span>, or both tails for <span class="math inline">\(H_a: p \neq \ldots\)</span>).</li>
+<li><strong>In the blank:</strong> State whether the p-value is <strong>small</strong> or <strong>large</strong> and give the <strong>conclusion</strong> (reject <span class="math inline">\(H_0\)</span> or fail to reject <span class="math inline">\(H_0\)</span>) in context.</li>
+</ol>
+<hr>
+<section id="c1.-left-handed-students" class="level3">
+<h3 class="anchored" data-anchor-id="c1.-left-handed-students">C1. Left-handed students</h3>
+<p><strong>Research question:</strong> Is the proportion of left-handed students at our school higher than the national rate of 10%?</p>
+<p><strong>Parameter:</strong> <span class="math inline">\(p\)</span> = proportion of students at our school who are left-handed.</p>
+<p><strong>Hypotheses:</strong> <span class="math inline">\(H_0: p = 0.10\)</span> vs <span class="math inline">\(H_a: p &gt; 0.10\)</span>. Under <span class="math inline">\(H_0\)</span>, we use <span class="math inline">\(n = 25\)</span> and <span class="math inline">\(p = 0.10\)</span> for the null distribution.</p>
+<p><strong>Data:</strong> In a random sample of 25 students, <span class="math inline">\(x = 6\)</span> were left-handed.</p>
+<p>The plot below shows the null distribution (<span class="math inline">\(x\)</span> vs <span class="math inline">\(P(X=x)\)</span> for <span class="math inline">\(X \sim \text{Binomial}(25, 0.10)\)</span>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../assets/images/quiz-6/quiz6-fig1-left-handed.png" class="img-fluid figure-img"></p>
+<figcaption>Null distribution for Example 1 (left-handed): <span class="math inline">\(n=25\)</span>, <span class="math inline">\(p=0.10\)</span>.</figcaption>
+</figure>
+</div>
+<p><strong>Your tasks:</strong></p>
+<ol type="1">
+<li>On the figure, add a <strong>vertical line at the observed</strong> <span class="math inline">\(x = 6\)</span> and <strong>shade the bars</strong> that represent the p-value (right tail, in the direction of <span class="math inline">\(H_a\)</span>).</li>
+<li>p-value = <span class="math inline">\(P(X \geq 6 \mid H_0)\)</span> = __________ (“small” or “large”).</li>
+<li>Conclusion: __________ <span class="math inline">\(H_0\)</span>. In context: __________.</li>
+</ol>
+<hr>
+</section>
+<section id="c2.-defective-items" class="level3">
+<h3 class="anchored" data-anchor-id="c2.-defective-items">C2. Defective items</h3>
+<p><strong>Research question:</strong> Is the proportion of defective items from the new supplier less than 15%?</p>
+<p><strong>Parameter:</strong> <span class="math inline">\(p\)</span> = proportion of items from the new supplier that are defective.</p>
+<p><strong>Hypotheses:</strong> <span class="math inline">\(H_0: p = 0.15\)</span> vs <span class="math inline">\(H_a: p &lt; 0.15\)</span>. Under <span class="math inline">\(H_0\)</span>, we use <span class="math inline">\(n = 25\)</span> and <span class="math inline">\(p = 0.15\)</span> for the null distribution.</p>
+<p><strong>Data:</strong> In a random sample of 25 items from the new supplier, <span class="math inline">\(x = 3\)</span> were defective.</p>
+<p>The plot below shows the null distribution (<span class="math inline">\(x\)</span> vs <span class="math inline">\(P(X=x)\)</span> for <span class="math inline">\(X \sim \text{Binomial}(25, 0.15)\)</span>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../assets/images/quiz-6/quiz6-fig2-defective.png" class="img-fluid figure-img"></p>
+<figcaption>Null distribution for Example 2 (defective items): <span class="math inline">\(n=25\)</span>, <span class="math inline">\(p=0.15\)</span>.</figcaption>
+</figure>
+</div>
+<p><strong>Your tasks:</strong></p>
+<ol type="1">
+<li>On the figure, add a <strong>vertical line at the observed</strong> <span class="math inline">\(x = 3\)</span> and <strong>shade the bars</strong> that represent the p-value (left tail, in the direction of <span class="math inline">\(H_a\)</span>).</li>
+<li>p-value = <span class="math inline">\(P(X \leq 3 \mid H_0)\)</span> = __________ (“small” or “large”).</li>
+<li>Conclusion: __________ <span class="math inline">\(H_0\)</span>. In context: __________.</li>
+</ol>
+<hr>
+</section>
+<section id="c3.-dice-sum-7-or-11" class="level3">
+<h3 class="anchored" data-anchor-id="c3.-dice-sum-7-or-11">C3. Dice (sum 7 or 11)</h3>
+<p><strong>Research question:</strong> When we roll two dice, is the probability that the sum is 7 or 11 equal to the fair-dice value? (With fair dice, that probability is <span class="math inline">\(8/36\)</span>: 6 ways to get sum 7 plus 2 ways to get sum 11, out of 36 equally likely outcomes.)</p>
+<p><strong>Parameter:</strong> <span class="math inline">\(p\)</span> = probability that a single roll of two dice gives a sum of 7 or 11.</p>
+<p><strong>Hypotheses:</strong> <span class="math inline">\(H_0: p = 8/36\)</span> vs <span class="math inline">\(H_a: p \neq 8/36\)</span>. Under <span class="math inline">\(H_0\)</span>, we use <span class="math inline">\(n = 25\)</span> rolls and <span class="math inline">\(p = 8/36\)</span> for the null distribution.</p>
+<p><strong>Data:</strong> We rolled the two dice 25 times. The sum was 7 or 11 on <span class="math inline">\(x = 2\)</span> of those rolls.</p>
+<p>The plot below shows the null distribution (<span class="math inline">\(x\)</span> vs <span class="math inline">\(P(X=x)\)</span> for <span class="math inline">\(X \sim \text{Binomial}(25, 8/36)\)</span>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../assets/images/quiz-6/quiz6-fig3-dice.png" class="img-fluid figure-img"></p>
+<figcaption>Null distribution for Example 3 (dice, sum 7 or 11): <span class="math inline">\(n=25\)</span>, <span class="math inline">\(p=8/36\)</span>.</figcaption>
+</figure>
+</div>
+<p><strong>Your tasks:</strong></p>
+<ol type="1">
+<li>On the figure, add a <strong>vertical line at the observed</strong> <span class="math inline">\(x = 2\)</span> and <strong>shade the bars</strong> that represent the p-value. For a <strong>two-sided</strong> <span class="math inline">\(H_a\)</span>, shade <strong>both</strong> tails (the bars for <span class="math inline">\(x \leq 2\)</span> and for <span class="math inline">\(x \geq 9\)</span>, or the symmetric “more extreme” region).</li>
+<li>p-value = <span class="math inline">\(P(X \leq 2) + P(X \geq 9)\)</span> under <span class="math inline">\(H_0\)</span> = __________ (“small” or “large”).</li>
+<li>Conclusion: __________ <span class="math inline">\(H_0\)</span>. In context: __________.</li>
+</ol>
+<hr>
+</section>
+<section id="c4.-gym-use" class="level3">
+<h3 class="anchored" data-anchor-id="c4.-gym-use">C4. Gym use</h3>
+<p><strong>Research question:</strong> Do more than 20% of students at our school use the gym at least once per week?</p>
+<p><strong>Parameter:</strong> <span class="math inline">\(p\)</span> = proportion of students at our school who use the gym at least once per week.</p>
+<p><strong>Hypotheses:</strong> <span class="math inline">\(H_0: p = 0.20\)</span> vs <span class="math inline">\(H_a: p &gt; 0.20\)</span>. Under <span class="math inline">\(H_0\)</span>, we use <span class="math inline">\(n = 25\)</span> and <span class="math inline">\(p = 0.20\)</span> for the null distribution.</p>
+<p><strong>Data:</strong> In a random sample of 25 students, <span class="math inline">\(x = 5\)</span> use the gym at least once per week.</p>
+<p>The plot below shows the null distribution (<span class="math inline">\(x\)</span> vs <span class="math inline">\(P(X=x)\)</span> for <span class="math inline">\(X \sim \text{Binomial}(25, 0.20)\)</span>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../assets/images/quiz-6/quiz6-fig4-gym.png" class="img-fluid figure-img"></p>
+<figcaption>Null distribution for Example 4 (gym use): <span class="math inline">\(n=25\)</span>, <span class="math inline">\(p=0.20\)</span>.</figcaption>
+</figure>
+</div>
+<p><strong>Your tasks:</strong></p>
+<ol type="1">
+<li>On the figure, add a <strong>vertical line at the observed</strong> <span class="math inline">\(x = 5\)</span> and <strong>shade the bars</strong> that represent the p-value (right tail, in the direction of <span class="math inline">\(H_a\)</span>).</li>
+<li>p-value = <span class="math inline">\(P(X \geq 5 \mid H_0)\)</span> = __________ (“small” or “large”).</li>
+<li>Conclusion: __________ <span class="math inline">\(H_0\)</span>. In context: __________.</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="part-d-full-steps-and-one--vs-two-sided" class="level2">
+<h2 class="anchored" data-anchor-id="part-d-full-steps-and-one--vs-two-sided">Part D: Full steps and one- vs two-sided</h2>
+<section id="d1.-order-the-steps" class="level3">
+<h3 class="anchored" data-anchor-id="d1.-order-the-steps">D1. Order the steps</h3>
+<p>Below are <strong>4 key steps</strong> of the binomial test, given in <strong>random order</strong>. Number them <strong>1, 2, 3, 4</strong> in the order we perform them when conducting the test.</p>
+<ul>
+<li><strong>(A)</strong> Verify that the 4 conditions of a Binomial Random Process (BRP) are satisfied.</li>
+<li><strong>(B)</strong> State the research question, define the parameter <span class="math inline">\(p\)</span>, state <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_a\)</span>, and identify <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> under <span class="math inline">\(H_0\)</span>.</li>
+<li><strong>(C)</strong> Create a plot of the null distribution (<span class="math inline">\(x\)</span> vs <span class="math inline">\(P(X=x)\)</span> for the <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> under <span class="math inline">\(H_0\)</span>).</li>
+<li><strong>(D)</strong> Collect the data (observe the value of <span class="math inline">\(x\)</span>) and compare it with the null distribution: on the plot, add the observed <span class="math inline">\(x\)</span> and shade the bar(s) that represent the p-value; compute the p-value and state the conclusion in context.</li>
+</ul>
+<p><strong>Your ordering:</strong> 1 = ___ , 2 = ___ , 3 = ___ , 4 = ___</p>
+<hr>
+</section>
+<section id="d2.-one-sided-vs-two-sided" class="level3">
+<h3 class="anchored" data-anchor-id="d2.-one-sided-vs-two-sided">D2. One-sided vs two-sided</h3>
+<p>Consider a binomial test with null distribution plotted as a bar chart.</p>
+<ol type="1">
+<li>If the alternative hypothesis is <strong>one-sided</strong> (e.g.&nbsp;<span class="math inline">\(H_a: p &gt; 0.2\)</span> or <span class="math inline">\(H_a: p &lt; 0.15\)</span>), do we shade <strong>one tail</strong> or <strong>both tails</strong> of the null distribution to find the p-value?</li>
+<li>If the alternative hypothesis is <strong>two-sided</strong> (e.g.&nbsp;<span class="math inline">\(H_a: p \neq 8/36\)</span>), do we shade <strong>one tail</strong> or <strong>both tails</strong>?</li>
+</ol>
+<hr>
+<p><em>End of Quiz 6 practice problems.</em></p>
 
 
 <!-- -->
 
 </section>
+</section>
+</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>Creative Commons Attribution-NonCommercial 4.0 International<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">(View License)</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -619,7 +855,189 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Quiz 6</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>*Instructions coming soon.*</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quiz 6 Practice Problems</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>These practice problems cover:</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Lecture 12:** Introduction to the binomial test (ESP example), hypotheses $H_0$ vs $H_a$, the 4 conditions of a Binomial Random Process (BRP), and the steps of the test.</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Lecture 13:** ESP worksheet — stating hypotheses, verifying BRP conditions, identifying $n$ and $p$, and finding the p-value.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Lecture 14:** Binomial test steps and examples (left-handed, defective items, dice, gym use): research question, parameter, hypotheses, null distribution plot, **adding the observed data and shading the p-value** on the graph, and drawing conclusions.</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Instructions</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Work **without notes** first; then check your answers against the solutions in Canvas.</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>For **graph questions:** The figures show the **null distribution** (bar plot of $x$ vs $P(X=x)$) with **no shading**. On each figure, **by hand**: (1) draw a **vertical line** at the observed value of $x$ given in the problem, and (2) **shade the bar(s)** that correspond to the p-value (in the direction of $H_a$).</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The in-person quiz in lab will be created from these practice problems.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part A: Lecture 12 — Hypotheses and BRP (ESP)</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">### A1. ESP hypotheses</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>**Research question (in words):** We want to test whether a person has *Extra Sensory Perception (ESP)* — the ability to predict outcomes better than chance. To do this, we use an online test: on each of 25 trials, the computer randomly shows one of **5 possible symbols** (e.g. circle, cross, star), and the person guesses which symbol it is. If they do *not* have ESP, they are just guessing among 5 options on each trial. If they *do* have ESP, we expect them to get more than chance correct.</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>Let $p$ = probability of a correct prediction on a single trial (when the person makes one guess).</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Write the **null hypothesis** $H_0$ and **alternative hypothesis** $H_a$ in symbols.</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>In words, what does it mean if $H_0$ is true? What are we claiming if we believe $H_a$?</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### A2. Four conditions of a Binomial Random Process</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>**Setting:** The same ESP test as in A1: 25 trials, 5 possible symbols per trial, the computer picks one symbol at random each time (“open deck”), and the person sees the card (or result) after each guess. We record the number of correct predictions out of 25.</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>List the **4 conditions** of a Binomial Random Process and briefly state why each is satisfied in this setting.</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part B: Lecture 13 — ESP worksheet style</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="fu">### B1. $n$ and $p$ under the null</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>**Setting:** The same ESP test as in Part A: 25 trials, 5 symbols, the person guesses on each trial. Under the null hypothesis, the person is just guessing (no ESP).</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>What is $n$?</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>What is $p$ (the probability of a correct guess on one trial under $H_0$)?</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="fu">### B2. Observed data and p-value direction</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>**Setting:** Same ESP test: 25 trials, 5 symbols. Under the null, $p = 0.2$ (just guessing). We test $H_0: p = 0.2$ vs $H_a: p &gt; 0.2$. Suppose you took the test and got **7** correct out of 25.</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>What is the observed value of $x$?</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>The p-value is the probability, assuming $H_0$ is true, of observing data **as or more extreme than** the observed $x$ in the direction of $H_a$. Write the p-value as a probability involving $X$ (e.g. $P(X \geq \ldots)$ or $P(X \leq \ldots)$).</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Would you need the **right tail**, the **left tail**, or **both tails** of the null distribution to compute this p-value?</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part C: Graphs — add the data and shade the p-value</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>Each figure below shows the **null distribution** for a scenario (bar plot of $x$ vs $P(X=x)$). The plots are **unshaded**. For each problem:</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**On the figure:** Draw a **vertical line** at the **observed value of** $x$ (given in the problem).</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**On the figure:** **Shade the bar(s)** that represent the **p-value** (i.e. the region in the direction of $H_a$: right tail for $H_a: p &gt; \ldots$, left tail for $H_a: p &lt; \ldots$, or both tails for $H_a: p \neq \ldots$).</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**In the blank:** State whether the p-value is **small** or **large** and give the **conclusion** (reject $H_0$ or fail to reject $H_0$) in context.</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="fu">### C1. Left-handed students</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>**Research question:** Is the proportion of left-handed students at our school higher than the national rate of 10%?</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>**Parameter:** $p$ = proportion of students at our school who are left-handed.</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>**Hypotheses:** $H_0: p = 0.10$ vs $H_a: p &gt; 0.10$. Under $H_0$, we use $n = 25$ and $p = 0.10$ for the null distribution.</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>**Data:** In a random sample of 25 students, $x = 6$ were left-handed.</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>The plot below shows the null distribution ($x$ vs $P(X=x)$ for $X \sim \text{Binomial}(25, 0.10)$).</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="al">![Null distribution for Example 1 (left-handed): $n=25$, $p=0.10$.](../assets/images/quiz-6/quiz6-fig1-left-handed.png)</span></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>**Your tasks:**</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>On the figure, add a **vertical line at the observed** $x = 6$ and **shade the bars** that represent the p-value (right tail, in the direction of $H_a$).</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>p-value = $P(X \geq 6 \mid H_0)$ = <span class="sc">\_\_\_\_\_\_\_\_\_\_</span> ("small" or "large").</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Conclusion: <span class="sc">\_\_\_\_\_\_\_\_\_\_</span> $H_0$. In context: <span class="sc">\_\_\_\_\_\_\_\_\_\_</span>.</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="fu">### C2. Defective items</span></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>**Research question:** Is the proportion of defective items from the new supplier less than 15%?</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>**Parameter:** $p$ = proportion of items from the new supplier that are defective.</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>**Hypotheses:** $H_0: p = 0.15$ vs $H_a: p &lt; 0.15$. Under $H_0$, we use $n = 25$ and $p = 0.15$ for the null distribution.</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>**Data:** In a random sample of 25 items from the new supplier, $x = 3$ were defective.</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>The plot below shows the null distribution ($x$ vs $P(X=x)$ for $X \sim \text{Binomial}(25, 0.15)$).</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="al">![Null distribution for Example 2 (defective items): $n=25$, $p=0.15$.](../assets/images/quiz-6/quiz6-fig2-defective.png)</span></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>**Your tasks:**</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>On the figure, add a **vertical line at the observed** $x = 3$ and **shade the bars** that represent the p-value (left tail, in the direction of $H_a$).</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>p-value = $P(X \leq 3 \mid H_0)$ = <span class="sc">\_\_\_\_\_\_\_\_\_\_</span> ("small" or "large").</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Conclusion: <span class="sc">\_\_\_\_\_\_\_\_\_\_</span> $H_0$. In context: <span class="sc">\_\_\_\_\_\_\_\_\_\_</span>.</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="fu">### C3. Dice (sum 7 or 11)</span></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>**Research question:** When we roll two dice, is the probability that the sum is 7 or 11 equal to the fair-dice value? (With fair dice, that probability is $8/36$: 6 ways to get sum 7 plus 2 ways to get sum 11, out of 36 equally likely outcomes.)</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>**Parameter:** $p$ = probability that a single roll of two dice gives a sum of 7 or 11.</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>**Hypotheses:** $H_0: p = 8/36$ vs $H_a: p \neq 8/36$. Under $H_0$, we use $n = 25$ rolls and $p = 8/36$ for the null distribution.</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>**Data:** We rolled the two dice 25 times. The sum was 7 or 11 on $x = 2$ of those rolls.</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>The plot below shows the null distribution ($x$ vs $P(X=x)$ for $X \sim \text{Binomial}(25, 8/36)$).</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="al">![Null distribution for Example 3 (dice, sum 7 or 11): $n=25$, $p=8/36$.](../assets/images/quiz-6/quiz6-fig3-dice.png)</span></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>**Your tasks:**</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>On the figure, add a **vertical line at the observed** $x = 2$ and **shade the bars** that represent the p-value. For a **two-sided** $H_a$, shade **both** tails (the bars for $x \leq 2$ and for $x \geq 9$, or the symmetric “more extreme” region).</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>p-value = $P(X \leq 2) + P(X \geq 9)$ under $H_0$ = <span class="sc">\_\_\_\_\_\_\_\_\_\_</span> ("small" or "large").</span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Conclusion: <span class="sc">\_\_\_\_\_\_\_\_\_\_</span> $H_0$. In context: <span class="sc">\_\_\_\_\_\_\_\_\_\_</span>.</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="fu">### C4. Gym use</span></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>**Research question:** Do more than 20% of students at our school use the gym at least once per week?</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a>**Parameter:** $p$ = proportion of students at our school who use the gym at least once per week.</span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a>**Hypotheses:** $H_0: p = 0.20$ vs $H_a: p &gt; 0.20$. Under $H_0$, we use $n = 25$ and $p = 0.20$ for the null distribution.</span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a>**Data:** In a random sample of 25 students, $x = 5$ use the gym at least once per week.</span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a>The plot below shows the null distribution ($x$ vs $P(X=x)$ for $X \sim \text{Binomial}(25, 0.20)$).</span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="al">![Null distribution for Example 4 (gym use): $n=25$, $p=0.20$.](../assets/images/quiz-6/quiz6-fig4-gym.png)</span></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>**Your tasks:**</span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>On the figure, add a **vertical line at the observed** $x = 5$ and **shade the bars** that represent the p-value (right tail, in the direction of $H_a$).</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>p-value = $P(X \geq 5 \mid H_0)$ = <span class="sc">\_\_\_\_\_\_\_\_\_\_</span> ("small" or "large").</span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Conclusion: <span class="sc">\_\_\_\_\_\_\_\_\_\_</span> $H_0$. In context: <span class="sc">\_\_\_\_\_\_\_\_\_\_</span>.</span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part D: Full steps and one- vs two-sided</span></span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a><span class="fu">### D1. Order the steps</span></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>Below are **4 key steps** of the binomial test, given in **random order**. Number them **1, 2, 3, 4** in the order we perform them when conducting the test.</span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**(A)** Verify that the 4 conditions of a Binomial Random Process (BRP) are satisfied.</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**(B)** State the research question, define the parameter $p$, state $H_0$ and $H_a$, and identify $n$ and $p$ under $H_0$.</span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**(C)** Create a plot of the null distribution ($x$ vs $P(X=x)$ for the $n$ and $p$ under $H_0$).</span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**(D)** Collect the data (observe the value of $x$) and compare it with the null distribution: on the plot, add the observed $x$ and shade the bar(s) that represent the p-value; compute the p-value and state the conclusion in context.</span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a>**Your ordering:** 1 = <span class="sc">\_\_\_</span> , 2 = <span class="sc">\_\_\_</span> , 3 = <span class="sc">\_\_\_</span> , 4 = <span class="sc">\_\_\_</span></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="fu">### D2. One-sided vs two-sided</span></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a>Consider a binomial test with null distribution plotted as a bar chart.</span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>If the alternative hypothesis is **one-sided** (e.g. $H_a: p &gt; 0.2$ or $H_a: p &lt; 0.15$), do we shade **one tail** or **both tails** of the null distribution to find the p-value?</span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>If the alternative hypothesis is **two-sided** (e.g. $H_a: p \neq 8/36$), do we shade **one tail** or **both tails**?</span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a>*End of Quiz 6 practice problems.*</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
