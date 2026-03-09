@@ -35,367 +35,52 @@
     "text": "Instructor Information\nInstructor: Dr. Rosanna Overholser\nOffice: BSS 334\nEmail: rho3@humboldt.edu\nOffice Hours: Mondays 2-3pm, Wednesdays 12-12:50pm, Fridays 10-10:50am, or by appointment"
   },
   {
-    "objectID": "lectures/lecture-18.html",
-    "href": "lectures/lecture-18.html",
-    "title": "Lecture 18",
+    "objectID": "quizzes/quiz-7.html",
+    "href": "quizzes/quiz-7.html",
+    "title": "Quiz 7",
     "section": "",
-    "text": "Define the “sampling distribution” of a statistic.\nDescribe confidence level, parameter, and upper and lower bounds of an interval in the context of an estimation problem.\nCompute a confidence interval for a population proportion.\nInterpret a confidence interval for a population proportion.\nCompute a confidence interval for a population mean.\nInterpret a confidence interval for a population mean.\n\n\n\n\n\nDescriptive statistics summarize the information in a dataset. The goal of inferential statistics is to infer something about a population from a sample.\nDefinitions: - Population vs sample: We observe information from a subset of people or objects: this set is the sample; in inferential statistics, wee want to say something about the population (e.g. all people or objects in our research question), not just the ones in our sample. - Parameter vs statistic: A parameter is a number describing the population: usually this is unknown as we only have information from a subset of the population (a sample); a statistic is a number computed from the sample (e.g. sample proportion, sample mean).\nExample: Is Moderna’s vaccine effective?\nModerna vaccine trial (Reuters)\nWhat is the population in this context? The sample? What is the parameter and what is the statistic?\n\n\n\n\nSt. Joe’s Hospital in Eureka, California performs advanced heart procedures. Suppose that of their last 361 patients, 71 died after the procedure. The national mortality rate after this type of procedure is 15%. Is the data from the last 361 patients consistent with the national rate?\n\nPopulation: All patients who could receive this advanced heart procedure (or all such patients at similar hospitals).\nSample: The last 361 patients at St. Joe’s.\nParameter: The true mortality rate (proportion) in the population, often denoted \\(\\pi\\) or \\(p\\).\nStatistic: The proportion who died in the sample: \\(\\hat{p} = 71/361 \\approx 0.197\\) (19.7%).\n\n\n\n\n\nFor a binary outcome (e.g. died vs. survived):\n\nParameter: population proportion \\(\\pi\\) (or \\(p\\)).\nStatistic: sample proportion \\(\\hat{p}\\) = (number of successes) / \\(n\\).\n\nThe sampling distribution of \\(\\hat{p}\\) can be:\n\nSimulated (e.g. using a for loop and mean function in R with a large number of replicates),\nComputed exactly using the binomial distribution (e.g. dbinom/pbinom in R),\nApproximated with the normal distribution when \\(n\\) is large enough (e.g. np and n(1-p) are both at least 10).\n\nUse the One Proportion applet to compare the observed sample proportion to the sampling distribution if St. Joe’s had the same mortality rate as the national rate.\n\n\n\n\nFor a 95% confidence interval, we use the “2 standard deviations” rule from the Empirical Rule (approximate):\nStatistic ± 2 × (standard deviation of statistic)\nThe “standard deviation of the statistic” is also called the standard error (SE). So:\n95% CI ≈ statistic ± 2 × SE\nTwo important cases:\n\n\n\nFor a population proportion \\(\\pi\\), we estimate it with the sample proportion \\(\\hat{p}\\). The standard error of \\(\\hat{p}\\) is:\n\\[\\text{SE}(\\hat{p}) = \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}\\]\nSo the 95% confidence interval for a single proportion is:\n\\[\\hat{p} \\pm 2 \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}\\]\nConditions for Formula 1 (Wald):\n\nBinomial random process: (a) Binary outcome (success/failure), (b) Independent trials, (c) Number of trials \\(n\\) fixed in advance, (d) Same probability of success \\(\\pi\\) on each trial.\nNormal approximation: \\(n\\hat{p} \\geq 10\\) and \\(n(1-\\hat{p}) \\geq 10\\) (at least 10 successes and 10 failures in the sample, so the sampling distribution of \\(\\hat{p}\\) is approximately normal).\n\n\n\n\n\nFor a population mean \\(\\mu\\), we estimate it with the sample mean \\(\\bar{x}\\). The standard error of \\(\\bar{x}\\) is:\n\\[\\text{SE}(\\bar{x}) = \\frac{s}{\\sqrt{n}}\\]\nwhere \\(s\\) is the sample standard deviation. So the 95% confidence interval for a single mean is:\n\\[\\bar{x} \\pm 2 \\frac{s}{\\sqrt{n}}\\]\n(For small samples, we often use the \\(t\\) distribution so the multiplier is slightly larger than 2; here we use 2 for a simple “by hand” rule.)\nConditions for Formula 2:\n\nEither the population is (approximately) normal, or the sample size is \\(n &gt; 30\\) (so the sampling distribution of \\(\\bar{x}\\) is approximately normal by the Central Limit Theorem).\nThe sample is a random sample (or can be treated as such) from the population.\n\n\n\n\n\n\nGoal: Estimate the mortality rate at St. Joe’s (Eureka, CA) for the advanced heart procedure using the last 361 patients, with 95% confidence.\n\nData: \\(n = 361\\), 71 died.\nStatistic: \\(\\hat{p} = 71/361 \\approx 0.1967\\).\nStandard error: \\[\\text{SE}(\\hat{p}) = \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}} = \\sqrt{\\frac{0.1967 \\times 0.8033}{361}} \\approx \\sqrt{0.000438} \\approx 0.0209.\\]\n95% CI: \\(\\hat{p} \\pm 2 \\times \\text{SE}(\\hat{p}) = 0.1967 \\pm 2(0.0209) = 0.1967 \\pm 0.0418\\).\nInterval: Lower bound \\(\\approx 0.155\\), upper bound \\(\\approx 0.239\\), so about [0.155, 0.239] or [15.5%, 23.9%].\n\nInterpretation: We are 95% confident that the true mortality rate for this advanced heart procedure at St. Joe’s (for the population of such patients) is between about 15.5% and 23.9%. The 95% confidence means that if we were to repeat the data collection many times, 95% of the time the true mortality rate would be within the intervals (e.g. lower and upper bounds) computed from the samples.\n\n\n\n\nWhen the sample size is small, the condition for the normal approximation may not be satisfied. Then:\n\nFor a 95% confidence interval for a proportion, use the Plus Four formula.\nIf the confidence level is not 95% and there are at least 10 successes and 10 failures in the sample, you may use the Wald (z) formula. Otherwise, consult a statistician.\n\nPlus Four formula: Add 2 “successes” and 2 “failures” to the sample. With \\(x\\) = number of successes and \\(n\\) = sample size, define\n\\[\\tilde{p} = \\frac{x+2}{n+4}\\]\nand use the effective sample size \\(n+4\\). The standard error of \\(\\tilde{p}\\) is\n\\[\\text{SE}(\\tilde{p}) = \\sqrt{\\frac{\\tilde{p}(1-\\tilde{p})}{n+4}}.\\]\nThe 95% confidence interval for a proportion (Plus Four) is:\n\\[\\tilde{p} \\pm 2 \\sqrt{\\frac{\\tilde{p}(1-\\tilde{p})}{n+4}}.\\]\nExample (small sample): Estimate the mortality rate at St. Joe’s using only the last 10 patients (of whom 8 died) with 95% confidence. Use the Plus Four method.\n\nData: \\(x = 8\\) deaths (successes), \\(n = 10\\) patients.\nPlus Four estimate: \\(\\tilde{p} = \\frac{x+2}{n+4} = \\frac{8+2}{10+4} = \\frac{10}{14} \\approx 0.7143\\).\nStandard error: \\(\\text{SE}(\\tilde{p}) = \\sqrt{\\frac{\\tilde{p}(1-\\tilde{p})}{n+4}} = \\sqrt{\\frac{0.7143 \\times 0.2857}{14}} \\approx \\sqrt{0.01458} \\approx 0.1208\\).\n95% CI: \\(\\tilde{p} \\pm 2 \\times \\text{SE}(\\tilde{p}) = 0.7143 \\pm 2(0.1208) = 0.7143 \\pm 0.2416\\).\nInterval: Lower bound \\(\\approx 0.473\\), upper bound \\(\\approx 0.956\\), so about [0.47, 0.96] or [47%, 96%].\n\nInterpretation: We are 95% confident that the true mortality rate for this advanced heart procedure at St. Joe’s (for the population of such patients) is between about 47% and 96%. The 95% confidence means that if we were to repeat the data collection many times, 95% of the time the true mortality rate would be within the intervals (e.g. lower and upper bounds) computed from the samples. With only 10 patients, the interval is very wide and the estimate is highly uncertain; the Plus Four method still gives a plausible range that is more reliable than the Wald interval for such a small sample.\n\n\n\n\nGoal: Estimate the mean recovery time (in days) for patients after the advanced heart procedure using a small sample, with 95% confidence.\nData (recovery time in days for \\(n = 5\\) patients):\n5, 7, 7, 9, 12\nBy hand:\n\nSample mean: \\(\\bar{x} = \\frac{5+7+7+9+12}{5} = \\frac{40}{5} = 8\\) days.\nSample standard deviation:\nDeviations from mean: \\(-3\\), \\(-1\\), \\(-1\\), \\(1\\), \\(4\\).\nSquared deviations: \\(9\\), \\(1\\), \\(1\\), \\(1\\), \\(16\\). Sum = \\(28\\).\n\\(s^2 = 28/(5-1) = 7\\), so \\(s = \\sqrt{7} \\approx 2.65\\) days.\nStandard error: \\(\\text{SE}(\\bar{x}) = \\frac{s}{\\sqrt{n}} = \\frac{2.65}{\\sqrt{5}} \\approx 1.18\\) days.\n95% CI: \\(\\bar{x} \\pm 2 \\times \\text{SE}(\\bar{x}) = 8 \\pm 2(1.18) = 8 \\pm 2.36\\) days.\nInterval: Lower bound \\(\\approx 5.64\\) days, upper bound \\(\\approx 10.36\\) days, so about [5.6, 10.4] days.\n\nInterpretation: We are 95% confident that the true mean recovery time (in days) for patients after this advanced heart procedure is between about 5.6 and 10.4 days. The 95% confidence means that if we were to repeat the data collection many times, 95% of the time the true mean recovery time would be within the intervals (e.g. lower and upper bounds) computed from the samples. This interval is based on only 5 patients, so it is wide and uncertain; a larger sample would give a narrower and more precise interval."
+    "text": "These practice problems cover Lecture 17: Type I and Type II errors, power, and balancing errors in hypothesis testing. You should be able to state null and alternative hypotheses, define Type I and Type II errors in context, interpret decisions when a p-value and significance level are given, and know how to reduce each type of error.\n\n\n\n\n\nWork without notes first; then check your answers against the solutions in Canvas.\nThe in-person quiz in lab will be created from these practice problems.\n\n\n\n\n\n\n\nDefine the significance level (often denoted \\(\\alpha\\)) in the context of hypothesis testing.\n\n\n\n\nDefine a Type I error in the context of hypothesis testing.\n\n\n\n\nDefine a Type II error in the context of hypothesis testing.\n\n\n\n\n\nFor each scenario below: (1) Write the null hypothesis \\(H_0\\) and alternative hypothesis \\(H_a\\) (in symbols and/or words, as appropriate). (2) In context, what would a Type I error be? (3) In context, what would a Type II error be?\n\n\n\nWe want to know if a coin lands on heads more often than not (a “lucky” coin for heads). Let \\(p\\) = probability of heads on a single flip.\n\nState \\(H_0\\) and \\(H_a\\).\nWhat would a Type I error be in this context?\nWhat would a Type II error be in this context?\n\n\n\n\n\nWe want to know if a die lands on the face “6” more often than it should. Let \\(p\\) = probability of a 6 on a single roll.\n\nState \\(H_0\\) and \\(H_a\\).\nWhat would a Type I error be in this context?\nWhat would a Type II error be in this context?\n\n\n\n\n\nA new medical treatment is studied. We want to know if it is effective in more than 10% of cases. Let \\(p\\) = proportion of patients for whom the treatment is effective.\n\nState \\(H_0\\) and \\(H_a\\).\nWhat would a Type I error be in this context?\nWhat would a Type II error be in this context?\n\n\n\n\n\nWe want to know if the proportion of left-handed students at our school is higher than the national rate of 10%. Let \\(p\\) = proportion of students at our school who are left-handed.\n\nState \\(H_0\\) and \\(H_a\\).\nWhat would a Type I error be in this context?\nWhat would a Type II error be in this context?\n\n\n\n\n\nWe want to know if the proportion of defective items from a new supplier is less than 15%. Let \\(p\\) = proportion of items from this supplier that are defective.\n\nState \\(H_0\\) and \\(H_a\\).\nWhat would a Type I error be in this context?\nWhat would a Type II error be in this context?\n\n\n\n\n\n\nFor each problem, the null and alternative hypotheses and data are given. A binomial test was performed and the p-value is reported. The cutoff for significance is \\(\\alpha = 0.05\\). Answer: (1) Do we reject or fail to reject \\(H_0\\)? (2) Could a Type I error be being made? (Explain briefly.) (3) Could a Type II error be being made? (Explain briefly.) (4) In context, what would the Type I error (or Type II error, whichever is possible) be?\n\n\n\nResearch question: Is the coin biased toward heads?\nHypotheses: \\(H_0: p = 0.5\\) vs \\(H_a: p &gt; 0.5\\), where \\(p\\) = probability of heads.\nData: We flip the coin 100 times and observe 62 heads.\nP-value from binomial test: 0.0096.\n\nDo we reject or fail to reject \\(H_0\\) at \\(\\alpha = 0.05\\)?\nCould a Type I error be being made? Why or why not?\nCould a Type II error be being made? Why or why not?\nIn context, what would the Type I error be (i.e., what mistaken conclusion would we have made)?\n\n\n\n\n\nResearch question: Is the proportion of left-handed students at our school higher than the national rate of 10%?\nHypotheses: \\(H_0: p = 0.10\\) vs \\(H_a: p &gt; 0.10\\), where \\(p\\) = proportion of students at our school who are left-handed.\nData: In a random sample of 25 students, 4 are left-handed.\nP-value from binomial test: 0.21.\n\nDo we reject or fail to reject \\(H_0\\) at \\(\\alpha = 0.05\\)?\nCould a Type I error be being made? Why or why not?\nCould a Type II error be being made? Why or why not?\nIn context, what would the Type II error be (i.e., what mistaken conclusion would we have made)?\n\n\n\n\n\nResearch question: Is the proportion of defective items from the new supplier less than 15%?\nHypotheses: \\(H_0: p = 0.15\\) vs \\(H_a: p &lt; 0.15\\), where \\(p\\) = proportion of items from this supplier that are defective.\nData: In a random sample of 40 items, 3 are defective.\nP-value from binomial test: 0.034.\n\nDo we reject or fail to reject \\(H_0\\) at \\(\\alpha = 0.05\\)?\nCould a Type I error be being made? Why or why not?\nCould a Type II error be being made? Why or why not?\nIn context, what would the Type I error be?\n\n\n\n\n\n\n\n\nSuppose we want to reduce the probability of a Type I error (rejecting the null when it is actually true). Which of the following would help?\nA. Use a larger significance level (e.g. \\(\\alpha = 0.10\\) instead of 0.05).\nB. Use a smaller significance level (e.g. \\(\\alpha = 0.01\\) instead of 0.05).\nC. Increase the sample size.\nD. Decrease the sample size.\nAnswer: _____\n\n\n\n\nAssume the Type I error rate (significance level \\(\\alpha\\)) has been set and we do not change it. What can we do to reduce the Type II error rate (i.e., increase power)?\nA. Use a smaller significance level (e.g. \\(\\alpha = 0.01\\) instead of 0.05).\nB. Use a larger significance level (e.g. \\(\\alpha = 0.10\\) instead of 0.05).\nC. Increase the sample size.\nD. Decrease the sample size.\nAnswer: _____\n\nEnd of Quiz 7 practice problems."
   },
   {
-    "objectID": "lectures/lecture-18.html#learning-outcomes",
-    "href": "lectures/lecture-18.html#learning-outcomes",
-    "title": "Lecture 18",
+    "objectID": "quizzes/quiz-7.html#quiz-7-practice-problems",
+    "href": "quizzes/quiz-7.html#quiz-7-practice-problems",
+    "title": "Quiz 7",
     "section": "",
-    "text": "Define the “sampling distribution” of a statistic.\nDescribe confidence level, parameter, and upper and lower bounds of an interval in the context of an estimation problem.\nCompute a confidence interval for a population proportion.\nInterpret a confidence interval for a population proportion.\nCompute a confidence interval for a population mean.\nInterpret a confidence interval for a population mean."
+    "text": "These practice problems cover Lecture 17: Type I and Type II errors, power, and balancing errors in hypothesis testing. You should be able to state null and alternative hypotheses, define Type I and Type II errors in context, interpret decisions when a p-value and significance level are given, and know how to reduce each type of error."
   },
   {
-    "objectID": "lectures/lecture-18.html#why-estimation",
-    "href": "lectures/lecture-18.html#why-estimation",
-    "title": "Lecture 18",
+    "objectID": "quizzes/quiz-7.html#instructions",
+    "href": "quizzes/quiz-7.html#instructions",
+    "title": "Quiz 7",
     "section": "",
-    "text": "Descriptive statistics summarize the information in a dataset. The goal of inferential statistics is to infer something about a population from a sample.\nDefinitions: - Population vs sample: We observe information from a subset of people or objects: this set is the sample; in inferential statistics, wee want to say something about the population (e.g. all people or objects in our research question), not just the ones in our sample. - Parameter vs statistic: A parameter is a number describing the population: usually this is unknown as we only have information from a subset of the population (a sample); a statistic is a number computed from the sample (e.g. sample proportion, sample mean).\nExample: Is Moderna’s vaccine effective?\nModerna vaccine trial (Reuters)\nWhat is the population in this context? The sample? What is the parameter and what is the statistic?"
+    "text": "Work without notes first; then check your answers against the solutions in Canvas.\nThe in-person quiz in lab will be created from these practice problems."
   },
   {
-    "objectID": "lectures/lecture-18.html#example-setting-st.-joes-in-eureka-california",
-    "href": "lectures/lecture-18.html#example-setting-st.-joes-in-eureka-california",
-    "title": "Lecture 18",
+    "objectID": "quizzes/quiz-7.html#part-a-definitions",
+    "href": "quizzes/quiz-7.html#part-a-definitions",
+    "title": "Quiz 7",
     "section": "",
-    "text": "St. Joe’s Hospital in Eureka, California performs advanced heart procedures. Suppose that of their last 361 patients, 71 died after the procedure. The national mortality rate after this type of procedure is 15%. Is the data from the last 361 patients consistent with the national rate?\n\nPopulation: All patients who could receive this advanced heart procedure (or all such patients at similar hospitals).\nSample: The last 361 patients at St. Joe’s.\nParameter: The true mortality rate (proportion) in the population, often denoted \\(\\pi\\) or \\(p\\).\nStatistic: The proportion who died in the sample: \\(\\hat{p} = 71/361 \\approx 0.197\\) (19.7%)."
+    "text": "Define the significance level (often denoted \\(\\alpha\\)) in the context of hypothesis testing.\n\n\n\n\nDefine a Type I error in the context of hypothesis testing.\n\n\n\n\nDefine a Type II error in the context of hypothesis testing."
   },
   {
-    "objectID": "lectures/lecture-18.html#general-notation-and-sampling-distribution-proportion",
-    "href": "lectures/lecture-18.html#general-notation-and-sampling-distribution-proportion",
-    "title": "Lecture 18",
+    "objectID": "quizzes/quiz-7.html#part-b-state-hypotheses-and-define-type-i-and-type-ii-errors-in-context",
+    "href": "quizzes/quiz-7.html#part-b-state-hypotheses-and-define-type-i-and-type-ii-errors-in-context",
+    "title": "Quiz 7",
     "section": "",
-    "text": "For a binary outcome (e.g. died vs. survived):\n\nParameter: population proportion \\(\\pi\\) (or \\(p\\)).\nStatistic: sample proportion \\(\\hat{p}\\) = (number of successes) / \\(n\\).\n\nThe sampling distribution of \\(\\hat{p}\\) can be:\n\nSimulated (e.g. using a for loop and mean function in R with a large number of replicates),\nComputed exactly using the binomial distribution (e.g. dbinom/pbinom in R),\nApproximated with the normal distribution when \\(n\\) is large enough (e.g. np and n(1-p) are both at least 10).\n\nUse the One Proportion applet to compare the observed sample proportion to the sampling distribution if St. Joe’s had the same mortality rate as the national rate."
+    "text": "For each scenario below: (1) Write the null hypothesis \\(H_0\\) and alternative hypothesis \\(H_a\\) (in symbols and/or words, as appropriate). (2) In context, what would a Type I error be? (3) In context, what would a Type II error be?\n\n\n\nWe want to know if a coin lands on heads more often than not (a “lucky” coin for heads). Let \\(p\\) = probability of heads on a single flip.\n\nState \\(H_0\\) and \\(H_a\\).\nWhat would a Type I error be in this context?\nWhat would a Type II error be in this context?\n\n\n\n\n\nWe want to know if a die lands on the face “6” more often than it should. Let \\(p\\) = probability of a 6 on a single roll.\n\nState \\(H_0\\) and \\(H_a\\).\nWhat would a Type I error be in this context?\nWhat would a Type II error be in this context?\n\n\n\n\n\nA new medical treatment is studied. We want to know if it is effective in more than 10% of cases. Let \\(p\\) = proportion of patients for whom the treatment is effective.\n\nState \\(H_0\\) and \\(H_a\\).\nWhat would a Type I error be in this context?\nWhat would a Type II error be in this context?\n\n\n\n\n\nWe want to know if the proportion of left-handed students at our school is higher than the national rate of 10%. Let \\(p\\) = proportion of students at our school who are left-handed.\n\nState \\(H_0\\) and \\(H_a\\).\nWhat would a Type I error be in this context?\nWhat would a Type II error be in this context?\n\n\n\n\n\nWe want to know if the proportion of defective items from a new supplier is less than 15%. Let \\(p\\) = proportion of items from this supplier that are defective.\n\nState \\(H_0\\) and \\(H_a\\).\nWhat would a Type I error be in this context?\nWhat would a Type II error be in this context?"
   },
   {
-    "objectID": "lectures/lecture-18.html#general-formula-for-a-95-confidence-interval",
-    "href": "lectures/lecture-18.html#general-formula-for-a-95-confidence-interval",
-    "title": "Lecture 18",
+    "objectID": "quizzes/quiz-7.html#part-c-given-hypotheses-data-and-p-value-could-type-i-or-type-ii-be-made",
+    "href": "quizzes/quiz-7.html#part-c-given-hypotheses-data-and-p-value-could-type-i-or-type-ii-be-made",
+    "title": "Quiz 7",
     "section": "",
-    "text": "For a 95% confidence interval, we use the “2 standard deviations” rule from the Empirical Rule (approximate):\nStatistic ± 2 × (standard deviation of statistic)\nThe “standard deviation of the statistic” is also called the standard error (SE). So:\n95% CI ≈ statistic ± 2 × SE\nTwo important cases:\n\n\n\nFor a population proportion \\(\\pi\\), we estimate it with the sample proportion \\(\\hat{p}\\). The standard error of \\(\\hat{p}\\) is:\n\\[\\text{SE}(\\hat{p}) = \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}\\]\nSo the 95% confidence interval for a single proportion is:\n\\[\\hat{p} \\pm 2 \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}\\]\nConditions for Formula 1 (Wald):\n\nBinomial random process: (a) Binary outcome (success/failure), (b) Independent trials, (c) Number of trials \\(n\\) fixed in advance, (d) Same probability of success \\(\\pi\\) on each trial.\nNormal approximation: \\(n\\hat{p} \\geq 10\\) and \\(n(1-\\hat{p}) \\geq 10\\) (at least 10 successes and 10 failures in the sample, so the sampling distribution of \\(\\hat{p}\\) is approximately normal).\n\n\n\n\n\nFor a population mean \\(\\mu\\), we estimate it with the sample mean \\(\\bar{x}\\). The standard error of \\(\\bar{x}\\) is:\n\\[\\text{SE}(\\bar{x}) = \\frac{s}{\\sqrt{n}}\\]\nwhere \\(s\\) is the sample standard deviation. So the 95% confidence interval for a single mean is:\n\\[\\bar{x} \\pm 2 \\frac{s}{\\sqrt{n}}\\]\n(For small samples, we often use the \\(t\\) distribution so the multiplier is slightly larger than 2; here we use 2 for a simple “by hand” rule.)\nConditions for Formula 2:\n\nEither the population is (approximately) normal, or the sample size is \\(n &gt; 30\\) (so the sampling distribution of \\(\\bar{x}\\) is approximately normal by the Central Limit Theorem).\nThe sample is a random sample (or can be treated as such) from the population."
+    "text": "For each problem, the null and alternative hypotheses and data are given. A binomial test was performed and the p-value is reported. The cutoff for significance is \\(\\alpha = 0.05\\). Answer: (1) Do we reject or fail to reject \\(H_0\\)? (2) Could a Type I error be being made? (Explain briefly.) (3) Could a Type II error be being made? (Explain briefly.) (4) In context, what would the Type I error (or Type II error, whichever is possible) be?\n\n\n\nResearch question: Is the coin biased toward heads?\nHypotheses: \\(H_0: p = 0.5\\) vs \\(H_a: p &gt; 0.5\\), where \\(p\\) = probability of heads.\nData: We flip the coin 100 times and observe 62 heads.\nP-value from binomial test: 0.0096.\n\nDo we reject or fail to reject \\(H_0\\) at \\(\\alpha = 0.05\\)?\nCould a Type I error be being made? Why or why not?\nCould a Type II error be being made? Why or why not?\nIn context, what would the Type I error be (i.e., what mistaken conclusion would we have made)?\n\n\n\n\n\nResearch question: Is the proportion of left-handed students at our school higher than the national rate of 10%?\nHypotheses: \\(H_0: p = 0.10\\) vs \\(H_a: p &gt; 0.10\\), where \\(p\\) = proportion of students at our school who are left-handed.\nData: In a random sample of 25 students, 4 are left-handed.\nP-value from binomial test: 0.21.\n\nDo we reject or fail to reject \\(H_0\\) at \\(\\alpha = 0.05\\)?\nCould a Type I error be being made? Why or why not?\nCould a Type II error be being made? Why or why not?\nIn context, what would the Type II error be (i.e., what mistaken conclusion would we have made)?\n\n\n\n\n\nResearch question: Is the proportion of defective items from the new supplier less than 15%?\nHypotheses: \\(H_0: p = 0.15\\) vs \\(H_a: p &lt; 0.15\\), where \\(p\\) = proportion of items from this supplier that are defective.\nData: In a random sample of 40 items, 3 are defective.\nP-value from binomial test: 0.034.\n\nDo we reject or fail to reject \\(H_0\\) at \\(\\alpha = 0.05\\)?\nCould a Type I error be being made? Why or why not?\nCould a Type II error be being made? Why or why not?\nIn context, what would the Type I error be?"
   },
   {
-    "objectID": "lectures/lecture-18.html#example-1-confidence-interval-for-a-proportion-st.-joes",
-    "href": "lectures/lecture-18.html#example-1-confidence-interval-for-a-proportion-st.-joes",
-    "title": "Lecture 18",
+    "objectID": "quizzes/quiz-7.html#part-d-multiple-choice-reducing-type-i-and-type-ii-error",
+    "href": "quizzes/quiz-7.html#part-d-multiple-choice-reducing-type-i-and-type-ii-error",
+    "title": "Quiz 7",
     "section": "",
-    "text": "Goal: Estimate the mortality rate at St. Joe’s (Eureka, CA) for the advanced heart procedure using the last 361 patients, with 95% confidence.\n\nData: \\(n = 361\\), 71 died.\nStatistic: \\(\\hat{p} = 71/361 \\approx 0.1967\\).\nStandard error: \\[\\text{SE}(\\hat{p}) = \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}} = \\sqrt{\\frac{0.1967 \\times 0.8033}{361}} \\approx \\sqrt{0.000438} \\approx 0.0209.\\]\n95% CI: \\(\\hat{p} \\pm 2 \\times \\text{SE}(\\hat{p}) = 0.1967 \\pm 2(0.0209) = 0.1967 \\pm 0.0418\\).\nInterval: Lower bound \\(\\approx 0.155\\), upper bound \\(\\approx 0.239\\), so about [0.155, 0.239] or [15.5%, 23.9%].\n\nInterpretation: We are 95% confident that the true mortality rate for this advanced heart procedure at St. Joe’s (for the population of such patients) is between about 15.5% and 23.9%. The 95% confidence means that if we were to repeat the data collection many times, 95% of the time the true mortality rate would be within the intervals (e.g. lower and upper bounds) computed from the samples."
-  },
-  {
-    "objectID": "lectures/lecture-18.html#small-sample-for-a-proportion-plus-four",
-    "href": "lectures/lecture-18.html#small-sample-for-a-proportion-plus-four",
-    "title": "Lecture 18",
-    "section": "",
-    "text": "When the sample size is small, the condition for the normal approximation may not be satisfied. Then:\n\nFor a 95% confidence interval for a proportion, use the Plus Four formula.\nIf the confidence level is not 95% and there are at least 10 successes and 10 failures in the sample, you may use the Wald (z) formula. Otherwise, consult a statistician.\n\nPlus Four formula: Add 2 “successes” and 2 “failures” to the sample. With \\(x\\) = number of successes and \\(n\\) = sample size, define\n\\[\\tilde{p} = \\frac{x+2}{n+4}\\]\nand use the effective sample size \\(n+4\\). The standard error of \\(\\tilde{p}\\) is\n\\[\\text{SE}(\\tilde{p}) = \\sqrt{\\frac{\\tilde{p}(1-\\tilde{p})}{n+4}}.\\]\nThe 95% confidence interval for a proportion (Plus Four) is:\n\\[\\tilde{p} \\pm 2 \\sqrt{\\frac{\\tilde{p}(1-\\tilde{p})}{n+4}}.\\]\nExample (small sample): Estimate the mortality rate at St. Joe’s using only the last 10 patients (of whom 8 died) with 95% confidence. Use the Plus Four method.\n\nData: \\(x = 8\\) deaths (successes), \\(n = 10\\) patients.\nPlus Four estimate: \\(\\tilde{p} = \\frac{x+2}{n+4} = \\frac{8+2}{10+4} = \\frac{10}{14} \\approx 0.7143\\).\nStandard error: \\(\\text{SE}(\\tilde{p}) = \\sqrt{\\frac{\\tilde{p}(1-\\tilde{p})}{n+4}} = \\sqrt{\\frac{0.7143 \\times 0.2857}{14}} \\approx \\sqrt{0.01458} \\approx 0.1208\\).\n95% CI: \\(\\tilde{p} \\pm 2 \\times \\text{SE}(\\tilde{p}) = 0.7143 \\pm 2(0.1208) = 0.7143 \\pm 0.2416\\).\nInterval: Lower bound \\(\\approx 0.473\\), upper bound \\(\\approx 0.956\\), so about [0.47, 0.96] or [47%, 96%].\n\nInterpretation: We are 95% confident that the true mortality rate for this advanced heart procedure at St. Joe’s (for the population of such patients) is between about 47% and 96%. The 95% confidence means that if we were to repeat the data collection many times, 95% of the time the true mortality rate would be within the intervals (e.g. lower and upper bounds) computed from the samples. With only 10 patients, the interval is very wide and the estimate is highly uncertain; the Plus Four method still gives a plausible range that is more reliable than the Wald interval for such a small sample."
-  },
-  {
-    "objectID": "lectures/lecture-18.html#example-2-confidence-interval-for-a-mean-by-hand",
-    "href": "lectures/lecture-18.html#example-2-confidence-interval-for-a-mean-by-hand",
-    "title": "Lecture 18",
-    "section": "",
-    "text": "Goal: Estimate the mean recovery time (in days) for patients after the advanced heart procedure using a small sample, with 95% confidence.\nData (recovery time in days for \\(n = 5\\) patients):\n5, 7, 7, 9, 12\nBy hand:\n\nSample mean: \\(\\bar{x} = \\frac{5+7+7+9+12}{5} = \\frac{40}{5} = 8\\) days.\nSample standard deviation:\nDeviations from mean: \\(-3\\), \\(-1\\), \\(-1\\), \\(1\\), \\(4\\).\nSquared deviations: \\(9\\), \\(1\\), \\(1\\), \\(1\\), \\(16\\). Sum = \\(28\\).\n\\(s^2 = 28/(5-1) = 7\\), so \\(s = \\sqrt{7} \\approx 2.65\\) days.\nStandard error: \\(\\text{SE}(\\bar{x}) = \\frac{s}{\\sqrt{n}} = \\frac{2.65}{\\sqrt{5}} \\approx 1.18\\) days.\n95% CI: \\(\\bar{x} \\pm 2 \\times \\text{SE}(\\bar{x}) = 8 \\pm 2(1.18) = 8 \\pm 2.36\\) days.\nInterval: Lower bound \\(\\approx 5.64\\) days, upper bound \\(\\approx 10.36\\) days, so about [5.6, 10.4] days.\n\nInterpretation: We are 95% confident that the true mean recovery time (in days) for patients after this advanced heart procedure is between about 5.6 and 10.4 days. The 95% confidence means that if we were to repeat the data collection many times, 95% of the time the true mean recovery time would be within the intervals (e.g. lower and upper bounds) computed from the samples. This interval is based on only 5 patients, so it is wide and uncertain; a larger sample would give a narrower and more precise interval."
-  },
-  {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": "Resources",
-    "section": "",
-    "text": "Cal Poly Humboldt — Spring 2026\n\n\n\nCourse Number: STAT 109\nCourse Title: Introductory Biostatistics\nUnits: 4\nSemester: Spring 2026\nMode of Instruction: In-person\nGeneral Education: Lower Division GE Area B4 – Mathematical Concepts & Quantitative Reasoning\n\n\nDays/Time: Monday, Wednesday, Friday, 11:00–11:50 AM\nLocation: BSS 166\n\n\n\n9:00–10:50 AM, LOCATION: FH 202\n11:00–12:50 PM, LOCATION: FH 202\n1:00–2:50 PM, LOCATION: FH 202\n\n\n\nOptional Final Exam (held during the scheduled final exam period): Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166.The final exam is optional and may be taken to replace a midterm grade.\n\n\n\nTeacher: Dr. Rosanna Overholser\nEmail: rho3@humboldt.edu\nOffice Location: BSS 334\nOffice Phone: 707-826-4022\nOffice Hours: Mondays 2-3pm, Wednesdays 12-12:50pm, and Fridays 10-10:50am or by appointment\nPlease use your Cal Poly Humboldt email account to contact me and check both Canvas and your Cal Poly Humboldt email regularly for course communications.\n\n\n\n\n\nDescriptive statistics, probability, random variables, discrete and continuous distributions, confidence intervals, contingency tests, regression and correlation, tests of hypothesis, analysis of variance. Emphasis: methods and applications used in the biological and natural resource sciences.\nDivision: Lower Division  Weekly: Lecture 3 hrs. Activity 2 hrs.  Instruction Mode: In-person\nPrerequisite: MATH 101 or MATH 101I or MATH 102 or MATH 109B (may be taken concurrently with instructor approval) with a grade of C- or better or ALEKS PPL assessment score over 65 or appropriate high school coursework. See Math Placement and ALEKS PPL for details. MATH 102 may be taken concurrently with instructor approval.\nNote: if you plan to use STAT 109 as a prerequisite for another MATH, DATA or STAT course, you must have a grade of C- or better in this course.\n\n\nBy the end of this course, students will be able to:\n\nUse numerical and graphical descriptive statistics to summarize and interpret data.\nExplain the role of randomness, probability, and sampling in statistical inference.\nApply probability rules and work with common probability distributions.\nConstruct and interpret confidence intervals for means and proportions.\nConduct and interpret basic hypothesis tests.\nAnalyze relationships between pairs of variables using correlation and regression.\nUse a statistical programming language to analyze data and communicate results.\nDistinguish between correlation and causation and recognize limitations of statistical conclusions.\n\n\n\n\nThis course fulfills Lower Division General Education Area 2 (Quantitative Reasoning) and supports Cal Poly Humboldt’s Institutional Learning Outcomes related to quantitative reasoning, critical thinking, and communication.\n\n\n\n\n\nSTAT 109 includes:\n\nThree weekly lecture meetings\nOne weekly laboratory session\n\nIn this 4-unit course, students should expect to spend approximately 12 hours per week on course-related work, including time in lecture (3 hours), lab time (2 hours), and time outside of class to do practice problems, projects and prepare for exams and quizzes (7 hours).\n\n\nLecture Notes: I’ll provide packets of guided notes to you in class. These notes have key concepts, definitions and word problems that we’ll solve during class time. These notes have spaces for you to fill in during lecture as we go. If you need to miss class, please ask me for the packet you will be missing.\nOptional Textbook: Introductory Statistics for the Life and Biomedical Sciences by Julie Vu and Dave Harrington, available for free online.\nThree Binder: Please bring a three-ring binder to class to keep the lecture note packets in.\nPen or Pencil: Please bring a pen or pencil to class to take notes with.\nSoftware: R (free and installed on all campus computers; see R download page to install on your own computer) \nCalculator: Scientific (not graphing) calculator \nOther Technology: Regular access to a computer with reliable internet\n\n\n\nStudents who do not have personal access to required technology may use campus computer labs and library resources. If you want to get a free used computer, please check to see if our campus’s Reuseable Office Supply Exchange (ROSE) has one available.\n\n\n\nThere are no additional course fees beyond standard tuition and registration fees.\n\n\n\n\n\n\nStudents will complete a variety of assessments:\n\nDaily warm-up problems (Mondays, Wednesdays and Fridays, in lecture)\nWeekly programming labs (due Tuesdays, in Canvas: I’ll help you write the code the Thursday before)\nWeekly quizzes based on practice problems and labs (Thursdays at the beginning of lab)\nTwo midterms (Week 6 and Week 13 Fridays, in lecture)\nFive projects (Sundays at the ends of the weeks 5, 8, 10, 12, and 15, in Canvas)\n\nDaily warm-up problems are designed to give you an opportunity to work as a team with your classmates. Weekly labs and quizzes are designed to provide regular formative feedback through practice problems, posted solutions, and in-lab support. Midterms require students to demonstrate their understanding of the course material. Projects allow students to apply their knowledge to practical, real-world problems and can be used as part of a portfolio.\nOptionally, students may take a final exam (held during the scheduled final exam period: Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166) to replace a midterm grade.\n\n\n\n\n\n\nComponent\nWeight\n\n\n\n\nDaily Participation\n5%\n\n\nWeekly quizzes\n30%\n\n\nWeekly labs\n15%\n\n\nTwo midterms\n30%\n\n\nFive projects\n20%\n\n\nTotal\n100%\n\n\n\nFinal letter grades will be assigned based on overall performance according to the following:\nA: 93-100% A-: 90-92% B+: 87-89% B: 83-86% B-: 80-82% C+: 77-79% C: 73-76% C-: 70-72% D: 60-69% F: 0-59%\nNote:\n\nGrade Mode: Letter grade by default. Students may elect Credit/No Credit grading according to university deadlines and procedures.\nA minimum grade of C- is required for the course to count toward GE Area B4.\nIf you stop attending class and stop doing assignments without communicating with me, you will receive a grade of WU (Withdrawal Unsatisfactory). Please communicate with me early if you are having difficulties: it’s possible that I can help you get back on track, or help you obtain a more appropriate grade (W or I) for your situation.\n\n\n\n\nRegular attendance and active participation are expected and essential for success in this course.\n\nAttendance in lecture will be tracked via participation in the warm-up problems.\nAttendance in lab will be tracked via participation in the quizzes.\n\nIf you must miss class, you are responsible for obtaining notes and keeping up with course material.\n\n\n\n\n\nThe policies for late or missed work are as follows:\n\nDaily attendance in lecture is required, but I know that sometimes you will need to miss class due to illness or other emergencies. Each student may miss up to 10 days of lecture without penalty and without contacting me. It’s up to you to reserve these days for emergencies only. In my experience, it is rare for a student to succeed if they regularly miss lecture or are absent for more than two weeks so if you find yourself in this situation, please communicate with me and your advisor so we can help you find a solution to getting back on track.\nWeekly quizzes during Thursday lab sessions are required, but I know that sometimes you will need to miss lab due to illness or other emergencies. If this happens, please contact me to make an arrangement to take the quiz at another time.\nWeekly programming labs are due Tuesdays in Canvas. After the due date, a solution will be posted, so late submissions are generally not accepted except in documented emergencies. These labs will be graded on completion and your reflection.\nProjects are due on the specified date in Canvas. You may submit a late project up to a week late with no penalty. After a week, a project can be turn in for 70% of the grade.\nMidterms are required. If you need to miss a midterm due to illness or other emergencies, please communicate with me as soon as possible to reschedule it. Alternatively, you may take the optional final exam (Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166) to replace a missed midterm grade.\n\nNote: Technology issues (internet access, device failure, software problems) are not automatically considered valid excuses for late or missed work; students are expected to plan accordingly.\n\n\n\nMuch of your course grade will be based on materials that you produce in-class without having AI as a resource. But you may use AI, such as NotebookLM or ChatGPT, in this course to help you learn the materials or to perform data analyses or on the projects.\nFor work that you do at home that is turned in for a grade I have two requirements:\n\nif you used AI, acknowledge this briefly in the document (you don’t need to state in detail how you used AI or give your prompts, just the name of the AI service you used).\n\nBe responsible for the correctness and appropriateness of all (AI assisted or not) materials you turn in.\n\nI may use AI to assist me in my delivery of the course material, such as asking AI to see if an assignment is appropriate for a college level course or if the wording of a quiz question could be improved. I will not use AI to grade your work or use an AI detection tool to check your work.\n\n\n\n\n\n\n\n\nIntroduction to data, simulation, and statistical reasoning\nSelected topics in probability\nBinomial Random Process\nA simple hypothesis test\nNormal probability distribution\nSampling distributions and the Central Limit Theorem\nSampling methods\nConfidence intervals\nStudy design\nMore Hypothesis testing\nSimple predictive modeling via Linear regression\n\n\n\n\nNote: This schedule is subject to change. Any changes will be communicated through Canvas.\n\n\n\n\n\n\n\nDate\nEvent\n\n\n\n\nJanuary 20\nHoliday (No class)\n\n\nJanuary 23\nQuiz 1 (during lab)\n\n\nFebruary 2\nAdd/Drop Deadline without a serious and compelling reason\n\n\nFebruary 22\nProject 1 due\n\n\nFebruary 27\nMidterm 1\n\n\nMarch 15\nProject 2 due\n\n\nMarch 16-20\nSpring Break (No classes)\n\n\nMarch 31\nCesar Chavez Day (No class)\n\n\nApril 5\nProject 3 due\n\n\nApril 19\nProject 4 due\n\n\nApril 24\nMidterm 2\n\n\nMay 10\nProject 5 due\n\n\nMay 13\nFinal Exam (Optional, to replace a midterm grade) - 10:20 AM–12:10 PM, BSS 166\n\n\n\nWeekly Schedule:\n\nQuizzes: Weekly quizzes (Quiz 1-12) on Thursdays during lab sessions\nLectures: Monday, Wednesday, Friday, 11:00-11:50 AM with warm-ups in the first 5 minutes of class\nLabs: Get help on the code for your programming lab on Thursday (select one section: 9:00-10:50 AM, 11:00-12:50 PM, or 1:00-2:50 PM), then turn into Canvas by the following Tuesday. Elements of a lab may appear on the quiz, in addition to questions from that week’s practice problem set.\n\n\n\n\nThis class is accompanied by a 1-unit Supplemental Instruction course designed to assist students in better understanding course materials. There is room for 20 students within the SI course, and it can be accessed through the normal enrollment process.\n\nSI Course name: Stat 198 - 31 Supplemental Instruction\nClass number: 22835\nTime and place: TR 4:00 - 4:50 PM FH 179\nInstructor: Em Madrid\nContact: ebm37@humboldt.edu\n\n\n\n\n\n\nStudents are responsible for reviewing the Cal Poly Humboldt Syllabus Addendum, which includes policies and resources related to:\n\nAcademic honesty\nDisability accommodations\nEmergency procedures\nTitle IX\nStudent conduct and support services\n\n\n\nStudents who wish to request disability-related accommodations should contact the Student Disability Resource Center (SDRC) as early as possible and then email me (Rosanna Overholser, rho3@humboldt.edu) your letter of accommodation.\n\n\n\nStandards of respectful and professional behavior apply to all course interactions, including in-person classes, assignments, and email communication.\n\n\n\n\nThis syllabus is subject to change. Any changes will be communicated through Canvas announcements."
-  },
-  {
-    "objectID": "syllabus.html#course-information",
-    "href": "syllabus.html#course-information",
-    "title": "Resources",
-    "section": "",
-    "text": "Course Number: STAT 109\nCourse Title: Introductory Biostatistics\nUnits: 4\nSemester: Spring 2026\nMode of Instruction: In-person\nGeneral Education: Lower Division GE Area B4 – Mathematical Concepts & Quantitative Reasoning\n\n\nDays/Time: Monday, Wednesday, Friday, 11:00–11:50 AM\nLocation: BSS 166\n\n\n\n9:00–10:50 AM, LOCATION: FH 202\n11:00–12:50 PM, LOCATION: FH 202\n1:00–2:50 PM, LOCATION: FH 202\n\n\n\nOptional Final Exam (held during the scheduled final exam period): Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166.The final exam is optional and may be taken to replace a midterm grade.\n\n\n\nTeacher: Dr. Rosanna Overholser\nEmail: rho3@humboldt.edu\nOffice Location: BSS 334\nOffice Phone: 707-826-4022\nOffice Hours: Mondays 2-3pm, Wednesdays 12-12:50pm, and Fridays 10-10:50am or by appointment\nPlease use your Cal Poly Humboldt email account to contact me and check both Canvas and your Cal Poly Humboldt email regularly for course communications."
-  },
-  {
-    "objectID": "syllabus.html#course-description-catalog-description",
-    "href": "syllabus.html#course-description-catalog-description",
-    "title": "Resources",
-    "section": "",
-    "text": "Descriptive statistics, probability, random variables, discrete and continuous distributions, confidence intervals, contingency tests, regression and correlation, tests of hypothesis, analysis of variance. Emphasis: methods and applications used in the biological and natural resource sciences.\nDivision: Lower Division  Weekly: Lecture 3 hrs. Activity 2 hrs.  Instruction Mode: In-person\nPrerequisite: MATH 101 or MATH 101I or MATH 102 or MATH 109B (may be taken concurrently with instructor approval) with a grade of C- or better or ALEKS PPL assessment score over 65 or appropriate high school coursework. See Math Placement and ALEKS PPL for details. MATH 102 may be taken concurrently with instructor approval.\nNote: if you plan to use STAT 109 as a prerequisite for another MATH, DATA or STAT course, you must have a grade of C- or better in this course.\n\n\nBy the end of this course, students will be able to:\n\nUse numerical and graphical descriptive statistics to summarize and interpret data.\nExplain the role of randomness, probability, and sampling in statistical inference.\nApply probability rules and work with common probability distributions.\nConstruct and interpret confidence intervals for means and proportions.\nConduct and interpret basic hypothesis tests.\nAnalyze relationships between pairs of variables using correlation and regression.\nUse a statistical programming language to analyze data and communicate results.\nDistinguish between correlation and causation and recognize limitations of statistical conclusions.\n\n\n\n\nThis course fulfills Lower Division General Education Area 2 (Quantitative Reasoning) and supports Cal Poly Humboldt’s Institutional Learning Outcomes related to quantitative reasoning, critical thinking, and communication."
-  },
-  {
-    "objectID": "syllabus.html#course-materials-workload",
-    "href": "syllabus.html#course-materials-workload",
-    "title": "Resources",
-    "section": "",
-    "text": "STAT 109 includes:\n\nThree weekly lecture meetings\nOne weekly laboratory session\n\nIn this 4-unit course, students should expect to spend approximately 12 hours per week on course-related work, including time in lecture (3 hours), lab time (2 hours), and time outside of class to do practice problems, projects and prepare for exams and quizzes (7 hours).\n\n\nLecture Notes: I’ll provide packets of guided notes to you in class. These notes have key concepts, definitions and word problems that we’ll solve during class time. These notes have spaces for you to fill in during lecture as we go. If you need to miss class, please ask me for the packet you will be missing.\nOptional Textbook: Introductory Statistics for the Life and Biomedical Sciences by Julie Vu and Dave Harrington, available for free online.\nThree Binder: Please bring a three-ring binder to class to keep the lecture note packets in.\nPen or Pencil: Please bring a pen or pencil to class to take notes with.\nSoftware: R (free and installed on all campus computers; see R download page to install on your own computer) \nCalculator: Scientific (not graphing) calculator \nOther Technology: Regular access to a computer with reliable internet\n\n\n\nStudents who do not have personal access to required technology may use campus computer labs and library resources. If you want to get a free used computer, please check to see if our campus’s Reuseable Office Supply Exchange (ROSE) has one available.\n\n\n\nThere are no additional course fees beyond standard tuition and registration fees."
-  },
-  {
-    "objectID": "syllabus.html#course-feedback-assessment",
-    "href": "syllabus.html#course-feedback-assessment",
-    "title": "Resources",
-    "section": "",
-    "text": "Students will complete a variety of assessments:\n\nDaily warm-up problems (Mondays, Wednesdays and Fridays, in lecture)\nWeekly programming labs (due Tuesdays, in Canvas: I’ll help you write the code the Thursday before)\nWeekly quizzes based on practice problems and labs (Thursdays at the beginning of lab)\nTwo midterms (Week 6 and Week 13 Fridays, in lecture)\nFive projects (Sundays at the ends of the weeks 5, 8, 10, 12, and 15, in Canvas)\n\nDaily warm-up problems are designed to give you an opportunity to work as a team with your classmates. Weekly labs and quizzes are designed to provide regular formative feedback through practice problems, posted solutions, and in-lab support. Midterms require students to demonstrate their understanding of the course material. Projects allow students to apply their knowledge to practical, real-world problems and can be used as part of a portfolio.\nOptionally, students may take a final exam (held during the scheduled final exam period: Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166) to replace a midterm grade.\n\n\n\n\n\n\nComponent\nWeight\n\n\n\n\nDaily Participation\n5%\n\n\nWeekly quizzes\n30%\n\n\nWeekly labs\n15%\n\n\nTwo midterms\n30%\n\n\nFive projects\n20%\n\n\nTotal\n100%\n\n\n\nFinal letter grades will be assigned based on overall performance according to the following:\nA: 93-100% A-: 90-92% B+: 87-89% B: 83-86% B-: 80-82% C+: 77-79% C: 73-76% C-: 70-72% D: 60-69% F: 0-59%\nNote:\n\nGrade Mode: Letter grade by default. Students may elect Credit/No Credit grading according to university deadlines and procedures.\nA minimum grade of C- is required for the course to count toward GE Area B4.\nIf you stop attending class and stop doing assignments without communicating with me, you will receive a grade of WU (Withdrawal Unsatisfactory). Please communicate with me early if you are having difficulties: it’s possible that I can help you get back on track, or help you obtain a more appropriate grade (W or I) for your situation.\n\n\n\n\nRegular attendance and active participation are expected and essential for success in this course.\n\nAttendance in lecture will be tracked via participation in the warm-up problems.\nAttendance in lab will be tracked via participation in the quizzes.\n\nIf you must miss class, you are responsible for obtaining notes and keeping up with course material."
-  },
-  {
-    "objectID": "syllabus.html#late-or-missed-work-policies",
-    "href": "syllabus.html#late-or-missed-work-policies",
-    "title": "Resources",
-    "section": "",
-    "text": "The policies for late or missed work are as follows:\n\nDaily attendance in lecture is required, but I know that sometimes you will need to miss class due to illness or other emergencies. Each student may miss up to 10 days of lecture without penalty and without contacting me. It’s up to you to reserve these days for emergencies only. In my experience, it is rare for a student to succeed if they regularly miss lecture or are absent for more than two weeks so if you find yourself in this situation, please communicate with me and your advisor so we can help you find a solution to getting back on track.\nWeekly quizzes during Thursday lab sessions are required, but I know that sometimes you will need to miss lab due to illness or other emergencies. If this happens, please contact me to make an arrangement to take the quiz at another time.\nWeekly programming labs are due Tuesdays in Canvas. After the due date, a solution will be posted, so late submissions are generally not accepted except in documented emergencies. These labs will be graded on completion and your reflection.\nProjects are due on the specified date in Canvas. You may submit a late project up to a week late with no penalty. After a week, a project can be turn in for 70% of the grade.\nMidterms are required. If you need to miss a midterm due to illness or other emergencies, please communicate with me as soon as possible to reschedule it. Alternatively, you may take the optional final exam (Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166) to replace a missed midterm grade.\n\nNote: Technology issues (internet access, device failure, software problems) are not automatically considered valid excuses for late or missed work; students are expected to plan accordingly.\n\n\n\nMuch of your course grade will be based on materials that you produce in-class without having AI as a resource. But you may use AI, such as NotebookLM or ChatGPT, in this course to help you learn the materials or to perform data analyses or on the projects.\nFor work that you do at home that is turned in for a grade I have two requirements:\n\nif you used AI, acknowledge this briefly in the document (you don’t need to state in detail how you used AI or give your prompts, just the name of the AI service you used).\n\nBe responsible for the correctness and appropriateness of all (AI assisted or not) materials you turn in.\n\nI may use AI to assist me in my delivery of the course material, such as asking AI to see if an assignment is appropriate for a college level course or if the wording of a quiz question could be improved. I will not use AI to grade your work or use an AI detection tool to check your work."
-  },
-  {
-    "objectID": "syllabus.html#course-topics-schedule",
-    "href": "syllabus.html#course-topics-schedule",
-    "title": "Resources",
-    "section": "",
-    "text": "Introduction to data, simulation, and statistical reasoning\nSelected topics in probability\nBinomial Random Process\nA simple hypothesis test\nNormal probability distribution\nSampling distributions and the Central Limit Theorem\nSampling methods\nConfidence intervals\nStudy design\nMore Hypothesis testing\nSimple predictive modeling via Linear regression\n\n\n\n\nNote: This schedule is subject to change. Any changes will be communicated through Canvas.\n\n\n\n\n\n\n\nDate\nEvent\n\n\n\n\nJanuary 20\nHoliday (No class)\n\n\nJanuary 23\nQuiz 1 (during lab)\n\n\nFebruary 2\nAdd/Drop Deadline without a serious and compelling reason\n\n\nFebruary 22\nProject 1 due\n\n\nFebruary 27\nMidterm 1\n\n\nMarch 15\nProject 2 due\n\n\nMarch 16-20\nSpring Break (No classes)\n\n\nMarch 31\nCesar Chavez Day (No class)\n\n\nApril 5\nProject 3 due\n\n\nApril 19\nProject 4 due\n\n\nApril 24\nMidterm 2\n\n\nMay 10\nProject 5 due\n\n\nMay 13\nFinal Exam (Optional, to replace a midterm grade) - 10:20 AM–12:10 PM, BSS 166\n\n\n\nWeekly Schedule:\n\nQuizzes: Weekly quizzes (Quiz 1-12) on Thursdays during lab sessions\nLectures: Monday, Wednesday, Friday, 11:00-11:50 AM with warm-ups in the first 5 minutes of class\nLabs: Get help on the code for your programming lab on Thursday (select one section: 9:00-10:50 AM, 11:00-12:50 PM, or 1:00-2:50 PM), then turn into Canvas by the following Tuesday. Elements of a lab may appear on the quiz, in addition to questions from that week’s practice problem set.\n\n\n\n\nThis class is accompanied by a 1-unit Supplemental Instruction course designed to assist students in better understanding course materials. There is room for 20 students within the SI course, and it can be accessed through the normal enrollment process.\n\nSI Course name: Stat 198 - 31 Supplemental Instruction\nClass number: 22835\nTime and place: TR 4:00 - 4:50 PM FH 179\nInstructor: Em Madrid\nContact: ebm37@humboldt.edu"
-  },
-  {
-    "objectID": "syllabus.html#university-policies-resources",
-    "href": "syllabus.html#university-policies-resources",
-    "title": "Resources",
-    "section": "",
-    "text": "Students are responsible for reviewing the Cal Poly Humboldt Syllabus Addendum, which includes policies and resources related to:\n\nAcademic honesty\nDisability accommodations\nEmergency procedures\nTitle IX\nStudent conduct and support services\n\n\n\nStudents who wish to request disability-related accommodations should contact the Student Disability Resource Center (SDRC) as early as possible and then email me (Rosanna Overholser, rho3@humboldt.edu) your letter of accommodation.\n\n\n\nStandards of respectful and professional behavior apply to all course interactions, including in-person classes, assignments, and email communication."
-  },
-  {
-    "objectID": "syllabus.html#changes-to-the-syllabus",
-    "href": "syllabus.html#changes-to-the-syllabus",
-    "title": "Resources",
-    "section": "",
-    "text": "This syllabus is subject to change. Any changes will be communicated through Canvas announcements."
-  },
-  {
-    "objectID": "syllabus.html#spring-2026",
-    "href": "syllabus.html#spring-2026",
-    "title": "Resources",
-    "section": "Spring 2026",
-    "text": "Spring 2026\n\n\n\nWeek\nMon\nWed\nThu\nFri\nSun\n\n\n\n\n1 (Jan 20–23)\nHoliday\nLec\nLab 1 + Quiz 1\nLec\n—\n\n\n2 (Jan 26–30)\nLec\nLec\nLab 2 + Quiz 2\nLec\n—\n\n\n3 (Feb 2–6)\nLec\nLec\nLab 3 + Quiz 3\nLec\n—\n\n\n4 (Feb 9–13)\nLec\nLec\nLab 4 + Quiz 4\nLec\n—\n\n\n5 (Feb 16–20)\nLec\nLec\nLab 5 + Quiz 5\nLec\nProject 1 due (Sun Feb 22)\n\n\n6 (Feb 23–27)\nLec\nReview\nReview (no quiz)\nMidterm 1\n—\n\n\n7 (Mar 2–6)\nLec\nLec\nLab 6 + Quiz 6\nLec\n—\n\n\n8 (Mar 9–13)\nLec\nLec\nLab 7 + Quiz 7\nLec\nProject 2 due (Sun Mar 15)\n\n\n— (Mar 16–20)\n—\n—\n—\n—\n—\n\n\n9 (Mar 23–27)\nLec\nLec\nLab 8 + Quiz 8\nLec\n—\n\n\n10 (Mar 30–Apr 3)\nLec\nLec\nLab 9 + Quiz 9\nLec\nProject 3 due (Sun Apr 5)\n\n\n11 (Apr 6–10)\nLec\nLec\nLab 10 + Quiz 10\nLec\n—\n\n\n12 (Apr 13–17)\nLec\nLec\nLab 11 + Quiz 11\nLec\nProject 4 due (Sun Apr 19)\n\n\n13 (Apr 20–24)\nLec\nReview\nReview (no quiz)\nMidterm 2\n—\n\n\n14 (Apr 27–May 1)\nLec\nLec\nLab 12 + Quiz 12\nLec\n—\n\n\n15 (May 4–8)\nLec\nReview\nLab 13 + Quiz 13\nReview\nProject 5 due (Sun May 10)\n\n\nFinals (May 11–15)\n—\nFinal Exam\n—\n—\n—\n\n\n\nNotes:\n\nMon Week 1 = Holiday (No class)\nWeek 10 = Holiday (No class on Tuesday, March 31)"
-  },
-  {
-    "objectID": "syllabus.html#overview",
-    "href": "syllabus.html#overview",
-    "title": "Resources",
-    "section": "Overview",
-    "text": "Overview\nThis course includes several types of assessments designed to help you learn and to demonstrate your understanding of statistical concepts and methods.\n\n\n\n\n\n\n\n\nComponent\nWeight\nDescription\n\n\n\n\nDaily Participation\n5%\nWarm-up problems in lecture (Mondays, Wednesdays, Fridays)\n\n\nWeekly quizzes\n30%\nQuizzes on Thursdays at the beginning of lab\n\n\nWeekly labs\n15%\nProgramming labs due Tuesdays in Canvas\n\n\nTwo midterms\n30%\nMidterm 1 (Week 6, Friday) and Midterm 2 (Week 13, Friday)\n\n\nFive projects\n20%\nProjects due Sundays at ends of weeks 5, 8, 10, 12, and 15\n\n\nTotal\n100%"
-  },
-  {
-    "objectID": "syllabus.html#daily-participation-5",
-    "href": "syllabus.html#daily-participation-5",
-    "title": "Resources",
-    "section": "Daily Participation (5%)",
-    "text": "Daily Participation (5%)\nDaily warm-up problems are completed at the beginning of each lecture (Mondays, Wednesdays, and Fridays). These collaborative activities give you an opportunity to work as a team with your classmates and practice key concepts."
-  },
-  {
-    "objectID": "syllabus.html#weekly-labs-15",
-    "href": "syllabus.html#weekly-labs-15",
-    "title": "Resources",
-    "section": "Weekly Labs (15%)",
-    "text": "Weekly Labs (15%)\nWeekly programming labs provide hands-on practice with statistical analysis using R. Labs are due Tuesdays in Canvas. I’ll help you write the code during the Thursday lab session before they’re due. Labs are graded on completion and your reflection. After the due date, a solution will be posted, so late submissions are generally not accepted except in documented emergencies.\n\nIndividual Labs\n\nLab 1 - Week 1 (due Tuesday, Week 2)\nLab 2 - Week 2 (due Tuesday, Week 3)\nLab 3 - Week 3 (due Tuesday, Week 4)\nLab 4 - Week 4 (due Tuesday, Week 5)\nLab 5 - Week 5 (due Tuesday, Week 6)\nLab 6 - Week 7 (due Tuesday, Week 8)\nLab 7 - Week 8 (due Tuesday, Week 9)\nLab 8 - Week 9 (due Tuesday, Week 10)\nLab 9 - Week 10 (due Tuesday, Week 11)\nLab 10 - Week 11 (due Tuesday, Week 12)\nLab 11 - Week 12 (due Tuesday, Week 13)\nLab 12 - Week 14 (due Tuesday, Week 15)\nLab 13 - Week 15 (due Tuesday, Finals Week)"
-  },
-  {
-    "objectID": "syllabus.html#weekly-quizzes-30",
-    "href": "syllabus.html#weekly-quizzes-30",
-    "title": "Resources",
-    "section": "Weekly Quizzes (30%)",
-    "text": "Weekly Quizzes (30%)\nWeekly quizzes are administered on Thursdays at the beginning of lab. They assess your understanding of key concepts from the lessons, practice problems, and labs. If you need to miss a quiz due to illness or other emergencies, please contact me to make an arrangement to take it at another time.\n\nIndividual Quizzes\n\nQuiz 1 - Week 1\nQuiz 2 - Week 2\nQuiz 3 - Week 3\nQuiz 4 - Week 4\nQuiz 5 - Week 5\nQuiz 6 - Week 7\nQuiz 7 - Week 8\nQuiz 8 - Week 9\nQuiz 9 - Week 10\nQuiz 10 - Week 11\nQuiz 11 - Week 12\nQuiz 12 - Week 14\nQuiz 13 - Week 15"
-  },
-  {
-    "objectID": "syllabus.html#projects-20",
-    "href": "syllabus.html#projects-20",
-    "title": "Resources",
-    "section": "Projects (20%)",
-    "text": "Projects (20%)\nFive projects throughout the semester allow you to apply statistical methods to practical, real-world problems. Projects are due on Sundays at the ends of weeks 5, 8, 10, 12, and 15 in Canvas. You may submit a late project up to a week late with no penalty. After a week, a project can be turned in for 70% of the grade. Projects can be used as part of a portfolio.\n\nIndividual Projects\n\nProject 1 - Due Sunday, Week 5 (Feb 22)\nProject 2 - Due Sunday, Week 8 (Mar 15)\nProject 3 - Due Sunday, Week 10 (Apr 5)\nProject 4 - Due Sunday, Week 12 (Apr 19)\nProject 5 - Due Sunday, Week 15 (May 10)"
-  },
-  {
-    "objectID": "syllabus.html#exams-30",
-    "href": "syllabus.html#exams-30",
-    "title": "Resources",
-    "section": "Exams (30%)",
-    "text": "Exams (30%)\n\nMidterms\n\nMidterm 1: Week 6, Friday (in lecture)\nMidterm 2: Week 13, Friday (in lecture)\n\nMidterms require you to demonstrate your understanding of the course material. If you need to miss a midterm due to illness or other emergencies, please communicate with me as soon as possible to reschedule it. Alternatively, you may take the optional final exam to replace a missed midterm grade.\n\n\nFinal Exam (Optional)\nFinal Exam: Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166\nThe final exam is optional and may be taken to replace a midterm grade. It is held during the scheduled final exam period."
-  },
-  {
-    "objectID": "syllabus.html#grading-scale",
-    "href": "syllabus.html#grading-scale",
-    "title": "Resources",
-    "section": "Grading Scale",
-    "text": "Grading Scale\nFinal letter grades will be assigned based on overall performance:\nA: 93-100% | A-: 90-92% | B+: 87-89% | B: 83-86% | B-: 80-82% | C+: 77-79% | C: 73-76% | C-: 70-72% | D: 60-69% | F: 0-59%\nA minimum grade of C- is required for the course to count toward GE Area 2."
-  },
-  {
-    "objectID": "syllabus.html#week-1",
-    "href": "syllabus.html#week-1",
-    "title": "Resources",
-    "section": "Week 1",
-    "text": "Week 1\n\nMonday\nHoliday - No class\n\n\nWednesday\nLecture 1\n\n\nFriday\nLecture 2"
-  },
-  {
-    "objectID": "syllabus.html#week-2",
-    "href": "syllabus.html#week-2",
-    "title": "Resources",
-    "section": "Week 2",
-    "text": "Week 2\n\nMonday\nLecture 3\n\n\nWednesday\nLecture 4\n\n\nFriday\nLecture 5"
-  },
-  {
-    "objectID": "syllabus.html#week-3",
-    "href": "syllabus.html#week-3",
-    "title": "Resources",
-    "section": "Week 3",
-    "text": "Week 3\n\nMonday\nLecture 6\n\n\nWednesday\nLecture 7\n\n\nFriday\nLecture 8"
-  },
-  {
-    "objectID": "syllabus.html#week-4",
-    "href": "syllabus.html#week-4",
-    "title": "Resources",
-    "section": "Week 4",
-    "text": "Week 4\n\nMonday\nLecture 9\n\n\nWednesday\nLecture 10\n\n\nFriday\nLecture 11"
-  },
-  {
-    "objectID": "syllabus.html#week-5",
-    "href": "syllabus.html#week-5",
-    "title": "Resources",
-    "section": "Week 5",
-    "text": "Week 5\n\nMonday\nLecture 12\n\n\nWednesday\nLecture 13\n\n\nFriday\nLecture 14"
-  },
-  {
-    "objectID": "syllabus.html#week-6",
-    "href": "syllabus.html#week-6",
-    "title": "Resources",
-    "section": "Week 6",
-    "text": "Week 6\n\nMonday\nLecture 15\n\n\nWednesday\nReview\n\n\nFriday\nMidterm 1"
-  },
-  {
-    "objectID": "syllabus.html#week-7",
-    "href": "syllabus.html#week-7",
-    "title": "Resources",
-    "section": "Week 7",
-    "text": "Week 7\n\nMonday\nLecture 16\n\n\nWednesday\nLecture 17\n\n\nFriday\nLecture 18"
-  },
-  {
-    "objectID": "syllabus.html#week-8",
-    "href": "syllabus.html#week-8",
-    "title": "Resources",
-    "section": "Week 8",
-    "text": "Week 8\n\nMonday\nLecture 19\n\n\nWednesday\nLecture 20\n\n\nFriday\nLecture 21"
-  },
-  {
-    "objectID": "syllabus.html#week-9",
-    "href": "syllabus.html#week-9",
-    "title": "Resources",
-    "section": "Week 9",
-    "text": "Week 9\n\nMonday\nLecture 22\n\n\nWednesday\nLecture 23\n\n\nFriday\nLecture 24"
-  },
-  {
-    "objectID": "syllabus.html#week-10",
-    "href": "syllabus.html#week-10",
-    "title": "Resources",
-    "section": "Week 10",
-    "text": "Week 10\n\nMonday\nLecture 25\n\n\nWednesday\nLecture 26\n\n\nFriday\nLecture 27"
-  },
-  {
-    "objectID": "syllabus.html#week-11",
-    "href": "syllabus.html#week-11",
-    "title": "Resources",
-    "section": "Week 11",
-    "text": "Week 11\n\nMonday\nLecture 28\n\n\nWednesday\nLecture 29\n\n\nFriday\nLecture 30"
-  },
-  {
-    "objectID": "syllabus.html#week-12",
-    "href": "syllabus.html#week-12",
-    "title": "Resources",
-    "section": "Week 12",
-    "text": "Week 12\n\nMonday\nLecture 31\n\n\nWednesday\nLecture 32\n\n\nFriday\nLecture 33"
-  },
-  {
-    "objectID": "syllabus.html#week-13",
-    "href": "syllabus.html#week-13",
-    "title": "Resources",
-    "section": "Week 13",
-    "text": "Week 13\n\nMonday\nLecture 34\n\n\nWednesday\nReview\n\n\nFriday\nMidterm 2"
-  },
-  {
-    "objectID": "syllabus.html#week-14",
-    "href": "syllabus.html#week-14",
-    "title": "Resources",
-    "section": "Week 14",
-    "text": "Week 14\n\nMonday\nLecture 35\n\n\nWednesday\nLecture 36\n\n\nFriday\nLecture 37"
-  },
-  {
-    "objectID": "syllabus.html#week-15",
-    "href": "syllabus.html#week-15",
-    "title": "Resources",
-    "section": "Week 15",
-    "text": "Week 15\n\nMonday\nLecture 38\n\n\nWednesday\nReview\n\n\nFriday\nReview"
-  },
-  {
-    "objectID": "syllabus.html#methods-descriptive",
-    "href": "syllabus.html#methods-descriptive",
-    "title": "Resources",
-    "section": "Descriptive Statistics",
-    "text": "Descriptive Statistics\n\nOne Quantitative Variable\n[Content to be added]\n\n\nTwo Quantitative Variables\n[Content to be added]\n\n\nOne Categorical Variable\n[Content to be added]\n\n\nTwo Categorical Variables\n[Content to be added]"
-  },
-  {
-    "objectID": "syllabus.html#methods-inferential",
-    "href": "syllabus.html#methods-inferential",
-    "title": "Resources",
-    "section": "Inferential Statistics",
-    "text": "Inferential Statistics\n\nOne Quantitative Variable\n[Content to be added]\n\n\nTwo Quantitative Variables\n[Content to be added]\n\n\nOne Categorical Variable\n[Content to be added]\n\n\nTwo Categorical Variables\n[Content to be added]"
-  },
-  {
-    "objectID": "syllabus.html#r-import",
-    "href": "syllabus.html#r-import",
-    "title": "Resources",
-    "section": "Import Data",
-    "text": "Import Data\n[Content to be added]"
-  },
-  {
-    "objectID": "syllabus.html#r-summaries",
-    "href": "syllabus.html#r-summaries",
-    "title": "Resources",
-    "section": "Summaries",
-    "text": "Summaries\n[Content to be added]"
-  },
-  {
-    "objectID": "syllabus.html#r-plots",
-    "href": "syllabus.html#r-plots",
-    "title": "Resources",
-    "section": "Plots",
-    "text": "Plots\n[Content to be added]"
-  },
-  {
-    "objectID": "syllabus.html#r-sim",
-    "href": "syllabus.html#r-sim",
-    "title": "Resources",
-    "section": "Simulation",
-    "text": "Simulation\n[Content to be added]"
-  },
-  {
-    "objectID": "syllabus.html#lectures-1",
-    "href": "syllabus.html#lectures-1",
-    "title": "Resources",
-    "section": "Lectures",
-    "text": "Lectures\nLectures - Access all course lectures organized by week and day."
-  },
-  {
-    "objectID": "syllabus.html#textbook",
-    "href": "syllabus.html#textbook",
-    "title": "Resources",
-    "section": "Textbook",
-    "text": "Textbook\nOptional Textbook: Introductory Statistics for the Life and Biomedical Sciences by Julie Vu and Dave Harrington\nThis textbook is available for free online and provides additional explanations and examples that complement the course materials."
-  },
-  {
-    "objectID": "syllabus.html#r-software-downloads",
-    "href": "syllabus.html#r-software-downloads",
-    "title": "Resources",
-    "section": "R Software Downloads",
-    "text": "R Software Downloads\nSTAT 109 uses R for statistical computing. You can use R in several ways:\n\nBase R\nDownload R: R Project Website\nR is free and open-source statistical software. The base R installation includes the core R language and basic packages.\n\nWindows: Download the installer from CRAN (Comprehensive R Archive Network)\nMac: Download the macOS installer from CRAN\nLinux: Install via your distribution’s package manager or from CRAN\n\n\n\nRStudio\nDownload RStudio: RStudio Desktop\nRStudio is an integrated development environment (IDE) for R that provides a user-friendly interface, code editor, and helpful features for data analysis. RStudio Desktop is free and works with base R.\nNote: You must install base R first before installing RStudio.\n\n\nR in Google Colab\nAccess R in Google Colab: R in Colab\nGoogle Colab provides free access to R in a cloud-based notebook environment. This is useful if you don’t want to install R on your computer or need to work from different devices.\n\n\nR in Jupyter Notebook\nInstall R for Jupyter: IRkernel Documentation\nJupyter Notebook is another notebook environment that supports R. To use R in Jupyter:\n\nInstall base R first\nInstall Jupyter Notebook or JupyterLab\nInstall the IRkernel package in R\nRegister the kernel with Jupyter\n\nNote: R is also installed on all campus computers, so you can use the computer labs if you prefer not to install software on your personal computer."
-  },
-  {
-    "objectID": "syllabus.html#course-reference-materials",
-    "href": "syllabus.html#course-reference-materials",
-    "title": "Resources",
-    "section": "Course Reference Materials",
-    "text": "Course Reference Materials\n\nR Reference\nR Quick Reference - A quick reference guide for common R commands and functions used in this course.\n\n\nMethods Map\nMethods Map - A reference table of statistical methods covered in the course, organized by topic."
-  },
-  {
-    "objectID": "syllabus.html#additional-resources",
-    "href": "syllabus.html#additional-resources",
-    "title": "Resources",
-    "section": "Additional Resources",
-    "text": "Additional Resources\n\nCampus Resources\n\nComputer Labs: R is installed on all campus computers\nROSE (Reusable Office Supply Exchange): Free used computers may be available if you need a computer\n\n\n\nGetting Help\n\nOffice Hours: See the Syllabus for instructor office hours\nCanvas: Check Canvas for announcements and course communications\nEmail: Contact the instructor at rho3@humboldt.edu"
+    "text": "Suppose we want to reduce the probability of a Type I error (rejecting the null when it is actually true). Which of the following would help?\nA. Use a larger significance level (e.g. \\(\\alpha = 0.10\\) instead of 0.05).\nB. Use a smaller significance level (e.g. \\(\\alpha = 0.01\\) instead of 0.05).\nC. Increase the sample size.\nD. Decrease the sample size.\nAnswer: _____\n\n\n\n\nAssume the Type I error rate (significance level \\(\\alpha\\)) has been set and we do not change it. What can we do to reduce the Type II error rate (i.e., increase power)?\nA. Use a smaller significance level (e.g. \\(\\alpha = 0.01\\) instead of 0.05).\nB. Use a larger significance level (e.g. \\(\\alpha = 0.10\\) instead of 0.05).\nC. Increase the sample size.\nD. Decrease the sample size.\nAnswer: _____\n\nEnd of Quiz 7 practice problems."
   }
 ]
