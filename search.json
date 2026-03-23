@@ -35,60 +35,32 @@
     "text": "Instructor Information\nInstructor: Dr. Rosanna Overholser\nOffice: BSS 334\nEmail: rho3@humboldt.edu\nOffice Hours: Mondays 2-3pm, Wednesdays 12-12:50pm, Fridays 10-10:50am, or by appointment"
   },
   {
-    "objectID": "assessments.html",
-    "href": "assessments.html",
-    "title": "Assessments",
+    "objectID": "lectures/lecture-22.html",
+    "href": "lectures/lecture-22.html",
+    "title": "Lecture 22",
     "section": "",
-    "text": "This course includes several types of assessments designed to help you learn and to demonstrate your understanding of statistical concepts and methods.\n\n\n\n\n\n\n\n\nComponent\nWeight\nDescription\n\n\n\n\nDaily Participation\n5%\nWarm-up problems in lecture (Mondays, Wednesdays, Fridays)\n\n\nWeekly quizzes\n30%\nQuizzes on Thursdays at the beginning of lab\n\n\nWeekly labs\n15%\nProgramming labs due Tuesdays in Canvas\n\n\nTwo midterms\n30%\nMidterm 1 (Week 7, Friday) and Midterm 2 (Week 13, Friday)\n\n\nFive projects\n20%\nProjects due Sundays at ends of weeks 5, 9, 11, 12, and 15\n\n\nTotal\n100%\n\n\n\n\n\n\n\nDaily warm-up problems are completed at the beginning of each lecture (Mondays, Wednesdays, and Fridays). These collaborative activities give you an opportunity to work as a team with your classmates and practice key concepts.\n\n\n\nWeekly programming labs provide hands-on practice with statistical analysis using R. Labs are due Tuesdays in Canvas. I’ll help you write the code during the Thursday lab session before they’re due. Labs are graded on completion and your reflection. After the due date, a solution will be posted, so late submissions are generally not accepted except in documented emergencies.\n\n\n\nLab 1 - Week 1 (due Tuesday, Week 2)\nLab 2 - Week 2 (due Tuesday, Week 3)\nLab 3 - Week 3 (due Tuesday, Week 4)\nLab 4 - Week 4 (due Tuesday, Week 5)\nLab 5 - Week 5 (due Tuesday, Week 6)\nLab 6 - Week 6 (due Tuesday, Week 7)\nLab 7 - Week 8 (due Tuesday, Week 9)\nLab 8 - Week 9 (due Tuesday, Week 10)\nLab 9 - Week 10 (due Tuesday, Week 11)\nLab 10 - Week 11 (due Tuesday, Week 12)\nLab 11 - Week 12 (due Tuesday, Week 13)\nLab 12 - Week 14 (due Tuesday, Week 15)\nLab 13 - Week 15 (due Tuesday, Finals Week)\n\n\n\n\n\nWeekly quizzes are administered on Thursdays at the beginning of lab. They assess your understanding of key concepts from the lessons, practice problems, and labs. If you need to miss a quiz due to illness or other emergencies, please contact me to make an arrangement to take it at another time.\n\n\n\nQuiz 1 - Week 1\nQuiz 2 - Week 2\nQuiz 3 - Week 3\nQuiz 4 - Week 4\nQuiz 5 - Week 5\nQuiz 6 - Week 6\nQuiz 7 - Week 8\nQuiz 8 - Week 9\nQuiz 9 - Week 10\nQuiz 10 - Week 11\nQuiz 11 - Week 12\nQuiz 12 - Week 14\nQuiz 13 - Week 15\n\n\n\n\n\nFive projects throughout the semester allow you to apply statistical methods to practical, real-world problems. Projects are due on Sundays at the ends of weeks 5, 9, 11, 12, and 15 in Canvas. You may submit a late project up to a week late with no penalty. After a week, a project can be turned in for 70% of the grade. Projects can be used as part of a portfolio.\n\n\n\nProject 1 - Due Sunday, Week 5 (Feb 22)\nProject 2 - Due Sunday, Week 9 (Mar 29)\nProject 3 - Due Sunday, Week 11 (Apr 12)\nProject 4 - Due Sunday, Week 12 (Apr 19)\nProject 5 - Due Sunday, Week 15 (May 10)\n\n\n\n\n\n\n\n\nMidterm 1: Week 7, Friday (in lecture)\nMidterm 2: Week 13, Friday (in lecture)\n\nMidterms require you to demonstrate your understanding of the course material. If you need to miss a midterm due to illness or other emergencies, please communicate with me as soon as possible to reschedule it. Alternatively, you may take the optional final exam to replace a missed midterm grade.\n\n\n\nFinal Exam: Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166\nThe final exam is optional and may be taken to replace a midterm grade. It is held during the scheduled final exam period.\n\n\n\n\nFinal letter grades will be assigned based on overall performance:\nA: 93-100% | A-: 90-92% | B+: 87-89% | B: 83-86% | B-: 80-82% | C+: 77-79% | C: 73-76% | C-: 70-72% | D: 60-69% | F: 0-59%\nA minimum grade of C- is required for the course to count toward GE Area 2."
+    "text": "Compute a z-score given an observation, and the mean and standard deviation of a population.\nInterpret a z-score in context\nUse z-scores to perform standardized comparisons\nCompute the probability of a z-score or below using the Standard Normal Distribution and interpret it as the proportion of values below.\n\nExample: Who is taller, Rosanna or Peter?\nTwo observations:\nRosanna’s height in inches is ________________\nPeter’s height in inches is _________________\nSo ___________ is taller when their heights are compared directly.\nBut who is taller relative to their group?\nDraw a reference distribution for the stature of men and a reference distribution for the stature of women.\nIdentify the location of the center of the stature distribution on each plot and show one and two standard deviations (SD) on either side.\nAdd vertical lines to the appropriate distribution at Rosanna and Peter’s heights. Who appears to be taller compared with the reference distributions?\nAccording to the plots, _____________ is taller relative to their group.\nInstead of plotting two different reference distribution and comparing the observations where they fall relative to two SD from the center, we can compare the heights relative to their groups directly via z-scores.\n\n\n\n\\[\nz = \\frac{\\text{observation} - \\text{mean of reference}}{\\text{SD of reference}}\n\\]\nA z-score measures the number of SDs the observation is above the mean (or below if the difference is negative).\nCompute the z-score for Rosanna’s height using the reference information for women. Compute the z-score for Peter’s z-score using the reference information for men. Whose z-score is larger, that is, who is taller than more of their reference group?\nIf we assume the shape of a reference distribution is Normal then we can use a table or online calculator or R to find the percentage in the population that corresponds to a particular z-score.\n\n\n\nA standard normal distribution is a normal distribution with mean 0 and SD 1.\nNotice that by the Empirical Rule, we can see that 68% of values are between -1 and 1, 95% are between -2 and 2, and 99% are between -3 and 3. The proportions of values corresponding to all those below a particular value are given in a Standard Normal Table:\nnormal-table.pdf\nOnline Calculator\nExample: Rosanna’s grip strength this morning using her dominant hand was 38.8 lbs. Suppose that mean grip strength is 66lbs and SD is 14lbs for women in their early forties in the US. Compute Rosanna’s z-score and use it to find the percentage of women in their early forties in the US that Rosanna is stronger than assuming that this distribution is normal.\nExample: Measure your own grip strength in lbs: ___________________________________________\nCompare with your choice of a reference group by computing your z-score.\n\n\n\nGroup\nMean (lbs)\nSD (lbs)\n\n\n\n\nCollege aged men\n104\n18\n\n\nCollege aged women\n62\n16\n\n\nGreat Grandmothers\n44\n10\n\n\n\nWhat proportion of your selected reference group are you stronger than? _____________ Weaker than?____________\n(use the online calculator or Standard Normal Table)"
   },
   {
-    "objectID": "assessments.html#overview",
-    "href": "assessments.html#overview",
-    "title": "Assessments",
+    "objectID": "lectures/lecture-22.html#skills",
+    "href": "lectures/lecture-22.html#skills",
+    "title": "Lecture 22",
     "section": "",
-    "text": "This course includes several types of assessments designed to help you learn and to demonstrate your understanding of statistical concepts and methods.\n\n\n\n\n\n\n\n\nComponent\nWeight\nDescription\n\n\n\n\nDaily Participation\n5%\nWarm-up problems in lecture (Mondays, Wednesdays, Fridays)\n\n\nWeekly quizzes\n30%\nQuizzes on Thursdays at the beginning of lab\n\n\nWeekly labs\n15%\nProgramming labs due Tuesdays in Canvas\n\n\nTwo midterms\n30%\nMidterm 1 (Week 7, Friday) and Midterm 2 (Week 13, Friday)\n\n\nFive projects\n20%\nProjects due Sundays at ends of weeks 5, 9, 11, 12, and 15\n\n\nTotal\n100%"
+    "text": "Compute a z-score given an observation, and the mean and standard deviation of a population.\nInterpret a z-score in context\nUse z-scores to perform standardized comparisons\nCompute the probability of a z-score or below using the Standard Normal Distribution and interpret it as the proportion of values below.\n\nExample: Who is taller, Rosanna or Peter?\nTwo observations:\nRosanna’s height in inches is ________________\nPeter’s height in inches is _________________\nSo ___________ is taller when their heights are compared directly.\nBut who is taller relative to their group?\nDraw a reference distribution for the stature of men and a reference distribution for the stature of women.\nIdentify the location of the center of the stature distribution on each plot and show one and two standard deviations (SD) on either side.\nAdd vertical lines to the appropriate distribution at Rosanna and Peter’s heights. Who appears to be taller compared with the reference distributions?\nAccording to the plots, _____________ is taller relative to their group.\nInstead of plotting two different reference distribution and comparing the observations where they fall relative to two SD from the center, we can compare the heights relative to their groups directly via z-scores."
   },
   {
-    "objectID": "assessments.html#daily-participation-5",
-    "href": "assessments.html#daily-participation-5",
-    "title": "Assessments",
+    "objectID": "lectures/lecture-22.html#definition-z-score",
+    "href": "lectures/lecture-22.html#definition-z-score",
+    "title": "Lecture 22",
     "section": "",
-    "text": "Daily warm-up problems are completed at the beginning of each lecture (Mondays, Wednesdays, and Fridays). These collaborative activities give you an opportunity to work as a team with your classmates and practice key concepts."
+    "text": "\\[\nz = \\frac{\\text{observation} - \\text{mean of reference}}{\\text{SD of reference}}\n\\]\nA z-score measures the number of SDs the observation is above the mean (or below if the difference is negative).\nCompute the z-score for Rosanna’s height using the reference information for women. Compute the z-score for Peter’s z-score using the reference information for men. Whose z-score is larger, that is, who is taller than more of their reference group?\nIf we assume the shape of a reference distribution is Normal then we can use a table or online calculator or R to find the percentage in the population that corresponds to a particular z-score."
   },
   {
-    "objectID": "assessments.html#weekly-labs-15",
-    "href": "assessments.html#weekly-labs-15",
-    "title": "Assessments",
+    "objectID": "lectures/lecture-22.html#definition-standard-normal",
+    "href": "lectures/lecture-22.html#definition-standard-normal",
+    "title": "Lecture 22",
     "section": "",
-    "text": "Weekly programming labs provide hands-on practice with statistical analysis using R. Labs are due Tuesdays in Canvas. I’ll help you write the code during the Thursday lab session before they’re due. Labs are graded on completion and your reflection. After the due date, a solution will be posted, so late submissions are generally not accepted except in documented emergencies.\n\n\n\nLab 1 - Week 1 (due Tuesday, Week 2)\nLab 2 - Week 2 (due Tuesday, Week 3)\nLab 3 - Week 3 (due Tuesday, Week 4)\nLab 4 - Week 4 (due Tuesday, Week 5)\nLab 5 - Week 5 (due Tuesday, Week 6)\nLab 6 - Week 6 (due Tuesday, Week 7)\nLab 7 - Week 8 (due Tuesday, Week 9)\nLab 8 - Week 9 (due Tuesday, Week 10)\nLab 9 - Week 10 (due Tuesday, Week 11)\nLab 10 - Week 11 (due Tuesday, Week 12)\nLab 11 - Week 12 (due Tuesday, Week 13)\nLab 12 - Week 14 (due Tuesday, Week 15)\nLab 13 - Week 15 (due Tuesday, Finals Week)"
-  },
-  {
-    "objectID": "assessments.html#weekly-quizzes-30",
-    "href": "assessments.html#weekly-quizzes-30",
-    "title": "Assessments",
-    "section": "",
-    "text": "Weekly quizzes are administered on Thursdays at the beginning of lab. They assess your understanding of key concepts from the lessons, practice problems, and labs. If you need to miss a quiz due to illness or other emergencies, please contact me to make an arrangement to take it at another time.\n\n\n\nQuiz 1 - Week 1\nQuiz 2 - Week 2\nQuiz 3 - Week 3\nQuiz 4 - Week 4\nQuiz 5 - Week 5\nQuiz 6 - Week 6\nQuiz 7 - Week 8\nQuiz 8 - Week 9\nQuiz 9 - Week 10\nQuiz 10 - Week 11\nQuiz 11 - Week 12\nQuiz 12 - Week 14\nQuiz 13 - Week 15"
-  },
-  {
-    "objectID": "assessments.html#projects-20",
-    "href": "assessments.html#projects-20",
-    "title": "Assessments",
-    "section": "",
-    "text": "Five projects throughout the semester allow you to apply statistical methods to practical, real-world problems. Projects are due on Sundays at the ends of weeks 5, 9, 11, 12, and 15 in Canvas. You may submit a late project up to a week late with no penalty. After a week, a project can be turned in for 70% of the grade. Projects can be used as part of a portfolio.\n\n\n\nProject 1 - Due Sunday, Week 5 (Feb 22)\nProject 2 - Due Sunday, Week 9 (Mar 29)\nProject 3 - Due Sunday, Week 11 (Apr 12)\nProject 4 - Due Sunday, Week 12 (Apr 19)\nProject 5 - Due Sunday, Week 15 (May 10)"
-  },
-  {
-    "objectID": "assessments.html#exams-30",
-    "href": "assessments.html#exams-30",
-    "title": "Assessments",
-    "section": "",
-    "text": "Midterm 1: Week 7, Friday (in lecture)\nMidterm 2: Week 13, Friday (in lecture)\n\nMidterms require you to demonstrate your understanding of the course material. If you need to miss a midterm due to illness or other emergencies, please communicate with me as soon as possible to reschedule it. Alternatively, you may take the optional final exam to replace a missed midterm grade.\n\n\n\nFinal Exam: Wednesday, May 13, 2026, 10:20–12:10 PM, BSS 166\nThe final exam is optional and may be taken to replace a midterm grade. It is held during the scheduled final exam period."
-  },
-  {
-    "objectID": "assessments.html#grading-scale",
-    "href": "assessments.html#grading-scale",
-    "title": "Assessments",
-    "section": "",
-    "text": "Final letter grades will be assigned based on overall performance:\nA: 93-100% | A-: 90-92% | B+: 87-89% | B: 83-86% | B-: 80-82% | C+: 77-79% | C: 73-76% | C-: 70-72% | D: 60-69% | F: 0-59%\nA minimum grade of C- is required for the course to count toward GE Area 2."
+    "text": "A standard normal distribution is a normal distribution with mean 0 and SD 1.\nNotice that by the Empirical Rule, we can see that 68% of values are between -1 and 1, 95% are between -2 and 2, and 99% are between -3 and 3. The proportions of values corresponding to all those below a particular value are given in a Standard Normal Table:\nnormal-table.pdf\nOnline Calculator\nExample: Rosanna’s grip strength this morning using her dominant hand was 38.8 lbs. Suppose that mean grip strength is 66lbs and SD is 14lbs for women in their early forties in the US. Compute Rosanna’s z-score and use it to find the percentage of women in their early forties in the US that Rosanna is stronger than assuming that this distribution is normal.\nExample: Measure your own grip strength in lbs: ___________________________________________\nCompare with your choice of a reference group by computing your z-score.\n\n\n\nGroup\nMean (lbs)\nSD (lbs)\n\n\n\n\nCollege aged men\n104\n18\n\n\nCollege aged women\n62\n16\n\n\nGreat Grandmothers\n44\n10\n\n\n\nWhat proportion of your selected reference group are you stronger than? _____________ Weaker than?____________\n(use the online calculator or Standard Normal Table)"
   },
   {
     "objectID": "syllabus.html",
@@ -158,7 +130,7 @@
     "href": "syllabus.html#spring-2026",
     "title": "Resources",
     "section": "Spring 2026",
-    "text": "Spring 2026\n\n\n\nWeek\nMon\nWed\nThu\nFri\nSun\n\n\n\n\n1 (Jan 20–23)\nHoliday\nLec\nLab 1 + Quiz 1\nLec\n—\n\n\n2 (Jan 26–30)\nLec\nLec\nLab 2 + Quiz 2\nLec\n—\n\n\n3 (Feb 2–6)\nLec\nLec\nLab 3 + Quiz 3\nLec\n—\n\n\n4 (Feb 9–13)\nLec\nLec\nLab 4 + Quiz 4\nLec\n—\n\n\n5 (Feb 16–20)\nLec\nLec\nLab 5 + Quiz 5\nLec\nProject 1 due (Sun Feb 22)\n\n\n6 (Feb 23–27)\nLec\nReview\nReview (no quiz)\nMidterm 1\n—\n\n\n7 (Mar 2–6)\nLec\nLec\nLab 6 + Quiz 6\nLec\n—\n\n\n8 (Mar 9–13)\nLec\nLec\nLab 7 + Quiz 7\nLec\nProject 2 due (Sun Mar 15)\n\n\n— (Mar 16–20)\n—\n—\n—\n—\n—\n\n\n9 (Mar 23–27)\nLec\nLec\nLab 8 + Quiz 8\nLec\n—\n\n\n10 (Mar 30–Apr 3)\nLec\nLec\nLab 9 + Quiz 9\nLec\nProject 3 due (Sun Apr 5)\n\n\n11 (Apr 6–10)\nLec\nLec\nLab 10 + Quiz 10\nLec\n—\n\n\n12 (Apr 13–17)\nLec\nLec\nLab 11 + Quiz 11\nLec\nProject 4 due (Sun Apr 19)\n\n\n13 (Apr 20–24)\nLec\nReview\nReview (no quiz)\nMidterm 2\n—\n\n\n14 (Apr 27–May 1)\nLec\nLec\nLab 12 + Quiz 12\nLec\n—\n\n\n15 (May 4–8)\nLec\nReview\nLab 13 + Quiz 13\nReview\nProject 5 due (Sun May 10)\n\n\nFinals (May 11–15)\n—\nFinal Exam\n—\n—\n—\n\n\n\nNotes:\n\nMon Week 1 = Holiday (No class)\nWeek 10 = Holiday (No class on Tuesday, March 31)"
+    "text": "Spring 2026\n\n\n\nWeek\nMon\nWed\nThu\nFri\nSun\n\n\n\n\n1 (Jan 20–23)\nHoliday\nLec\nLab 1 + Quiz 1\nLec\n—\n\n\n2 (Jan 26–30)\nLec\nLec\nLab 2 + Quiz 2\nLec\n—\n\n\n3 (Feb 2–6)\nLec\nLec\nLab 3 + Quiz 3\nLec\n—\n\n\n4 (Feb 9–13)\nLec\nLec\nLab 4 + Quiz 4\nLec\n—\n\n\n5 (Feb 16–20)\nLec\nLec\nLab 5 + Quiz 5\nLec\nProject 1 due (Sun Feb 22)\n\n\n6 (Feb 23–27)\nLec\nLec\nLab 6 + Quiz 6\nLec\n—\n\n\n7 (Mar 2–6)\nLec\nReview\nReview (no quiz)\nMidterm 1\n—\n\n\n\n8 (Mar 9–13) | Lec | Lec | Lab 7 + Quiz 7 | Lec | — |\n— (Mar 16–20) | — | — | — | — | — |\n9 (Mar 23–27) | Lec | Lec | Lab 8 + Quiz 8 | Lec | Project 2 due (Sun Mar 29) |\n10 (Mar 30–Apr 3) | Lec | Lec | Lab 9 + Quiz 9 | Lec | — |\n11 (Apr 6–10) | Lec | Lec | Lab 10 + Quiz 10 | Lec | Project 3 due (Sun Apr 12) |\n12 (Apr 13–17) | Lec | Lec | Lab 11 + Quiz 11 | Lec | Project 4 due (Sun Apr 19) |\n13 (Apr 20–24) | Lec | Review | Review (no quiz) | Midterm 2 | — |\n14 (Apr 27–May 1) | Lec | Lec | Lab 12 + Quiz 12 | Lec | — |\n15 (May 4–8) | Lec | Review | Lab 13 + Quiz 13 | Review | Project 5 due (Sun May 10) |\nFinals (May 11–15) | — | Final Exam | — | — | — |\nNotes:\n\nMon Week 1 = Holiday (No class)\nWeek 10 = Holiday (No class on Tuesday, March 31)"
   },
   {
     "objectID": "syllabus.html#overview",
@@ -214,105 +186,105 @@
     "href": "syllabus.html#week-1",
     "title": "Resources",
     "section": "Week 1",
-    "text": "Week 1\n\nMonday\nHoliday - No class\n\n\nWednesday\nLecture 1\n\n\nFriday\nLecture 2"
+    "text": "Week 1\n\nMonday\nHoliday - No class\n\n\nWednesday\nLecture 1\nIntroduction — instructor, classmates, course, and what statistics is\n\nMeet the teacher and your classmates.\nDescribe what STAT 109 covers and how lecture, lab, quizzes, and projects fit together.\nExplain informally what statistics is and give examples of questions it can help answer.\nDescribe five main steps in the statistical process\n\n\n\nFriday\nLecture 2\nProbability as data vs theory\n\nCompute counts, proportions, and percentages for an event across repeated trials.\nUse symbols \\(x\\), \\(n\\), \\(\\hat{p}\\), and \\(P(\\text{event})\\) for data vs theoretical probability.\nDistinguish observed outcomes from theoretical probability in a random process.\nState three rules that probabilities must satisfy.\nDefine probability and connect it to long-run relative frequency."
   },
   {
     "objectID": "syllabus.html#week-2",
     "href": "syllabus.html#week-2",
     "title": "Resources",
     "section": "Week 2",
-    "text": "Week 2\n\nMonday\nLecture 3\n\n\nWednesday\nLecture 4\n\n\nFriday\nLecture 5"
+    "text": "Week 2\n\nMonday\nLecture 3\nProbability calculations the long way — sample spaces and events\n\nDefine and identify sample space, outcome, and event for a trial.\nUse notation \\(P(A)\\) for the probability of an event.\nState and use the formula for \\(P(A)\\) when outcomes in the sample space are equally likely.\n\n\n\nWednesday\nLecture 4\nRandom babies — probability by careful counting\n\nList the sample space for randomly returning four babies to four mothers.\nCount outcomes for events such as “all correct” or “exactly \\(k\\) correct.”\nCompute probabilities when each pairing in the sample space is equally likely.\nCompare exact probabilities to a simulation (e.g. Random Babies applet).\n\n\n\nFriday\nLecture 5\nAddition rule for probability\n\nState the addition rule for any two events \\(A\\) and \\(B\\).\nUse the addition rule to compute \\(P(A \\text{ or } B)\\), including overlapping events.\nApply special cases: complement rule and non-overlapping events."
   },
   {
     "objectID": "syllabus.html#week-3",
     "href": "syllabus.html#week-3",
     "title": "Resources",
     "section": "Week 3",
-    "text": "Week 3\n\nMonday\nLecture 6\n\n\nWednesday\nLecture 7\n\n\nFriday\nLecture 8"
+    "text": "Week 3\n\nMonday\nLecture 6\nConditional probability and multiplication rule\n\nState the definition of conditional probability and compute \\(P(A \\mid B)\\).\nUse the multiplication rule to compute \\(P(A \\text{ and } B)\\).\nDecide whether two events are independent using equivalent criteria.\n\n\n\nWednesday\nLecture 7\nLaw of total probability and Bayes’ rule\n\nState the law of total probability for a partition of the sample space.\nState Bayes’ rule and relate the pieces to conditional and marginal probabilities.\nUse tree diagrams to organize two-stage problems and find \\(P(B)\\) and \\(P(A \\mid B)\\).\n\n\n\nFriday\nLecture 8\nPractice — Lectures 6–7 (diagnostic testing and Bayes)\n\nCompute and interpret conditional probabilities from counts (e.g. sensitivity, false positive rate).\nAssess independence in context and use the law of total probability for \\(P(B)\\).\nBuild tree diagrams and apply Bayes’ rule to find inverse probabilities such as \\(P(C \\mid T^+)\\)."
   },
   {
     "objectID": "syllabus.html#week-4",
     "href": "syllabus.html#week-4",
     "title": "Resources",
     "section": "Week 4",
-    "text": "Week 4\n\nMonday\nLecture 9\n\n\nWednesday\nLecture 10\n\n\nFriday\nLecture 11"
+    "text": "Week 4\n\nMonday\nLecture 9\nPermutations and combinations\n\nDistinguish settings where order matters (permutations) from where it does not (combinations).\nUse \\(_nP_r\\) and \\(_nC_r\\) (or \\(\\binom{n}{r}\\)) to solve counting problems.\nRelate factorials to the permutation and combination formulas.\n\n\n\nWednesday\nLecture 10\nFrom coin tosses to the binomial random process\n\nDefine a discrete random variable and its probability distribution (pdf).\nDefine a binomial random variable and a binomial random process.\nMatch notation (\\(n\\), \\(x\\), \\(p\\)) and the four conditions for a binomial process to a coin-toss setting.\nExpress \\(P(X = x)\\) using the binomial pdf.\n\n\n\nFriday\nLecture 11\nPractice — binomial random process\n\nDecide whether a scenario satisfies the four binomial conditions and justify your answer.\nIdentify \\(n\\), \\(p\\), and the random variable \\(X\\) for a binomial count.\nWrite and evaluate probabilities using the binomial pdf; use mean \\(\\mu = np\\) and SD \\(\\sigma = \\sqrt{np(1-p)}\\) as needed."
   },
   {
     "objectID": "syllabus.html#week-5",
     "href": "syllabus.html#week-5",
     "title": "Resources",
     "section": "Week 5",
-    "text": "Week 5\n\nMonday\nLecture 12\n\n\nWednesday\nLecture 13\n\n\nFriday\nLecture 14"
+    "text": "Week 5\n\nMonday\nLecture 12\nIntroduction to the binomial test (ESP example)\n\nTranslate a research question about a proportion into \\(H_0\\) and \\(H_a\\).\nCheck the four BRP conditions for data from a fixed number of binary trials.\nConnect the ESP activity to the structure of Project 1.\n\n\n\nWednesday\nLecture 13\nESP worksheet — binomial test in practice\n\nState hypotheses and verify the BRP conditions for your own ESP test data.\nIdentify \\(n\\) and \\(p\\) under \\(H_0\\) and record your observed count \\(x\\).\nObtain a p-value from the sample R notebook and share results as directed.\n\n\n\nFriday\nLecture 14\nBinomial test — steps and worked examples\n\nCarry out the full workflow: question, parameter, hypotheses, \\(n\\) and \\(p\\) under \\(H_0\\), BRP check, null distribution plot, observed \\(x\\), shading by \\(H_a\\), p-value, and conclusion in context.\nHandle one-sided and two-sided alternatives correctly when shading and interpreting the p-value."
   },
   {
     "objectID": "syllabus.html#week-6",
     "href": "syllabus.html#week-6",
     "title": "Resources",
     "section": "Week 6",
-    "text": "Week 6\n\nMonday\nLecture 15\n\n\nWednesday\nReview\n\n\nFriday\nMidterm 1"
+    "text": "Week 6\n\nMonday\nLecture 15\nMean and standard deviation of a binomial random variable\n\nUse \\(\\mu = np\\) and \\(\\sigma = \\sqrt{np(1-p)}\\) for \\(X \\sim \\text{Binomial}(n,p)\\).\nInterpret the mean as the center and the SD as typical deviation of \\(X\\).\nIdentify \\(n\\) and \\(p\\) in applied settings and compute \\(\\mu\\) and \\(\\sigma\\).\n\n\n\nWednesday\nLecture 16\nNormal approximation to the binomial; one-proportion test by hand\n\nUse the CLT to approximate a binomial distribution by a normal curve with the same \\(\\mu\\) and \\(\\sigma\\).\nCheck conditions such as \\(np \\geq 10\\) and \\(n(1-p) \\geq 10\\) when appropriate.\nState the Empirical Rule for normal distributions.\nSketch a rejection region under a normal curve for a one-proportion test and relate the shaded area to the p-value (approximate).\n\n\n\nFriday\nLecture 17\nType I and Type II errors; power\n\nDefine Type I and Type II errors and describe each in context.\nDefine power as \\(1 - P(\\text{Type II error})\\) and relate it to detecting a false \\(H_0\\).\nExplain how significance level \\(\\alpha\\) and sample size help balance error rates and power."
   },
   {
     "objectID": "syllabus.html#week-7",
     "href": "syllabus.html#week-7",
     "title": "Resources",
     "section": "Week 7",
-    "text": "Week 7\n\nMonday\nLecture 16\n\n\nWednesday\nLecture 17\n\n\nFriday\nLecture 18"
+    "text": "Week 7\n\nMonday\nLecture 18\nSampling distributions and estimation\n\nDefine the sampling distribution of a statistic.\nDescribe confidence level, parameter, and the endpoints of a confidence interval in context.\nCompute and interpret a confidence interval for a population proportion and for a population mean (methods from lecture).\n\n\n\nWednesday\nReview\nReview before Midterm 1\n\nConsolidate probability rules, counting, binomial models, and binomial tests.\nBring questions about practice problems and course structure for the exam.\n\n\n\nFriday\nMidterm 1\nMidterm 1 (in lecture)\n\nDemonstrate understanding of material covered through the review session (see course schedule and practice materials)."
   },
   {
     "objectID": "syllabus.html#week-8",
     "href": "syllabus.html#week-8",
     "title": "Resources",
     "section": "Week 8",
-    "text": "Week 8\n\nMonday\nLecture 19\n\n\nWednesday\nLecture 20\n\n\nFriday\nLecture 21"
+    "text": "Week 8\n\nMonday\nLecture 19\nConfidence intervals and the importance of sampling\n\nDiscuss bias and its impact given how a sample was collected.\nIdentify ways to reduce bias and increase precision.\nIdentify a sampling frame and carry out simple random sampling.\nClassify methods as convenience, SRS, cluster, systematic, stratified, or multi-stage.\n\n\n\nWednesday\nLecture 20\nSampling methods in practice\n\nIdentify a sampling frame for a stated population.\nCarry out simple random sampling using a numbered list and random draws.\nClassify sampling designs and discuss bias, generalizability, and how to improve the design.\n\n\n\nFriday\nLecture 21\nTarget & Rubberband Analogy"
   },
   {
     "objectID": "syllabus.html#week-9",
     "href": "syllabus.html#week-9",
     "title": "Resources",
     "section": "Week 9",
-    "text": "Week 9\n\nMonday\nLecture 22\n\n\nWednesday\nLecture 23\n\n\nFriday\nLecture 24"
+    "text": "Week 9\n\nMonday\nLecture 22\nNormal distribution\nStandardization\n\n\nWednesday\nLecture 23\nTypes of variables\nmethods table: confidence interval vs. testing\nDescriptive statistics by number and type of variable\n\n\nFriday\nLecture 24\none numerical column"
   },
   {
     "objectID": "syllabus.html#week-10",
     "href": "syllabus.html#week-10",
     "title": "Resources",
     "section": "Week 10",
-    "text": "Week 10\n\nMonday\nLecture 25\n\n\nWednesday\nLecture 26\n\n\nFriday\nLecture 27"
+    "text": "Week 10\n\nMonday\nLecture 25\nOne numerical, One categorical column\n\n\nWednesday\nLecture 26\nTwo categorial column\n\n\nFriday\nLecture 27\nTwo numerical column"
   },
   {
     "objectID": "syllabus.html#week-11",
     "href": "syllabus.html#week-11",
     "title": "Resources",
     "section": "Week 11",
-    "text": "Week 11\n\nMonday\nLecture 28\n\n\nWednesday\nLecture 29\n\n\nFriday\nLecture 30"
+    "text": "Week 11\n\nMonday\nLecture 28\nCausal questions\nStudy design\n\n\nWednesday\nLecture 29\nStudy design and p-values\n\n\nFriday\nLecture 30\nConfounding"
   },
   {
     "objectID": "syllabus.html#week-12",
     "href": "syllabus.html#week-12",
     "title": "Resources",
     "section": "Week 12",
-    "text": "Week 12\n\nMonday\nLecture 31\n\n\nWednesday\nLecture 32\n\n\nFriday\nLecture 33"
+    "text": "Week 12\n\nMonday\nLecture 31\nChi squared tests\n\n\nWednesday\nLecture 32\nChi squared test\n\n\nFriday\nLecture 33\nOne way anova"
   },
   {
     "objectID": "syllabus.html#week-13",
     "href": "syllabus.html#week-13",
     "title": "Resources",
     "section": "Week 13",
-    "text": "Week 13\n\nMonday\nLecture 34\n\n\nWednesday\nReview\n\n\nFriday\nMidterm 2"
+    "text": "Week 13\n\nMonday\nLecture 34\nOne way anova\n\n\nWednesday\nReview\n\n\nFriday\nMidterm 2"
   },
   {
     "objectID": "syllabus.html#week-14",
     "href": "syllabus.html#week-14",
     "title": "Resources",
     "section": "Week 14",
-    "text": "Week 14\n\nMonday\nLecture 35\n\n\nWednesday\nLecture 36\n\n\nFriday\nLecture 37"
+    "text": "Week 14\n\nMonday\nLecture 35\nPrediction - simple linear\n\n\nWednesday\nLecture 36\nPrediction - r squared and residuals\n\n\nFriday\nLecture 37\nConfidence intervals and prediction intervals\nassumptions"
   },
   {
     "objectID": "syllabus.html#week-15",
     "href": "syllabus.html#week-15",
     "title": "Resources",
     "section": "Week 15",
-    "text": "Week 15\n\nMonday\nLecture 38\n\n\nWednesday\nReview\n\n\nFriday\nReview"
+    "text": "Week 15\n\nMonday\nLecture 38\nethics - IRB\n\n\nWednesday\nReview\n\n\nFriday\nReview"
   },
   {
     "objectID": "syllabus.html#methods-descriptive",
