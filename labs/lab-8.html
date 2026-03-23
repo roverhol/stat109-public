@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Lab 8 – STAT 109 - Introductory Biostatistics</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -66,15 +69,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-0b37c64f34216b628666a8dac638b53b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dea667461a5c81afc9ba75ce94cd63f3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -103,28 +105,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/css/humboldt-theme.css">
 </head>
 
-<body class="quarto-light">
+<body class="floating quarto-light">
 
 <div id="quarto-search-results"></div>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#lab-8" id="toc-lab-8" class="nav-link active" data-scroll-target="#lab-8">Lab 8</a></li>
+  <li><a href="#lab-8-sampling-and-confidence-intervals" id="toc-lab-8-sampling-and-confidence-intervals" class="nav-link active" data-scroll-target="#lab-8-sampling-and-confidence-intervals">Lab 8: Sampling and Confidence Intervals</a>
+  <ul class="collapse">
+  <li><a href="#gettysburg-address-convenience-vs-random-sampling-rossman-chance" id="toc-gettysburg-address-convenience-vs-random-sampling-rossman-chance" class="nav-link" data-scroll-target="#gettysburg-address-convenience-vs-random-sampling-rossman-chance">1. Gettysburg Address: Convenience vs random sampling (Rossman Chance)</a></li>
+  <li><a href="#r-code-five-methods-for-confidence-intervals" id="toc-r-code-five-methods-for-confidence-intervals" class="nav-link" data-scroll-target="#r-code-five-methods-for-confidence-intervals">2. R code: Five methods for confidence intervals</a></li>
+  <li><a href="#sample-project-2" id="toc-sample-project-2" class="nav-link" data-scroll-target="#sample-project-2">3. Sample Project 2</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-8.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -134,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-page-right">
 
     
   
@@ -146,16 +185,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="lab-8" class="level1">
-<h1>Lab 8</h1>
-<p><em>Instructions coming soon.</em></p>
+<section id="lab-8-sampling-and-confidence-intervals" class="level1">
+<h1>Lab 8: Sampling and Confidence Intervals</h1>
+<p><strong>Topics:</strong> Lectures 19–20 — Confidence intervals, sampling methods (convenience vs random), bias, and computing CIs in R (Wald, Plus Four, FPC for proportion and mean).</p>
+<hr>
+<section id="gettysburg-address-convenience-vs-random-sampling-rossman-chance" class="level2">
+<h2 class="anchored" data-anchor-id="gettysburg-address-convenience-vs-random-sampling-rossman-chance">1. Gettysburg Address: Convenience vs random sampling (Rossman Chance)</h2>
+<p><em>Placeholder: Material to be added.</em></p>
+<p>Use the <strong>Gettysburg Address</strong> activity from Rossman Chance to compare <strong>convenience sampling</strong> (e.g.&nbsp;taking the first sentence or the first 30 words) with <strong>simple random sampling</strong> (e.g.&nbsp;randomly selecting 30 words from the full text). Compare estimates of a population parameter (e.g.&nbsp;mean word length, proportion of long words) and the impact on bias and generalizability.</p>
+<ul>
+<li>Link or handout: [Rossman Chance applet/activity — to be inserted]</li>
+<li>Questions: How do the two sampling methods differ? Which gives a more trustworthy estimate for the full address? Why?</li>
+</ul>
+<hr>
+</section>
+<section id="r-code-five-methods-for-confidence-intervals" class="level2">
+<h2 class="anchored" data-anchor-id="r-code-five-methods-for-confidence-intervals">2. R code: Five methods for confidence intervals</h2>
+<p><em>Placeholder: R code to be added.</em></p>
+<p>Provide R code that computes 95% confidence intervals using all <strong>five</strong> methods covered in the course:</p>
+<ol type="1">
+<li><strong>Proportion — Wald (z-interval):</strong> <span class="math inline">\(\hat{p} \pm 2\sqrt{\hat{p}(1-\hat{p})/n}\)</span> (or equivalent R function).</li>
+<li><strong>Proportion — Plus Four:</strong> <span class="math inline">\(\tilde{p} = (x+2)/(n+4)\)</span>, then <span class="math inline">\(\tilde{p} \pm 2\sqrt{\tilde{p}(1-\tilde{p})/(n+4)}\)</span>.</li>
+<li><strong>Proportion — with finite population correction (FPC):</strong> Wald formula multiplied by <span class="math inline">\(\sqrt{(N-n)/(N-1)}\)</span>.</li>
+<li><strong>Mean — normal (z) or t-interval:</strong> <span class="math inline">\(\bar{x} \pm 2 \cdot s/\sqrt{n}\)</span> (or <code>t.test</code> / equivalent).</li>
+<li><strong>Mean — with finite population correction (FPC):</strong> Mean interval multiplied by <span class="math inline">\(\sqrt{(N-n)/(N-1)}\)</span>.</li>
+</ol>
+<p>Use a single example dataset (e.g.&nbsp;St.&nbsp;Joe’s mortality or a small numeric vector) so students can compare the same data across methods where applicable.</p>
+<hr>
+</section>
+<section id="sample-project-2" class="level2">
+<h2 class="anchored" data-anchor-id="sample-project-2">3. Sample Project 2</h2>
+<p><em>Placeholder: Material to be added.</em></p>
+<p>Show a <strong>sample Project 2</strong> (or excerpt) so students can see the expected format, level of detail, and how to integrate sampling concepts with confidence interval interpretation.</p>
+<hr>
+<p><em>Instructor: Insert the Gettysburg Address activity, R code chunks, and sample Project 2 in the sections above.</em></p>
 
 
 <!-- -->
 
 </section>
+</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>Creative Commons Attribution-NonCommercial 4.0 International<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">(View License)</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -617,9 +688,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "STAT 109: Introductory Biostatistics"</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Lab 8</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Lab 8: Sampling and Confidence Intervals</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>*Instructions coming soon.*</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>**Topics:** Lectures 19–20 — Confidence intervals, sampling methods (convenience vs random), bias, and computing CIs in R (Wald, Plus Four, FPC for proportion and mean).</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. Gettysburg Address: Convenience vs random sampling (Rossman Chance)</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>*Placeholder: Material to be added.*</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Use the **Gettysburg Address** activity from Rossman Chance to compare **convenience sampling** (e.g. taking the first sentence or the first 30 words) with **simple random sampling** (e.g. randomly selecting 30 words from the full text). Compare estimates of a population parameter (e.g. mean word length, proportion of long words) and the impact on bias and generalizability.</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Link or handout: <span class="co">[</span><span class="ot">Rossman Chance applet/activity — to be inserted</span><span class="co">]</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Questions: How do the two sampling methods differ? Which gives a more trustworthy estimate for the full address? Why?</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. R code: Five methods for confidence intervals</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>*Placeholder: R code to be added.*</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>Provide R code that computes 95% confidence intervals using all **five** methods covered in the course:</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Proportion — Wald (z-interval):** $\hat{p} \pm 2\sqrt{\hat{p}(1-\hat{p})/n}$ (or equivalent R function).</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Proportion — Plus Four:** $\tilde{p} = (x+2)/(n+4)$, then $\tilde{p} \pm 2\sqrt{\tilde{p}(1-\tilde{p})/(n+4)}$.</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Proportion — with finite population correction (FPC):** Wald formula multiplied by $\sqrt{(N-n)/(N-1)}$.</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Mean — normal (z) or t-interval:** $\bar{x} \pm 2 \cdot s/\sqrt{n}$ (or <span class="in">`t.test`</span> / equivalent).</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Mean — with finite population correction (FPC):** Mean interval multiplied by $\sqrt{(N-n)/(N-1)}$.</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>Use a single example dataset (e.g. St. Joe's mortality or a small numeric vector) so students can compare the same data across methods where applicable.</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. Sample Project 2</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>*Placeholder: Material to be added.*</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>Show a **sample Project 2** (or excerpt) so students can see the expected format, level of detail, and how to integrate sampling concepts with confidence interval interpretation.</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>*Instructor: Insert the Gettysburg Address activity, R code chunks, and sample Project 2 in the sections above.*</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

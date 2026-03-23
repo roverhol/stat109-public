@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Lab 3 – STAT 109 - Introductory Biostatistics</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -19,41 +22,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -66,15 +34,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-0b37c64f34216b628666a8dac638b53b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dea667461a5c81afc9ba75ce94cd63f3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -103,28 +70,96 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/css/humboldt-theme.css">
 </head>
 
-<body class="quarto-light">
+<body class="floating quarto-light">
 
 <div id="quarto-search-results"></div>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#lab-3" id="toc-lab-3" class="nav-link active" data-scroll-target="#lab-3">Lab 3</a></li>
+  <li><a href="#lab-3-conditional-probability-simulation" id="toc-lab-3-conditional-probability-simulation" class="nav-link active" data-scroll-target="#lab-3-conditional-probability-simulation">Lab 3: Conditional Probability Simulation</a>
+  <ul class="collapse">
+  <li><a href="#part-1-balls-in-a-bag-drawing-without-replacement" id="toc-part-1-balls-in-a-bag-drawing-without-replacement" class="nav-link" data-scroll-target="#part-1-balls-in-a-bag-drawing-without-replacement">Part 1: Balls in a bag (drawing without replacement)</a>
+  <ul class="collapse">
+  <li><a href="#setup-create-the-bag-and-simulate-10-draws" id="toc-setup-create-the-bag-and-simulate-10-draws" class="nav-link" data-scroll-target="#setup-create-the-bag-and-simulate-10-draws">1.1 Setup: Create the bag and simulate 10 draws</a></li>
+  <li><a href="#explain-rep-and-balls" id="toc-explain-rep-and-balls" class="nav-link" data-scroll-target="#explain-rep-and-balls">1.2 Explain <code>rep()</code> and <code>balls</code></a></li>
+  <li><a href="#explain-the-if-condition" id="toc-explain-the-if-condition" class="nav-link" data-scroll-target="#explain-the-if-condition">1.3 Explain the <code>if</code> condition</a></li>
+  <li><a href="#which-replicates-were-successes" id="toc-which-replicates-were-successes" class="nav-link" data-scroll-target="#which-replicates-were-successes">1.4 Which replicates were successes?</a></li>
+  <li><a href="#estimate-probability-with-10000-replicates" id="toc-estimate-probability-with-10000-replicates" class="nav-link" data-scroll-target="#estimate-probability-with-10000-replicates">1.5 Estimate probability with 10,000 replicates</a></li>
+  <li><a href="#exactly-one-red-ball" id="toc-exactly-one-red-ball" class="nav-link" data-scroll-target="#exactly-one-red-ball">1.6 Exactly one red ball</a></li>
+  </ul></li>
+  <li><a href="#part-2-simulating-a-population-conditional-on-sex" id="toc-part-2-simulating-a-population-conditional-on-sex" class="nav-link" data-scroll-target="#part-2-simulating-a-population-conditional-on-sex">Part 2: Simulating a population (conditional on sex)</a>
+  <ul class="collapse">
+  <li><a href="#simulate-a-population-of-10000" id="toc-simulate-a-population-of-10000" class="nav-link" data-scroll-target="#simulate-a-population-of-10000">2.1 Simulate a population of 10,000</a></li>
+  <li><a href="#estimate-pc-text-and-g-and-pg" id="toc-estimate-pc-text-and-g-and-pg" class="nav-link" data-scroll-target="#estimate-pc-text-and-g-and-pg">2.2 Estimate <span class="math inline">\(P(C \text{ and } G)\)</span> and <span class="math inline">\(P(G)\)</span></a></li>
+  </ul></li>
+  <li><a href="#part-3-diagnostic-test-conditional-probability" id="toc-part-3-diagnostic-test-conditional-probability" class="nav-link" data-scroll-target="#part-3-diagnostic-test-conditional-probability">Part 3: Diagnostic test (conditional probability)</a></li>
+  </ul></li>
+  <li><a href="#lab-3-conditional-probability-simulation-1" id="toc-lab-3-conditional-probability-simulation-1" class="nav-link" data-scroll-target="#lab-3-conditional-probability-simulation-1">Lab 3: Conditional Probability Simulation</a>
+  <ul class="collapse">
+  <li><a href="#part-1-balls-in-a-bag-drawing-without-replacement-1" id="toc-part-1-balls-in-a-bag-drawing-without-replacement-1" class="nav-link" data-scroll-target="#part-1-balls-in-a-bag-drawing-without-replacement-1">Part 1: Balls in a bag (drawing without replacement)</a>
+  <ul class="collapse">
+  <li><a href="#setup-create-the-bag-and-simulate-10-draws-1" id="toc-setup-create-the-bag-and-simulate-10-draws-1" class="nav-link" data-scroll-target="#setup-create-the-bag-and-simulate-10-draws-1">1.1 Setup: Create the bag and simulate 10 draws</a></li>
+  <li><a href="#explain-rep-and-balls-1" id="toc-explain-rep-and-balls-1" class="nav-link" data-scroll-target="#explain-rep-and-balls-1">1.2 Explain <code>rep()</code> and <code>balls</code></a></li>
+  <li><a href="#explain-the-if-condition-1" id="toc-explain-the-if-condition-1" class="nav-link" data-scroll-target="#explain-the-if-condition-1">1.3 Explain the <code>if</code> condition</a></li>
+  <li><a href="#which-replicates-were-successes-1" id="toc-which-replicates-were-successes-1" class="nav-link" data-scroll-target="#which-replicates-were-successes-1">1.4 Which replicates were successes?</a></li>
+  <li><a href="#estimate-probability-with-10000-replicates-1" id="toc-estimate-probability-with-10000-replicates-1" class="nav-link" data-scroll-target="#estimate-probability-with-10000-replicates-1">1.5 Estimate probability with 10,000 replicates</a></li>
+  <li><a href="#exactly-one-red-ball-1" id="toc-exactly-one-red-ball-1" class="nav-link" data-scroll-target="#exactly-one-red-ball-1">1.6 Exactly one red ball</a></li>
+  </ul></li>
+  <li><a href="#part-2-simulating-a-population-conditional-on-sex-1" id="toc-part-2-simulating-a-population-conditional-on-sex-1" class="nav-link" data-scroll-target="#part-2-simulating-a-population-conditional-on-sex-1">Part 2: Simulating a population (conditional on sex)</a>
+  <ul class="collapse">
+  <li><a href="#simulate-a-population-of-10000-1" id="toc-simulate-a-population-of-10000-1" class="nav-link" data-scroll-target="#simulate-a-population-of-10000-1">2.1 Simulate a population of 10,000</a></li>
+  <li><a href="#estimate-pc-text-and-g-and-pg-1" id="toc-estimate-pc-text-and-g-and-pg-1" class="nav-link" data-scroll-target="#estimate-pc-text-and-g-and-pg-1">2.2 Estimate <span class="math inline">\(P(C \text{ and } G)\)</span> and <span class="math inline">\(P(G)\)</span></a></li>
+  </ul></li>
+  <li><a href="#part-3-diagnostic-test-conditional-probability-1" id="toc-part-3-diagnostic-test-conditional-probability-1" class="nav-link" data-scroll-target="#part-3-diagnostic-test-conditional-probability-1">Part 3: Diagnostic test (conditional probability)</a></li>
+  <li><a href="#part-4-reflectionyour-task-in-23-sentences-describe-what-you-learned-from-this-lab-about-coding-in-r-and-conditional-probabilities.-were-there-any-questions-you-couldnt-figure-out-how-to-write-the-code-for" id="toc-part-4-reflectionyour-task-in-23-sentences-describe-what-you-learned-from-this-lab-about-coding-in-r-and-conditional-probabilities.-were-there-any-questions-you-couldnt-figure-out-how-to-write-the-code-for" class="nav-link" data-scroll-target="#part-4-reflectionyour-task-in-23-sentences-describe-what-you-learned-from-this-lab-about-coding-in-r-and-conditional-probabilities.-were-there-any-questions-you-couldnt-figure-out-how-to-write-the-code-for">Part 4: Reflection<strong>Your task:</strong> In 2–3 sentences, describe what you learned from this lab about coding in R and conditional probabilities. Were there any questions you couldn’t figure out how to write the code for?</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-3.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -134,7 +169,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-page-right">
 
     
   
@@ -146,16 +181,178 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="lab-3" class="level1">
-<h1>Lab 3</h1>
-<p><em>Instructions coming soon.</em></p>
-
-
-<!-- -->
-
+<section id="lab-3-conditional-probability-simulation" class="level1">
+<h1>Lab 3: Conditional Probability Simulation</h1>
+<p><strong>Purpose:</strong> This lab uses <strong>simulation in R</strong> to estimate probabilities involving <strong>conditional probability</strong> and the <strong>multiplication rule</strong>. We build on Lab 1–2 skills: <code>sample()</code>, <code>for</code> loops, <code>if</code> statements, vectors, and <code>mean()</code>.</p>
+<p><strong>Topics:</strong></p>
+<ul>
+<li>Definition of conditional probability</li>
+<li>Multiplication rule: <span class="math inline">\(P(A \text{ and } B) = P(B \mid A)\,P(A)\)</span></li>
+<li>Simulation with <code>if</code> statements to count successes</li>
+<li>Simulating populations with conditional structure</li>
+</ul>
+<p><strong>R functions you’ll use:</strong> <code>rep()</code>, <code>sample()</code>, <code>for</code> loop, <code>if</code> statement, <code>vector()</code>, <code>sum()</code>, <code>mean()</code>, <code>which()</code></p>
+<hr>
+<section id="part-1-balls-in-a-bag-drawing-without-replacement" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-balls-in-a-bag-drawing-without-replacement">Part 1: Balls in a bag (drawing without replacement)</h2>
+<p>A bag contains <strong>3 red</strong> and <strong>3 white</strong> balls. Two balls are drawn <strong>one at a time</strong>; the first ball is <strong>not replaced</strong> before the second is drawn.</p>
+<hr>
+<section id="setup-create-the-bag-and-simulate-10-draws" class="level3">
+<h3 class="anchored" data-anchor-id="setup-create-the-bag-and-simulate-10-draws">1.1 Setup: Create the bag and simulate 10 draws</h3>
+<p><strong>Your task:</strong> Run code to simulate 10 sets of two draws from the bag. Use <code>"R"</code> and <code>"W"</code> for red and white. Store a 1 in <code>successes[k]</code> when the first draw is white and the second is red.</p>
+<hr>
+</section>
+<section id="explain-rep-and-balls" class="level3">
+<h3 class="anchored" data-anchor-id="explain-rep-and-balls">1.2 Explain <code>rep()</code> and <code>balls</code></h3>
+<p><strong>Your task:</strong> Describe what the vector <code>balls</code> contains. How would you modify it for a bag with 5 red and 2 white balls?</p>
+<hr>
+</section>
+<section id="explain-the-if-condition" class="level3">
+<h3 class="anchored" data-anchor-id="explain-the-if-condition">1.3 Explain the <code>if</code> condition</h3>
+<p><strong>Your task:</strong> What does the condition in the <code>if</code> statement specify? When is a “success” recorded?</p>
+<hr>
+</section>
+<section id="which-replicates-were-successes" class="level3">
+<h3 class="anchored" data-anchor-id="which-replicates-were-successes">1.4 Which replicates were successes?</h3>
+<p><strong>Your task:</strong> Use <code>which()</code> to find which replicate numbers had a success.</p>
+<hr>
+</section>
+<section id="estimate-probability-with-10000-replicates" class="level3">
+<h3 class="anchored" data-anchor-id="estimate-probability-with-10000-replicates">1.5 Estimate probability with 10,000 replicates</h3>
+<p><strong>Your task:</strong> Set <code>replicates &lt;- 10000</code> and re-run the simulation. Estimate <span class="math inline">\(P(\text{white first and red second})\)</span>.</p>
+<hr>
+</section>
+<section id="exactly-one-red-ball" class="level3">
+<h3 class="anchored" data-anchor-id="exactly-one-red-ball">1.6 Exactly one red ball</h3>
+<p><strong>Your task:</strong> Modify the simulation to estimate <span class="math inline">\(P(\text{exactly one red})\)</span> — i.e., either (R then W) or (W then R). Use the logical operator <code>|</code> for “or”.</p>
+<hr>
+</section>
+</section>
+<section id="part-2-simulating-a-population-conditional-on-sex" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-simulating-a-population-conditional-on-sex">Part 2: Simulating a population (conditional on sex)</h2>
+<p>In the US, suppose about 20% of children and 3% of adults like to eat gummy vitamins. Assume a 1:1 child to adult ratio.</p>
+<p>Let <span class="math inline">\(C\)</span> = child, <span class="math inline">\(G\)</span> = like to eat gummy vitamins.</p>
+<p><strong>Questions:</strong></p>
+<ul>
+<li>What is <span class="math inline">\(P(C \text{ and } G)\)</span>?</li>
+<li>What is <span class="math inline">\(P(G)\)</span>?</li>
+</ul>
+<p><strong>R functions you’ll use:</strong> <code>sample()</code> with <code>prob</code>, <code>for</code> loop, <code>if</code> statement, <code>sum()</code>, <code>mean()</code></p>
+<hr>
+<section id="simulate-a-population-of-10000" class="level3">
+<h3 class="anchored" data-anchor-id="simulate-a-population-of-10000">2.1 Simulate a population of 10,000</h3>
+<p><strong>Your task:</strong> Create vectors <code>child</code> (0 = no, 1 = yes) and <code>gummy</code> (0 = don’t like gummies, 1 = likes gummies). Use <code>if</code> statements so that the probability of liking gummies depends on being a child or not.</p>
+<hr>
+</section>
+<section id="estimate-pc-text-and-g-and-pg" class="level3">
+<h3 class="anchored" data-anchor-id="estimate-pc-text-and-g-and-pg">2.2 Estimate <span class="math inline">\(P(C \text{ and } G)\)</span> and <span class="math inline">\(P(G)\)</span></h3>
+<p><strong>Your task:</strong> From the simulated population, estimate the probability of being a child and liking gummies, and the probability of liking gummies (overall).</p>
+<hr>
+</section>
+</section>
+<section id="part-3-diagnostic-test-conditional-probability" class="level2">
+<h2 class="anchored" data-anchor-id="part-3-diagnostic-test-conditional-probability">Part 3: Diagnostic test (conditional probability)</h2>
+<p>A disease has prevalence <span class="math inline">\(P(D) = 0.01\)</span>. A test has sensitivity <span class="math inline">\(P(\text{positive} \mid D) = 0.95\)</span> and specificity <span class="math inline">\(P(\text{negative} \mid \text{no } D) = 0.90\)</span>.</p>
+<p><strong>Your task:</strong> Simulate 10,000 individuals with disease status and test result. Estimate <span class="math inline">\(P(D \mid \text{positive})\)</span> — the probability of having the disease given a positive test.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>## Part 4: Reflection<strong>Your task:</strong> In 2–3 sentences, describe what you learned from this lab about coding in R and conditional probabilities. Were there any questions you couldn’t figure out how to write the code for?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>title: “Lab 3” subtitle: “STAT 109: Introductory Biostatistics”</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="lab-3-conditional-probability-simulation-1" class="level1">
+<h1>Lab 3: Conditional Probability Simulation</h1>
+<p><strong>Purpose:</strong> This lab uses <strong>simulation in R</strong> to estimate probabilities involving <strong>conditional probability</strong> and the <strong>multiplication rule</strong>. We build on Lab 1–2 skills: <code>sample()</code>, <code>for</code> loops, <code>if</code> statements, vectors, and <code>mean()</code>.</p>
+<p><strong>Topics:</strong></p>
+<ul>
+<li>Definition of conditional probability</li>
+<li>Multiplication rule: <span class="math inline">\(P(A \text{ and } B) = P(B \mid A)\,P(A)\)</span></li>
+<li>Simulation with <code>if</code> statements to count successes</li>
+<li>Simulating populations with conditional structure</li>
+</ul>
+<p><strong>R functions you’ll use:</strong> <code>rep()</code>, <code>sample()</code>, <code>for</code> loop, <code>if</code> statement, <code>vector()</code>, <code>sum()</code>, <code>mean()</code>, <code>which()</code></p>
+<hr>
+<section id="part-1-balls-in-a-bag-drawing-without-replacement-1" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-balls-in-a-bag-drawing-without-replacement-1">Part 1: Balls in a bag (drawing without replacement)</h2>
+<p>A bag contains <strong>3 red</strong> and <strong>3 white</strong> balls. Two balls are drawn <strong>one at a time</strong>; the first ball is <strong>not replaced</strong> before the second is drawn.</p>
+<hr>
+<section id="setup-create-the-bag-and-simulate-10-draws-1" class="level3">
+<h3 class="anchored" data-anchor-id="setup-create-the-bag-and-simulate-10-draws-1">1.1 Setup: Create the bag and simulate 10 draws</h3>
+<p><strong>Your task:</strong> Run code to simulate 10 sets of two draws from the bag. Use <code>"R"</code> and <code>"W"</code> for red and white. Store a 1 in <code>successes[k]</code> when the first draw is white and the second is red.</p>
+<hr>
+</section>
+<section id="explain-rep-and-balls-1" class="level3">
+<h3 class="anchored" data-anchor-id="explain-rep-and-balls-1">1.2 Explain <code>rep()</code> and <code>balls</code></h3>
+<p><strong>Your task:</strong> Describe what the vector <code>balls</code> contains. How would you modify it for a bag with 5 red and 2 white balls?</p>
+<hr>
+</section>
+<section id="explain-the-if-condition-1" class="level3">
+<h3 class="anchored" data-anchor-id="explain-the-if-condition-1">1.3 Explain the <code>if</code> condition</h3>
+<p><strong>Your task:</strong> What does the condition in the <code>if</code> statement specify? When is a “success” recorded?</p>
+<hr>
+</section>
+<section id="which-replicates-were-successes-1" class="level3">
+<h3 class="anchored" data-anchor-id="which-replicates-were-successes-1">1.4 Which replicates were successes?</h3>
+<p><strong>Your task:</strong> Use <code>which()</code> to find which replicate numbers had a success.</p>
+<hr>
+</section>
+<section id="estimate-probability-with-10000-replicates-1" class="level3">
+<h3 class="anchored" data-anchor-id="estimate-probability-with-10000-replicates-1">1.5 Estimate probability with 10,000 replicates</h3>
+<p><strong>Your task:</strong> Set <code>replicates &lt;- 10000</code> and re-run the simulation. Estimate <span class="math inline">\(P(\text{white first and red second})\)</span>.</p>
+<hr>
+</section>
+<section id="exactly-one-red-ball-1" class="level3">
+<h3 class="anchored" data-anchor-id="exactly-one-red-ball-1">1.6 Exactly one red ball</h3>
+<p><strong>Your task:</strong> Modify the simulation to estimate <span class="math inline">\(P(\text{exactly one red})\)</span> — i.e., either (R then W) or (W then R). Use the logical operator <code>|</code> for “or”.</p>
+<hr>
+</section>
+</section>
+<section id="part-2-simulating-a-population-conditional-on-sex-1" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-simulating-a-population-conditional-on-sex-1">Part 2: Simulating a population (conditional on sex)</h2>
+<p>In the US, suppose about 20% of children and 3% of adults like to eat gummy vitamins. Assume a 1:1 child to adult ratio.</p>
+<p>Let <span class="math inline">\(C\)</span> = child, <span class="math inline">\(G\)</span> = like to eat gummy vitamins.</p>
+<p><strong>Questions:</strong></p>
+<ul>
+<li>What is <span class="math inline">\(P(C \text{ and } G)\)</span>?</li>
+<li>What is <span class="math inline">\(P(G)\)</span>?</li>
+</ul>
+<p><strong>R functions you’ll use:</strong> <code>sample()</code> with <code>prob</code>, <code>for</code> loop, <code>if</code> statement, <code>sum()</code>, <code>mean()</code></p>
+<hr>
+<section id="simulate-a-population-of-10000-1" class="level3">
+<h3 class="anchored" data-anchor-id="simulate-a-population-of-10000-1">2.1 Simulate a population of 10,000</h3>
+<p><strong>Your task:</strong> Create vectors <code>child</code> (0 = no, 1 = yes) and <code>gummy</code> (0 = don’t like gummies, 1 = likes gummies). Use <code>if</code> statements so that the probability of liking gummies depends on being a child or not.</p>
+<hr>
+</section>
+<section id="estimate-pc-text-and-g-and-pg-1" class="level3">
+<h3 class="anchored" data-anchor-id="estimate-pc-text-and-g-and-pg-1">2.2 Estimate <span class="math inline">\(P(C \text{ and } G)\)</span> and <span class="math inline">\(P(G)\)</span></h3>
+<p><strong>Your task:</strong> From the simulated population, estimate the probability of being a child and liking gummies, and the probability of liking gummies (overall).</p>
+<hr>
+</section>
+</section>
+<section id="part-3-diagnostic-test-conditional-probability-1" class="level2">
+<h2 class="anchored" data-anchor-id="part-3-diagnostic-test-conditional-probability-1">Part 3: Diagnostic test (conditional probability)</h2>
+<p>A disease has prevalence <span class="math inline">\(P(D) = 0.01\)</span>. A test has sensitivity <span class="math inline">\(P(\text{positive} \mid D) = 0.95\)</span> and specificity <span class="math inline">\(P(\text{negative} \mid \text{no } D) = 0.90\)</span>.</p>
+<p><strong>Your task:</strong> Simulate 10,000 individuals with disease status and test result. Estimate <span class="math inline">\(P(D \mid \text{positive})\)</span> — the probability of having the disease given a positive test.</p>
+<hr>
+</section>
+<section id="part-4-reflectionyour-task-in-23-sentences-describe-what-you-learned-from-this-lab-about-coding-in-r-and-conditional-probabilities.-were-there-any-questions-you-couldnt-figure-out-how-to-write-the-code-for" class="level2">
+<h2 class="anchored" data-anchor-id="part-4-reflectionyour-task-in-23-sentences-describe-what-you-learned-from-this-lab-about-coding-in-r-and-conditional-probabilities.-were-there-any-questions-you-couldnt-figure-out-how-to-write-the-code-for">Part 4: Reflection<strong>Your task:</strong> In 2–3 sentences, describe what you learned from this lab about coding in R and conditional probabilities. Were there any questions you couldn’t figure out how to write the code for?</h2>
+<p>``````````````````` :::</p>
+</section>
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>Creative Commons Attribution-NonCommercial 4.0 International<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">(View License)</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -611,16 +808,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       }
     }
   });
-  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab 3"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "STAT 109: Introductory Biostatistics"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Lab 3</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>*Instructions coming soon.*</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
-</div></div></div></div></div>
+  </script>
 </div> <!-- /content -->
 
 
