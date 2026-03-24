@@ -480,3 +480,83 @@ tr:hover {
 .table-hover > tbody > tr:hover > * {
   background-color: rgba(156, 169, 132, 0.1) !important;
 }
+
+/* -------------------------------------------------------------------------- */
+/* Code blocks & inline code — light text on dark panel (readable on redwood) */
+/* -------------------------------------------------------------------------- */
+
+#quarto-content pre.sourceCode,
+#quarto-content div.sourceCode pre,
+#quarto-content .cell-code,
+#quarto-content .cell-code pre,
+#quarto-content div.cell div.sourceCode pre {
+  background-color: rgba(0, 0, 0, 0.42) !important;
+  color: var(--sand-light) !important;
+  border: 1px solid var(--redwood-medium) !important;
+  border-radius: 6px !important;
+  padding: 0.75rem 1rem !important;
+}
+
+#quarto-content pre.sourceCode code,
+#quarto-content .cell-code pre code {
+  color: var(--sand-light) !important;
+  background: transparent !important;
+}
+
+/* Skylighting / Pandoc token classes (R and other languages) */
+#quarto-content pre.sourceCode span,
+#quarto-content .cell-code pre span {
+  background: transparent !important;
+}
+
+#quarto-content pre.sourceCode .kw,
+#quarto-content pre.sourceCode .cf,
+#quarto-content pre.sourceCode .op {
+  color: #a8d4f0 !important;
+}
+
+#quarto-content pre.sourceCode .co {
+  color: #a8b89a !important;
+}
+
+#quarto-content pre.sourceCode .st,
+#quarto-content pre.sourceCode .ch {
+  color: #e8c896 !important;
+}
+
+#quarto-content pre.sourceCode .dv,
+#quarto-content pre.sourceCode .fl,
+#quarto-content pre.sourceCode .bn {
+  color: #d8c0f0 !important;
+}
+
+#quarto-content pre.sourceCode .fu,
+#quarto-content pre.sourceCode .ot {
+  color: #f0e0b0 !important;
+}
+
+#quarto-content pre.sourceCode .va,
+#quarto-content pre.sourceCode .at {
+  color: #c8e8d0 !important;
+}
+
+#quarto-content pre.sourceCode .er {
+  color: #ff9a9a !important;
+}
+
+/* Fallback: any span not matched above inherits readable light text */
+#quarto-content pre.sourceCode span:not([class]) {
+  color: var(--sand-light) !important;
+}
+
+/* Inline code (outside pre) */
+#quarto-content p code:not(pre code),
+#quarto-content li code:not(pre code),
+#quarto-content td code:not(pre code),
+#quarto-content .callout code:not(pre code) {
+  color: var(--fog-gray) !important;
+  background-color: rgba(0, 0, 0, 0.35) !important;
+  padding: 0.12em 0.45em;
+  border-radius: 4px;
+  border: 1px solid rgba(139, 69, 19, 0.5);
+}
