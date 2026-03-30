@@ -149,14 +149,14 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#lecture-24-spread-quartiles-boxplots-and-the-one-sample-t-test" id="toc-lecture-24-spread-quartiles-boxplots-and-the-one-sample-t-test" class="nav-link active" data-scroll-target="#lecture-24-spread-quartiles-boxplots-and-the-one-sample-t-test">Lecture 24: Spread, quartiles, boxplots, and the one-sample <em>t</em>-test</a>
+  <li><a href="#lecture-24-one-numerical-variable-center-graphs-and-the-one-sample-t-test" id="toc-lecture-24-one-numerical-variable-center-graphs-and-the-one-sample-t-test" class="nav-link active" data-scroll-target="#lecture-24-one-numerical-variable-center-graphs-and-the-one-sample-t-test">Lecture 24: One numerical variable: center, graphs, and the one-sample <em>t</em>-test</a>
   <ul class="collapse">
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives</a></li>
-  <li><a href="#spread-for-a-numerical-variable" id="toc-spread-for-a-numerical-variable" class="nav-link" data-scroll-target="#spread-for-a-numerical-variable">Spread for a numerical variable</a></li>
-  <li><a href="#quartiles-and-the-five-number-summary" id="toc-quartiles-and-the-five-number-summary" class="nav-link" data-scroll-target="#quartiles-and-the-five-number-summary">Quartiles and the five-number summary</a></li>
-  <li><a href="#two-small-datasets-for-hand-practice" id="toc-two-small-datasets-for-hand-practice" class="nav-link" data-scroll-target="#two-small-datasets-for-hand-practice">Two small datasets (for hand practice)</a></li>
-  <li><a href="#one-sample-t-test-setting-t-statistic-and-conditions" id="toc-one-sample-t-test-setting-t-statistic-and-conditions" class="nav-link" data-scroll-target="#one-sample-t-test-setting-t-statistic-and-conditions">One-sample <em>t</em>-test: setting, <em>t</em>-statistic, and conditions</a></li>
-  <li><a href="#three-t.test-examples-one-sample-different-alternatives" id="toc-three-t.test-examples-one-sample-different-alternatives" class="nav-link" data-scroll-target="#three-t.test-examples-one-sample-different-alternatives">Three <code>t.test()</code> examples (one sample, different alternatives)</a></li>
+  <li><a href="#review-one-numerical-variable" id="toc-review-one-numerical-variable" class="nav-link" data-scroll-target="#review-one-numerical-variable">Review: one numerical variable</a></li>
+  <li><a href="#examples-by-hand" id="toc-examples-by-hand" class="nav-link" data-scroll-target="#examples-by-hand">Examples by Hand</a></li>
+  <li><a href="#mean-and-median-in-the-tidyverse-pipe" id="toc-mean-and-median-in-the-tidyverse-pipe" class="nav-link" data-scroll-target="#mean-and-median-in-the-tidyverse-pipe">Mean and median in the tidyverse (pipe)</a></li>
+  <li><a href="#histogram-and-dot-plot-ggplot2" id="toc-histogram-and-dot-plot-ggplot2" class="nav-link" data-scroll-target="#histogram-and-dot-plot-ggplot2">Histogram and dot plot (ggplot2)</a></li>
+  <li><a href="#one-sample-t-statistic-and-t.test" id="toc-one-sample-t-statistic-and-t.test" class="nav-link" data-scroll-target="#one-sample-t-statistic-and-t.test">One-sample <em>t</em>-statistic and <code>t.test()</code></a></li>
   <li><a href="#takeaway" id="toc-takeaway" class="nav-link" data-scroll-target="#takeaway">Takeaway</a></li>
   </ul></li>
   </ul>
@@ -189,183 +189,101 @@ window.Quarto = {
 </header>
 
 
-<section id="lecture-24-spread-quartiles-boxplots-and-the-one-sample-t-test" class="level1">
-<h1>Lecture 24: Spread, quartiles, boxplots, and the one-sample <em>t</em>-test</h1>
+<section id="lecture-24-one-numerical-variable-center-graphs-and-the-one-sample-t-test" class="level1">
+<h1>Lecture 24: One numerical variable: center, graphs, and the one-sample <em>t</em>-test</h1>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
 <ul>
-<li>Describe spread of a numerical variable using <strong>range</strong>, <strong>interquartile range (IQR)</strong>, and <strong>standard deviation (SD)</strong>.</li>
-<li>Locate <strong>quartiles</strong> and the <strong>five-number summary</strong>, and relate them to a <strong>boxplot</strong>.</li>
-<li>State the <strong>one-sample <em>t</em>-test</strong> setting, the definition of the <strong><em>t</em>-statistic</strong>, and <strong>conditions</strong> for using the test; use <code>t.test()</code> in R for one-sample tests with different <strong>alternatives</strong>.</li>
+<li>Compute <strong>mean</strong> and <strong>median</strong> by hand and with the <strong>tidyverse</strong> (pipe to <code>summarize()</code>).</li>
+<li>Graph one numerical variable with <strong>ggplot2</strong>: <strong>histogram</strong> and <strong>dot plot</strong>.</li>
+<li>Recognize the <strong>one-sample <em>t</em>-statistic</strong> and use <code>t.test()</code> for a <strong>one-sample <em>t</em>-test</strong> and <strong>confidence interval</strong> for the population mean.</li>
 </ul>
 <hr>
 </section>
-<section id="spread-for-a-numerical-variable" class="level2">
-<h2 class="anchored" data-anchor-id="spread-for-a-numerical-variable">Spread for a numerical variable</h2>
-<p>Besides <strong>center</strong> (mean, median), we summarize how spread out the values are.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 19%">
-<col style="width: 26%">
-<col style="width: 54%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Measure</th>
-<th>What it is</th>
-<th>Sensitive to outliers?</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Range</strong></td>
-<td>Largest value minus smallest value</td>
-<td>Yes — one extreme value changes it a lot</td>
-</tr>
-<tr class="even">
-<td><strong>IQR</strong></td>
-<td>Third quartile minus first quartile: <span class="math inline">\(Q_3 - Q_1\)</span></td>
-<td>Less so — uses middle half of the data</td>
-</tr>
-<tr class="odd">
-<td><strong>SD (standard deviation)</strong></td>
-<td>Roughly, a typical distance of values from the mean (computed with all values)</td>
-<td>Yes</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Standard deviation (sample).</strong> For observations <span class="math inline">\(x_1,\ldots,x_n\)</span> with sample mean <span class="math inline">\(\bar{x}\)</span>,</p>
+<section id="review-one-numerical-variable" class="level2">
+<h2 class="anchored" data-anchor-id="review-one-numerical-variable">Review: one numerical variable</h2>
+<p>A <strong>numerical</strong> variable takes values that are counts or measurements where it is meaningful to sort them in order and to compute distance between any two of them. We usually report center and spread; this lecture focuses on center and on graphs for the whole distribution.</p>
+<p><strong>Mean (average).</strong> For values <span class="math inline">\(x_1,\ldots,x_n\)</span>, the sample mean is</p>
 <p><span class="math display">\[
-s = \sqrt{\frac{1}{n-1}\sum_{i=1}^n (x_i - \bar{x})^2}.
+\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i.
 \]</span></p>
-<p>The divisor <span class="math inline">\(n-1\)</span> (not <span class="math inline">\(n\)</span>) is standard for a <strong>sample</strong> SD when we use the data to estimate spread in a population.</p>
+<p>The capital Greek letter Sigma (<span class="math inline">\(\Sigma\)</span>) denotes <strong>summation</strong>. The expression <span class="math inline">\(\sum_{i=1}^n x_i\)</span> means: add <span class="math inline">\(x_1 + x_2 + \cdots + x_n\)</span>, including every observation of <span class="math inline">\(x\)</span>, indexed by <span class="math inline">\(i\)</span> from <span class="math inline">\(1\)</span> to <span class="math inline">\(n\)</span>. Multiplying that total by <span class="math inline">\(\frac{1}{n}\)</span> rescales it: you are taking the combined amount (the total sum) and expressing it as if it belonged to a single unit, “per person,” “per observation,” or “per employee” in a payroll setting.</p>
+<p>How to read the mean. Think: total of all values, spread evenly across <span class="math inline">\(n\)</span> slots. If everyone’s contribution were replaced by the same number while keeping the same total, that common number would be the mean.</p>
+<p>Visual (balance point). On a <strong>dot plot</strong> with one dot per observation, the mean is the <strong>balance point</strong> (center of mass) along the horizontal axis: equal weight at each dot, and the axis would balance at <span class="math inline">\(\bar{x}\)</span>. On a <strong>histogram</strong>, you get the same idea if you treat each bin’s count (or properly scaled density) as sitting at the <strong>bin center</strong>, that is a standard approximation; the exact mean always comes from the original values, not from the drawn bins.</p>
+<p><strong>Median.</strong> Sort the values from smallest to largest. If <span class="math inline">\(n\)</span> is odd, the median is the middle value. If <span class="math inline">\(n\)</span> is even, it is the average of the two middle values. In the usual case with no ties sitting exactly on the split, the median is the value such that half of the observations are below it and half are above it. (If many values tie at the median, the “50% / 50%” story is still right in spirit but the counts on each side need a careful definition, we keep the ordered-list rule for computing it.)</p>
+<p>How to read the median. The median is a positional measure: it marks the center of the ordered list, not the balance of the total of the numbers. It is not pulled in dollars-and-cents by a few huge values in the same way the mean is.</p>
+<p>Example: salaries. Suppose you list every employee’s annual salary. The <strong>median</strong> answers a “typical employee” question: half of the staff earn less than or equal to that amount and half earn more than or equal to it. The median is a useful picture of how pay feels in the middle of the workforce. The <strong>mean</strong> answers a “budget” question: if the firm paid the same total in salaries but split it evenly across every employee, each would get the mean. So the mean is the per-employee share of the fixed payroll total; it is what you need if you want to think about resizing the organization (“what if we had twice as many people with the same total wage bill?”) or track aggregate cost per head.</p>
+<p>Which should you report? There is no single correct choice for every problem. If the goal is to describe the feeling of a typical standing, the median is often easier to interpret. If the goal is to tie summaries to a total, a rate per unit, or planning with a fixed sum divided among <span class="math inline">\(n\)</span> units, the mean is a better choice. Report what matches your question and when in doubt, both plus a graph can be clearer than either alone.</p>
 <hr>
 </section>
-<section id="quartiles-and-the-five-number-summary" class="level2">
-<h2 class="anchored" data-anchor-id="quartiles-and-the-five-number-summary">Quartiles and the five-number summary</h2>
-<p>Order the data from smallest to largest.</p>
+<section id="examples-by-hand" class="level2">
+<h2 class="anchored" data-anchor-id="examples-by-hand">Examples by Hand</h2>
+<ol type="1">
+<li>Data: <span class="math inline">\(7,\ 8,\ 9,\ 10,\ 10,\ 11,\ 12,\ 13\)</span> .</li>
+</ol>
 <ul>
-<li><strong>Median</strong> — middle value (or average of the two middle values if <span class="math inline">\(n\)</span> is even).</li>
-<li><strong>First quartile <span class="math inline">\(Q_1\)</span></strong> — value below which about one quarter of the data fall (median of the lower half; conventions differ slightly in software).</li>
-<li><strong>Third quartile <span class="math inline">\(Q_3\)</span></strong> — value below which about three quarters of the data fall (median of the upper half).</li>
+<li>Mean: <span class="math inline">\(\bar{x} = (7+8+9+10+10+11+12+13)/8 = 80/8 = 10\)</span>.</li>
+<li>Median: notice that the 8 values are already sorted from smallest to bigest and the two middle values are both <span class="math inline">\(10\)</span>, so the median is <span class="math inline">\(10\)</span>.</li>
 </ul>
-<p><strong>Five-number summary:</strong> minimum, <span class="math inline">\(Q_1\)</span>, median, <span class="math inline">\(Q_3\)</span>, maximum.</p>
-<p><strong>Interquartile range:</strong> <span class="math inline">\(\text{IQR} = Q_3 - Q_1\)</span>.</p>
-<p><strong>Boxplot</strong> — graphical display of the five-number summary: the box spans <span class="math inline">\(Q_1\)</span> to <span class="math inline">\(Q_3\)</span>, a line inside marks the median, and whiskers extend to sensible extremes (often the most extreme points within <span class="math inline">\(1.5\times\text{IQR}\)</span> of the quartiles, with points beyond that shown as individual dots). Exact whisker rules vary by software; always read the help for your program.</p>
+<p>Here the mean and median match.</p>
+<ol start="2" type="1">
+<li>Data: <span class="math inline">\(2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 100\)</span> (seven values). One value (<span class="math inline">\(100\)</span>) is far from the rest.</li>
+</ol>
+<ul>
+<li>Median: with seven values already sorted, the median is the fourth in the list so the median is <span class="math inline">\(5\)</span>.</li>
+<li>Mean: the sum is <span class="math inline">\(2+3+4+5+6+7+100 = 127\)</span>, so <span class="math inline">\(\bar{x} = 127/7 \approx 18.1\)</span>.</li>
+</ul>
+<p>The mean is pulled toward the large observation; the median stays with the middle of the bulk of the data. For describing a “typical” case here, the median (<span class="math inline">\(5\)</span>) is the point at which about half the values are less than it and half are greater than it. The mean reflects the total (<span class="math inline">\(127\)</span>) spread across seven slots, including the one very large contribution and is the “balance point” of all seven values.</p>
 <hr>
 </section>
-<section id="two-small-datasets-for-hand-practice" class="level2">
-<h2 class="anchored" data-anchor-id="two-small-datasets-for-hand-practice">Two small datasets (for hand practice)</h2>
-<p>Use these when you practice computing range, quartiles, IQR, mean, and SD with a calculator.</p>
-<p><strong>Dataset A</strong> (five values): <span class="math inline">\(1,\ 2,\ 3,\ 4,\ 5\)</span></p>
-<p><strong>Dataset B</strong> (six values): <span class="math inline">\(2,\ 4,\ 6,\ 8,\ 10,\ 12\)</span></p>
-<p><strong>Dataset A — quick facts</strong></p>
-<ul>
-<li>Ordered: already sorted. <strong>Range</strong> <span class="math inline">\(= 5 - 1 = 4\)</span>.</li>
-<li><strong>Median</strong> <span class="math inline">\(= 3\)</span>. Quartile definitions vary slightly by textbook; <strong>R</strong>’s default (<code>quantile(..., type = 7)</code>) gives <strong><span class="math inline">\(Q_1 = 2\)</span></strong>, <strong><span class="math inline">\(Q_3 = 4\)</span></strong>, so <strong>IQR</strong> <span class="math inline">\(= 4 - 2 = 2\)</span> (check with <code>IQR(a)</code> after you define <code>a</code>).</li>
-<li><strong>Mean</strong> <span class="math inline">\(\bar{x} = (1+2+3+4+5)/5 = 3\)</span>.</li>
-<li>Squared deviations from 3: <span class="math inline">\(4,1,0,1,4\)</span>; sum <span class="math inline">\(= 10\)</span>; <strong>sample variance</strong> <span class="math inline">\(s^2 = 10/(5-1) = 2.5\)</span>; <strong>SD</strong> <span class="math inline">\(s = \sqrt{2.5}\)</span>.</li>
-</ul>
-<p><strong>Dataset B — quick facts</strong></p>
-<ul>
-<li><strong>Range</strong> <span class="math inline">\(= 12 - 2 = 10\)</span>.</li>
-<li><strong>Median</strong> <span class="math inline">\(= (6+8)/2 = 7\)</span>. Halves each have three values: <span class="math inline">\(Q_1 = 4\)</span>, <span class="math inline">\(Q_3 = 10\)</span>, <strong>IQR</strong> <span class="math inline">\(= 6\)</span>.</li>
-<li><strong>Mean</strong> <span class="math inline">\(\bar{x} = 42/6 = 7\)</span>.</li>
-<li>Squared deviations from 7: <span class="math inline">\(25,9,1,1,9,25\)</span>; sum <span class="math inline">\(= 70\)</span>; <strong>sample variance</strong> <span class="math inline">\(s^2 = 70/5 = 14\)</span>; <strong>SD</strong> <span class="math inline">\(s = \sqrt{14}\)</span>.</li>
-</ul>
-<p>In R, summary values may differ slightly for quartiles depending on the <strong>type</strong> of quantile definition (<code>?quantile</code>); the ideas match what you do by hand.</p>
+<section id="mean-and-median-in-the-tidyverse-pipe" class="level2">
+<h2 class="anchored" data-anchor-id="mean-and-median-in-the-tidyverse-pipe">Mean and median in the tidyverse (pipe)</h2>
+<p>Syntax note: In <strong>dplyr</strong>, <code>summarize()</code> and <code>summarise()</code> are the same function (American vs.&nbsp;British spelling). For pipes, base R’s native <code>|&gt;</code> (R 4.1+) works like the <strong>magrittr</strong> pipe <code>%&gt;%</code> from the <strong>tidyverse</strong>: both pass the left-hand side into the first argument of the function on the right. This lecture uses <code>|&gt;</code> and <code>summarize()</code>; use whichever spelling and pipe you prefer, they behave the same here.</p>
+<p>The pipe <code>|&gt;</code> sends the data on its left into the first argument of the function on its right. We often pipe a data frame (e.g.&nbsp;a dataset with examples in rows and variables in columns) into <code>summarize()</code> to compute summaries.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">12</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(a)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"tidyverse"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>, <span class="at">repos =</span> <span class="st">"https://cloud.r-project.org"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">score =</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>scores <span class="sc">|&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_score =</span> <span class="fu">mean</span>(score),</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">median_score =</span> <span class="fu">median</span>(score)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 5</code></pre>
-</div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span>(<span class="fu">range</span>(a))          <span class="co"># range as max - min</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
-</div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(a)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(a)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.581139</code></pre>
-</div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(a)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-      1       2       3       3       4       5 </code></pre>
-</div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(a, <span class="at">horizontal =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">"Dataset A"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="lecture-24_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<pre><code># A tibble: 1 × 3
+      n mean_score median_score
+  &lt;int&gt;      &lt;dbl&gt;        &lt;dbl&gt;
+1     8         10           10</code></pre>
 </div>
 </div>
-</div>
+<p>Here <code>n()</code> counts rows inside <code>summarize()</code> (one row per student, say).</p>
+<hr>
+</section>
+<section id="histogram-and-dot-plot-ggplot2" class="level2">
+<h2 class="anchored" data-anchor-id="histogram-and-dot-plot-ggplot2">Histogram and dot plot (ggplot2)</h2>
+<p><strong>Histogram</strong>, split the axis into bins and show counts (or densities) in each bin.</p>
+<p><strong>Dot plot</strong>, stack dots along the axis so you see each value (or rounded value) and repeats clearly.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]  2 12</code></pre>
-</div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span>(<span class="fu">range</span>(b))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 10</code></pre>
-</div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
-</div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.741657</code></pre>
-</div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    2.0     4.5     7.0     7.0     9.5    12.0 </code></pre>
-</div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(b, <span class="at">horizontal =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">"Dataset B"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(scores, <span class="fu">aes</span>(<span class="at">x =</span> score)) <span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">boundary =</span> <span class="fl">6.5</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Histogram of scores"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Score"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Count"</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -375,101 +293,63 @@ s = \sqrt{\frac{1}{n-1}\sum_{i=1}^n (x_i - \bar{x})^2}.
 </div>
 </div>
 </div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(scores, <span class="fu">aes</span>(<span class="at">x =</span> score)) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">method =</span> <span class="st">"histodot"</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Dot plot of scores"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Score"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="cn">NULL</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="cn">NULL</span>, <span class="at">breaks =</span> <span class="cn">NULL</span>) <span class="co"># hide stacking axis</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lecture-24_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Adjust <code>binwidth</code> so the plot matches how you think about the scale (e.g.&nbsp;group by every 1 unit, 10 units, 100 units…) or leave this input out to let R use a default setting.</p>
 <hr>
 </section>
-<section id="one-sample-t-test-setting-t-statistic-and-conditions" class="level2">
-<h2 class="anchored" data-anchor-id="one-sample-t-test-setting-t-statistic-and-conditions">One-sample <em>t</em>-test: setting, <em>t</em>-statistic, and conditions</h2>
-<p><strong>Setting.</strong> We have a <strong>simple random sample</strong> of numerical outcomes from a population with unknown mean <span class="math inline">\(\mu\)</span>. We want to test a hypothesis about <span class="math inline">\(\mu\)</span> against a <strong>null</strong> value <span class="math inline">\(\mu_0\)</span> (often suggested by theory or a reference standard).</p>
-<p><strong>Definition: <em>t</em>-statistic (one sample)</strong> After computing the sample mean <span class="math inline">\(\bar{x}\)</span> and sample SD <span class="math inline">\(s\)</span> from <span class="math inline">\(n\)</span> observations,</p>
+<section id="one-sample-t-statistic-and-t.test" class="level2">
+<h2 class="anchored" data-anchor-id="one-sample-t-statistic-and-t.test">One-sample <em>t</em>-statistic and <code>t.test()</code></h2>
+<p>Setting. We have a <strong>simple random sample</strong> of size <span class="math inline">\(n\)</span> from a population with unknown mean <span class="math inline">\(\mu\)</span>. We want to test whether <span class="math inline">\(\mu\)</span> equals a hypothezed value <span class="math inline">\(\mu_0\)</span> or to estimate reasonable values for <span class="math inline">\(\mu\)</span> via a <strong>confidence interval</strong>.</p>
+<p>Definition: <em>t</em>-statistic (one sample). With sample mean <span class="math inline">\(\bar{x}\)</span> and sample SD <span class="math inline">\(s\)</span>,</p>
 <p><span class="math display">\[
 t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}}.
 \]</span></p>
-<p>The denominator <span class="math inline">\(s/\sqrt{n}\)</span> is the <strong>standard error</strong> of the mean. The <em>t</em>-statistic measures how many standard errors the sample mean is from the null mean <span class="math inline">\(\mu_0\)</span>.</p>
-<p><strong>Sampling distribution.</strong> If the null hypothesis is true and the <strong>conditions</strong> below hold, <span class="math inline">\(t\)</span> follows a <strong>Student <em>t</em> distribution</strong> whose <strong>shape depends on the sample size</strong> through <strong>degrees of freedom</strong> <span class="math inline">\(\text{df} = n - 1\)</span>. Unlike the standard normal <em>z</em>, we do <strong>not</strong> expect you to compute <em>t</em>-distribution tail probabilities <strong>by hand</strong> in this course; use software (e.g.&nbsp;<code>t.test()</code> in R).</p>
-<p><strong>Conditions (practical checklist)</strong></p>
-<ol type="1">
-<li><strong>Random sample</strong> (or a design that justifies treating observations as representative).</li>
-<li><strong>Sample size / population shape</strong> — for moderate <span class="math inline">\(n\)</span>, mild skew is often acceptable; for small <span class="math inline">\(n\)</span>, the population should be <strong>not strongly skewed</strong>, and <strong>outliers</strong> warrant caution. (Some texts add “population normal”; the key idea is that the sampling distribution of <span class="math inline">\(\bar{x}\)</span> is approximately normal enough for the intended purpose.)</li>
-</ol>
-<p><strong>Hypotheses (one population mean)</strong></p>
-<ul>
-<li><span class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu = \mu_0\)</span></li>
-<li><span class="math inline">\(H_a\)</span>: one of <span class="math inline">\(\mu \neq \mu_0\)</span> (two-sided), <span class="math inline">\(\mu &gt; \mu_0\)</span> (greater), or <span class="math inline">\(\mu &lt; \mu_0\)</span> (less)</li>
-</ul>
-<hr>
-</section>
-<section id="three-t.test-examples-one-sample-different-alternatives" class="level2">
-<h2 class="anchored" data-anchor-id="three-t.test-examples-one-sample-different-alternatives">Three <code>t.test()</code> examples (one sample, different alternatives)</h2>
-<p>Small made-up samples so the output is easy to read. Each line tests a mean against a null value <code>mu</code>.</p>
-<p><strong>1. Two-sided</strong> (<span class="math inline">\(H_a\)</span>: <span class="math inline">\(\mu \neq 4\)</span>)</p>
+<p>The denominator is the <strong>standard error</strong> of the mean. Under <span class="math inline">\(H_0: \mu = \mu_0\)</span>, and when the usual conditions hold (random sample and either <span class="math inline">\(n\)</span> is large ($&gt;30$) or the population is roughly symmetric), <span class="math inline">\(t\)</span> is compared to a <strong>Student <em>t</em> distribution</strong> with <span class="math inline">\(\text{df} = n - 1\)</span>. The exact shape depends on sample size and is not calculable by hand. In modern times, we use software for <em>p</em>-values and intervals, not tables by hand.</p>
+<p><code>t.test()</code> for one sample: pass the numeric vector, the null mean <code>mu</code>, and optionally <code>alternative</code> (<code>"two.sided"</code>, <code>"greater"</code>, <code>"less"</code>). The default output includes a test and a 95% <strong>confidence interval</strong> for <span class="math inline">\(\mu\)</span> (two-sided alternative).</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(x1, <span class="at">mu =</span> <span class="dv">4</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(scores<span class="sc">$</span>score, <span class="at">mu =</span> <span class="dv">9</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
 
-data:  x1
-t = 0, df = 2, p-value = 1
-alternative hypothesis: true mean is not equal to 4
+data:  scores$score
+t = 1.4142, df = 7, p-value = 0.2002
+alternative hypothesis: true mean is not equal to 9
 95 percent confidence interval:
- 1.515862 6.484138
+  8.327958 11.672042
 sample estimates:
 mean of x 
-        4 </code></pre>
+       10 </code></pre>
 </div>
 </div>
-<p><strong>2. One-sided, greater</strong> (<span class="math inline">\(H_a\)</span>: <span class="math inline">\(\mu &gt; 10\)</span>)</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(x2, <span class="at">mu =</span> <span class="dv">10</span>, <span class="at">alternative =</span> <span class="st">"greater"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    One Sample t-test
-
-data:  x2
-t = 3.4641, df = 2, p-value = 0.03709
-alternative hypothesis: true mean is greater than 10
-95 percent confidence interval:
- 10.31415      Inf
-sample estimates:
-mean of x 
-       12 </code></pre>
-</div>
-</div>
-<p><strong>3. One-sided, less</strong> (<span class="math inline">\(H_a\)</span>: <span class="math inline">\(\mu &lt; 20\)</span>)</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>x3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(x3, <span class="at">mu =</span> <span class="dv">20</span>, <span class="at">alternative =</span> <span class="st">"less"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    One Sample t-test
-
-data:  x3
-t = -6.9282, df = 2, p-value = 0.0101
-alternative hypothesis: true mean is less than 20
-95 percent confidence interval:
-     -Inf 17.68585
-sample estimates:
-mean of x 
-       16 </code></pre>
-</div>
-</div>
-<p>In each case, R reports the <em>t</em>-statistic, <strong>df</strong>, a <strong>p-value</strong> for the stated alternative, and a <strong>confidence interval</strong> (by default 95%) for <span class="math inline">\(\mu\)</span> where appropriate for the alternative.</p>
+<p>Interpretation. The <strong>confidence interval</strong> is the set of estimates for <span class="math inline">\(u\)</span> that we believe contain the true value of <span class="math inline">\(\mu\)</span> with $95\%$ confidence. The <strong>p-value</strong> summarizes evidence against <span class="math inline">\(H_0: \mu = \mu_0\)</span> in favor of the stated <span class="math inline">\(H_a\)</span>: reject the null <span class="math inline">\(H_0\)</span> in favor of <span class="math inline">\(H_a\)</span> if the p-value is less than the significance level <span class="math inline">\(\alpha\)</span> (often taken to be 0.05 but remember you should pick this value based on the seriousness of a Type I error).</p>
 <hr>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
-<p>For <strong>numerical</strong> data, <strong>range</strong>, <strong>IQR</strong>, and <strong>SD</strong> describe <strong>spread</strong>; <strong>quartiles</strong> and the <strong>five-number summary</strong> connect directly to <strong>boxplots</strong>. For inference about a <strong>population mean</strong>, the one-sample <strong><em>t</em>-test</strong> uses the <strong><em>t</em>-statistic</strong> defined above; its <strong>null distribution</strong> depends on <strong>sample size</strong> (through <strong>df</strong>), and we rely on <strong>software</strong> rather than hand tables for <em>p</em>-values here.</p>
+<p>For a single <strong>numerical</strong> variable, <strong>mean</strong> and <strong>median</strong> describe center; <strong>ggplot2</strong> gives histograms and dot plots of the full distribution. For inference about one population mean, the <strong>one-sample <em>t</em>-test</strong> and interval come from <code>t.test()</code> on the sample vector.</p>
 
 
 <!-- -->
@@ -934,162 +814,150 @@ mean of x
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 24"</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "STAT 109: Introductory Biostatistics"</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Lecture 24: Spread, quartiles, boxplots, and the one-sample *t*-test</span></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Describe spread of a numerical variable using **range**, **interquartile range (IQR)**, and **standard deviation (SD)**.</span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Locate **quartiles** and the **five-number summary**, and relate them to a **boxplot**.</span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>State the **one-sample *t*-test** setting, the definition of the ***t*-statistic**, and **conditions** for using the test; use `t.test()` in R for one-sample tests with different **alternatives**.</span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Spread for a numerical variable</span></span>
-<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>Besides **center** (mean, median), we summarize how spread out the values are.</span>
-<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Measure <span class="pp">|</span> What it is <span class="pp">|</span> Sensitive to outliers? <span class="pp">|</span></span>
-<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a><span class="pp">|---------|------------|-------------------------|</span></span>
-<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Range** <span class="pp">|</span> Largest value minus smallest value <span class="pp">|</span> Yes — one extreme value changes it a lot <span class="pp">|</span></span>
-<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **IQR** <span class="pp">|</span> Third quartile minus first quartile: $Q_3 - Q_1$ <span class="pp">|</span> Less so — uses middle half of the data <span class="pp">|</span></span>
-<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **SD (standard deviation)** <span class="pp">|</span> Roughly, a typical distance of values from the mean (computed with all values) <span class="pp">|</span> Yes <span class="pp">|</span></span>
-<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>**Standard deviation (sample).** For observations $x_1,\ldots,x_n$ with sample mean $\bar{x}$,</span>
-<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>s = \sqrt{\frac{1}{n-1}\sum_{i=1}^n (x_i - \bar{x})^2}.</span>
-<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a>The divisor $n-1$ (not $n$) is standard for a **sample** SD when we use the data to estimate spread in a population.</span>
-<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quartiles and the five-number summary</span></span>
-<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a>Order the data from smallest to largest.</span>
-<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Median** — middle value (or average of the two middle values if $n$ is even).</span>
-<span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**First quartile $Q_1$** — value below which about one quarter of the data fall (median of the lower half; conventions differ slightly in software).</span>
-<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Third quartile $Q_3$** — value below which about three quarters of the data fall (median of the upper half).</span>
-<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-44"><a href="#cb29-44" aria-hidden="true" tabindex="-1"></a>**Five-number summary:** minimum, $Q_1$, median, $Q_3$, maximum.</span>
-<span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a>**Interquartile range:** $\text{IQR} = Q_3 - Q_1$.</span>
-<span id="cb29-47"><a href="#cb29-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-48"><a href="#cb29-48" aria-hidden="true" tabindex="-1"></a>**Boxplot** — graphical display of the five-number summary: the box spans $Q_1$ to $Q_3$, a line inside marks the median, and whiskers extend to sensible extremes (often the most extreme points within $1.5\times\text{IQR}$ of the quartiles, with points beyond that shown as individual dots). Exact whisker rules vary by software; always read the help for your program.</span>
-<span id="cb29-49"><a href="#cb29-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-50"><a href="#cb29-50" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb29-51"><a href="#cb29-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-52"><a href="#cb29-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## Two small datasets (for hand practice)</span></span>
-<span id="cb29-53"><a href="#cb29-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-54"><a href="#cb29-54" aria-hidden="true" tabindex="-1"></a>Use these when you practice computing range, quartiles, IQR, mean, and SD with a calculator.</span>
-<span id="cb29-55"><a href="#cb29-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-56"><a href="#cb29-56" aria-hidden="true" tabindex="-1"></a>**Dataset A** (five values): $1,\ 2,\ 3,\ 4,\ 5$</span>
-<span id="cb29-57"><a href="#cb29-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-58"><a href="#cb29-58" aria-hidden="true" tabindex="-1"></a>**Dataset B** (six values): $2,\ 4,\ 6,\ 8,\ 10,\ 12$</span>
-<span id="cb29-59"><a href="#cb29-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-60"><a href="#cb29-60" aria-hidden="true" tabindex="-1"></a>**Dataset A — quick facts**</span>
-<span id="cb29-61"><a href="#cb29-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-62"><a href="#cb29-62" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Ordered: already sorted. **Range** $= 5 - 1 = 4$.</span>
-<span id="cb29-63"><a href="#cb29-63" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Median** $= 3$. Quartile definitions vary slightly by textbook; **R**'s default (`quantile(..., type = 7)`) gives **$Q_1 = 2$**, **$Q_3 = 4$**, so **IQR** $= 4 - 2 = 2$ (check with <span class="in">`IQR(a)`</span> after you define <span class="in">`a`</span>).</span>
-<span id="cb29-64"><a href="#cb29-64" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Mean** $\bar{x} = (1+2+3+4+5)/5 = 3$.</span>
-<span id="cb29-65"><a href="#cb29-65" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Squared deviations from 3: $4,1,0,1,4$; sum $= 10$; **sample variance** $s^2 = 10/(5-1) = 2.5$; **SD** $s = \sqrt{2.5}$.</span>
-<span id="cb29-66"><a href="#cb29-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-67"><a href="#cb29-67" aria-hidden="true" tabindex="-1"></a>**Dataset B — quick facts**</span>
-<span id="cb29-68"><a href="#cb29-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-69"><a href="#cb29-69" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Range** $= 12 - 2 = 10$.</span>
-<span id="cb29-70"><a href="#cb29-70" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Median** $= (6+8)/2 = 7$. Halves each have three values: $Q_1 = 4$, $Q_3 = 10$, **IQR** $= 6$.</span>
-<span id="cb29-71"><a href="#cb29-71" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Mean** $\bar{x} = 42/6 = 7$.</span>
-<span id="cb29-72"><a href="#cb29-72" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Squared deviations from 7: $25,9,1,1,9,25$; sum $= 70$; **sample variance** $s^2 = 70/5 = 14$; **SD** $s = \sqrt{14}$.</span>
-<span id="cb29-73"><a href="#cb29-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-74"><a href="#cb29-74" aria-hidden="true" tabindex="-1"></a>In R, summary values may differ slightly for quartiles depending on the **type** of quantile definition (<span class="in">`?quantile`</span>); the ideas match what you do by hand.</span>
-<span id="cb29-75"><a href="#cb29-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-78"><a href="#cb29-78" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb29-79"><a href="#cb29-79" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb29-80"><a href="#cb29-80" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">12</span>)</span>
-<span id="cb29-81"><a href="#cb29-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-82"><a href="#cb29-82" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(a)</span>
-<span id="cb29-83"><a href="#cb29-83" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span>(<span class="fu">range</span>(a))          <span class="co"># range as max - min</span></span>
-<span id="cb29-84"><a href="#cb29-84" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(a)</span>
-<span id="cb29-85"><a href="#cb29-85" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(a)</span>
-<span id="cb29-86"><a href="#cb29-86" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(a)</span>
-<span id="cb29-87"><a href="#cb29-87" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(a, <span class="at">horizontal =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">"Dataset A"</span>)</span>
-<span id="cb29-88"><a href="#cb29-88" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb29-89"><a href="#cb29-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-92"><a href="#cb29-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb29-93"><a href="#cb29-93" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(b)</span>
-<span id="cb29-94"><a href="#cb29-94" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span>(<span class="fu">range</span>(b))</span>
-<span id="cb29-95"><a href="#cb29-95" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(b)</span>
-<span id="cb29-96"><a href="#cb29-96" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(b)</span>
-<span id="cb29-97"><a href="#cb29-97" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(b)</span>
-<span id="cb29-98"><a href="#cb29-98" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(b, <span class="at">horizontal =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">"Dataset B"</span>)</span>
-<span id="cb29-99"><a href="#cb29-99" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb29-100"><a href="#cb29-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-101"><a href="#cb29-101" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb29-102"><a href="#cb29-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-103"><a href="#cb29-103" aria-hidden="true" tabindex="-1"></a><span class="fu">## One-sample *t*-test: setting, *t*-statistic, and conditions</span></span>
-<span id="cb29-104"><a href="#cb29-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-105"><a href="#cb29-105" aria-hidden="true" tabindex="-1"></a>**Setting.** We have a **simple random sample** of numerical outcomes from a population with unknown mean $\mu$. We want to test a hypothesis about $\mu$ against a **null** value $\mu_0$ (often suggested by theory or a reference standard).</span>
-<span id="cb29-106"><a href="#cb29-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-107"><a href="#cb29-107" aria-hidden="true" tabindex="-1"></a>**Definition: *t*-statistic (one sample)** After computing the sample mean $\bar{x}$ and sample SD $s$ from $n$ observations,</span>
-<span id="cb29-108"><a href="#cb29-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-109"><a href="#cb29-109" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb29-110"><a href="#cb29-110" aria-hidden="true" tabindex="-1"></a>t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}}.</span>
-<span id="cb29-111"><a href="#cb29-111" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb29-112"><a href="#cb29-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-113"><a href="#cb29-113" aria-hidden="true" tabindex="-1"></a>The denominator $s/\sqrt{n}$ is the **standard error** of the mean. The *t*-statistic measures how many standard errors the sample mean is from the null mean $\mu_0$.</span>
-<span id="cb29-114"><a href="#cb29-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-115"><a href="#cb29-115" aria-hidden="true" tabindex="-1"></a>**Sampling distribution.** If the null hypothesis is true and the **conditions** below hold, $t$ follows a **Student *t* distribution** whose **shape depends on the sample size** through **degrees of freedom** $\text{df} = n - 1$. Unlike the standard normal *z*, we do **not** expect you to compute *t*-distribution tail probabilities **by hand** in this course; use software (e.g. <span class="in">`t.test()`</span> in R).</span>
-<span id="cb29-116"><a href="#cb29-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-117"><a href="#cb29-117" aria-hidden="true" tabindex="-1"></a>**Conditions (practical checklist)**</span>
-<span id="cb29-118"><a href="#cb29-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-119"><a href="#cb29-119" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Random sample** (or a design that justifies treating observations as representative).</span>
-<span id="cb29-120"><a href="#cb29-120" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Sample size / population shape** — for moderate $n$, mild skew is often acceptable; for small $n$, the population should be **not strongly skewed**, and **outliers** warrant caution. (Some texts add "population normal"; the key idea is that the sampling distribution of $\bar{x}$ is approximately normal enough for the intended purpose.)</span>
-<span id="cb29-121"><a href="#cb29-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-122"><a href="#cb29-122" aria-hidden="true" tabindex="-1"></a>**Hypotheses (one population mean)**</span>
-<span id="cb29-123"><a href="#cb29-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-124"><a href="#cb29-124" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>$H_0$: $\mu = \mu_0$</span>
-<span id="cb29-125"><a href="#cb29-125" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>$H_a$: one of $\mu \neq \mu_0$ (two-sided), $\mu &gt; \mu_0$ (greater), or $\mu &lt; \mu_0$ (less)</span>
-<span id="cb29-126"><a href="#cb29-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-127"><a href="#cb29-127" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb29-128"><a href="#cb29-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-129"><a href="#cb29-129" aria-hidden="true" tabindex="-1"></a><span class="fu">## Three `t.test()` examples (one sample, different alternatives)</span></span>
-<span id="cb29-130"><a href="#cb29-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-131"><a href="#cb29-131" aria-hidden="true" tabindex="-1"></a>Small made-up samples so the output is easy to read. Each line tests a mean against a null value <span class="in">`mu`</span>.</span>
-<span id="cb29-132"><a href="#cb29-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-133"><a href="#cb29-133" aria-hidden="true" tabindex="-1"></a>**1. Two-sided** ($H_a$: $\mu \neq 4$)</span>
-<span id="cb29-134"><a href="#cb29-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-137"><a href="#cb29-137" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb29-138"><a href="#cb29-138" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb29-139"><a href="#cb29-139" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(x1, <span class="at">mu =</span> <span class="dv">4</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span>
-<span id="cb29-140"><a href="#cb29-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb29-141"><a href="#cb29-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-142"><a href="#cb29-142" aria-hidden="true" tabindex="-1"></a>**2. One-sided, greater** ($H_a$: $\mu &gt; 10$)</span>
-<span id="cb29-143"><a href="#cb29-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-146"><a href="#cb29-146" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb29-147"><a href="#cb29-147" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>)</span>
-<span id="cb29-148"><a href="#cb29-148" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(x2, <span class="at">mu =</span> <span class="dv">10</span>, <span class="at">alternative =</span> <span class="st">"greater"</span>)</span>
-<span id="cb29-149"><a href="#cb29-149" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb29-150"><a href="#cb29-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-151"><a href="#cb29-151" aria-hidden="true" tabindex="-1"></a>**3. One-sided, less** ($H_a$: $\mu &lt; 20$)</span>
-<span id="cb29-152"><a href="#cb29-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-155"><a href="#cb29-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb29-156"><a href="#cb29-156" aria-hidden="true" tabindex="-1"></a>x3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>)</span>
-<span id="cb29-157"><a href="#cb29-157" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(x3, <span class="at">mu =</span> <span class="dv">20</span>, <span class="at">alternative =</span> <span class="st">"less"</span>)</span>
-<span id="cb29-158"><a href="#cb29-158" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb29-159"><a href="#cb29-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-160"><a href="#cb29-160" aria-hidden="true" tabindex="-1"></a>In each case, R reports the *t*-statistic, **df**, a **p-value** for the stated alternative, and a **confidence interval** (by default 95%) for $\mu$ where appropriate for the alternative.</span>
-<span id="cb29-161"><a href="#cb29-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-162"><a href="#cb29-162" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb29-163"><a href="#cb29-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-164"><a href="#cb29-164" aria-hidden="true" tabindex="-1"></a><span class="fu">## Takeaway</span></span>
-<span id="cb29-165"><a href="#cb29-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-166"><a href="#cb29-166" aria-hidden="true" tabindex="-1"></a>For **numerical** data, **range**, **IQR**, and **SD** describe **spread**; **quartiles** and the **five-number summary** connect directly to **boxplots**. For inference about a **population mean**, the one-sample ***t*-test** uses the ***t*-statistic** defined above; its **null distribution** depends on **sample size** (through **df**), and we rely on **software** rather than hand tables for *p*-values here.</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 24"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "STAT 109: Introductory Biostatistics"</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Lecture 24: One numerical variable: center, graphs, and the one-sample *t*-test</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Compute **mean** and **median** by hand and with the **tidyverse** (pipe to <span class="in">`summarize()`</span>).</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Graph one numerical variable with **ggplot2**: **histogram** and **dot plot**.</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Recognize the **one-sample *t*-statistic** and use `t.test()` for a **one-sample *t*-test** and **confidence interval** for the population mean.</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Review: one numerical variable</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>A **numerical** variable takes values that are counts or measurements where it is meaningful to sort them in order and to compute distance between any two of them. We usually report center and spread; this lecture focuses on center and on graphs for the whole distribution.</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>**Mean (average).** For values $x_1,\ldots,x_n$, the sample mean is</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i.</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>The capital Greek letter Sigma ($\Sigma$) denotes **summation**. The expression $\sum_{i=1}^n x_i$ means: add $x_1 + x_2 + \cdots + x_n$, including every observation of $x$, indexed by $i$ from $1$ to $n$. Multiplying that total by $\frac{1}{n}$ rescales it: you are taking the combined amount (the total sum) and expressing it as if it belonged to a single unit, “per person,” “per observation,” or “per employee” in a payroll setting.</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>How to read the mean. Think: total of all values, spread evenly across $n$ slots. If everyone’s contribution were replaced by the same number while keeping the same total, that common number would be the mean.</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>Visual (balance point). On a **dot plot** with one dot per observation, the mean is the **balance point** (center of mass) along the horizontal axis: equal weight at each dot, and the axis would balance at $\bar{x}$. On a **histogram**, you get the same idea if you treat each bin’s count (or properly scaled density) as sitting at the **bin center**, that is a standard approximation; the exact mean always comes from the original values, not from the drawn bins.</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>**Median.** Sort the values from smallest to largest. If $n$ is odd, the median is the middle value. If $n$ is even, it is the average of the two middle values. In the usual case with no ties sitting exactly on the split, the median is the value such that half of the observations are below it and half are above it. (If many values tie at the median, the “50% / 50%” story is still right in spirit but the counts on each side need a careful definition, we keep the ordered-list rule for computing it.)</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>How to read the median. The median is a positional measure: it marks the center of the ordered list, not the balance of the total of the numbers. It is not pulled in dollars-and-cents by a few huge values in the same way the mean is.</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>Example: salaries. Suppose you list every employee’s annual salary. The **median** answers a “typical employee” question: half of the staff earn less than or equal to that amount and half earn more than or equal to it. The median is a useful picture of how pay feels in the middle of the workforce. The **mean** answers a “budget” question: if the firm paid the same total in salaries but split it evenly across every employee, each would get the mean. So the mean is the per-employee share of the fixed payroll total; it is what you need if you want to think about resizing the organization (“what if we had twice as many people with the same total wage bill?”) or track aggregate cost per head.</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>Which should you report? There is no single correct choice for every problem. If the goal is to describe the feeling of a typical standing, the median is often easier to interpret. If the goal is to tie summaries to a total, a rate per unit, or planning with a fixed sum divided among $n$ units, the mean is a better choice. Report what matches your question and when in doubt, both plus a graph can be clearer than either alone.</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Examples by Hand</span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Data: $7,\ 8,\ 9,\ 10,\ 10,\ 11,\ 12,\ 13$ .</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Mean: $\bar{x} = (7+8+9+10+10+11+12+13)/8 = 80/8 = 10$.</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Median: notice that the 8 values are already sorted from smallest to bigest and the two middle values are both $10$, so the median is $10$.</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>Here the mean and median match.</span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Data: $2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 100$ (seven values). One value ($100$) is far from the rest.</span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Median: with seven values already sorted, the median is the fourth in the list so the median is $5$.</span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Mean: the sum is $2+3+4+5+6+7+100 = 127$, so $\bar{x} = 127/7 \approx 18.1$.</span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>The mean is pulled toward the large observation; the median stays with the middle of the bulk of the data. For describing a “typical” case here, the median ($5$) is the point at which about half the values are less than it and half are greater than it. The mean reflects the total ($127$) spread across seven slots, including the one very large contribution and is the "balance point" of all seven values.</span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mean and median in the tidyverse (pipe)</span></span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>Syntax note: In **dplyr**, `summarize()` and `summarise()` are the same function (American vs. British spelling). For pipes, base R’s native `|&gt;` (R 4.1+) works like the **magrittr** pipe `%&gt;%` from the **tidyverse**: both pass the left-hand side into the first argument of the function on the right. This lecture uses <span class="in">`|&gt;`</span> and <span class="in">`summarize()`</span>; use whichever spelling and pipe you prefer, they behave the same here.</span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>The pipe <span class="in">`|&gt;`</span> sends the data on its left into the first argument of the function on its right. We often pipe a data frame (e.g. a dataset with examples in rows and variables in columns) into <span class="in">`summarize()`</span> to compute summaries.</span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"tidyverse"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>, <span class="at">repos =</span> <span class="st">"https://cloud.r-project.org"</span>)</span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>  <span class="at">score =</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>)</span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a>scores <span class="sc">|&gt;</span></span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_score =</span> <span class="fu">mean</span>(score),</span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>    <span class="at">median_score =</span> <span class="fu">median</span>(score)</span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a>Here <span class="in">`n()`</span> counts rows inside <span class="in">`summarize()`</span> (one row per student, say).</span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a><span class="fu">## Histogram and dot plot (ggplot2)</span></span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a>**Histogram**, split the axis into bins and show counts (or densities) in each bin.</span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a>**Dot plot**, stack dots along the axis so you see each value (or rounded value) and repeats clearly.</span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(scores, <span class="fu">aes</span>(<span class="at">x =</span> score)) <span class="sc">+</span></span>
+<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">boundary =</span> <span class="fl">6.5</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Histogram of scores"</span>,</span>
+<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Score"</span>,</span>
+<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Count"</span></span>
+<span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb7-107"><a href="#cb7-107" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(scores, <span class="fu">aes</span>(<span class="at">x =</span> score)) <span class="sc">+</span></span>
+<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">method =</span> <span class="st">"histodot"</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Dot plot of scores"</span>,</span>
+<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Score"</span>,</span>
+<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="cn">NULL</span></span>
+<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="cn">NULL</span>, <span class="at">breaks =</span> <span class="cn">NULL</span>) <span class="co"># hide stacking axis</span></span>
+<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a>Adjust <span class="in">`binwidth`</span> so the plot matches how you think about the scale (e.g. group by every 1 unit, 10 units, 100 units...) or leave this input out to let R use a default setting.</span>
+<span id="cb7-123"><a href="#cb7-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-124"><a href="#cb7-124" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb7-125"><a href="#cb7-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-126"><a href="#cb7-126" aria-hidden="true" tabindex="-1"></a><span class="fu">## One-sample *t*-statistic and `t.test()`</span></span>
+<span id="cb7-127"><a href="#cb7-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-128"><a href="#cb7-128" aria-hidden="true" tabindex="-1"></a>Setting. We have a **simple random sample** of size $n$ from a population with unknown mean $\mu$. We want to test whether $\mu$ equals a hypothezed value $\mu_0$ or to estimate reasonable values for $\mu$ via a **confidence interval**.</span>
+<span id="cb7-129"><a href="#cb7-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-130"><a href="#cb7-130" aria-hidden="true" tabindex="-1"></a>Definition: *t*-statistic (one sample). With sample mean $\bar{x}$ and sample SD $s$,</span>
+<span id="cb7-131"><a href="#cb7-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-132"><a href="#cb7-132" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb7-133"><a href="#cb7-133" aria-hidden="true" tabindex="-1"></a>t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}}.</span>
+<span id="cb7-134"><a href="#cb7-134" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb7-135"><a href="#cb7-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-136"><a href="#cb7-136" aria-hidden="true" tabindex="-1"></a>The denominator is the **standard error** of the mean. Under $H_0: \mu = \mu_0$, and when the usual conditions hold (random sample and either $n$ is large (\$\&gt;30\$) or the population is roughly symmetric), $t$ is compared to a **Student *t* distribution** with $\text{df} = n - 1$. The exact shape depends on sample size and is not calculable by hand. In modern times, we use software for *p*-values and intervals, not tables by hand.</span>
+<span id="cb7-137"><a href="#cb7-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-138"><a href="#cb7-138" aria-hidden="true" tabindex="-1"></a><span class="in">`t.test()`</span> for one sample: pass the numeric vector, the null mean <span class="in">`mu`</span>, and optionally <span class="in">`alternative`</span> (<span class="in">`"two.sided"`</span>, <span class="in">`"greater"`</span>, <span class="in">`"less"`</span>). The default output includes a test and a 95% **confidence interval** for $\mu$ (two-sided alternative).</span>
+<span id="cb7-139"><a href="#cb7-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-142"><a href="#cb7-142" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-143"><a href="#cb7-143" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(scores<span class="sc">$</span>score, <span class="at">mu =</span> <span class="dv">9</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span>
+<span id="cb7-144"><a href="#cb7-144" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-145"><a href="#cb7-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-146"><a href="#cb7-146" aria-hidden="true" tabindex="-1"></a>Interpretation. The **confidence interval** is the set of estimates for $u$ that we believe contain the true value of $\mu$ with \$95\\%\$ confidence. The **p-value** summarizes evidence against $H_0: \mu = \mu_0$ in favor of the stated $H_a$: reject the null $H_0$ in favor of $H_a$ if the p-value is less than the significance level $\alpha$ (often taken to be 0.05 but remember you should pick this value based on the seriousness of a Type I error).</span>
+<span id="cb7-147"><a href="#cb7-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-148"><a href="#cb7-148" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb7-149"><a href="#cb7-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-150"><a href="#cb7-150" aria-hidden="true" tabindex="-1"></a><span class="fu">## Takeaway</span></span>
+<span id="cb7-151"><a href="#cb7-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-152"><a href="#cb7-152" aria-hidden="true" tabindex="-1"></a>For a single **numerical** variable, **mean** and **median** describe center; **ggplot2** gives histograms and dot plots of the full distribution. For inference about one population mean, the **one-sample *t*-test** and interval come from <span class="in">`t.test()`</span> on the sample vector.</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
