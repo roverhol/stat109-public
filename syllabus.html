@@ -1272,20 +1272,32 @@ window.Quarto = {
 <section id="monday-8" class="level3">
 <h3 class="anchored" data-anchor-id="monday-8">Monday</h3>
 <p><a href="lectures/lecture-22">Lecture 22</a></p>
-<p>Normal distribution</p>
-<p>Standardization</p>
+<p><em>Normal distribution and standardization</em></p>
+<ul>
+<li>Compute a <strong>z-score</strong> from an observation and the <strong>mean</strong> and <strong>standard deviation</strong> of a reference distribution.</li>
+<li><strong>Interpret</strong> a z-score in context and use z-scores for <strong>standardized comparisons</strong> between groups or to a reference.</li>
+<li>Find <strong>probabilities</strong> (areas) for the <strong>standard normal</strong> distribution and describe them as proportions of values below (or above) a cutoff.</li>
+</ul>
 </section>
 <section id="wednesday-8" class="level3">
 <h3 class="anchored" data-anchor-id="wednesday-8">Wednesday</h3>
 <p><a href="lectures/lecture-23">Lecture 23</a></p>
-<p>Types of variables</p>
-<p>methods table: confidence interval vs.&nbsp;testing</p>
-<p>Descriptive statistics by number and type of variable</p>
+<p><em>Organizing the statistics toolbox — z-test for a proportion, variable types, CI vs.&nbsp;testing</em></p>
+<ul>
+<li>Compute a <strong>standardized test statistic</strong> using the <strong>normal approximation to the binomial</strong> and connect it to a <strong>one-proportion</strong> test (often called a <strong>z-test</strong>); in R, use <strong><code>prop.test()</code></strong> and read off a <strong>confidence interval</strong> as well.</li>
+<li>Organize analyses by <strong>type of variable(s)</strong> and by <strong>purpose</strong> (e.g.&nbsp;description vs.&nbsp;inference).</li>
+<li>Relate <strong>descriptive</strong> tools to <strong>inferential</strong> choices for <strong>one categorical</strong> variable (e.g.&nbsp;proportion, confidence interval vs.&nbsp;hypothesis test).</li>
+</ul>
 </section>
 <section id="friday-8" class="level3">
 <h3 class="anchored" data-anchor-id="friday-8">Friday</h3>
 <p><a href="lectures/lecture-24">Lecture 24</a></p>
-<p>one numerical column</p>
+<p><em>One numerical variable — center, graphs, and the one-sample t-test</em></p>
+<ul>
+<li>Compute <strong>mean</strong> and <strong>median</strong> by hand and with the <strong>tidyverse</strong> (pipe to <strong><code>summarize()</code></strong>).</li>
+<li>Graph one numerical variable with <strong>ggplot2</strong> using a <strong>histogram</strong> and a <strong>dot plot</strong>.</li>
+<li>State the <strong>one-sample <em>t</em>-statistic</strong> and use <strong><code>t.test()</code></strong> for a <strong>one-sample <em>t</em>-test</strong> and <strong>confidence interval</strong> for the <strong>population mean</strong>.</li>
+</ul>
 </section>
 </section>
 <section id="week-10" class="level2">
@@ -1293,17 +1305,27 @@ window.Quarto = {
 <section id="monday-9" class="level3">
 <h3 class="anchored" data-anchor-id="monday-9">Monday</h3>
 <p><a href="lectures/lecture-25">Lecture 25</a></p>
-<p>One numerical, One categorical column</p>
+<p><em>One numerical outcome across two groups — spread, boxplots, and two-sample t</em></p>
+<ul>
+<li>Compute <strong>range</strong>, <strong>quartiles</strong>, <strong>IQR</strong>, and <strong>standard deviation</strong> by hand and <strong>compare</strong> two small datasets.</li>
+<li>Build and interpret <strong>boxplots</strong> as a picture of the <strong>five-number summary</strong>.</li>
+<li>Describe the <strong>Welch two-sample <em>t</em>-test</strong> (independent groups, <strong>unequal variances</strong>), its <strong><em>t</em>-statistic</strong>, <strong>degrees of freedom</strong>, <strong>hypotheses</strong>, and <strong>conditions</strong>; run <strong><code>t.test(y ~ group)</code></strong> in R.</li>
+<li>Use <strong><code>group_by()</code></strong> with <strong><code>summarize()</code></strong> for descriptives and <strong>ggplot2</strong> (<strong><code>fill</code></strong> or <strong><code>color</code></strong>) to compare groups with <strong>histograms</strong>, <strong>dot plots</strong>, or <strong>boxplots</strong>.</li>
+</ul>
 </section>
 <section id="wednesday-9" class="level3">
 <h3 class="anchored" data-anchor-id="wednesday-9">Wednesday</h3>
 <p><a href="lectures/lecture-26">Lecture 26</a></p>
-<p>Two categorial column</p>
+<p><em>Two numerical variables — scatterplots and describing relationships</em></p>
+<ul>
+<li>Make a <strong>scatterplot</strong> in <strong>ggplot2</strong> for two <strong>numerical</strong> variables (<code>aes(x, y)</code> and <strong><code>geom_point()</code></strong>).</li>
+<li>Describe an association using <strong>form</strong> (e.g.&nbsp;linear vs curved), <strong>direction</strong> (positive, negative, or none), and <strong>strength</strong> (strong, moderate, weak, or none).</li>
+</ul>
 </section>
 <section id="friday-9" class="level3">
 <h3 class="anchored" data-anchor-id="friday-9">Friday</h3>
 <p><a href="lectures/lecture-27">Lecture 27</a></p>
-<p>Two numerical column</p>
+<p>Two binary categorical columns</p>
 </section>
 </section>
 <section id="week-11" class="level2">
@@ -1311,22 +1333,26 @@ window.Quarto = {
 <section id="monday-10" class="level3">
 <h3 class="anchored" data-anchor-id="monday-10">Monday</h3>
 <p><a href="lectures/lecture-28">Lecture 28</a></p>
+<p>Inference for Two group Comparisions</p>
 <p>Causal questions</p>
 <p>Study design</p>
 </section>
 <section id="wednesday-10" class="level3">
 <h3 class="anchored" data-anchor-id="wednesday-10">Wednesday</h3>
 <p><a href="lectures/lecture-29">Lecture 29</a></p>
-<p>Study design and p-values</p>
+<p>Confounding</p>
 </section>
 <section id="friday-10" class="level3">
 <h3 class="anchored" data-anchor-id="friday-10">Friday</h3>
 <p><a href="lectures/lecture-30">Lecture 30</a></p>
-<p>Confounding</p>
+<p>Study design and p-values for two group comparisons</p>
+<p>Randomized Control Trials</p>
+<p>Paired comparisons</p>
 </section>
 </section>
 <section id="week-12" class="level2">
 <h2 class="anchored" data-anchor-id="week-12">Week 12</h2>
+<p>Inference for Many group comparisons</p>
 <section id="monday-11" class="level3">
 <h3 class="anchored" data-anchor-id="monday-11">Monday</h3>
 <p><a href="lectures/lecture-31">Lecture 31</a></p>
