@@ -120,7 +120,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#project-3" id="toc-project-3" class="nav-link active" data-scroll-target="#project-3">Project 3</a></li>
+  <li><a href="#project-3-descriptive-analysis-of-a-tidytuesday-dataset" id="toc-project-3-descriptive-analysis-of-a-tidytuesday-dataset" class="nav-link active" data-scroll-target="#project-3-descriptive-analysis-of-a-tidytuesday-dataset">Project 3: Descriptive analysis of a TidyTuesday dataset</a>
+  <ul class="collapse">
+  <li><a href="#steps" id="toc-steps" class="nav-link" data-scroll-target="#steps">Steps</a></li>
+  <li><a href="#part-a-short-questions-1-point-each" id="toc-part-a-short-questions-1-point-each" class="nav-link" data-scroll-target="#part-a-short-questions-1-point-each">Part A — Short questions (1 point each)</a></li>
+  <li><a href="#part-b-one-page-summary-25-points-total" id="toc-part-b-one-page-summary-25-points-total" class="nav-link" data-scroll-target="#part-b-one-page-summary-25-points-total">Part B — One-page summary (25 points total)</a></li>
+  <li><a href="#part-c-5-points" id="toc-part-c-5-points" class="nav-link" data-scroll-target="#part-c-5-points">Part C ( 5 points)</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="project-3.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
@@ -151,13 +157,96 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="project-3" class="level1">
-<h1>Project 3</h1>
-<p><em>Instructions coming soon.</em></p>
+<section id="project-3-descriptive-analysis-of-a-tidytuesday-dataset" class="level1">
+<h1>Project 3: Descriptive analysis of a TidyTuesday dataset</h1>
+<p><strong>Due:</strong> Sunday, <strong>April 12</strong>, by the time listed in Canvas.</p>
+<p>In this project you will practice tools from the <strong>descriptive statistics</strong> section of your toolbox. The purpose of descriptive statistics is summarizing and visualizing data <em>as they appear in your dataset</em>, without trying to generalize to a larger population. You can either use a dataset from <a href="https://github.com/rfordatascience/tidytuesday"><strong>TidyTuesday</strong></a> or find another one of your choice. The only requirement is that your dataset has at least 4 interesting variables and at least 10 rows. Once you have decided on a dataset, choose <strong>four variables</strong>, classify each as <strong>numerical</strong> or <strong>categorical</strong>, and describe them with <strong>univariate</strong> and/or <strong>bivariate</strong> tools we used in lecture and lab. From among these, you write up your most interesting findings in a one page report.</p>
+<p>What to turn in on Canvas.</p>
+<p>Submit <strong>three things</strong>:</p>
+<ol type="1">
+<li><strong>Short answers (text box)</strong> Part A below (five brief questions).<br>
+</li>
+<li><strong>One-page summary (file upload)</strong>: A single PDF (or Google doc Word exported to PDF) that follows the Part B rubric.<br>
+</li>
+<li><strong>R code (file upload)</strong>: A notebook that runs from top to bottom and contains all code you used to load the data, explore the four variables, and make the figures and tables that appear (or that support what you report) on your one-pager.</li>
+</ol>
+<p>If your notebook needs extra files (e.g.&nbsp;a downloaded CSV), zip the notebook and data together or document clearly in the notebook how to obtain the same file (e.g.&nbsp;TidyTuesday week and <code>read_csv</code> URL).</p>
+<hr>
+<section id="steps" class="level2">
+<h2 class="anchored" data-anchor-id="steps">Steps</h2>
+<ol type="1">
+<li><p>Pick one TidyTuesday dataset for a week you like. Include a link to the dataset’s README or raw data in your write-up and in Part A. You may use a dataset from another source if it contains at least 4 columns of interest and at least 10 rows. Clearly document where this dataset may be found.</p></li>
+<li><p>Choose four variables from your dataset to focus on. For each variable, state whether it is numerical or categorical .</p>
+<p>Summarize each variable appropriately:</p>
+<ul>
+<li>Categorical: counts and proportions and bar charts or pie chart.<br>
+</li>
+<li>Numerical: at least one measure of center and one of spread (e.g.&nbsp;mean and SD, or median and IQR), plus plots such as histograms or boxplots as appropriate.</li>
+</ul></li>
+<li><p>Explore relationships between variables using bivariate methods from class (e.g.&nbsp;scatterplot for two numerical variables; side-by-side boxplots or 100% stacked barplots for two categorical variables).</p></li>
+<li><p>Pick the two most informative graphics for your one-page summary. Each must have a clear title and axis or legend labels (with units if applicable).</p></li>
+<li><p>Write the one-page summary (Part B rubric). It must include your two chosen figures, at least four clearly labeled numeric summaries (e.g.&nbsp;two means and two SDs, or medians and IQRs, or counts/proportions expressed as numbers: enough that a reader sees four distinct quantitative facts), and a short paragraph of your four most interesting findings.</p></li>
+</ol>
+<hr>
+</section>
+<section id="part-a-short-questions-1-point-each" class="level2">
+<h2 class="anchored" data-anchor-id="part-a-short-questions-1-point-each">Part A — Short questions (1 point each)</h2>
+<p>Answer briefly in Canvas:</p>
+<ol type="1">
+<li>Which dataset did you use? Briefly give the context of this dataset.<br>
+</li>
+<li>How many <strong>variables</strong> (columns) are in the full dataset?<br>
+</li>
+<li>Which <strong>four variables</strong> did you choose? What are their types?<br>
+</li>
+<li>How many <strong>observations</strong> (rows) are in the full dataset?<br>
+</li>
+<li>Was there <strong>missing data</strong> in any of your four chosen variables? If yes, say which variable(s) and how you handled or reported it.</li>
+</ol>
+<hr>
+</section>
+<section id="part-b-one-page-summary-25-points-total" class="level2">
+<h2 class="anchored" data-anchor-id="part-b-one-page-summary-25-points-total">Part B — One-page summary (25 points total)</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 43%">
+<col style="width: 56%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Points</th>
+<th>Criterion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>4</strong></td>
+<td>Short paragraph: what the dataset is, where it came from, a research or exploratory question, how many variables and how many observations (in the full dataset).</td>
+</tr>
+<tr class="even">
+<td><strong>8</strong></td>
+<td>Two graphs, chosen as the most informative/interesting out of all the ones you created; each has an informative title and axis/legend labels (units where needed).</td>
+</tr>
+<tr class="odd">
+<td><strong>8</strong></td>
+<td>At least four numerical summaries with clear labels (and units if applicable)—in a small table or woven into sentences. Summaries should match variable types (e.g.&nbsp;proportions for categorical variables; mean/median and spread for numerical variables).</td>
+</tr>
+<tr class="even">
+<td><strong>5</strong></td>
+<td>Short paragraph describing four interesting findings from your four variables (and/or their relationships).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Format:</strong> One side of a standard page (8.5×11 in.), readable font, complete sentences.</p>
+</section>
+<section id="part-c-5-points" class="level2">
+<h2 class="anchored" data-anchor-id="part-c-5-points">Part C ( 5 points)</h2>
+<p>A code notebook (.ipynb) that contains all the tools you tried to describe the 4 variables in your dataset: there should be appropriate summaries and plots for each variable individually (univariate) and each pair of variables (bivariate), for a total of 4 univariate plots and 6 bivariate plots. Only two of these plots need to be in your one page summary.</p>
 
 
 <!-- -->
 
+</section>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>Creative Commons Attribution-NonCommercial 4.0 International<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">(View License)</a></div></div></section></div></main> <!-- /main -->
@@ -622,9 +711,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "STAT 109: Introductory Biostatistics"</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Project 3</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Project 3: Descriptive analysis of a TidyTuesday dataset</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>*Instructions coming soon.*</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>**Due:** Sunday, **April 12**, by the time listed in Canvas.</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>In this project you will practice tools from the **descriptive statistics** section of your toolbox. The purpose of descriptive statistics is summarizing and visualizing data *as they appear in your dataset*, without trying to generalize to a larger population. You can either use a dataset from [**TidyTuesday**](https://github.com/rfordatascience/tidytuesday) or find another one of your choice. The only requirement is that your dataset has at least 4 interesting variables and at least 10 rows. Once you have decided on a dataset, choose **four variables**, classify each as **numerical** or **categorical**, and describe them with **univariate** and/or **bivariate** tools we used in lecture and lab. From among these, you write up your most interesting findings in a one page report.</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>What to turn in on Canvas.</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Submit **three things**:</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Short answers (text box)** Part A below (five brief questions).\</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**One-page summary (file upload)**: A single PDF (or Google doc Word exported to PDF) that follows the Part B rubric.\</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**R code (file upload)**: A notebook that runs from top to bottom and contains all code you used to load the data, explore the four variables, and make the figures and tables that appear (or that support what you report) on your one-pager.</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>If your notebook needs extra files (e.g. a downloaded CSV), zip the notebook and data together or document clearly in the notebook how to obtain the same file (e.g. TidyTuesday week and <span class="in">`read_csv`</span> URL).</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Steps</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Pick one TidyTuesday dataset for a week you like. Include a link to the dataset’s README or raw data in your write-up and in Part A. You may use a dataset from another source if it contains at least 4 columns of interest and at least 10 rows. Clearly document where this dataset may be found.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Choose four variables from your dataset to focus on. For each variable, state whether it is numerical or categorical .</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    Summarize each variable appropriately:</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Categorical: counts and proportions and bar charts or pie chart.\</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Numerical: at least one measure of center and one of spread (e.g. mean and SD, or median and IQR), plus plots such as histograms or boxplots as appropriate.</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Explore relationships between variables using bivariate methods from class (e.g. scatterplot for two numerical variables; side-by-side boxplots or 100% stacked barplots for two categorical variables).</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Pick the two most informative graphics for your one-page summary. Each must have a clear title and axis or legend labels (with units if applicable).</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>Write the one-page summary (Part B rubric). It must include your two chosen figures, at least four clearly labeled numeric summaries (e.g. two means and two SDs, or medians and IQRs, or counts/proportions expressed as numbers: enough that a reader sees four distinct quantitative facts), and a short paragraph of your four most interesting findings.</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part A — Short questions (1 point each)</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>Answer briefly in Canvas:</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Which dataset did you use? Briefly give the context of this dataset.\</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>How many **variables** (columns) are in the full dataset?\</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Which **four variables** did you choose? What are their types?\</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>How many **observations** (rows) are in the full dataset?\</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>Was there **missing data** in any of your four chosen variables? If yes, say which variable(s) and how you handled or reported it.</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part B — One-page summary (25 points total)</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Points <span class="pp">|</span> Criterion <span class="pp">|</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="pp">|-------------------------------|-----------------------------------------|</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **4** <span class="pp">|</span> Short paragraph: what the dataset is, where it came from, a research or exploratory question, how many variables and how many observations (in the full dataset). <span class="pp">|</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **8** <span class="pp">|</span> Two graphs, chosen as the most informative/interesting out of all the ones you created; each has an informative title and axis/legend labels (units where needed). <span class="pp">|</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **8** <span class="pp">|</span> At least four numerical summaries with clear labels (and units if applicable)—in a small table or woven into sentences. Summaries should match variable types (e.g. proportions for categorical variables; mean/median and spread for numerical variables). <span class="pp">|</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **5** <span class="pp">|</span> Short paragraph describing four interesting findings from your four variables (and/or their relationships). <span class="pp">|</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>**Format:** One side of a standard page (8.5×11 in.), readable font, complete sentences.</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part C ( 5 points)</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>A code notebook (.ipynb) that contains all the tools you tried to describe the 4 variables in your dataset: there should be appropriate summaries and plots for each variable individually (univariate) and each pair of variables (bivariate), for a total of 4 univariate plots and 6 bivariate plots. Only two of these plots need to be in your one page summary.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
