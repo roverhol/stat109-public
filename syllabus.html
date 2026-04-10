@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -73,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-be3771519f21acc1c5b6733774c6dcd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4897d45d2f75ed4f519693be625836c5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -328,12 +328,21 @@ window.Quarto = {
   <li><a href="#M-I-2C" id="toc-M-I-2C" class="nav-link" data-scroll-target="#M-I-2C">Two Categorical Variables</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#r-quick-reference-base-r" id="toc-r-quick-reference-base-r" class="nav-link" data-scroll-target="#r-quick-reference-base-r">R Quick Reference (Base R)</a>
+  <li><a href="#r-quick-reference" id="toc-r-quick-reference" class="nav-link" data-scroll-target="#r-quick-reference">R Quick Reference</a>
   <ul class="collapse">
-  <li><a href="#r-import" id="toc-r-import" class="nav-link" data-scroll-target="#r-import">Import Data</a></li>
+  <li><a href="#r-pipeline" id="toc-r-pipeline" class="nav-link" data-scroll-target="#r-pipeline">Analysis pipeline (canonical order)</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#r-import" id="toc-r-import" class="nav-link" data-scroll-target="#r-import">Import and inspect</a></li>
+  <li><a href="#r-factors" id="toc-r-factors" class="nav-link" data-scroll-target="#r-factors">Categorical variables (factors)</a></li>
   <li><a href="#r-summaries" id="toc-r-summaries" class="nav-link" data-scroll-target="#r-summaries">Summaries</a></li>
-  <li><a href="#r-plots" id="toc-r-plots" class="nav-link" data-scroll-target="#r-plots">Plots</a></li>
-  <li><a href="#r-sim" id="toc-r-sim" class="nav-link" data-scroll-target="#r-sim">Simulation</a></li>
+  <li><a href="#r-plots" id="toc-r-plots" class="nav-link" data-scroll-target="#r-plots">Plots (ggplot2)</a></li>
+  <li><a href="#r-tests" id="toc-r-tests" class="nav-link" data-scroll-target="#r-tests">Two-sample tests and confidence intervals</a></li>
+  <li><a href="#r-sim" id="toc-r-sim" class="nav-link" data-scroll-target="#r-sim">Simulating small datasets</a></li>
+  <li><a href="#project-4-verifying-ai-generated-analysis-code" id="toc-project-4-verifying-ai-generated-analysis-code" class="nav-link" data-scroll-target="#project-4-verifying-ai-generated-analysis-code">Project 4: verifying AI-generated analysis code</a></li>
+  <li><a href="#older-base-r-placeholders" id="toc-older-base-r-placeholders" class="nav-link" data-scroll-target="#older-base-r-placeholders">Older / base R placeholders</a>
+  <ul class="collapse">
+  <li><a href="#base-import-summaries-plots-simulation" id="toc-base-import-summaries-plots-simulation" class="nav-link" data-scroll-target="#base-import-summaries-plots-simulation">Base: import / summaries / plots / simulation</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a>
   <ul class="collapse">
@@ -1325,7 +1334,12 @@ window.Quarto = {
 <section id="friday-9" class="level3">
 <h3 class="anchored" data-anchor-id="friday-9">Friday</h3>
 <p><a href="lectures/lecture-27">Lecture 27</a></p>
-<p>Two binary categorical columns</p>
+<p><em>Two categorical variables — contingency tables, row/column/total proportions, stacked bar charts</em></p>
+<ul>
+<li>Build a <strong>two-way table</strong> of <strong>counts</strong> and compute <strong>joint</strong>, <strong>row</strong>, and <strong>column</strong> <strong>proportions</strong> (know which denominator you use).</li>
+<li>Draw <strong>stacked bar charts</strong> for counts and <strong>100% stacked</strong> bars (<code>position = "fill"</code>) to show <strong>proportions within</strong> bars.</li>
+<li>Implement tables and plots with <strong><code>count()</code></strong>, <strong><code>group_by()</code></strong>, <strong><code>mutate()</code></strong>, and <strong><code>pivot_wider()</code></strong>.</li>
+</ul>
 </section>
 </section>
 <section id="week-11" class="level2">
@@ -1462,23 +1476,287 @@ window.Quarto = {
 </section>
 </section>
 </section>
-<section id="r-quick-reference-base-r" class="level1">
-<h1>R Quick Reference (Base R)</h1>
+<section id="r-quick-reference" class="level1">
+<h1>R Quick Reference</h1>
+<p>This page summarizes <strong>R code patterns</strong> used after <strong>Lab 9</strong>, especially for <strong>comparing two groups</strong> and <strong>Project 4</strong>. The course standard is <strong><code>library(tidyverse)</code></strong> (<code>readr</code>, <code>dplyr</code>, <code>ggplot2</code>, <code>tibble</code>). Deeper tutorials: <strong>Lab 9</strong>; plots: <strong>Lectures 25–27</strong>; tests: <strong>Lectures 28–30</strong> and the <strong>Methods table</strong> on <strong>Lecture 30</strong>.</p>
+<hr>
+<section id="r-pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="r-pipeline">Analysis pipeline (canonical order)</h2>
+<p>Use this <strong>order of chunks</strong> in a <strong>Project 4</strong> notebook (whether you write the code or <strong>paste AI output</strong>). After each step, confirm it matches <strong>Lab 9</strong>, <strong>Lectures 25–27</strong> (plots), <strong>Lecture 30</strong> Methods table (test), and your <strong>Part 1</strong> (study-design) definitions.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 36%">
+<col style="width: 43%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Step</th>
+<th>Code idea</th>
+<th>Quick check</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><code>library(tidyverse)</code></td>
+<td>Packages load without errors</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><code>read_csv(...); glimpse(dat)</code></td>
+<td>Column <strong>names</strong> and <strong>types</strong> match <strong>Part 1</strong></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><code>mutate(... factor(..., levels = ...))</code></td>
+<td><strong>Levels</strong> match your two groups / outcome categories</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><code>group_by</code> + <code>summarise</code> and/or <code>count</code></td>
+<td><strong>Means/SDs</strong> if response is numerical; <strong>counts</strong> (and optional props) if categorical</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><strong><code>ggplot</code></strong></td>
+<td><strong>Boxplot/histogram</strong> for numerical response by group; <strong>bar chart</strong> of counts for binary/categorical (<strong>L25–27</strong>)</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td><strong>Test + CI</strong></td>
+<td><strong><code>t.test(..., var.equal = FALSE)</code></strong> <em>or</em> <strong><code>prop.test</code> / <code>chisq.test</code></strong> per Methods table; for <code>chisq.test</code>, inspect <strong><code>$expected</code></strong></td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Short <strong>interpretation</strong> in prose</td>
+<td><em>p</em>-value addresses <strong>chance</strong> only; causal language only if design supports it (<strong>L28–29</strong>)</td>
+</tr>
+</tbody>
+</table>
+<p>If you used <strong>AI</strong> for the script, run the <strong>checklist</strong> in <a href="#project-4-verifying-ai-generated-analysis-code">Project 4: verifying AI-generated analysis code</a> line by line.</p>
+<hr>
+</section>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<pre class="{r}"><code>#| eval: false
+if (!requireNamespace("tidyverse", quietly = TRUE)) {
+  install.packages("tidyverse", repos = "https://cloud.r-project.org")
+}
+library(tidyverse)</code></pre>
+<hr>
+</section>
 <section id="r-import" class="level2">
-<h2 class="anchored" data-anchor-id="r-import">Import Data</h2>
-<p>[Content to be added]</p>
+<h2 class="anchored" data-anchor-id="r-import">Import and inspect</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Code pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Load CSV</td>
+<td><code>dat &lt;- read_csv("file.csv", show_col_types = FALSE)</code></td>
+</tr>
+<tr class="even">
+<td>Peek structure</td>
+<td><code>glimpse(dat)</code></td>
+</tr>
+<tr class="odd">
+<td>First rows</td>
+<td><code>head(dat, 10)</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Project 4:</strong> Open the raw <strong>CSV</strong> in a text editor once to confirm <strong>header</strong>, <strong>delimiters</strong>, and <strong>no extra text</strong> before relying on <code>read_csv</code>.</p>
+<hr>
+</section>
+<section id="r-factors" class="level2">
+<h2 class="anchored" data-anchor-id="r-factors">Categorical variables (factors)</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 72%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Code pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Set levels / order</td>
+<td><code>dat &lt;- dat \|&gt; mutate(group = factor(group, levels = c("A", "B")))</code></td>
+</tr>
+<tr class="even">
+<td>Check levels</td>
+<td><code>levels(dat$group)</code></td>
+</tr>
+</tbody>
+</table>
+<p>Use <strong>factors</strong> so <strong>ggplot</strong> and <strong>tables</strong> order categories sensibly (<strong>Lab 9</strong>, Part 3).</p>
+<hr>
 </section>
 <section id="r-summaries" class="level2">
 <h2 class="anchored" data-anchor-id="r-summaries">Summaries</h2>
-<p>[Content to be added]</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 64%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Setting</th>
+<th>Code pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>One numerical variable</td>
+<td><code>dat \|&gt; summarise(mean_y = mean(y), sd_y = sd(y))</code></td>
+</tr>
+<tr class="even">
+<td>Numerical <strong>by two groups</strong></td>
+<td><code>dat \|&gt; group_by(group) \|&gt; summarise(n = n(), mean_y = mean(y), sd_y = sd(y), .groups = "drop")</code></td>
+</tr>
+<tr class="odd">
+<td>Counts for one categorical</td>
+<td><code>dat \|&gt; count(category) \|&gt; mutate(prop = n / sum(n))</code></td>
+</tr>
+<tr class="even">
+<td><strong>2 × 2</strong> counts</td>
+<td><code>dat \|&gt; count(group, outcome)</code> then <code>pivot_wider</code> <strong>or</strong> <code>table(dat$group, dat$outcome)</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
 </section>
 <section id="r-plots" class="level2">
-<h2 class="anchored" data-anchor-id="r-plots">Plots</h2>
-<p>[Content to be added]</p>
+<h2 class="anchored" data-anchor-id="r-plots">Plots (ggplot2)</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 32%">
+<col style="width: 67%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Setting</th>
+<th>Pattern (Lecture)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Numerical</strong> response, <strong>two groups</strong></td>
+<td><code>ggplot(dat, aes(x = group, y = y)) + geom_boxplot()</code> (<strong>Lecture 25</strong>); or <code>geom_histogram(aes(fill = group), ...)</code></td>
+</tr>
+<tr class="even">
+<td><strong>Two categorical</strong> (e.g.&nbsp;group × outcome)</td>
+<td><code>dat \|&gt; count(group, outcome) \|&gt; ggplot(aes(x = group, y = n, fill = outcome)) + geom_col()</code> (<strong>Lecture 27</strong>); add <code>position = "fill"</code> for 100% stacked</td>
+</tr>
+<tr class="odd">
+<td><strong>Two numerical</strong></td>
+<td><code>ggplot(dat, aes(x = x1, y = x2)) + geom_point()</code> (<strong>Lecture 26</strong>)</td>
+</tr>
+<tr class="even">
+<td><strong>Subclassification</strong> (confounder)</td>
+<td>Add <code>facet_wrap(~ confounder)</code> to the plot above (<strong>Lecture 28</strong>)</td>
+</tr>
+</tbody>
+</table>
+<p>Always add <strong><code>labs(title = ..., x = ..., y = ...)</code></strong> with <strong>units</strong> where relevant.</p>
+<hr>
+</section>
+<section id="r-tests" class="level2">
+<h2 class="anchored" data-anchor-id="r-tests">Two-sample tests and confidence intervals</h2>
+<p>Use the <strong>Lecture 30 Methods table</strong> to pick <strong>one</strong> primary test for the <strong>“by chance”</strong> question.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 44%">
+<col style="width: 32%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response type</th>
+<th>R command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Numerical</strong>, 2 groups</td>
+<td><code>t.test(y ~ group, data = dat, var.equal = FALSE)</code></td>
+<td><strong>Welch</strong> <em>t</em>-test; output includes <strong>95% CI</strong> for <span class="math inline">\(\mu_1 - \mu_2\)</span> (<strong>Lecture 29</strong>)</td>
+</tr>
+<tr class="even">
+<td><strong>Binary</strong> (0/1 or two levels), 2 groups</td>
+<td><code>prop.test(x = c(x1, x2), n = c(n1, n2), correct = FALSE)</code></td>
+<td>Compares two <strong>proportions</strong></td>
+</tr>
+<tr class="odd">
+<td>Same, table form</td>
+<td><code>tab &lt;- table(dat$group, dat$outcome); chisq.test(tab)</code></td>
+<td>Check <strong><code>chisq.test(tab)$expected</code></strong> for <strong>≥ 5</strong> rule (<strong>Lecture 28</strong>)</td>
+</tr>
+</tbody>
+</table>
+<hr>
 </section>
 <section id="r-sim" class="level2">
-<h2 class="anchored" data-anchor-id="r-sim">Simulation</h2>
-<p>[Content to be added]</p>
+<h2 class="anchored" data-anchor-id="r-sim">Simulating small datasets</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 73%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Example pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Build tibble</td>
+<td><code>tibble(group = rep(c("A", "B"), each = 30), y = c(rnorm(30, 10, 2), rnorm(30, 12, 2)))</code></td>
+</tr>
+<tr class="even">
+<td>Binary outcome</td>
+<td><code>rbinom(n, 1, prob = ...)</code> inside <code>mutate</code> or <code>c(...)</code></td>
+</tr>
+<tr class="odd">
+<td>Save</td>
+<td><code>write_csv(dat, "project4_data.csv")</code></td>
+</tr>
+</tbody>
+</table>
+<p>See <strong>Lecture 30</strong> examples for full templates.</p>
+<hr>
+</section>
+<section id="project-4-verifying-ai-generated-analysis-code" class="level2">
+<h2 class="anchored" data-anchor-id="project-4-verifying-ai-generated-analysis-code">Project 4: verifying AI-generated analysis code</h2>
+<p>When an assistant writes your <strong>analysis</strong> script, check <strong>each</strong> of the following against your <strong>Methods table row</strong>, the <a href="#r-pipeline"><strong>pipeline</strong></a> above, and the tables on this page:</p>
+<ol type="1">
+<li><strong><code>read_csv</code></strong> path and <strong><code>glimpse</code></strong> — Do column names match your <strong>Part 1</strong> definitions?</li>
+<li><strong><code>factor</code></strong> — Are <strong>group</strong> and <strong>outcome</strong> coded with the <strong>correct levels</strong>?</li>
+<li><strong><code>group_by</code> + <code>summarise</code></strong> — Does the code compute <strong>means/SDs</strong> for <strong>numerical</strong> responses and <strong>counts/proportions</strong> for <strong>categorical</strong> responses?</li>
+<li><strong><code>ggplot</code></strong> — Is the <strong>geom</strong> right (<strong>boxplot</strong> vs <strong>bar</strong> vs <strong>histogram</strong>) for your variable types (<strong>Lectures 25–27</strong>)?</li>
+<li><strong>Test</strong> — Is it <strong><code>t.test(..., var.equal = FALSE)</code></strong> vs <strong><code>prop.test</code> / <code>chisq.test</code></strong>, not the reverse?</li>
+<li><strong>Conditions</strong> — For <strong><code>chisq.test</code></strong>, did you print <strong><code>$expected</code></strong>? For <em>t</em>, did you <strong>look</strong> at <strong>boxplots</strong>?</li>
+</ol>
+<p>If anything disagrees, <strong>edit the code</strong> yourself—do not submit a draft you have not <strong>run</strong> and <strong>understood</strong>.</p>
+<hr>
+</section>
+<section id="older-base-r-placeholders" class="level2">
+<h2 class="anchored" data-anchor-id="older-base-r-placeholders">Older / base R placeholders</h2>
+<p>The sections below are reserved for optional <strong>base R</strong> notes if the course adds them later.</p>
+<section id="base-import-summaries-plots-simulation" class="level3">
+<h3 class="anchored" data-anchor-id="base-import-summaries-plots-simulation">Base: import / summaries / plots / simulation</h3>
+<p>[Reserved — see <strong>tidyverse</strong> sections above for STAT 109 defaults.]</p>
+</section>
 </section>
 </section>
 <section id="resources" class="level1">
@@ -1534,7 +1812,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="course-reference-materials">Course Reference Materials</h2>
 <section id="r-reference" class="level3">
 <h3 class="anchored" data-anchor-id="r-reference">R Reference</h3>
-<p><a href="r-reference"><strong>R Quick Reference</strong></a> - A quick reference guide for common R commands and functions used in this course.</p>
+<p><a href="r-reference"><strong>R Quick Reference</strong></a> — <strong>tidyverse</strong> patterns (import, <code>group_by</code>, <strong>ggplot2</strong>, two-sample tests) and a <strong>Project 4</strong> verification checklist.</p>
 </section>
 <section id="methods-map-1" class="level3">
 <h3 class="anchored" data-anchor-id="methods-map-1">Methods Map</h3>
