@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -73,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-be3771519f21acc1c5b6733774c6dcd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4897d45d2f75ed4f519693be625836c5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -589,7 +589,12 @@ window.Quarto = {
 <section id="friday-9" class="level3">
 <h3 class="anchored" data-anchor-id="friday-9">Friday</h3>
 <p><a href="lectures/lecture-27">Lecture 27</a></p>
-<p>Two binary categorical columns</p>
+<p><em>Two categorical variables — contingency tables, row/column/total proportions, stacked bar charts</em></p>
+<ul>
+<li>Build a <strong>two-way table</strong> of <strong>counts</strong> and compute <strong>joint</strong>, <strong>row</strong>, and <strong>column</strong> <strong>proportions</strong> (know which denominator you use).</li>
+<li>Draw <strong>stacked bar charts</strong> for counts and <strong>100% stacked</strong> bars (<code>position = "fill"</code>) to show <strong>proportions within</strong> bars.</li>
+<li>Implement tables and plots with <strong><code>count()</code></strong>, <strong><code>group_by()</code></strong>, <strong><code>mutate()</code></strong>, and <strong><code>pivot_wider()</code></strong>.</li>
+</ul>
 </section>
 </section>
 <section id="week-11" class="level2">
@@ -597,40 +602,65 @@ window.Quarto = {
 <section id="monday-10" class="level3">
 <h3 class="anchored" data-anchor-id="monday-10">Monday</h3>
 <p><a href="lectures/lecture-28">Lecture 28</a></p>
-<p>Inference for Two group Comparisions</p>
-<p>Causal questions</p>
-<p>Study design</p>
+<p><em>Inference for two-group comparisons — causal questions and study design</em></p>
+<ul>
+<li>Compare <strong>randomized controlled trials</strong> and <strong>observational</strong> designs when the goal is a causal claim about a treatment or exposure.</li>
+<li>Explain how participants end up in comparison groups in an RCT versus an observational study.</li>
+<li>State what a <em>p</em>-value does and does <strong>not</strong> address for a difference between two groups.</li>
+</ul>
 </section>
 <section id="wednesday-10" class="level3">
 <h3 class="anchored" data-anchor-id="wednesday-10">Wednesday</h3>
 <p><a href="lectures/lecture-29">Lecture 29</a></p>
-<p>Confounding</p>
+<p><em>Confounding</em></p>
+<ul>
+<li>Define a <strong>confounder</strong> in words and recognize plausible confounders in a stated observational comparison.</li>
+<li>Explain how a confounder can create or distort an association between an explanatory variable and a response.</li>
+<li>Describe <strong>subclassification / stratification</strong> when a confounder is measured.</li>
+</ul>
 </section>
 <section id="friday-10" class="level3">
 <h3 class="anchored" data-anchor-id="friday-10">Friday</h3>
 <p><a href="lectures/lecture-30">Lecture 30</a></p>
-<p>Study design and p-values for two group comparisons</p>
-<p>Randomized Control Trials</p>
-<p>Paired comparisons</p>
+<p><em>Study design, p-values, and two-group inference (Welch two-sample t-test, proportions, RCT examples)</em></p>
+<ul>
+<li>Use the <strong>Methods table</strong> (Lecture 30) to pick <strong><code>t.test()</code></strong> for two independent numerical groups or <strong><code>prop.test()</code></strong> / <strong><code>chisq.test()</code></strong> for binary comparisons, and name key conditions (e.g.&nbsp;independence, expected counts).</li>
+<li>Interpret <strong>Welch two-sample <em>t</em>-test</strong> output (hypotheses, <em>p</em>-value, confidence interval) in context.</li>
+<li>Connect <strong>random assignment</strong> in an RCT to reduced risk of confounding for treatment–outcome comparisons.</li>
+</ul>
 </section>
 </section>
 <section id="week-12" class="level2">
 <h2 class="anchored" data-anchor-id="week-12">Week 12</h2>
-<p>Inference for Many group comparisons</p>
 <section id="monday-11" class="level3">
 <h3 class="anchored" data-anchor-id="monday-11">Monday</h3>
 <p><a href="lectures/lecture-31">Lecture 31</a></p>
-<p>Chi squared tests</p>
+<p><em>Matched pairs — differences, plots, paired t-test, and McNemar for paired binary data</em></p>
+<ul>
+<li>Identify a <strong>matched pairs</strong> design and compute <strong>within-pair differences</strong> (or use a paired test) when the same units contribute two measurements.</li>
+<li>Summarize paired numerical data with plots (e.g.&nbsp;boxplot of differences) and run a <strong>paired <em>t</em>-test</strong> (or one-sample test on differences).</li>
+<li>For <strong>two binary outcomes on the same units</strong>, build the right table and run <strong>McNemar’s test</strong> when appropriate.</li>
+</ul>
 </section>
 <section id="wednesday-11" class="level3">
 <h3 class="anchored" data-anchor-id="wednesday-11">Wednesday</h3>
 <p><a href="lectures/lecture-32">Lecture 32</a></p>
-<p>Chi squared test</p>
+<p><em>One-way ANOVA — comparing means across more than two groups</em></p>
+<ul>
+<li>Recognize when the outcome is <strong>numerical</strong> and the explanatory factor has <strong>more than two levels</strong>, so a one-way <strong>ANOVA</strong> is the natural extension of a two-sample <em>t</em>-test.</li>
+<li>State the <strong>omnibus</strong> null hypothesis for equal population means across groups.</li>
+<li>Read basic ANOVA output and connect it to the idea of <strong>between- vs within-group variation</strong> (details on the lecture page).</li>
+</ul>
 </section>
 <section id="friday-11" class="level3">
 <h3 class="anchored" data-anchor-id="friday-11">Friday</h3>
 <p><a href="lectures/lecture-33">Lecture 33</a></p>
-<p>One way anova</p>
+<p><em>Chi-square tests — independence and goodness-of-fit</em></p>
+<ul>
+<li>Build <strong>contingency tables</strong> of counts for two categorical variables and choose <strong><code>chisq.test()</code></strong> or <strong><code>prop.test()</code></strong> as appropriate.</li>
+<li>Check <strong>expected counts</strong> (and know when <strong><code>simulate.p.value = TRUE</code></strong> is needed).</li>
+<li>Relate chi-square tests to the <strong>“by chance”</strong> explanation for association in a table.</li>
+</ul>
 </section>
 </section>
 <section id="week-13" class="level2">
@@ -638,15 +668,29 @@ window.Quarto = {
 <section id="monday-12" class="level3">
 <h3 class="anchored" data-anchor-id="monday-12">Monday</h3>
 <p><a href="lectures/lecture-34">Lecture 34</a></p>
-<p>One way anova</p>
+<p><em>Work session — Project 4 (simulation, notebook, and writeup)</em></p>
+<ul>
+<li>Apply study-design ideas (RCT vs observational, confounding, DAG) to <strong>your</strong> assigned two-group question.</li>
+<li>Produce a <strong>reproducible</strong> simulated dataset (<code>set.seed</code>) and a notebook with <strong>descriptives</strong>, <strong>plots</strong>, and the <strong>correct test/CI</strong> from the Methods table.</li>
+<li>Draft or refine the <strong>one-page</strong> summary for a classmate (plan + sample results + link to runnable code).</li>
+</ul>
 </section>
 <section id="wednesday-12" class="level3">
 <h3 class="anchored" data-anchor-id="wednesday-12">Wednesday</h3>
 <p><a href="lectures/review-week-13-wednesday">Review</a></p>
+<p><em>Review before Midterm 2</em></p>
+<ul>
+<li>Consolidate two-group inference, study design, confounding, and the Methods table.</li>
+<li>Bring questions about practice problems, Project 4, and the exam format.</li>
+</ul>
 </section>
 <section id="friday-12" class="level3">
 <h3 class="anchored" data-anchor-id="friday-12">Friday</h3>
 <p><a href="exams/midterm-2">Midterm 2</a></p>
+<p><em>Midterm 2 (in lecture)</em></p>
+<ul>
+<li>Demonstrate understanding of material covered through the Week 13 review (see course schedule and practice materials).</li>
+</ul>
 </section>
 </section>
 <section id="week-14" class="level2">
@@ -654,34 +698,62 @@ window.Quarto = {
 <section id="monday-13" class="level3">
 <h3 class="anchored" data-anchor-id="monday-13">Monday</h3>
 <p><a href="lectures/lecture-35">Lecture 35</a></p>
-<p>Prediction - simple linear</p>
+<p><em>Correlation and simple linear regression</em></p>
+<ul>
+<li>Interpret a <strong>correlation coefficient</strong> (strength and direction) for two numerical variables.</li>
+<li>Fit and interpret a <strong>simple linear regression</strong> line as a model for how the mean of <span class="math inline">\(Y\)</span> changes with <span class="math inline">\(x\)</span>.</li>
+<li>Use <strong>scatterplots</strong> and diagnostic thinking about <strong>linear</strong> vs <strong>curved</strong> form.</li>
+</ul>
 </section>
 <section id="wednesday-13" class="level3">
 <h3 class="anchored" data-anchor-id="wednesday-13">Wednesday</h3>
 <p><a href="lectures/lecture-36">Lecture 36</a></p>
-<p>Prediction - r squared and residuals</p>
+<p><em>Linear regression — R-squared, residuals, and model fit</em></p>
+<ul>
+<li>Read <strong>regression output</strong> for slope and intercept and relate them to the scatterplot.</li>
+<li>Interpret <strong><span class="math inline">\(R^2\)</span></strong> as the fraction of variability in <span class="math inline">\(y\)</span> explained by the linear model (in the sense used in this course).</li>
+<li>Use <strong>residuals</strong> (plots) to check whether a simple linear model is reasonable.</li>
+</ul>
 </section>
 <section id="friday-13" class="level3">
 <h3 class="anchored" data-anchor-id="friday-13">Friday</h3>
 <p><a href="lectures/lecture-37">Lecture 37</a></p>
-<p>Confidence intervals and prediction intervals</p>
-<p>assumptions</p>
+<p><em>Logistic regression — modeling a binary outcome</em></p>
+<ul>
+<li>Recognize when the response is <strong>binary</strong> and a <strong>logistic</strong> (log-odds) model is appropriate instead of ordinary least squares regression.</li>
+<li>Interpret <strong>fitted probabilities</strong> or <strong>odds ratios</strong> from simple logistic output in context (at the level taught in this course).</li>
+<li>Connect logistic regression to earlier ideas about <strong>proportions</strong> and <strong>two-group</strong> comparisons.</li>
+</ul>
 </section>
 </section>
 <section id="week-15" class="level2">
 <h2 class="anchored" data-anchor-id="week-15">Week 15</h2>
 <section id="monday-14" class="level3">
 <h3 class="anchored" data-anchor-id="monday-14">Monday</h3>
-<p><a href="lectures/lecture-38">Lecture 38</a></p>
-<p>ethics - IRB</p>
+<p><a href="lectures/review-week-15-wednesday">Review</a></p>
+<p><em>Course review — regression, inference, and study design</em></p>
+<ul>
+<li>Integrate topics from the second half of the course (two-group and chi-square tools, ANOVA as needed, correlation/regression).</li>
+<li>Work through mixed practice and bring unresolved questions.</li>
+</ul>
 </section>
 <section id="wednesday-14" class="level3">
 <h3 class="anchored" data-anchor-id="wednesday-14">Wednesday</h3>
 <p><a href="lectures/review-week-15-wednesday">Review</a></p>
+<p><em>Course review (continued)</em></p>
+<ul>
+<li>Practice explaining <strong>when</strong> each major inferential tool applies and <strong>what</strong> conclusions are supported by design.</li>
+<li>Prepare for the final assessment using instructor-provided practice.</li>
+</ul>
 </section>
 <section id="friday-14" class="level3">
 <h3 class="anchored" data-anchor-id="friday-14">Friday</h3>
 <p><a href="lectures/review-week-15-friday">Review</a></p>
+<p><em>Course review — quiz and lab week</em></p>
+<ul>
+<li>Complete the <strong>scheduled quiz</strong> for this week (see Canvas / lab schedule).</li>
+<li>Attend or complete the <strong>scheduled lab</strong>; use remaining time for targeted review before the final exam period.</li>
+</ul>
 
 
 <!-- -->
@@ -1463,111 +1535,165 @@ window.Quarto = {
 <span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lecture 27</span><span class="co">](lectures/lecture-27)</span></span>
 <span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a>Two binary categorical columns</span>
+<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a>*Two categorical variables — contingency tables, row/column/total proportions, stacked bar charts*</span>
 <span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a><span class="fu">## Week 11 {#week-11}</span></span>
-<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a><span class="fu">### Monday</span></span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Build a **two-way table** of **counts** and compute **joint**, **row**, and **column** **proportions** (know which denominator you use).</span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Draw **stacked bar charts** for counts and **100% stacked** bars (`position = "fill"`) to show **proportions within** bars.</span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Implement tables and plots with **`count()`**, **`group_by()`**, **`mutate()`**, and **`pivot_wider()`**.</span>
 <span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lecture 28</span><span class="co">](lectures/lecture-28)</span></span>
+<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a><span class="fu">## Week 11 {#week-11}</span></span>
 <span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a>Inference for Two group Comparisions</span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a><span class="fu">### Monday</span></span>
 <span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a>Causal questions</span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lecture 28</span><span class="co">](lectures/lecture-28)</span></span>
 <span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a>Study design</span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a>*Inference for two-group comparisons — causal questions and study design*</span>
 <span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a><span class="fu">### Wednesday</span></span>
-<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lecture 29</span><span class="co">](lectures/lecture-29)</span></span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Compare **randomized controlled trials** and **observational** designs when the goal is a causal claim about a treatment or exposure.</span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Explain how participants end up in comparison groups in an RCT versus an observational study.</span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>State what a *p*-value does and does **not** address for a difference between two groups.</span>
 <span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a>Confounding</span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a><span class="fu">### Wednesday</span></span>
 <span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a><span class="fu">### Friday</span></span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lecture 29</span><span class="co">](lectures/lecture-29)</span></span>
 <span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lecture 30</span><span class="co">](lectures/lecture-30)</span></span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a>*Confounding*</span>
 <span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a>Study design and p-values for two group comparisons</span>
-<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a>Randomized Control Trials</span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Define a **confounder** in words and recognize plausible confounders in a stated observational comparison.</span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Explain how a confounder can create or distort an association between an explanatory variable and a response.</span>
+<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Describe **subclassification / stratification** when a confounder is measured.</span>
 <span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a>Paired comparisons</span>
+<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a><span class="fu">### Friday</span></span>
 <span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a><span class="fu">## Week 12 {#week-12}</span></span>
+<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lecture 30</span><span class="co">](lectures/lecture-30)</span></span>
 <span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a>Inference for Many group comparisons</span>
+<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a>*Study design, p-values, and two-group inference (Welch two-sample t-test, proportions, RCT examples)*</span>
 <span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a><span class="fu">### Monday</span></span>
-<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lecture 31</span><span class="co">](lectures/lecture-31)</span></span>
+<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Use the **Methods table** (Lecture 30) to pick **`t.test()`** for two independent numerical groups or **`prop.test()`** / **`chisq.test()`** for binary comparisons, and name key conditions (e.g. independence, expected counts).</span>
+<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Interpret **Welch two-sample *t*-test** output (hypotheses, *p*-value, confidence interval) in context.</span>
+<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Connect **random assignment** in an RCT to reduced risk of confounding for treatment–outcome comparisons.</span>
 <span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a>Chi squared tests</span>
+<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a><span class="fu">## Week 12 {#week-12}</span></span>
 <span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a><span class="fu">### Wednesday</span></span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a><span class="fu">### Monday</span></span>
 <span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lecture 32</span><span class="co">](lectures/lecture-32)</span></span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lecture 31</span><span class="co">](lectures/lecture-31)</span></span>
 <span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a>Chi squared test</span>
+<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a>*Matched pairs — differences, plots, paired t-test, and McNemar for paired binary data*</span>
 <span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a><span class="fu">### Friday</span></span>
-<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lecture 33</span><span class="co">](lectures/lecture-33)</span></span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Identify a **matched pairs** design and compute **within-pair differences** (or use a paired test) when the same units contribute two measurements.</span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Summarize paired numerical data with plots (e.g. boxplot of differences) and run a **paired *t*-test** (or one-sample test on differences).</span>
+<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>For **two binary outcomes on the same units**, build the right table and run **McNemar’s test** when appropriate.</span>
 <span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a>One way anova</span>
+<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a><span class="fu">### Wednesday</span></span>
 <span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a><span class="fu">## Week 13 {#week-13}</span></span>
+<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lecture 32</span><span class="co">](lectures/lecture-32)</span></span>
 <span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a><span class="fu">### Monday</span></span>
+<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a>*One-way ANOVA — comparing means across more than two groups*</span>
 <span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lecture 34</span><span class="co">](lectures/lecture-34)</span></span>
-<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a>One way anova</span>
+<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Recognize when the outcome is **numerical** and the explanatory factor has **more than two levels**, so a one-way **ANOVA** is the natural extension of a two-sample *t*-test.</span>
+<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>State the **omnibus** null hypothesis for equal population means across groups.</span>
+<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Read basic ANOVA output and connect it to the idea of **between- vs within-group variation** (details on the lecture page).</span>
 <span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a><span class="fu">### Wednesday</span></span>
+<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a><span class="fu">### Friday</span></span>
 <span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Review</span><span class="co">](lectures/review-week-13-wednesday)</span></span>
+<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lecture 33</span><span class="co">](lectures/lecture-33)</span></span>
 <span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a><span class="fu">### Friday</span></span>
+<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a>*Chi-square tests — independence and goodness-of-fit*</span>
 <span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Midterm 2</span><span class="co">](exams/midterm-2)</span></span>
-<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a><span class="fu">## Week 14 {#week-14}</span></span>
+<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Build **contingency tables** of counts for two categorical variables and choose **`chisq.test()`** or **`prop.test()`** as appropriate.</span>
+<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Check **expected counts** (and know when **`simulate.p.value = TRUE`** is needed).</span>
+<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Relate chi-square tests to the **“by chance”** explanation for association in a table.</span>
 <span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a><span class="fu">### Monday</span></span>
+<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a><span class="fu">## Week 13 {#week-13}</span></span>
 <span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lecture 35</span><span class="co">](lectures/lecture-35)</span></span>
+<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a><span class="fu">### Monday</span></span>
 <span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a>Prediction - simple linear</span>
+<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lecture 34</span><span class="co">](lectures/lecture-34)</span></span>
 <span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a><span class="fu">### Wednesday</span></span>
+<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>*Work session — Project 4 (simulation, notebook, and writeup)*</span>
 <span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lecture 36</span><span class="co">](lectures/lecture-36)</span></span>
-<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a>Prediction - r squared and residuals</span>
+<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Apply study-design ideas (RCT vs observational, confounding, DAG) to **your** assigned two-group question.</span>
+<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Produce a **reproducible** simulated dataset (`set.seed`) and a notebook with **descriptives**, **plots**, and the **correct test/CI** from the Methods table.</span>
+<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Draft or refine the **one-page** summary for a classmate (plan + sample results + link to runnable code).</span>
 <span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a><span class="fu">### Friday</span></span>
+<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a><span class="fu">### Wednesday</span></span>
 <span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lecture 37</span><span class="co">](lectures/lecture-37)</span></span>
+<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Review</span><span class="co">](lectures/review-week-13-wednesday)</span></span>
 <span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a>Confidence intervals and prediction intervals</span>
+<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a>*Review before Midterm 2*</span>
 <span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a>assumptions</span>
-<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a><span class="fu">## Week 15 {#week-15}</span></span>
-<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a><span class="fu">### Monday</span></span>
-<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lecture 38</span><span class="co">](lectures/lecture-38)</span></span>
-<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a>ethics - IRB</span>
-<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a><span class="fu">### Wednesday</span></span>
-<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Review</span><span class="co">](lectures/review-week-15-wednesday)</span></span>
-<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a><span class="fu">### Friday</span></span>
-<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Review</span><span class="co">](lectures/review-week-15-friday)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Consolidate two-group inference, study design, confounding, and the Methods table.</span>
+<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Bring questions about practice problems, Project 4, and the exam format.</span>
+<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a><span class="fu">### Friday</span></span>
+<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Midterm 2</span><span class="co">](exams/midterm-2)</span></span>
+<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a>*Midterm 2 (in lecture)*</span>
+<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Demonstrate understanding of material covered through the Week 13 review (see course schedule and practice materials).</span>
+<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a><span class="fu">## Week 14 {#week-14}</span></span>
+<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a><span class="fu">### Monday</span></span>
+<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lecture 35</span><span class="co">](lectures/lecture-35)</span></span>
+<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a>*Correlation and simple linear regression*</span>
+<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Interpret a **correlation coefficient** (strength and direction) for two numerical variables.</span>
+<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Fit and interpret a **simple linear regression** line as a model for how the mean of $Y$ changes with $x$.</span>
+<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Use **scatterplots** and diagnostic thinking about **linear** vs **curved** form.</span>
+<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a><span class="fu">### Wednesday</span></span>
+<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lecture 36</span><span class="co">](lectures/lecture-36)</span></span>
+<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a>*Linear regression — R-squared, residuals, and model fit*</span>
+<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Read **regression output** for slope and intercept and relate them to the scatterplot.</span>
+<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Interpret **$R^2$** as the fraction of variability in $y$ explained by the linear model (in the sense used in this course).</span>
+<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Use **residuals** (plots) to check whether a simple linear model is reasonable.</span>
+<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a><span class="fu">### Friday</span></span>
+<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lecture 37</span><span class="co">](lectures/lecture-37)</span></span>
+<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a>*Logistic regression — modeling a binary outcome*</span>
+<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Recognize when the response is **binary** and a **logistic** (log-odds) model is appropriate instead of ordinary least squares regression.</span>
+<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Interpret **fitted probabilities** or **odds ratios** from simple logistic output in context (at the level taught in this course).</span>
+<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Connect logistic regression to earlier ideas about **proportions** and **two-group** comparisons.</span>
+<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a><span class="fu">## Week 15 {#week-15}</span></span>
+<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a><span class="fu">### Monday</span></span>
+<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-452"><a href="#cb1-452" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Review</span><span class="co">](lectures/review-week-15-wednesday)</span></span>
+<span id="cb1-453"><a href="#cb1-453" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a>*Course review — regression, inference, and study design*</span>
+<span id="cb1-455"><a href="#cb1-455" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-456"><a href="#cb1-456" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Integrate topics from the second half of the course (two-group and chi-square tools, ANOVA as needed, correlation/regression).</span>
+<span id="cb1-457"><a href="#cb1-457" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Work through mixed practice and bring unresolved questions.</span>
+<span id="cb1-458"><a href="#cb1-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-459"><a href="#cb1-459" aria-hidden="true" tabindex="-1"></a><span class="fu">### Wednesday</span></span>
+<span id="cb1-460"><a href="#cb1-460" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-461"><a href="#cb1-461" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Review</span><span class="co">](lectures/review-week-15-wednesday)</span></span>
+<span id="cb1-462"><a href="#cb1-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-463"><a href="#cb1-463" aria-hidden="true" tabindex="-1"></a>*Course review (continued)*</span>
+<span id="cb1-464"><a href="#cb1-464" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-465"><a href="#cb1-465" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Practice explaining **when** each major inferential tool applies and **what** conclusions are supported by design.</span>
+<span id="cb1-466"><a href="#cb1-466" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Prepare for the final assessment using instructor-provided practice.</span>
+<span id="cb1-467"><a href="#cb1-467" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-468"><a href="#cb1-468" aria-hidden="true" tabindex="-1"></a><span class="fu">### Friday</span></span>
+<span id="cb1-469"><a href="#cb1-469" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-470"><a href="#cb1-470" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Review</span><span class="co">](lectures/review-week-15-friday)</span></span>
+<span id="cb1-471"><a href="#cb1-471" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-472"><a href="#cb1-472" aria-hidden="true" tabindex="-1"></a>*Course review — quiz and lab week*</span>
+<span id="cb1-473"><a href="#cb1-473" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-474"><a href="#cb1-474" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Complete the **scheduled quiz** for this week (see Canvas / lab schedule).</span>
+<span id="cb1-475"><a href="#cb1-475" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Attend or complete the **scheduled lab**; use remaining time for targeted review before the final exam period.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

@@ -1347,40 +1347,65 @@ window.Quarto = {
 <section id="monday-10" class="level3">
 <h3 class="anchored" data-anchor-id="monday-10">Monday</h3>
 <p><a href="lectures/lecture-28">Lecture 28</a></p>
-<p>Inference for Two group Comparisions</p>
-<p>Causal questions</p>
-<p>Study design</p>
+<p><em>Inference for two-group comparisons — causal questions and study design</em></p>
+<ul>
+<li>Compare <strong>randomized controlled trials</strong> and <strong>observational</strong> designs when the goal is a causal claim about a treatment or exposure.</li>
+<li>Explain how participants end up in comparison groups in an RCT versus an observational study.</li>
+<li>State what a <em>p</em>-value does and does <strong>not</strong> address for a difference between two groups.</li>
+</ul>
 </section>
 <section id="wednesday-10" class="level3">
 <h3 class="anchored" data-anchor-id="wednesday-10">Wednesday</h3>
 <p><a href="lectures/lecture-29">Lecture 29</a></p>
-<p>Confounding</p>
+<p><em>Confounding</em></p>
+<ul>
+<li>Define a <strong>confounder</strong> in words and recognize plausible confounders in a stated observational comparison.</li>
+<li>Explain how a confounder can create or distort an association between an explanatory variable and a response.</li>
+<li>Describe <strong>subclassification / stratification</strong> when a confounder is measured.</li>
+</ul>
 </section>
 <section id="friday-10" class="level3">
 <h3 class="anchored" data-anchor-id="friday-10">Friday</h3>
 <p><a href="lectures/lecture-30">Lecture 30</a></p>
-<p>Study design and p-values for two group comparisons</p>
-<p>Randomized Control Trials</p>
-<p>Paired comparisons</p>
+<p><em>Study design, p-values, and two-group inference (Welch two-sample t-test, proportions, RCT examples)</em></p>
+<ul>
+<li>Use the <strong>Methods table</strong> (Lecture 30) to pick <strong><code>t.test()</code></strong> for two independent numerical groups or <strong><code>prop.test()</code></strong> / <strong><code>chisq.test()</code></strong> for binary comparisons, and name key conditions (e.g.&nbsp;independence, expected counts).</li>
+<li>Interpret <strong>Welch two-sample <em>t</em>-test</strong> output (hypotheses, <em>p</em>-value, confidence interval) in context.</li>
+<li>Connect <strong>random assignment</strong> in an RCT to reduced risk of confounding for treatment–outcome comparisons.</li>
+</ul>
 </section>
 </section>
 <section id="week-12" class="level2">
 <h2 class="anchored" data-anchor-id="week-12">Week 12</h2>
-<p>Inference for Many group comparisons</p>
 <section id="monday-11" class="level3">
 <h3 class="anchored" data-anchor-id="monday-11">Monday</h3>
 <p><a href="lectures/lecture-31">Lecture 31</a></p>
-<p>Chi squared tests</p>
+<p><em>Matched pairs — differences, plots, paired t-test, and McNemar for paired binary data</em></p>
+<ul>
+<li>Identify a <strong>matched pairs</strong> design and compute <strong>within-pair differences</strong> (or use a paired test) when the same units contribute two measurements.</li>
+<li>Summarize paired numerical data with plots (e.g.&nbsp;boxplot of differences) and run a <strong>paired <em>t</em>-test</strong> (or one-sample test on differences).</li>
+<li>For <strong>two binary outcomes on the same units</strong>, build the right table and run <strong>McNemar’s test</strong> when appropriate.</li>
+</ul>
 </section>
 <section id="wednesday-11" class="level3">
 <h3 class="anchored" data-anchor-id="wednesday-11">Wednesday</h3>
 <p><a href="lectures/lecture-32">Lecture 32</a></p>
-<p>Chi squared test</p>
+<p><em>One-way ANOVA — comparing means across more than two groups</em></p>
+<ul>
+<li>Recognize when the outcome is <strong>numerical</strong> and the explanatory factor has <strong>more than two levels</strong>, so a one-way <strong>ANOVA</strong> is the natural extension of a two-sample <em>t</em>-test.</li>
+<li>State the <strong>omnibus</strong> null hypothesis for equal population means across groups.</li>
+<li>Read basic ANOVA output and connect it to the idea of <strong>between- vs within-group variation</strong> (details on the lecture page).</li>
+</ul>
 </section>
 <section id="friday-11" class="level3">
 <h3 class="anchored" data-anchor-id="friday-11">Friday</h3>
 <p><a href="lectures/lecture-33">Lecture 33</a></p>
-<p>One way anova</p>
+<p><em>Chi-square tests — independence and goodness-of-fit</em></p>
+<ul>
+<li>Build <strong>contingency tables</strong> of counts for two categorical variables and choose <strong><code>chisq.test()</code></strong> or <strong><code>prop.test()</code></strong> as appropriate.</li>
+<li>Check <strong>expected counts</strong> (and know when <strong><code>simulate.p.value = TRUE</code></strong> is needed).</li>
+<li>Relate chi-square tests to the <strong>“by chance”</strong> explanation for association in a table.</li>
+</ul>
 </section>
 </section>
 <section id="week-13" class="level2">
@@ -1388,15 +1413,29 @@ window.Quarto = {
 <section id="monday-12" class="level3">
 <h3 class="anchored" data-anchor-id="monday-12">Monday</h3>
 <p><a href="lectures/lecture-34">Lecture 34</a></p>
-<p>One way anova</p>
+<p><em>Work session — Project 4 (simulation, notebook, and writeup)</em></p>
+<ul>
+<li>Apply study-design ideas (RCT vs observational, confounding, DAG) to <strong>your</strong> assigned two-group question.</li>
+<li>Produce a <strong>reproducible</strong> simulated dataset (<code>set.seed</code>) and a notebook with <strong>descriptives</strong>, <strong>plots</strong>, and the <strong>correct test/CI</strong> from the Methods table.</li>
+<li>Draft or refine the <strong>one-page</strong> summary for a classmate (plan + sample results + link to runnable code).</li>
+</ul>
 </section>
 <section id="wednesday-12" class="level3">
 <h3 class="anchored" data-anchor-id="wednesday-12">Wednesday</h3>
 <p><a href="lectures/review-week-13-wednesday">Review</a></p>
+<p><em>Review before Midterm 2</em></p>
+<ul>
+<li>Consolidate two-group inference, study design, confounding, and the Methods table.</li>
+<li>Bring questions about practice problems, Project 4, and the exam format.</li>
+</ul>
 </section>
 <section id="friday-12" class="level3">
 <h3 class="anchored" data-anchor-id="friday-12">Friday</h3>
 <p><a href="exams/midterm-2">Midterm 2</a></p>
+<p><em>Midterm 2 (in lecture)</em></p>
+<ul>
+<li>Demonstrate understanding of material covered through the Week 13 review (see course schedule and practice materials).</li>
+</ul>
 </section>
 </section>
 <section id="week-14" class="level2">
@@ -1404,34 +1443,62 @@ window.Quarto = {
 <section id="monday-13" class="level3">
 <h3 class="anchored" data-anchor-id="monday-13">Monday</h3>
 <p><a href="lectures/lecture-35">Lecture 35</a></p>
-<p>Prediction - simple linear</p>
+<p><em>Correlation and simple linear regression</em></p>
+<ul>
+<li>Interpret a <strong>correlation coefficient</strong> (strength and direction) for two numerical variables.</li>
+<li>Fit and interpret a <strong>simple linear regression</strong> line as a model for how the mean of <span class="math inline">\(Y\)</span> changes with <span class="math inline">\(x\)</span>.</li>
+<li>Use <strong>scatterplots</strong> and diagnostic thinking about <strong>linear</strong> vs <strong>curved</strong> form.</li>
+</ul>
 </section>
 <section id="wednesday-13" class="level3">
 <h3 class="anchored" data-anchor-id="wednesday-13">Wednesday</h3>
 <p><a href="lectures/lecture-36">Lecture 36</a></p>
-<p>Prediction - r squared and residuals</p>
+<p><em>Linear regression — R-squared, residuals, and model fit</em></p>
+<ul>
+<li>Read <strong>regression output</strong> for slope and intercept and relate them to the scatterplot.</li>
+<li>Interpret <strong><span class="math inline">\(R^2\)</span></strong> as the fraction of variability in <span class="math inline">\(y\)</span> explained by the linear model (in the sense used in this course).</li>
+<li>Use <strong>residuals</strong> (plots) to check whether a simple linear model is reasonable.</li>
+</ul>
 </section>
 <section id="friday-13" class="level3">
 <h3 class="anchored" data-anchor-id="friday-13">Friday</h3>
 <p><a href="lectures/lecture-37">Lecture 37</a></p>
-<p>Confidence intervals and prediction intervals</p>
-<p>assumptions</p>
+<p><em>Logistic regression — modeling a binary outcome</em></p>
+<ul>
+<li>Recognize when the response is <strong>binary</strong> and a <strong>logistic</strong> (log-odds) model is appropriate instead of ordinary least squares regression.</li>
+<li>Interpret <strong>fitted probabilities</strong> or <strong>odds ratios</strong> from simple logistic output in context (at the level taught in this course).</li>
+<li>Connect logistic regression to earlier ideas about <strong>proportions</strong> and <strong>two-group</strong> comparisons.</li>
+</ul>
 </section>
 </section>
 <section id="week-15" class="level2">
 <h2 class="anchored" data-anchor-id="week-15">Week 15</h2>
 <section id="monday-14" class="level3">
 <h3 class="anchored" data-anchor-id="monday-14">Monday</h3>
-<p><a href="lectures/lecture-38">Lecture 38</a></p>
-<p>ethics - IRB</p>
+<p><a href="lectures/review-week-15-wednesday">Review</a></p>
+<p><em>Course review — regression, inference, and study design</em></p>
+<ul>
+<li>Integrate topics from the second half of the course (two-group and chi-square tools, ANOVA as needed, correlation/regression).</li>
+<li>Work through mixed practice and bring unresolved questions.</li>
+</ul>
 </section>
 <section id="wednesday-14" class="level3">
 <h3 class="anchored" data-anchor-id="wednesday-14">Wednesday</h3>
 <p><a href="lectures/review-week-15-wednesday">Review</a></p>
+<p><em>Course review (continued)</em></p>
+<ul>
+<li>Practice explaining <strong>when</strong> each major inferential tool applies and <strong>what</strong> conclusions are supported by design.</li>
+<li>Prepare for the final assessment using instructor-provided practice.</li>
+</ul>
 </section>
 <section id="friday-14" class="level3">
 <h3 class="anchored" data-anchor-id="friday-14">Friday</h3>
 <p><a href="lectures/review-week-15-friday">Review</a></p>
+<p><em>Course review — quiz and lab week</em></p>
+<ul>
+<li>Complete the <strong>scheduled quiz</strong> for this week (see Canvas / lab schedule).</li>
+<li>Attend or complete the <strong>scheduled lab</strong>; use remaining time for targeted review before the final exam period.</li>
+</ul>
 </section>
 </section>
 </section>
