@@ -33,54 +33,5 @@
     "title": "STAT 109: Introductory Biostatistics",
     "section": "Instructor Information",
     "text": "Instructor Information\nInstructor: Dr. Rosanna Overholser\nOffice: BSS 334\nEmail: rho3@humboldt.edu\nOffice Hours: Mondays 2-3pm, Wednesdays 12-12:50pm, Fridays 10-10:50am, or by appointment"
-  },
-  {
-    "objectID": "lectures/review-week-15-friday.html",
-    "href": "lectures/review-week-15-friday.html",
-    "title": "Review - Week 15 Friday",
-    "section": "",
-    "text": "Today we review the full sequence of course projects and connect methods, interpretation, and communication.\n\n\n\n\nBy the end of class, you should be able to:\n\nSummarize the research question and design for each project.\nIdentify what each project can/cannot claim (generalization and causation).\nExplain the core method used in each project and why it fit the data type.\nInterpret key outputs (estimates, p-values, intervals, model fit).\nReflect on one major strength and one limitation for each project.\n\n\n\n\n\nUse this same checklist for Projects 1, 2, 3, 4, and 5:\n\nQuestion: What was the main statistical question?\nDesign: SRS/convenience? RCT/observational?\nVariables: Response and explanatory variable types.\nMethod: Plot/test/model used.\nResult: Main numerical/graphical finding.\nInference: What claim is justified?\nLimitations: Bias, confounding, missingness, assumptions.\nCommunication: One sentence rewrite in clear, ethical language.\n\n\n\n\n\n\n\n\nSpend 8-10 minutes per project using the template.\nAssign one speaker and one recorder per group.\n\n\n\n\n\nEach group presents one project highlight:\n\nbest methodological choice,\nbiggest interpretation pitfall,\none improved conclusion sentence.\n\n\n\n\n\n\nWrite a brief final reflection:\n\nWhich project best demonstrates your statistical growth?\nWhich concept still needs review before final assessments?\n\n\n\n\n\n\n\n\nOvergeneralizing from convenience samples.\nClaiming causation from observational associations.\nIgnoring missingness/dropout and potential bias.\nReporting p-values without checking assumptions.\nConfusing statistical significance with practical importance.\n\n\n\n\n\nSubmit a one-page project synthesis:\n\n5 bullets (one per project) with question, method, and conclusion.\n1 paragraph on how your inference language improved across the term.\n1 action item for strengthening your final Project 5 report."
-  },
-  {
-    "objectID": "lectures/review-week-15-friday.html#project-portfolio-review-day-projects-1-5",
-    "href": "lectures/review-week-15-friday.html#project-portfolio-review-day-projects-1-5",
-    "title": "Review - Week 15 Friday",
-    "section": "",
-    "text": "Today we review the full sequence of course projects and connect methods, interpretation, and communication."
-  },
-  {
-    "objectID": "lectures/review-week-15-friday.html#session-objectives",
-    "href": "lectures/review-week-15-friday.html#session-objectives",
-    "title": "Review - Week 15 Friday",
-    "section": "",
-    "text": "By the end of class, you should be able to:\n\nSummarize the research question and design for each project.\nIdentify what each project can/cannot claim (generalization and causation).\nExplain the core method used in each project and why it fit the data type.\nInterpret key outputs (estimates, p-values, intervals, model fit).\nReflect on one major strength and one limitation for each project."
-  },
-  {
-    "objectID": "lectures/review-week-15-friday.html#project-by-project-review-template",
-    "href": "lectures/review-week-15-friday.html#project-by-project-review-template",
-    "title": "Review - Week 15 Friday",
-    "section": "",
-    "text": "Use this same checklist for Projects 1, 2, 3, 4, and 5:\n\nQuestion: What was the main statistical question?\nDesign: SRS/convenience? RCT/observational?\nVariables: Response and explanatory variable types.\nMethod: Plot/test/model used.\nResult: Main numerical/graphical finding.\nInference: What claim is justified?\nLimitations: Bias, confounding, missingness, assumptions.\nCommunication: One sentence rewrite in clear, ethical language."
-  },
-  {
-    "objectID": "lectures/review-week-15-friday.html#suggested-in-class-structure",
-    "href": "lectures/review-week-15-friday.html#suggested-in-class-structure",
-    "title": "Review - Week 15 Friday",
-    "section": "",
-    "text": "Spend 8-10 minutes per project using the template.\nAssign one speaker and one recorder per group.\n\n\n\n\n\nEach group presents one project highlight:\n\nbest methodological choice,\nbiggest interpretation pitfall,\none improved conclusion sentence.\n\n\n\n\n\n\nWrite a brief final reflection:\n\nWhich project best demonstrates your statistical growth?\nWhich concept still needs review before final assessments?"
-  },
-  {
-    "objectID": "lectures/review-week-15-friday.html#common-cross-project-pitfalls-to-watch-for",
-    "href": "lectures/review-week-15-friday.html#common-cross-project-pitfalls-to-watch-for",
-    "title": "Review - Week 15 Friday",
-    "section": "",
-    "text": "Overgeneralizing from convenience samples.\nClaiming causation from observational associations.\nIgnoring missingness/dropout and potential bias.\nReporting p-values without checking assumptions.\nConfusing statistical significance with practical importance."
-  },
-  {
-    "objectID": "lectures/review-week-15-friday.html#end-of-class-deliverable",
-    "href": "lectures/review-week-15-friday.html#end-of-class-deliverable",
-    "title": "Review - Week 15 Friday",
-    "section": "",
-    "text": "Submit a one-page project synthesis:\n\n5 bullets (one per project) with question, method, and conclusion.\n1 paragraph on how your inference language improved across the term.\n1 action item for strengthening your final Project 5 report."
   }
 ]
