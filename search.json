@@ -35,17 +35,73 @@
     "text": "Instructor Information\nInstructor: Dr. Rosanna Overholser\nOffice: BSS 334\nEmail: rho3@humboldt.edu\nOffice Hours: Mondays 2-3pm, Wednesdays 12-12:50pm, Fridays 10-10:50am, or by appointment"
   },
   {
-    "objectID": "lectures/review-week-15-wednesday.html",
-    "href": "lectures/review-week-15-wednesday.html",
-    "title": "Review - Week 15 Wednesday",
+    "objectID": "lectures/lecture-38.html",
+    "href": "lectures/lecture-38.html",
+    "title": "Lecture 38",
     "section": "",
-    "text": "Today is structured time to make substantial progress on Project 5 with a team!"
+    "text": "In this course, think of data as evidence. As analysts, we are not hired to defend one side at any cost; we are responsible for interpreting evidence as honestly as possible.\nThat means:\n\nwe do not cherry-pick results,\nwe do not overstate certainty,\nwe do not hide missingness or failed assumptions,\nwe do not make claims stronger than design supports.\n\nStatistics and ethics are inseparable.\n\n\n\n\n\n\n\nRandom sample (SRS): supports stronger population generalization.\nConvenience sample: often fast, but likely biased with limited representativeness.\nRandom assignment (RCT): supports stronger causal interpretation.\nObservational study: often more feasible than an RCT, but there is a risk of seeing a difference that is entirely due to confounding.\n\nQuestion: What claims are justified by this design, and what claims are not?\n\n\n\n\nUse appropriate plots/summaries for variable types.\nDescribe form, direction, strength, and group differences carefully.\nKeep descriptive and inferential language separate.\n\nQuestions: Is the type of plot I chose appropriate for the type of data I have? Do choices like bin-width in a histogram affect my interpretation? Am I remembering to be careful to consider the aspects of the data that I can’t see in a plot (such as sampling method and study design) when making a conclusion?\n\n\n\n\nUse valid methods for the variable types and design.\nInterpret p-values/CIs in context and with uncertainty.\nCheck assumptions/conditions before trusting p-values and intervals.\n\nQuestion: Are our mathematical conclusions valid under these data conditions?\n\n\n\n\n\nFor human-subject research, Institutional Review Board (IRB) oversight protects people and the integrity of evidence.\nCore protections include:\n\nminimizing harm,\ninformed consent,\nfair participant selection,\nprivacy and confidentiality,\nrisk/benefit justification.\n\nIf randomization would deliberately expose people to clear harm (for example, assigning smoking initiation), that design is unethical even if it is statistically powerful.\nProfessional reference: American Statistical Association, Ethical Guidelines for Statistical Practice\nhttps://www.amstat.org/your-career/ethical-guidelines-for-statistical-practice\n\n\n\n\n\n\nSome historical studies enrolled vulnerable groups without modern informed-consent protections.\n\nEthical failure: autonomy and respect for persons violated and our evidence is contaminated by coercion and harm.\nLesson: participant protection is part of data quality.\n\n\n\n\nProposal: randomize teens to start smoking vs not smoking.\n\nEthical failure: intentional harm.\nStatistical failure: “clean design” cannot justify unethical treatment.\nLesson: some causal questions must be studied observationally.\n\n\n\n\nVolunteers from one platform are used to claim national conclusions.\n\nEthical failure: misleading communication because of unknown selection bias, weak external validity.\nLesson: generalize only as far as sampling supports.\n\n\n\n\nSingle observational association reported as “X causes Y.”\n\nEthical failure: overstating evidence.\nStatistical failure: confounding/selection bias/chance ignored.\nLesson: weak language is required unless causal design supports stronger claim.\n\n\n\n\nA treatment report excludes participants who dropped out from side effects.\n\nEthical failure: selective reporting means that effect estimates may be biased upward.\nLesson: dropout/missingness must be reported and discussed.\n\n\n\n\n\nMissing data are not just blank cells; they can reveal important bias.\nIf dropout is related to treatment or outcome:\n\ncomplete case analysis where only rows with full information are used can distort effects,\nuncertainty can be understated, and thus\nconclusions can become misleading.\n\nMinimum truth-first reporting:\n\ncounts missing by group,\nreasons for missing/dropout when known,\ncomparison of completers vs non-completers when feasible,\nsensitivity discussion: how could missingness change conclusions?\n\n\n\n\n\n\n\n\nIf sample is convenience-based and so likely biased, say so directly.\nDo not frame sample findings as population truth.\n\n\n\n\n\nRCTs can support stronger causal claims (with caveats).\nObservational studies require confounding alternative in conclusions.\n\n\n\n\n\n“Small p-value” does not mean “proved true.”\n“Fail to reject” does not prove no effect.\nRemember the p in p-value stands for probability! There is also the chance we are making a type I or type II error when conducting a test with a p-value.\n\n\n\n\n\n\n\n\nA wellness app surveys Monday-morning users and claims “all college students.”\nDiscuss:\n\nWhat can be claimed honestly?\nWhat cannot be generalized?\nHow should conclusion wording change?\n\n\n\n\nAn observational stress study is released as “Meditation causes lower stress.”\nDiscuss:\n\nPlausible alternative explanations.\nEthical wording of conclusions.\nWhat stronger design would be needed for causal confidence?\n\n\n\n\nA proposal suggests randomizing smoking initiation.\nDiscuss:\n\nWhy IRB should reject this.\nWhat observational alternative could still produce useful evidence?\n\n\n\n\nA trial omits differential attrition from the main report.\nDiscuss:\n\nHow effect estimates could be biased.\nMinimum reporting needed for ethical interpretation.\n\n\n\n\n\n\nInstead of: “We proved treatment causes improvement.”\nUse: “In this randomized study, results are consistent with a treatment effect, with uncertainty summarized by CI/p-value.”\nInstead of: “These volunteers represent everyone.”\nUse: “Because this is a convenience sample, conclusions are limited to similar participants.”\nInstead of: “Missing values were dropped.”\nUse: “We report missingness/dropout patterns and discuss potential impact on conclusions.”\nInstead of: “p &lt; 0.05, therefore true.”\nUse: “Data are inconsistent with the null under model assumptions; conclusions remain probabilistic.”\n\n\n\n\n\n\nDesign honesty: Are claims matched to sampling and assignment?\nData integrity: Is missingness/dropout transparently reported?\nMethod validity: Were assumptions checked and disclosed?\nUncertainty clarity: Are p-values/CIs interpreted correctly?\nCommunication ethics: Is wording accurate, limited, and non-misleading?"
   },
   {
-    "objectID": "lectures/review-week-15-wednesday.html#project-5-work-day",
-    "href": "lectures/review-week-15-wednesday.html#project-5-work-day",
-    "title": "Review - Week 15 Wednesday",
+    "objectID": "lectures/lecture-38.html#data-as-evidence-analyst-as-a-truth-first-advocate",
+    "href": "lectures/lecture-38.html#data-as-evidence-analyst-as-a-truth-first-advocate",
+    "title": "Lecture 38",
     "section": "",
-    "text": "Today is structured time to make substantial progress on Project 5 with a team!"
+    "text": "In this course, think of data as evidence. As analysts, we are not hired to defend one side at any cost; we are responsible for interpreting evidence as honestly as possible.\nThat means:\n\nwe do not cherry-pick results,\nwe do not overstate certainty,\nwe do not hide missingness or failed assumptions,\nwe do not make claims stronger than design supports.\n\nStatistics and ethics are inseparable."
+  },
+  {
+    "objectID": "lectures/lecture-38.html#section",
+    "href": "lectures/lecture-38.html#section",
+    "title": "Lecture 38",
+    "section": "",
+    "text": "Random sample (SRS): supports stronger population generalization.\nConvenience sample: often fast, but likely biased with limited representativeness.\nRandom assignment (RCT): supports stronger causal interpretation.\nObservational study: often more feasible than an RCT, but there is a risk of seeing a difference that is entirely due to confounding.\n\nQuestion: What claims are justified by this design, and what claims are not?\n\n\n\n\nUse appropriate plots/summaries for variable types.\nDescribe form, direction, strength, and group differences carefully.\nKeep descriptive and inferential language separate.\n\nQuestions: Is the type of plot I chose appropriate for the type of data I have? Do choices like bin-width in a histogram affect my interpretation? Am I remembering to be careful to consider the aspects of the data that I can’t see in a plot (such as sampling method and study design) when making a conclusion?\n\n\n\n\nUse valid methods for the variable types and design.\nInterpret p-values/CIs in context and with uncertainty.\nCheck assumptions/conditions before trusting p-values and intervals.\n\nQuestion: Are our mathematical conclusions valid under these data conditions?"
+  },
+  {
+    "objectID": "lectures/lecture-38.html#irb-and-duty-to-participants",
+    "href": "lectures/lecture-38.html#irb-and-duty-to-participants",
+    "title": "Lecture 38",
+    "section": "",
+    "text": "For human-subject research, Institutional Review Board (IRB) oversight protects people and the integrity of evidence.\nCore protections include:\n\nminimizing harm,\ninformed consent,\nfair participant selection,\nprivacy and confidentiality,\nrisk/benefit justification.\n\nIf randomization would deliberately expose people to clear harm (for example, assigning smoking initiation), that design is unethical even if it is statistically powerful.\nProfessional reference: American Statistical Association, Ethical Guidelines for Statistical Practice\nhttps://www.amstat.org/your-career/ethical-guidelines-for-statistical-practice"
+  },
+  {
+    "objectID": "lectures/lecture-38.html#real-examples-when-ethics-failures-break-inference",
+    "href": "lectures/lecture-38.html#real-examples-when-ethics-failures-break-inference",
+    "title": "Lecture 38",
+    "section": "",
+    "text": "Some historical studies enrolled vulnerable groups without modern informed-consent protections.\n\nEthical failure: autonomy and respect for persons violated and our evidence is contaminated by coercion and harm.\nLesson: participant protection is part of data quality.\n\n\n\n\nProposal: randomize teens to start smoking vs not smoking.\n\nEthical failure: intentional harm.\nStatistical failure: “clean design” cannot justify unethical treatment.\nLesson: some causal questions must be studied observationally.\n\n\n\n\nVolunteers from one platform are used to claim national conclusions.\n\nEthical failure: misleading communication because of unknown selection bias, weak external validity.\nLesson: generalize only as far as sampling supports.\n\n\n\n\nSingle observational association reported as “X causes Y.”\n\nEthical failure: overstating evidence.\nStatistical failure: confounding/selection bias/chance ignored.\nLesson: weak language is required unless causal design supports stronger claim.\n\n\n\n\nA treatment report excludes participants who dropped out from side effects.\n\nEthical failure: selective reporting means that effect estimates may be biased upward.\nLesson: dropout/missingness must be reported and discussed."
+  },
+  {
+    "objectID": "lectures/lecture-38.html#missing-responses-are-evidence-too",
+    "href": "lectures/lecture-38.html#missing-responses-are-evidence-too",
+    "title": "Lecture 38",
+    "section": "",
+    "text": "Missing data are not just blank cells; they can reveal important bias.\nIf dropout is related to treatment or outcome:\n\ncomplete case analysis where only rows with full information are used can distort effects,\nuncertainty can be understated, and thus\nconclusions can become misleading.\n\nMinimum truth-first reporting:\n\ncounts missing by group,\nreasons for missing/dropout when known,\ncomparison of completers vs non-completers when feasible,\nsensitivity discussion: how could missingness change conclusions?"
+  },
+  {
+    "objectID": "lectures/lecture-38.html#ethical-interpretation-rules-by-topic",
+    "href": "lectures/lecture-38.html#ethical-interpretation-rules-by-topic",
+    "title": "Lecture 38",
+    "section": "",
+    "text": "If sample is convenience-based and so likely biased, say so directly.\nDo not frame sample findings as population truth.\n\n\n\n\n\nRCTs can support stronger causal claims (with caveats).\nObservational studies require confounding alternative in conclusions.\n\n\n\n\n\n“Small p-value” does not mean “proved true.”\n“Fail to reject” does not prove no effect.\nRemember the p in p-value stands for probability! There is also the chance we are making a type I or type II error when conducting a test with a p-value."
+  },
+  {
+    "objectID": "lectures/lecture-38.html#scenario-set",
+    "href": "lectures/lecture-38.html#scenario-set",
+    "title": "Lecture 38",
+    "section": "",
+    "text": "A wellness app surveys Monday-morning users and claims “all college students.”\nDiscuss:\n\nWhat can be claimed honestly?\nWhat cannot be generalized?\nHow should conclusion wording change?\n\n\n\n\nAn observational stress study is released as “Meditation causes lower stress.”\nDiscuss:\n\nPlausible alternative explanations.\nEthical wording of conclusions.\nWhat stronger design would be needed for causal confidence?\n\n\n\n\nA proposal suggests randomizing smoking initiation.\nDiscuss:\n\nWhy IRB should reject this.\nWhat observational alternative could still produce useful evidence?\n\n\n\n\nA trial omits differential attrition from the main report.\nDiscuss:\n\nHow effect estimates could be biased.\nMinimum reporting needed for ethical interpretation."
+  },
+  {
+    "objectID": "lectures/lecture-38.html#language-rewrites-from-advocacy-to-truth",
+    "href": "lectures/lecture-38.html#language-rewrites-from-advocacy-to-truth",
+    "title": "Lecture 38",
+    "section": "",
+    "text": "Instead of: “We proved treatment causes improvement.”\nUse: “In this randomized study, results are consistent with a treatment effect, with uncertainty summarized by CI/p-value.”\nInstead of: “These volunteers represent everyone.”\nUse: “Because this is a convenience sample, conclusions are limited to similar participants.”\nInstead of: “Missing values were dropped.”\nUse: “We report missingness/dropout patterns and discuss potential impact on conclusions.”\nInstead of: “p &lt; 0.05, therefore true.”\nUse: “Data are inconsistent with the null under model assumptions; conclusions remain probabilistic.”"
+  },
+  {
+    "objectID": "lectures/lecture-38.html#summary",
+    "href": "lectures/lecture-38.html#summary",
+    "title": "Lecture 38",
+    "section": "",
+    "text": "Design honesty: Are claims matched to sampling and assignment?\nData integrity: Is missingness/dropout transparently reported?\nMethod validity: Were assumptions checked and disclosed?\nUncertainty clarity: Are p-values/CIs interpreted correctly?\nCommunication ethics: Is wording accurate, limited, and non-misleading?"
   }
 ]
