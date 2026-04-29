@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -73,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-be3771519f21acc1c5b6733774c6dcd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-4897d45d2f75ed4f519693be625836c5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -1169,7 +1169,7 @@ $ year              &lt;dbl&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summary of new functions</span></span>
 <span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Function / pattern <span class="pp">|</span> What it does <span class="pp">|</span></span>
-<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|--------------------|--------------|</span></span>
+<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|------------------------------------------|------------------------------|</span></span>
 <span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`read_csv("url_or_path")`</span> <span class="pp">|</span> Reads a CSV from the web or from a file path (e.g. after upload in Colab). <span class="pp">|</span></span>
 <span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`is.na(x)`</span>, <span class="in">`sum(is.na(x))`</span> <span class="pp">|</span> Detects missing values; counts how many in a vector. <span class="pp">|</span></span>
 <span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`summarize(across(everything(), ~ …))`</span> <span class="pp">|</span> Applies a summary (e.g. count of <span class="in">`NA`</span>) to every column. <span class="pp">|</span></span>
@@ -1246,10 +1246,10 @@ $ year              &lt;dbl&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <span id="cb32-117"><a href="#cb32-117" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-118"><a href="#cb32-118" aria-hidden="true" tabindex="-1"></a>When you are not using a URL, upload a file and read it from the path Colab assigns.</span>
 <span id="cb32-119"><a href="#cb32-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-120"><a href="#cb32-120" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Click the folder icon to open the file browser.</span>
-<span id="cb32-121"><a href="#cb32-121" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Upload your <span class="in">`.csv`</span> (drag-and-drop or Upload).</span>
-<span id="cb32-122"><a href="#cb32-122" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Hover the file → three dots → Copy path (wording may vary slightly).</span>
-<span id="cb32-123"><a href="#cb32-123" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Paste the path into <span class="in">`read_csv()`</span> inside quotes. Paths often look like <span class="in">`"/content/penguins.csv"`</span> or <span class="in">`"/content/drive/MyDrive/..."`</span> if using Drive.</span>
+<span id="cb32-120"><a href="#cb32-120" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Click the folder icon to open the file browser.</span>
+<span id="cb32-121"><a href="#cb32-121" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Upload your <span class="in">`.csv`</span> (drag-and-drop or Upload).</span>
+<span id="cb32-122"><a href="#cb32-122" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Hover the file → three dots → Copy path (wording may vary slightly).</span>
+<span id="cb32-123"><a href="#cb32-123" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Paste the path into <span class="in">`read_csv()`</span> inside quotes. Paths often look like <span class="in">`"/content/penguins.csv"`</span> or <span class="in">`"/content/drive/MyDrive/..."`</span> if using Drive.</span>
 <span id="cb32-124"><a href="#cb32-124" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-127"><a href="#cb32-127" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb32-128"><a href="#cb32-128" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
@@ -1330,9 +1330,9 @@ $ year              &lt;dbl&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <span id="cb32-215"><a href="#cb32-215" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-216"><a href="#cb32-216" aria-hidden="true" tabindex="-1"></a>Proportions, three denominators</span>
 <span id="cb32-217"><a href="#cb32-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-218"><a href="#cb32-218" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Joint (each cell as a fraction of all penguins in <span class="in">`pg_clean`</span>).</span>
-<span id="cb32-219"><a href="#cb32-219" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Row (within species).</span>
-<span id="cb32-220"><a href="#cb32-220" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Column (within island).</span>
+<span id="cb32-218"><a href="#cb32-218" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Joint (each cell as a fraction of all penguins in <span class="in">`pg_clean`</span>).</span>
+<span id="cb32-219"><a href="#cb32-219" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Row (within species).</span>
+<span id="cb32-220"><a href="#cb32-220" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Column (within island).</span>
 <span id="cb32-221"><a href="#cb32-221" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-224"><a href="#cb32-224" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb32-225"><a href="#cb32-225" aria-hidden="true" tabindex="-1"></a><span class="co"># Joint</span></span>
