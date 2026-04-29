@@ -35,66 +35,17 @@
     "text": "Instructor Information\nInstructor: Dr. Rosanna Overholser\nOffice: BSS 334\nEmail: rho3@humboldt.edu\nOffice Hours: Mondays 2-3pm, Wednesdays 12-12:50pm, Fridays 10-10:50am, or by appointment"
   },
   {
-    "objectID": "r-reference.html",
-    "href": "r-reference.html",
-    "title": "R Quick Reference",
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Course Schedule",
     "section": "",
-    "text": "This page summarizes R code patterns.\n\n\n\n\n\n\n\n\n\n\n\nStep\nCode idea\nQuick check\n\n\n\n\n1\nlibrary(tidyverse)\nPackages load without errors\n\n\n2\nread_csv(...); glimpse(dat)\nColumn names and types match Part 1\n\n\n3\nmutate(... factor(..., levels = ...))\nLevels match your two groups / outcome categories\n\n\n4\ngroup_by + summarise and/or count\nMeans/SDs if response is numerical; counts (and optional props) if categorical\n\n\n5\nggplot\nBoxplot/histogram for numerical response by group; bar chart of counts for binary/categorical (L25–27)\n\n\n6\nTest + CI\nt.test(..., var.equal = FALSE) or prop.test / chisq.test per Methods table\n\n\n7\nShort interpretation in prose\np-value addresses chance only; causal language only if design supports it\n\n\n\n\n\n\n\n\n\nCode\nif (!requireNamespace(\"tidyverse\", quietly = TRUE)) {\n  install.packages(\"tidyverse\", repos = \"https://cloud.r-project.org\")\n}\nlibrary(tidyverse)\n\n\n\n\n\n\n\n\n\n\n\n\n\nTask\nCode pattern\n\n\n\n\nLoad CSV\ndat &lt;- read_csv(\"file.csv\", show_col_types = FALSE)\n\n\nPeek structure\nglimpse(dat)\n\n\nFirst rows\nhead(dat, 10)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTask\nCode pattern\n\n\n\n\nSet levels / order\ndat &lt;- dat \\|&gt; mutate(group = factor(group, levels = c(\"A\", \"B\")))\n\n\nCheck levels\nlevels(dat$group)\n\n\n\nUse factors so ggplot and tables order categories sensibly.\n\n\n\n\n\n\n\n\n\n\n\nSetting\nCode pattern\n\n\n\n\nOne numerical variable\ndat \\|&gt; summarize(mean_y = mean(y), sd_y = sd(y), n_y=n())\n\n\nNumerical by two groups\ndat \\|&gt; group_by(group) \\|&gt; summarize(n = n(), mean_y = mean(y), sd_y = sd(y))\n\n\nCounts for one categorical\ndat \\|&gt; count(category) \\|&gt; mutate(prop = n / sum(n))\n\n\n2 × 2 counts\ndat \\|&gt; count(group, outcome) then pivot_wider\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSetting\nPattern\n\n\n\n\nNumerical response, two groups\nggplot(dat, aes(x = group, y = y)) + geom_boxplot() (Lecture 25); or geom_histogram(aes(fill = group), ...)\n\n\nTwo categorical (e.g. group × outcome)\ndat \\|&gt; count(group, outcome) \\|&gt; ggplot(aes(x = group, y = n, fill = outcome)) + geom_col() (Lecture 27); add position = \"fill\" for 100% stacked\n\n\nTwo numerical\nggplot(dat, aes(x = x1, y = x2)) + geom_point() (Lecture 26)\n\n\nSubclassification (confounder)\nAdd facet_wrap(~ confounder) to the plot above (Lecture 28)\n\n\n\nAlways add labs(title = ..., x = ..., y = ...) with units where relevant.\n\n\n\n\nUse the Lecture 30 Methods table to pick one primary test for the “by chance” question.\n\n\n\n\n\n\n\n\nResponse type\nR command\nNotes\n\n\n\n\nNumerical, 2 groups\nt.test(y ~ group, data = dat, var.equal = FALSE)\nWelch t-test; output includes 95% CI for \\(\\mu_1 - \\mu_2\\) (Lecture 29)\n\n\nBinary (0/1 or two levels), 2 groups\nprop.test(x = c(x1, x2), n = c(n1, n2), correct = FALSE)\nCompares two proportions\n\n\nTwo categorical variables\nchisq.test(tab)\nCheck chisq.test(tab)$expected for ≥ 5 rule (Lecture 28)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTask\nExample pattern\n\n\n\n\nBuild tibble\ntibble(group = rep(c(\"A\", \"B\"), each = 30), y = c(rnorm(30, 10, 2), rnorm(30, 12, 2)))\n\n\nBinary outcome\nrbinom(n, 1, prob = ...) inside mutate or c(...)\n\n\nSave\nwrite_csv(dat, \"project4_data.csv\")\n\n\n\n\n\nread_csv path and glimpse — Do column names match your Part 1 definitions?\nfactor — Are group and outcome coded with the correct levels?\ngroup_by + summarize — Does the code compute means/SDs for numerical responses and counts/proportions for categorical responses?\nggplot — Is the geom right (boxplot vs bar vs histogram) for your variable types?\nTest — Is it t.test(..., var.equal = FALSE) for mean vs prop.test / chisq.test for proportions?\nConditions — random sample or assignment? sample size large enough? See methods table for exact condition to check."
+    "text": "Week\nMon\nWed\nThu\nFri\nSun\n\n\n\n\n1 (Jan 20–23)\nHoliday\nLec\nLab 1 + Quiz 1\nLec\n—\n\n\n2 (Jan 26–30)\nLec\nLec\nLab 2 + Quiz 2\nLec\n—\n\n\n3 (Feb 2–6)\nLec\nLec\nLab 3 + Quiz 3\nLec\n—\n\n\n4 (Feb 9–13)\nLec\nLec\nLab 4 + Quiz 4\nLec\n—\n\n\n5 (Feb 16–20)\nLec\nLec\nLab 5 + Quiz 5\nLec\nProject 1 due (Sun Feb 22)\n\n\n6 (Feb 23–27)\nLec\nLec\nLab 6 + Quiz 6\nLec\n—\n\n\n7 (Mar 2–6)\nLec\nReview\nReview (no quiz)\nMidterm 1\n—\n\n\n8 (Mar 9–13)\nLec\nLec\nLab 7 + Quiz 7\nLec\n—\n\n\n— (Mar 16–20)\n—\n—\n—\n—\n—\n\n\n9 (Mar 23–27)\nLec\nLec\nLab 8 + Quiz 8\nLec\nProject 2 due (Sun Mar 29)\n\n\n10 (Mar 30–Apr 3)\nLec\nLec\nLab 9 + Quiz 9\nLec\n—\n\n\n11 (Apr 6–10)\nLec\nLec\nLab 10 + Quiz 10\nLec\nProject 3 due (Sun Apr 12)\n\n\n12 (Apr 13–17)\nLec\nLec\nLab 11 + Quiz 11\nLec\n—\n\n\n13 (Apr 20–24)\nLec\nReview\nReview (no quiz)\nMidterm 2\n—\n\n\n14 (Apr 27–May 1)\nLec\nLec\nLab 12 + Quiz 12\nLec\n—\n\n\n15 (May 4–8)\nLec\nReview\nLab 13 + Quiz 13\nReview + Project 4 due (Fri May 8)\n—\n\n\nFinals (May 11–15)\n—\nFinal Exam\n—\nProject 5 due (Fri May 15)\n—\n\n\n\nNotes:\n\nMon Week 1 = Holiday (No class)\nWeek 10 = Holiday (we have no class on Tuesday, March 31)"
   },
   {
-    "objectID": "r-reference.html#r-pipeline",
-    "href": "r-reference.html#r-pipeline",
-    "title": "R Quick Reference",
+    "objectID": "schedule.html#spring-2026",
+    "href": "schedule.html#spring-2026",
+    "title": "Course Schedule",
     "section": "",
-    "text": "Step\nCode idea\nQuick check\n\n\n\n\n1\nlibrary(tidyverse)\nPackages load without errors\n\n\n2\nread_csv(...); glimpse(dat)\nColumn names and types match Part 1\n\n\n3\nmutate(... factor(..., levels = ...))\nLevels match your two groups / outcome categories\n\n\n4\ngroup_by + summarise and/or count\nMeans/SDs if response is numerical; counts (and optional props) if categorical\n\n\n5\nggplot\nBoxplot/histogram for numerical response by group; bar chart of counts for binary/categorical (L25–27)\n\n\n6\nTest + CI\nt.test(..., var.equal = FALSE) or prop.test / chisq.test per Methods table\n\n\n7\nShort interpretation in prose\np-value addresses chance only; causal language only if design supports it"
-  },
-  {
-    "objectID": "r-reference.html#setup",
-    "href": "r-reference.html#setup",
-    "title": "R Quick Reference",
-    "section": "",
-    "text": "Code\nif (!requireNamespace(\"tidyverse\", quietly = TRUE)) {\n  install.packages(\"tidyverse\", repos = \"https://cloud.r-project.org\")\n}\nlibrary(tidyverse)"
-  },
-  {
-    "objectID": "r-reference.html#r-import",
-    "href": "r-reference.html#r-import",
-    "title": "R Quick Reference",
-    "section": "",
-    "text": "Task\nCode pattern\n\n\n\n\nLoad CSV\ndat &lt;- read_csv(\"file.csv\", show_col_types = FALSE)\n\n\nPeek structure\nglimpse(dat)\n\n\nFirst rows\nhead(dat, 10)"
-  },
-  {
-    "objectID": "r-reference.html#r-factors",
-    "href": "r-reference.html#r-factors",
-    "title": "R Quick Reference",
-    "section": "",
-    "text": "Task\nCode pattern\n\n\n\n\nSet levels / order\ndat &lt;- dat \\|&gt; mutate(group = factor(group, levels = c(\"A\", \"B\")))\n\n\nCheck levels\nlevels(dat$group)\n\n\n\nUse factors so ggplot and tables order categories sensibly."
-  },
-  {
-    "objectID": "r-reference.html#r-summaries",
-    "href": "r-reference.html#r-summaries",
-    "title": "R Quick Reference",
-    "section": "",
-    "text": "Setting\nCode pattern\n\n\n\n\nOne numerical variable\ndat \\|&gt; summarize(mean_y = mean(y), sd_y = sd(y), n_y=n())\n\n\nNumerical by two groups\ndat \\|&gt; group_by(group) \\|&gt; summarize(n = n(), mean_y = mean(y), sd_y = sd(y))\n\n\nCounts for one categorical\ndat \\|&gt; count(category) \\|&gt; mutate(prop = n / sum(n))\n\n\n2 × 2 counts\ndat \\|&gt; count(group, outcome) then pivot_wider"
-  },
-  {
-    "objectID": "r-reference.html#r-plots",
-    "href": "r-reference.html#r-plots",
-    "title": "R Quick Reference",
-    "section": "",
-    "text": "Setting\nPattern\n\n\n\n\nNumerical response, two groups\nggplot(dat, aes(x = group, y = y)) + geom_boxplot() (Lecture 25); or geom_histogram(aes(fill = group), ...)\n\n\nTwo categorical (e.g. group × outcome)\ndat \\|&gt; count(group, outcome) \\|&gt; ggplot(aes(x = group, y = n, fill = outcome)) + geom_col() (Lecture 27); add position = \"fill\" for 100% stacked\n\n\nTwo numerical\nggplot(dat, aes(x = x1, y = x2)) + geom_point() (Lecture 26)\n\n\nSubclassification (confounder)\nAdd facet_wrap(~ confounder) to the plot above (Lecture 28)\n\n\n\nAlways add labs(title = ..., x = ..., y = ...) with units where relevant."
-  },
-  {
-    "objectID": "r-reference.html#r-tests",
-    "href": "r-reference.html#r-tests",
-    "title": "R Quick Reference",
-    "section": "",
-    "text": "Use the Lecture 30 Methods table to pick one primary test for the “by chance” question.\n\n\n\n\n\n\n\n\nResponse type\nR command\nNotes\n\n\n\n\nNumerical, 2 groups\nt.test(y ~ group, data = dat, var.equal = FALSE)\nWelch t-test; output includes 95% CI for \\(\\mu_1 - \\mu_2\\) (Lecture 29)\n\n\nBinary (0/1 or two levels), 2 groups\nprop.test(x = c(x1, x2), n = c(n1, n2), correct = FALSE)\nCompares two proportions\n\n\nTwo categorical variables\nchisq.test(tab)\nCheck chisq.test(tab)$expected for ≥ 5 rule (Lecture 28)"
-  },
-  {
-    "objectID": "r-reference.html#r-sim",
-    "href": "r-reference.html#r-sim",
-    "title": "R Quick Reference",
-    "section": "",
-    "text": "Task\nExample pattern\n\n\n\n\nBuild tibble\ntibble(group = rep(c(\"A\", \"B\"), each = 30), y = c(rnorm(30, 10, 2), rnorm(30, 12, 2)))\n\n\nBinary outcome\nrbinom(n, 1, prob = ...) inside mutate or c(...)\n\n\nSave\nwrite_csv(dat, \"project4_data.csv\")\n\n\n\n\n\nread_csv path and glimpse — Do column names match your Part 1 definitions?\nfactor — Are group and outcome coded with the correct levels?\ngroup_by + summarize — Does the code compute means/SDs for numerical responses and counts/proportions for categorical responses?\nggplot — Is the geom right (boxplot vs bar vs histogram) for your variable types?\nTest — Is it t.test(..., var.equal = FALSE) for mean vs prop.test / chisq.test for proportions?\nConditions — random sample or assignment? sample size large enough? See methods table for exact condition to check."
+    "text": "Week\nMon\nWed\nThu\nFri\nSun\n\n\n\n\n1 (Jan 20–23)\nHoliday\nLec\nLab 1 + Quiz 1\nLec\n—\n\n\n2 (Jan 26–30)\nLec\nLec\nLab 2 + Quiz 2\nLec\n—\n\n\n3 (Feb 2–6)\nLec\nLec\nLab 3 + Quiz 3\nLec\n—\n\n\n4 (Feb 9–13)\nLec\nLec\nLab 4 + Quiz 4\nLec\n—\n\n\n5 (Feb 16–20)\nLec\nLec\nLab 5 + Quiz 5\nLec\nProject 1 due (Sun Feb 22)\n\n\n6 (Feb 23–27)\nLec\nLec\nLab 6 + Quiz 6\nLec\n—\n\n\n7 (Mar 2–6)\nLec\nReview\nReview (no quiz)\nMidterm 1\n—\n\n\n8 (Mar 9–13)\nLec\nLec\nLab 7 + Quiz 7\nLec\n—\n\n\n— (Mar 16–20)\n—\n—\n—\n—\n—\n\n\n9 (Mar 23–27)\nLec\nLec\nLab 8 + Quiz 8\nLec\nProject 2 due (Sun Mar 29)\n\n\n10 (Mar 30–Apr 3)\nLec\nLec\nLab 9 + Quiz 9\nLec\n—\n\n\n11 (Apr 6–10)\nLec\nLec\nLab 10 + Quiz 10\nLec\nProject 3 due (Sun Apr 12)\n\n\n12 (Apr 13–17)\nLec\nLec\nLab 11 + Quiz 11\nLec\n—\n\n\n13 (Apr 20–24)\nLec\nReview\nReview (no quiz)\nMidterm 2\n—\n\n\n14 (Apr 27–May 1)\nLec\nLec\nLab 12 + Quiz 12\nLec\n—\n\n\n15 (May 4–8)\nLec\nReview\nLab 13 + Quiz 13\nReview + Project 4 due (Fri May 8)\n—\n\n\nFinals (May 11–15)\n—\nFinal Exam\n—\nProject 5 due (Fri May 15)\n—\n\n\n\nNotes:\n\nMon Week 1 = Holiday (No class)\nWeek 10 = Holiday (we have no class on Tuesday, March 31)"
   }
 ]
