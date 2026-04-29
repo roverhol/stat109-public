@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -73,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-be3771519f21acc1c5b6733774c6dcd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-4897d45d2f75ed4f519693be625836c5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -105,6 +105,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/css/humboldt-theme.css">
 </head>
@@ -120,7 +149,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#quiz-13" id="toc-quiz-13" class="nav-link active" data-scroll-target="#quiz-13">Quiz 13</a></li>
+  <li><a href="#quiz-13" id="toc-quiz-13" class="nav-link active" data-scroll-target="#quiz-13">Quiz 13</a>
+  <ul class="collapse">
+  <li><a href="#quiz-13-practice-problems" id="toc-quiz-13-practice-problems" class="nav-link" data-scroll-target="#quiz-13-practice-problems">Quiz 13 practice problems</a></li>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#part-a-scatterplot-and-correlation-concepts" id="toc-part-a-scatterplot-and-correlation-concepts" class="nav-link" data-scroll-target="#part-a-scatterplot-and-correlation-concepts">Part A: Scatterplot and correlation concepts</a>
+  <ul class="collapse">
+  <li><a href="#a1." id="toc-a1." class="nav-link" data-scroll-target="#a1.">A1.</a></li>
+  <li><a href="#a2." id="toc-a2." class="nav-link" data-scroll-target="#a2.">A2.</a></li>
+  <li><a href="#a3." id="toc-a3." class="nav-link" data-scroll-target="#a3.">A3.</a></li>
+  </ul></li>
+  <li><a href="#part-b-interpreting-regression-equation" id="toc-part-b-interpreting-regression-equation" class="nav-link" data-scroll-target="#part-b-interpreting-regression-equation">Part B: Interpreting regression equation</a>
+  <ul class="collapse">
+  <li><a href="#b1." id="toc-b1." class="nav-link" data-scroll-target="#b1.">B1.</a></li>
+  <li><a href="#b2." id="toc-b2." class="nav-link" data-scroll-target="#b2.">B2.</a></li>
+  <li><a href="#b3." id="toc-b3." class="nav-link" data-scroll-target="#b3.">B3.</a></li>
+  </ul></li>
+  <li><a href="#part-c-residuals-traintest-mse-and-test-r2" id="toc-part-c-residuals-traintest-mse-and-test-r2" class="nav-link" data-scroll-target="#part-c-residuals-traintest-mse-and-test-r2">Part C: Residuals, train/test MSE, and test (R^2)</a>
+  <ul class="collapse">
+  <li><a href="#c1." id="toc-c1." class="nav-link" data-scroll-target="#c1.">C1.</a></li>
+  <li><a href="#c2." id="toc-c2." class="nav-link" data-scroll-target="#c2.">C2.</a></li>
+  <li><a href="#c3." id="toc-c3." class="nav-link" data-scroll-target="#c3.">C3.</a></li>
+  <li><a href="#c4." id="toc-c4." class="nav-link" data-scroll-target="#c4.">C4.</a></li>
+  </ul></li>
+  <li><a href="#part-d-interpreting-r-output-summarylm..." id="toc-part-d-interpreting-r-output-summarylm..." class="nav-link" data-scroll-target="#part-d-interpreting-r-output-summarylm...">Part D: Interpreting R output (<code>summary(lm(...))</code>)</a>
+  <ul class="collapse">
+  <li><a href="#d1." id="toc-d1." class="nav-link" data-scroll-target="#d1.">D1.</a></li>
+  <li><a href="#d2." id="toc-d2." class="nav-link" data-scroll-target="#d2.">D2.</a></li>
+  <li><a href="#d3." id="toc-d3." class="nav-link" data-scroll-target="#d3.">D3.</a></li>
+  </ul></li>
+  <li><a href="#part-e-confidence-intervals-and-prediction-intervals" id="toc-part-e-confidence-intervals-and-prediction-intervals" class="nav-link" data-scroll-target="#part-e-confidence-intervals-and-prediction-intervals">Part E: Confidence intervals and prediction intervals</a>
+  <ul class="collapse">
+  <li><a href="#e1.-ci-for-slope" id="toc-e1.-ci-for-slope" class="nav-link" data-scroll-target="#e1.-ci-for-slope">E1. CI for slope</a></li>
+  <li><a href="#e2.-ci-for-mean-response" id="toc-e2.-ci-for-mean-response" class="nav-link" data-scroll-target="#e2.-ci-for-mean-response">E2. CI for mean response</a></li>
+  <li><a href="#e3.-prediction-interval-for-individual-response" id="toc-e3.-prediction-interval-for-individual-response" class="nav-link" data-scroll-target="#e3.-prediction-interval-for-individual-response">E3. Prediction interval for individual response</a></li>
+  <li><a href="#e4." id="toc-e4." class="nav-link" data-scroll-target="#e4.">E4.</a></li>
+  </ul></li>
+  <li><a href="#part-f-assumptions-and-diagnostics" id="toc-part-f-assumptions-and-diagnostics" class="nav-link" data-scroll-target="#part-f-assumptions-and-diagnostics">Part F: Assumptions and diagnostics</a>
+  <ul class="collapse">
+  <li><a href="#f1." id="toc-f1." class="nav-link" data-scroll-target="#f1.">F1.</a></li>
+  <li><a href="#f2." id="toc-f2." class="nav-link" data-scroll-target="#f2.">F2.</a></li>
+  </ul></li>
+  <li><a href="#part-g-short-response-interpretation-1-3-sentences-each" id="toc-part-g-short-response-interpretation-1-3-sentences-each" class="nav-link" data-scroll-target="#part-g-short-response-interpretation-1-3-sentences-each">Part G: Short-response interpretation (1-3 sentences each)</a>
+  <ul class="collapse">
+  <li><a href="#g1." id="toc-g1." class="nav-link" data-scroll-target="#g1.">G1.</a></li>
+  <li><a href="#g2." id="toc-g2." class="nav-link" data-scroll-target="#g2.">G2.</a></li>
+  <li><a href="#g3." id="toc-g3." class="nav-link" data-scroll-target="#g3.">G3.</a></li>
+  <li><a href="#g4." id="toc-g4." class="nav-link" data-scroll-target="#g4.">G4.</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="quiz-13.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
@@ -153,11 +230,324 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="quiz-13" class="level1">
 <h1>Quiz 13</h1>
-<p><em>Instructions coming soon.</em></p>
+<section id="quiz-13-practice-problems" class="level2">
+<h2 class="anchored" data-anchor-id="quiz-13-practice-problems">Quiz 13 practice problems</h2>
+<p>These practice problems cover Lecture 35 and Lecture 36:</p>
+<ul>
+<li>reading scatterplots for form, direction, and strength,</li>
+<li>Pearson correlation and simple linear regression,</li>
+<li>interpreting slope/intercept and model predictions,</li>
+<li>residuals, training vs test MSE and <code>R^2</code>,</li>
+<li>interpreting confidence intervals and prediction intervals from R output.</li>
+</ul>
+<p>This quiz is primarily conceptual and interpretation-focused (no long hand calculations).</p>
+<hr>
+</section>
+<section id="instructions" class="level2">
+<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
+<ul>
+<li>Work without notes first, then check your work.</li>
+<li>For multiple-choice questions, choose the best single answer.</li>
+<li>Unless stated otherwise, interpret intervals at 95% confidence.</li>
+</ul>
+<hr>
+</section>
+<section id="part-a-scatterplot-and-correlation-concepts" class="level2">
+<h2 class="anchored" data-anchor-id="part-a-scatterplot-and-correlation-concepts">Part A: Scatterplot and correlation concepts</h2>
+<section id="a1." class="level3">
+<h3 class="anchored" data-anchor-id="a1.">A1.</h3>
+<p>A scatterplot of <code>y</code> vs <code>x</code> shows points roughly around an upward straight-line trend with moderate scatter.</p>
+<p>Best description:</p>
+<ol type="a">
+<li>Linear, negative, weak<br>
+</li>
+<li>Linear, positive, moderate<br>
+</li>
+<li>Curved, positive, strong</li>
+</ol>
+<hr>
+</section>
+<section id="a2." class="level3">
+<h3 class="anchored" data-anchor-id="a2.">A2.</h3>
+<p>Which value of Pearson correlation <code>r</code> best matches a strong negative linear association?</p>
+<ol type="a">
+<li><code>r = -0.86</code><br>
+</li>
+<li><code>r = 0.08</code><br>
+</li>
+<li><code>r = 0.74</code></li>
+</ol>
+<hr>
+</section>
+<section id="a3." class="level3">
+<h3 class="anchored" data-anchor-id="a3.">A3.</h3>
+<p>Which statement about correlation is correct?</p>
+<ol type="a">
+<li>Correlation implies causation.<br>
+</li>
+<li>Correlation only captures linear association and is unitless.<br>
+</li>
+<li>Correlation is measured in units of <code>y</code>.</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="part-b-interpreting-regression-equation" class="level2">
+<h2 class="anchored" data-anchor-id="part-b-interpreting-regression-equation">Part B: Interpreting regression equation</h2>
+<p>Suppose the fitted line is:</p>
+<p><span class="math display">\[\hat{y} = 42.5 + 3.1x\]</span></p>
+<section id="b1." class="level3">
+<h3 class="anchored" data-anchor-id="b1.">B1.</h3>
+<p>Interpret the slope:</p>
+<ol type="a">
+<li>For each 1-unit increase in <code>x</code>, predicted mean <code>y</code> increases by about 3.1 units.<br>
+</li>
+<li>When <code>x = 0</code>, predicted <code>y</code> is 3.1.<br>
+</li>
+<li>The model explains 3.1% of variation in <code>y</code>.</li>
+</ol>
+<hr>
+</section>
+<section id="b2." class="level3">
+<h3 class="anchored" data-anchor-id="b2.">B2.</h3>
+<p>Interpret the intercept:</p>
+<ol type="a">
+<li>For each 1-unit increase in <code>x</code>, predicted mean <code>y</code> changes by 42.5.<br>
+</li>
+<li>Predicted mean <code>y</code> when <code>x = 0</code> is 42.5 (if meaningful in context).<br>
+</li>
+<li>The minimum possible value of <code>y</code> is 42.5.</li>
+</ol>
+<hr>
+</section>
+<section id="b3." class="level3">
+<h3 class="anchored" data-anchor-id="b3.">B3.</h3>
+<p>Use the model to predict <code>y</code> when <code>x = 10</code>.</p>
+<ol type="a">
+<li><code>42.5 + 3.1(10) = 73.5</code><br>
+</li>
+<li><code>42.5 + 10 = 52.5</code><br>
+</li>
+<li><code>3.1 + 10 = 13.1</code></li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="part-c-residuals-traintest-mse-and-test-r2" class="level2">
+<h2 class="anchored" data-anchor-id="part-c-residuals-traintest-mse-and-test-r2">Part C: Residuals, train/test MSE, and test (R^2)</h2>
+<section id="c1." class="level3">
+<h3 class="anchored" data-anchor-id="c1.">C1.</h3>
+<p>A residual is:</p>
+<ol type="a">
+<li><code>predicted - observed</code><br>
+</li>
+<li><code>observed - predicted</code><br>
+</li>
+<li><code>observed / predicted</code></li>
+</ol>
+<hr>
+</section>
+<section id="c2." class="level3">
+<h3 class="anchored" data-anchor-id="c2.">C2.</h3>
+<p>Why is training MSE often optimistically biased?</p>
+<ol type="a">
+<li>It is measured on the same data used to fit the model.<br>
+</li>
+<li>Test sets always have data-entry errors.<br>
+</li>
+<li>MSE cannot be computed on training data.</li>
+</ol>
+<hr>
+</section>
+<section id="c3." class="level3">
+<h3 class="anchored" data-anchor-id="c3.">C3.</h3>
+<p>Which metric is usually better for expected performance on new data?</p>
+<ol type="a">
+<li>Training MSE<br>
+</li>
+<li>Test MSE<br>
+</li>
+<li>Training residual mean</li>
+</ol>
+<hr>
+</section>
+<section id="c4." class="level3">
+<h3 class="anchored" data-anchor-id="c4.">C4.</h3>
+<p>A model has test <code>R^2 = 0.64</code>. Best interpretation:</p>
+<ol type="a">
+<li>64% of variability in <code>x</code> is explained by <code>y</code>.<br>
+</li>
+<li>About 64% of variability in test-set <code>y</code> is explained by linear prediction from <code>x</code>.<br>
+</li>
+<li>64% of individual predictions are exact.</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="part-d-interpreting-r-output-summarylm..." class="level2">
+<h2 class="anchored" data-anchor-id="part-d-interpreting-r-output-summarylm...">Part D: Interpreting R output (<code>summary(lm(...))</code>)</h2>
+<p>Suppose R output includes:</p>
+<ul>
+<li><code>Coefficients:</code></li>
+<li><code>(Intercept) Estimate = 50.2</code></li>
+<li><code>hours Estimate = 2.8</code></li>
+<li><code>Pr(&gt;|t|) for hours = 0.004</code></li>
+<li><code>Multiple R-squared: 0.58</code></li>
+</ul>
+<section id="d1." class="level3">
+<h3 class="anchored" data-anchor-id="d1.">D1.</h3>
+<p>What does <code>Estimate = 2.8</code> for <code>hours</code> mean?</p>
+<ol type="a">
+<li>Predicted mean outcome increases by about 2.8 units per +1 hour in <code>x</code>.<br>
+</li>
+<li>Outcome is always exactly 2.8.<br>
+</li>
+<li>Correlation equals 2.8.</li>
+</ol>
+<hr>
+</section>
+<section id="d2." class="level3">
+<h3 class="anchored" data-anchor-id="d2.">D2.</h3>
+<p>How should you interpret <code>Pr(&gt;|t|) = 0.004</code> for <code>hours</code>?</p>
+<ol type="a">
+<li>Strong evidence slope differs from 0 (under model assumptions).<br>
+</li>
+<li>Exactly 0.4% of observations are errors.<br>
+</li>
+<li>Probability the null is true is 0.004.</li>
+</ol>
+<hr>
+</section>
+<section id="d3." class="level3">
+<h3 class="anchored" data-anchor-id="d3.">D3.</h3>
+<p>How should you interpret <code>Multiple R-squared: 0.58</code>?</p>
+<ol type="a">
+<li>58% of <code>x</code> is explained by <code>y</code>.<br>
+</li>
+<li>About 58% of variation in <code>y</code> in the fitted sample is explained by the linear model.<br>
+</li>
+<li>58% chance the model is correct.</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="part-e-confidence-intervals-and-prediction-intervals" class="level2">
+<h2 class="anchored" data-anchor-id="part-e-confidence-intervals-and-prediction-intervals">Part E: Confidence intervals and prediction intervals</h2>
+<section id="e1.-ci-for-slope" class="level3">
+<h3 class="anchored" data-anchor-id="e1.-ci-for-slope">E1. CI for slope</h3>
+<p>Suppose <code>confint(fit, "hours")</code> returns <code>(1.2, 4.3)</code>.</p>
+<p>Best interpretation:</p>
+<ol type="a">
+<li>We are 95% confident the population slope is between 1.2 and 4.3.<br>
+</li>
+<li>95% of points lie between 1.2 and 4.3.<br>
+</li>
+<li>The slope equals exactly 2.75 with certainty.</li>
+</ol>
+<hr>
+</section>
+<section id="e2.-ci-for-mean-response" class="level3">
+<h3 class="anchored" data-anchor-id="e2.-ci-for-mean-response">E2. CI for mean response</h3>
+<p><code>predict(fit, newdata = data.frame(hours = 8), interval = "confidence")</code> gives:</p>
+<ul>
+<li><code>fit = 72.1</code>, <code>lwr = 69.8</code>, <code>upr = 74.4</code></li>
+</ul>
+<p>Interpretation:</p>
+<ol type="a">
+<li>95% CI for mean outcome among all units with <code>hours = 8</code> is 69.8 to 74.4.<br>
+</li>
+<li>95% of individual outcomes at <code>hours = 8</code> must be in 69.8 to 74.4.<br>
+</li>
+<li>72.1 is the slope.</li>
+</ol>
+<hr>
+</section>
+<section id="e3.-prediction-interval-for-individual-response" class="level3">
+<h3 class="anchored" data-anchor-id="e3.-prediction-interval-for-individual-response">E3. Prediction interval for individual response</h3>
+<p><code>predict(fit, newdata = data.frame(hours = 8), interval = "prediction")</code> gives:</p>
+<ul>
+<li><code>fit = 72.1</code>, <code>lwr = 60.4</code>, <code>upr = 83.8</code></li>
+</ul>
+<p>Best interpretation:</p>
+<ol type="a">
+<li>95% interval for one future individual outcome at <code>hours = 8</code> is 60.4 to 83.8.<br>
+</li>
+<li>95% CI for the mean at <code>hours = 8</code> is 60.4 to 83.8.<br>
+</li>
+<li>The model is poor because the interval is wider than a mean-response CI.</li>
+</ol>
+<hr>
+</section>
+<section id="e4." class="level3">
+<h3 class="anchored" data-anchor-id="e4.">E4.</h3>
+<p>Why is a prediction interval usually wider than a confidence interval for the mean at the same <code>x0</code>?</p>
+<ol type="a">
+<li>It includes both uncertainty in the mean and individual-level variability.<br>
+</li>
+<li>It uses a different unit system.<br>
+</li>
+<li>It always uses a larger sample size.</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="part-f-assumptions-and-diagnostics" class="level2">
+<h2 class="anchored" data-anchor-id="part-f-assumptions-and-diagnostics">Part F: Assumptions and diagnostics</h2>
+<section id="f1." class="level3">
+<h3 class="anchored" data-anchor-id="f1.">F1.</h3>
+<p>Which condition is important for using usual t-based confidence intervals for slope in simple linear regression?</p>
+<ol type="a">
+<li>Residuals are roughly normal (especially for small/moderate sample sizes).<br>
+</li>
+<li>Explanatory variable is categorical.<br>
+</li>
+<li>Response must be binary.</li>
+</ol>
+<hr>
+</section>
+<section id="f2." class="level3">
+<h3 class="anchored" data-anchor-id="f2.">F2.</h3>
+<p>A residual histogram is strongly skewed with extreme outliers in a small sample. Best response:</p>
+<ol type="a">
+<li>Interpret CIs/p-values cautiously; model assumptions may be questionable.<br>
+</li>
+<li>Ignore diagnostics if <code>R^2</code> is high.<br>
+</li>
+<li>Conclude slope is definitely zero.</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="part-g-short-response-interpretation-1-3-sentences-each" class="level2">
+<h2 class="anchored" data-anchor-id="part-g-short-response-interpretation-1-3-sentences-each">Part G: Short-response interpretation (1-3 sentences each)</h2>
+<section id="g1." class="level3">
+<h3 class="anchored" data-anchor-id="g1.">G1.</h3>
+<p>Explain the difference between what <strong>test MSE</strong> and <strong>test <code>R^2</code></strong> each tell you.</p>
+<hr>
+</section>
+<section id="g2." class="level3">
+<h3 class="anchored" data-anchor-id="g2.">G2.</h3>
+<p>In plain language, explain what it means when the 95% CI for slope excludes 0.</p>
+<hr>
+</section>
+<section id="g3." class="level3">
+<h3 class="anchored" data-anchor-id="g3.">G3.</h3>
+<p>A student says: “Our training <code>R^2</code> is high, so we are guaranteed to predict new data well.” Briefly respond.</p>
+<hr>
+</section>
+<section id="g4." class="level3">
+<h3 class="anchored" data-anchor-id="g4.">G4.</h3>
+<p>You are given both a confidence interval for the mean at <code>x0</code> and a prediction interval at the same <code>x0</code>. Which should you report for:</p>
+<ul>
+<li>a population-average statement, and</li>
+<li>an individual future-case statement?</li>
+</ul>
 
 
 <!-- -->
 
+</section>
+</section>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>Creative Commons Attribution-NonCommercial 4.0 International<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">(View License)</a></div></div></section></div></main> <!-- /main -->
@@ -624,7 +1014,280 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Quiz 13</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>*Instructions coming soon.*</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quiz 13 practice problems</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>These practice problems cover Lecture 35 and Lecture 36:</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>reading scatterplots for form, direction, and strength,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Pearson correlation and simple linear regression,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>interpreting slope/intercept and model predictions,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>residuals, training vs test MSE and <span class="in">`R^2`</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>interpreting confidence intervals and prediction intervals from R output.</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>This quiz is primarily conceptual and interpretation-focused (no long hand calculations).</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Instructions</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Work without notes first, then check your work.</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>For multiple-choice questions, choose the best single answer.</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Unless stated otherwise, interpret intervals at 95% confidence.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part A: Scatterplot and correlation concepts</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">### A1.</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>A scatterplot of <span class="in">`y`</span> vs <span class="in">`x`</span> shows points roughly around an upward straight-line trend with moderate scatter.</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>Best description:</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>a) Linear, negative, weak\</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>b) Linear, positive, moderate\</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>c) Curved, positive, strong</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="fu">### A2.</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>Which value of Pearson correlation <span class="in">`r`</span> best matches a strong negative linear association?</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>a) <span class="in">`r = -0.86`</span>\</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>b) <span class="in">`r = 0.08`</span>\</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>c) <span class="in">`r = 0.74`</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="fu">### A3.</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>Which statement about correlation is correct?</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>a) Correlation implies causation.\</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>b) Correlation only captures linear association and is unitless.\</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>c) Correlation is measured in units of <span class="in">`y`</span>.</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part B: Interpreting regression equation</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>Suppose the fitted line is:</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>$$\hat{y} = 42.5 + 3.1x$$</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="fu">### B1.</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>Interpret the slope:</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>a) For each 1-unit increase in <span class="in">`x`</span>, predicted mean <span class="in">`y`</span> increases by about 3.1 units.\</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>b) When <span class="in">`x = 0`</span>, predicted <span class="in">`y`</span> is 3.1.\</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>c) The model explains 3.1% of variation in <span class="in">`y`</span>.</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="fu">### B2.</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>Interpret the intercept:</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>a) For each 1-unit increase in <span class="in">`x`</span>, predicted mean <span class="in">`y`</span> changes by 42.5.\</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>b) Predicted mean <span class="in">`y`</span> when <span class="in">`x = 0`</span> is 42.5 (if meaningful in context).\</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>c) The minimum possible value of <span class="in">`y`</span> is 42.5.</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="fu">### B3.</span></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>Use the model to predict <span class="in">`y`</span> when <span class="in">`x = 10`</span>.</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>a) <span class="in">`42.5 + 3.1(10) = 73.5`</span>\</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>b) <span class="in">`42.5 + 10 = 52.5`</span>\</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>c) <span class="in">`3.1 + 10 = 13.1`</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part C: Residuals, train/test MSE, and test \(R^2\)</span></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="fu">### C1.</span></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>A residual is:</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>a) <span class="in">`predicted - observed`</span>\</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>b) <span class="in">`observed - predicted`</span>\</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>c) <span class="in">`observed / predicted`</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="fu">### C2.</span></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>Why is training MSE often optimistically biased?</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>a) It is measured on the same data used to fit the model.\</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>b) Test sets always have data-entry errors.\</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>c) MSE cannot be computed on training data.</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="fu">### C3.</span></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>Which metric is usually better for expected performance on new data?</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>a) Training MSE\</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>b) Test MSE\</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>c) Training residual mean</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="fu">### C4.</span></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>A model has test <span class="in">`R^2 = 0.64`</span>. Best interpretation:</span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>a) 64% of variability in <span class="in">`x`</span> is explained by <span class="in">`y`</span>.\</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>b) About 64% of variability in test-set <span class="in">`y`</span> is explained by linear prediction from <span class="in">`x`</span>.\</span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>c) 64% of individual predictions are exact.</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part D: Interpreting R output (`summary(lm(...))`)</span></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>Suppose R output includes:</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`Coefficients:`</span></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`(Intercept) Estimate = 50.2`</span></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`hours Estimate = 2.8`</span></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`Pr(&gt;|t|) for hours = 0.004`</span></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`Multiple R-squared: 0.58`</span></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a><span class="fu">### D1.</span></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a>What does <span class="in">`Estimate = 2.8`</span> for <span class="in">`hours`</span> mean?</span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a>a) Predicted mean outcome increases by about 2.8 units per +1 hour in <span class="in">`x`</span>.\</span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a>b) Outcome is always exactly 2.8.\</span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>c) Correlation equals 2.8.</span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="fu">### D2.</span></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>How should you interpret <span class="in">`Pr(&gt;|t|) = 0.004`</span> for <span class="in">`hours`</span>?</span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>a) Strong evidence slope differs from 0 (under model assumptions).\</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>b) Exactly 0.4% of observations are errors.\</span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>c) Probability the null is true is 0.004.</span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="fu">### D3.</span></span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>How should you interpret <span class="in">`Multiple R-squared: 0.58`</span>?</span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a>a) 58% of <span class="in">`x`</span> is explained by <span class="in">`y`</span>.\</span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a>b) About 58% of variation in <span class="in">`y`</span> in the fitted sample is explained by the linear model.\</span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>c) 58% chance the model is correct.</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part E: Confidence intervals and prediction intervals</span></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a><span class="fu">### E1. CI for slope</span></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a>Suppose <span class="in">`confint(fit, "hours")`</span> returns <span class="in">`(1.2, 4.3)`</span>.</span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>Best interpretation:</span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a>a) We are 95% confident the population slope is between 1.2 and 4.3.\</span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>b) 95% of points lie between 1.2 and 4.3.\</span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a>c) The slope equals exactly 2.75 with certainty.</span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a><span class="fu">### E2. CI for mean response</span></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a><span class="in">`predict(fit, newdata = data.frame(hours = 8), interval = "confidence")`</span> gives:</span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`fit = 72.1`</span>, <span class="in">`lwr = 69.8`</span>, <span class="in">`upr = 74.4`</span></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a>Interpretation:</span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a>a) 95% CI for mean outcome among all units with <span class="in">`hours = 8`</span> is 69.8 to 74.4.\</span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a>b) 95% of individual outcomes at <span class="in">`hours = 8`</span> must be in 69.8 to 74.4.\</span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a>c) 72.1 is the slope.</span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="fu">### E3. Prediction interval for individual response</span></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a><span class="in">`predict(fit, newdata = data.frame(hours = 8), interval = "prediction")`</span> gives:</span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`fit = 72.1`</span>, <span class="in">`lwr = 60.4`</span>, <span class="in">`upr = 83.8`</span></span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a>Best interpretation:</span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a>a) 95% interval for one future individual outcome at <span class="in">`hours = 8`</span> is 60.4 to 83.8.\</span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a>b) 95% CI for the mean at <span class="in">`hours = 8`</span> is 60.4 to 83.8.\</span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a>c) The model is poor because the interval is wider than a mean-response CI.</span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a><span class="fu">### E4.</span></span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a>Why is a prediction interval usually wider than a confidence interval for the mean at the same <span class="in">`x0`</span>?</span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>a) It includes both uncertainty in the mean and individual-level variability.\</span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>b) It uses a different unit system.\</span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a>c) It always uses a larger sample size.</span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part F: Assumptions and diagnostics</span></span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a><span class="fu">### F1.</span></span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a>Which condition is important for using usual t-based confidence intervals for slope in simple linear regression?</span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a>a) Residuals are roughly normal (especially for small/moderate sample sizes).\</span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a>b) Explanatory variable is categorical.\</span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a>c) Response must be binary.</span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a><span class="fu">### F2.</span></span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a>A residual histogram is strongly skewed with extreme outliers in a small sample. Best response:</span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a>a) Interpret CIs/p-values cautiously; model assumptions may be questionable.\</span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a>b) Ignore diagnostics if <span class="in">`R^2`</span> is high.\</span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a>c) Conclude slope is definitely zero.</span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part G: Short-response interpretation (1-3 sentences each)</span></span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a><span class="fu">### G1.</span></span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a>Explain the difference between what **test MSE** and **test `R^2`** each tell you.</span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a><span class="fu">### G2.</span></span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a>In plain language, explain what it means when the 95% CI for slope excludes 0.</span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a><span class="fu">### G3.</span></span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a>A student says: "Our training <span class="in">`R^2`</span> is high, so we are guaranteed to predict new data well." Briefly respond.</span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a><span class="fu">### G4.</span></span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a>You are given both a confidence interval for the mean at <span class="in">`x0`</span> and a prediction interval at the same <span class="in">`x0`</span>. Which should you report for:</span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>a population-average statement, and</span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>an individual future-case statement?</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
