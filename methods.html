@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -73,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-be3771519f21acc1c5b6733774c6dcd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4897d45d2f75ed4f519693be625836c5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -105,6 +105,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/css/humboldt-theme.css">
 </head>
@@ -120,22 +149,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#methods-map" id="toc-methods-map" class="nav-link active" data-scroll-target="#methods-map">Methods Map</a>
+  <li><a href="#methods-table" id="toc-methods-table" class="nav-link active" data-scroll-target="#methods-table">Methods Table</a>
   <ul class="collapse">
-  <li><a href="#methods-descriptive" id="toc-methods-descriptive" class="nav-link" data-scroll-target="#methods-descriptive">Descriptive Statistics</a>
-  <ul class="collapse">
-  <li><a href="#M-D-1Q" id="toc-M-D-1Q" class="nav-link" data-scroll-target="#M-D-1Q">One Quantitative Variable</a></li>
-  <li><a href="#M-D-2Q" id="toc-M-D-2Q" class="nav-link" data-scroll-target="#M-D-2Q">Two Quantitative Variables</a></li>
-  <li><a href="#M-D-1C" id="toc-M-D-1C" class="nav-link" data-scroll-target="#M-D-1C">One Categorical Variable</a></li>
-  <li><a href="#M-D-2C" id="toc-M-D-2C" class="nav-link" data-scroll-target="#M-D-2C">Two Categorical Variables</a></li>
-  </ul></li>
-  <li><a href="#methods-inferential" id="toc-methods-inferential" class="nav-link" data-scroll-target="#methods-inferential">Inferential Statistics</a>
-  <ul class="collapse">
-  <li><a href="#M-I-1Q" id="toc-M-I-1Q" class="nav-link" data-scroll-target="#M-I-1Q">One Quantitative Variable</a></li>
-  <li><a href="#M-I-2Q" id="toc-M-I-2Q" class="nav-link" data-scroll-target="#M-I-2Q">Two Quantitative Variables</a></li>
-  <li><a href="#M-I-1C" id="toc-M-I-1C" class="nav-link" data-scroll-target="#M-I-1C">One Categorical Variable</a></li>
-  <li><a href="#M-I-2C" id="toc-M-I-2C" class="nav-link" data-scroll-target="#M-I-2C">Two Categorical Variables</a></li>
-  </ul></li>
+  <li><a href="#methods-toolbox" id="toc-methods-toolbox" class="nav-link" data-scroll-target="#methods-toolbox">One toolbox table</a></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="methods.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -167,49 +184,196 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="methods-map" class="level1">
-<h1>Methods Map</h1>
-<section id="methods-descriptive" class="level2">
-<h2 class="anchored" data-anchor-id="methods-descriptive">Descriptive Statistics</h2>
-<section id="M-D-1Q" class="level3">
-<h3 class="anchored" data-anchor-id="M-D-1Q">One Quantitative Variable</h3>
-<p>[Content to be added]</p>
+<section id="methods-table" class="level1">
+<h1>Methods Table</h1>
+<p>This page is our statistics <strong>“toolbox.”</strong> It is organized by:</p>
+<ul>
+<li>what we want to do (<strong>descriptive</strong>: plot/number summary, or <strong>inferential</strong>: test/CI/prediction), and</li>
+<li>what we have (the <strong>number and type of variables</strong>).</li>
+</ul>
+<p>For the table below:</p>
+<ul>
+<li><strong>columns = what we have</strong> (number/type of variables),</li>
+<li><strong>rows = what we want to do</strong> (describe, infer a parameter, infer an individual value).</li>
+</ul>
+<hr>
+<section id="methods-toolbox" class="level2">
+<h2 class="anchored" data-anchor-id="methods-toolbox">One toolbox table</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>What we want</th>
+<th>One categorical</th>
+<th>One numerical</th>
+<th>Two categorical (2+ categories allowed)</th>
+<th>EV categorical + RV numerical (2 EV groups)</th>
+<th>EV categorical + RV numerical (3+ EV groups)</th>
+<th>Two numerical</th>
+<th>RV binary + EV predictor(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Describe: number summary</strong></td>
+<td>Counts, proportions, percentages (<code>count</code>, <code>mutate</code>)</td>
+<td>Mean/median; SD/range/IQR (<code>summarize</code>)</td>
+<td>Two-way counts + row/column/grand proportions</td>
+<td>Group-wise means/SDs by category (<code>group_by</code>)</td>
+<td>Group-wise means/SDs by category (<code>group_by</code>)</td>
+<td>Correlation <code>cor(x,y)</code> + slope/intercept summaries</td>
+<td>Class counts and proportions by predictor groups</td>
+</tr>
+<tr class="even">
+<td><strong>Describe: plot</strong></td>
+<td>Bar plot (<code>geom_bar</code> or <code>geom_col</code>)</td>
+<td>Histogram / boxplot / dotplot</td>
+<td>Stacked or 100% stacked bar (<code>geom_col(position = "fill")</code>)</td>
+<td>Boxplot/histogram/dotplot per group</td>
+<td>Boxplot per group (ANOVA context)</td>
+<td>Scatterplot (<code>geom_point</code>)</td>
+<td>Bar plots by class or probability plot vs predictor</td>
+</tr>
+<tr class="odd">
+<td><strong>Infer parameter: notation</strong></td>
+<td><span class="math inline">\(p\)</span></td>
+<td><span class="math inline">\(\mu\)</span></td>
+<td>Association (<span class="math inline">\(\chi^2\)</span> independence); 2×2: <span class="math inline">\(p_1 - p_2\)</span></td>
+<td><span class="math inline">\(\mu_1 - \mu_2\)</span> (numerical RV) or <span class="math inline">\(p_1 - p_2\)</span> (binary RV)</td>
+<td><span class="math inline">\(\mu_1,\ldots,\mu_k\)</span> (ANOVA across EV groups)</td>
+<td><span class="math inline">\(\beta_0, \beta_1\)</span></td>
+<td>Logistic <span class="math inline">\(\beta\)</span>; prob.&nbsp;RV given EV</td>
+</tr>
+<tr class="even">
+<td><strong>Infer parameter: test name + sample null</strong></td>
+<td>One-proportion test, <span class="math inline">\(H_0: p = p_0\)</span></td>
+<td>One-sample (or paired) <span class="math inline">\(t\)</span>-test, <span class="math inline">\(H_0: \mu = \mu_0\)</span></td>
+<td>Chi-square independence, <span class="math inline">\(H_0\)</span>: EV and RV independent</td>
+<td>Two-sample <span class="math inline">\(t\)</span>-test <span class="math inline">\(H_0: \mu_1 - \mu_2 = 0\)</span>, or two-proportion <span class="math inline">\(H_0: p_1 - p_2 = 0\)</span></td>
+<td>One-way ANOVA <span class="math inline">\(H_0: \mu_1 = \mu_2 = \cdots = \mu_k\)</span></td>
+<td>Slope test <span class="math inline">\(H_0: \beta_1 = 0\)</span></td>
+<td>Logistic slope <span class="math inline">\(H_0: \beta_1 = 0\)</span> (or relevant coefficient <span class="math inline">\(= 0\)</span>)</td>
+</tr>
+<tr class="odd">
+<td><strong>Infer parameter: test R code</strong></td>
+<td><code>binom.test()</code> (exact) or <code>prop.test()</code></td>
+<td><code>t.test(x)</code> or paired <code>t.test(x,y,paired=TRUE)</code></td>
+<td><code>chisq.test(tab)</code></td>
+<td><code>t.test(y ~ group, var.equal = FALSE)</code> or <code>prop.test(...)</code></td>
+<td><code>fit &lt;- lm(y ~ group); anova(fit)</code></td>
+<td><code>fit &lt;- lm(y ~ x); summary(fit)</code></td>
+<td><code>fit &lt;- glm(y ~ x_or_group, family = binomial); summary(fit)</code></td>
+</tr>
+<tr class="even">
+<td><strong>Infer parameter: test conditions</strong></td>
+<td>Binomial / SRS; for <span class="math inline">\(z\)</span> approx need <span class="math inline">\(np \ge 10\)</span> and <span class="math inline">\(n(1-p) \ge 10\)</span></td>
+<td>Random sample (or paired) + large <span class="math inline">\(n\)</span> or roughly normal population/differences</td>
+<td>Independent obs.; expected counts typically <span class="math inline">\(\ge 5\)</span></td>
+<td>Two samples or random assignment; conditions for chosen method</td>
+<td>Independent obs.; roughly normal within groups; similar spread</td>
+<td>Linear form; independent obs.; residual assumptions for <span class="math inline">\(t\)</span>-based inference</td>
+<td>Binary RV; independent obs.; appropriate model form</td>
+</tr>
+<tr class="odd">
+<td><strong>Infer parameter: CI name</strong></td>
+<td>One-proportion CI</td>
+<td>One-sample (or paired) <span class="math inline">\(t\)</span>-interval</td>
+<td>Context-dependent (cell/row/column or follow-up)</td>
+<td>Two-sample <span class="math inline">\(t\)</span>-interval or two-proportion CI</td>
+<td>Post-hoc / group-mean intervals after ANOVA</td>
+<td>CI for <span class="math inline">\(\beta_1\)</span>; CI for mean response at <span class="math inline">\(x_0\)</span></td>
+<td>CI for logistic <span class="math inline">\(\beta\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Infer parameter: CI R code</strong></td>
+<td><code>prop.test()</code></td>
+<td><code>t.test()</code></td>
+<td>(Context-dependent; often not a single omnibus CI)</td>
+<td><code>t.test(...)</code> or <code>prop.test(...)</code></td>
+<td><code>fit &lt;- lm(...);</code> then follow-up contrasts/intervals as needed</td>
+<td><code>confint(fit, "x")</code>; <code>predict(fit, newdata=..., interval="confidence")</code></td>
+<td><code>confint(fit, "x_or_group")</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Infer parameter: CI conditions</strong></td>
+<td>Same as proportion-test approximation</td>
+<td>Same as t-test conditions</td>
+<td>Depends on interval used; independence remains key</td>
+<td>Same as chosen two-group method</td>
+<td>Same assumptions as ANOVA model</td>
+<td>Same regression assumptions as above</td>
+<td>Same logistic-model assumptions as above</td>
+</tr>
+<tr class="even">
+<td><strong>Infer individual value: notation</strong></td>
+<td>Individual category outcome (usually not main target)</td>
+<td>Individual future RV</td>
+<td>Individual future cell/category (usually not main target)</td>
+<td>Individual future RV in a selected EV group</td>
+<td>Individual future RV in selected EV group level</td>
+<td>Individual future RV at <span class="math inline">\(x_0\)</span></td>
+<td>Individual <span class="math inline">\(P(\text{RV}=1 \mid \text{EV})\)</span> and class after cutoff</td>
+</tr>
+<tr class="odd">
+<td><strong>Infer individual value: method name</strong></td>
+<td>(Usually classify/report probability)</td>
+<td>Prediction interval for one value</td>
+<td>(Usually classify/report probability)</td>
+<td>EV-group-based prediction interval for one value</td>
+<td>EV-group-based prediction interval for one value</td>
+<td>Linear-model prediction interval</td>
+<td>Logistic probability prediction + cutoff classification</td>
+</tr>
+<tr class="even">
+<td><strong>Infer individual value: R code</strong></td>
+<td><code>prop.test</code>/model-based probability methods</td>
+<td><code>predict(fit, newdata=..., interval="prediction")</code></td>
+<td><code>chisq</code> context not usually individual prediction</td>
+<td><code>fit &lt;- lm(y ~ group); predict(fit, newdata=..., interval="prediction")</code></td>
+<td><code>fit &lt;- lm(y ~ group); predict(fit, newdata=..., interval="prediction")</code></td>
+<td><code>fit &lt;- lm(y ~ x); predict(fit, newdata=..., interval="prediction")</code></td>
+<td><code>fit &lt;- glm(..., family=binomial); predict(fit, newdata=..., type="response")</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Infer individual value: conditions</strong></td>
+<td>Use caution; not usually central target</td>
+<td>Linear-model assumptions; interval is for <strong>individual</strong> not mean</td>
+<td>Not usually the main inferential target</td>
+<td>Independent observations; prediction interval for individual not mean</td>
+<td>Same as linear-model assumptions across groups</td>
+<td>Linear form + residual diagnostics; independent observations</td>
+<td>Binary outcome; independent observations; choose and justify cutoff</td>
+</tr>
+</tbody>
+</table>
+<hr>
 </section>
-<section id="M-D-2Q" class="level3">
-<h3 class="anchored" data-anchor-id="M-D-2Q">Two Quantitative Variables</h3>
-<p>[Content to be added]</p>
-</section>
-<section id="M-D-1C" class="level3">
-<h3 class="anchored" data-anchor-id="M-D-1C">One Categorical Variable</h3>
-<p>[Content to be added]</p>
-</section>
-<section id="M-D-2C" class="level3">
-<h3 class="anchored" data-anchor-id="M-D-2C">Two Categorical Variables</h3>
-<p>[Content to be added]</p>
-</section>
-</section>
-<section id="methods-inferential" class="level2">
-<h2 class="anchored" data-anchor-id="methods-inferential">Inferential Statistics</h2>
-<section id="M-I-1Q" class="level3">
-<h3 class="anchored" data-anchor-id="M-I-1Q">One Quantitative Variable</h3>
-<p>[Content to be added]</p>
-</section>
-<section id="M-I-2Q" class="level3">
-<h3 class="anchored" data-anchor-id="M-I-2Q">Two Quantitative Variables</h3>
-<p>[Content to be added]</p>
-</section>
-<section id="M-I-1C" class="level3">
-<h3 class="anchored" data-anchor-id="M-I-1C">One Categorical Variable</h3>
-<p>[Content to be added]</p>
-</section>
-<section id="M-I-2C" class="level3">
-<h3 class="anchored" data-anchor-id="M-I-2C">Two Categorical Variables</h3>
-<p>[Content to be added]</p>
+<section id="notes" class="level2">
+<h2 class="anchored" data-anchor-id="notes">Notes</h2>
+<ul>
+<li><strong>EV</strong> = explanatory variable (sometimes called treatment/predictor, depending on context).</li>
+<li><strong>RV</strong> = response variable (aka outcome variable).</li>
+<li>For any inferential row, always check:
+<ol type="1">
+<li>sample size(s),</li>
+<li>sampling method (random sample or independent/binomial trials),</li>
+<li>study design (observational vs experimental, paired vs independent),</li>
+<li>model assumptions where relevant.</li>
+</ol></li>
+</ul>
 
 
 <!-- -->
 
-</section>
 </section>
 </section>
 
@@ -675,43 +839,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "STAT 109: Introductory Biostatistics"</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Methods Map</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Methods Table</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Descriptive Statistics {#methods-descriptive}</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>This page is our statistics **“toolbox.”** It is organized by:</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">### One Quantitative Variable {#M-D-1Q}</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="sc">\[</span>Content to be added<span class="sc">\]</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">### Two Quantitative Variables {#M-D-2Q}</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="sc">\[</span>Content to be added<span class="sc">\]</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>what we want to do (**descriptive**: plot/number summary, or **inferential**: test/CI/prediction), and</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>what we have (the **number and type of variables**).</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>For the table below:</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**columns = what we have** (number/type of variables),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**rows = what we want to do** (describe, infer a parameter, infer an individual value).</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">### One Categorical Variable {#M-D-1C}</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="sc">\[</span>Content to be added<span class="sc">\]</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## One toolbox table {#methods-toolbox}</span></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">### Two Categorical Variables {#M-D-2C}</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="sc">\[</span>Content to be added<span class="sc">\]</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Inferential Statistics {#methods-inferential}</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">### One Quantitative Variable {#M-I-1Q}</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="sc">\[</span>Content to be added<span class="sc">\]</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">### Two Quantitative Variables {#M-I-2Q}</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="sc">\[</span>Content to be added<span class="sc">\]</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">### One Categorical Variable {#M-I-1C}</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> What we want <span class="pp">|</span> One categorical <span class="pp">|</span> One numerical <span class="pp">|</span> Two categorical (2+ categories allowed) <span class="pp">|</span> EV categorical + RV numerical (2 EV groups) <span class="pp">|</span> EV categorical + RV numerical (3+ EV groups) <span class="pp">|</span> Two numerical <span class="pp">|</span> RV binary + EV predictor(s) <span class="pp">|</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="pp">|---------|---------|---------|---------|---------|---------|---------|---------|</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Describe: number summary** <span class="pp">|</span> Counts, proportions, percentages (<span class="in">`count`</span>, <span class="in">`mutate`</span>) <span class="pp">|</span> Mean/median; SD/range/IQR (<span class="in">`summarize`</span>) <span class="pp">|</span> Two-way counts + row/column/grand proportions <span class="pp">|</span> Group-wise means/SDs by category (<span class="in">`group_by`</span>) <span class="pp">|</span> Group-wise means/SDs by category (<span class="in">`group_by`</span>) <span class="pp">|</span> Correlation <span class="in">`cor(x,y)`</span> + slope/intercept summaries <span class="pp">|</span> Class counts and proportions by predictor groups <span class="pp">|</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Describe: plot** <span class="pp">|</span> Bar plot (<span class="in">`geom_bar`</span> or <span class="in">`geom_col`</span>) <span class="pp">|</span> Histogram / boxplot / dotplot <span class="pp">|</span> Stacked or 100% stacked bar (<span class="in">`geom_col(position = "fill")`</span>) <span class="pp">|</span> Boxplot/histogram/dotplot per group <span class="pp">|</span> Boxplot per group (ANOVA context) <span class="pp">|</span> Scatterplot (<span class="in">`geom_point`</span>) <span class="pp">|</span> Bar plots by class or probability plot vs predictor <span class="pp">|</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Infer parameter: notation** <span class="pp">|</span> $p$ <span class="pp">|</span> $\mu$ <span class="pp">|</span> Association ($\chi^2$ independence); 2×2: $p_1 - p_2$ <span class="pp">|</span> $\mu_1 - \mu_2$ (numerical RV) or $p_1 - p_2$ (binary RV) <span class="pp">|</span> $\mu_1,\ldots,\mu_k$ (ANOVA across EV groups) <span class="pp">|</span> $\beta_0, \beta_1$ <span class="pp">|</span> Logistic $\beta$; prob.\ RV given EV <span class="pp">|</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Infer parameter: test name + sample null** <span class="pp">|</span> One-proportion test, $H_0: p = p_0$ <span class="pp">|</span> One-sample (or paired) $t$-test, $H_0: \mu = \mu_0$ <span class="pp">|</span> Chi-square independence, $H_0$: EV and RV independent <span class="pp">|</span> Two-sample $t$-test $H_0: \mu_1 - \mu_2 = 0$, or two-proportion $H_0: p_1 - p_2 = 0$ <span class="pp">|</span> One-way ANOVA $H_0: \mu_1 = \mu_2 = \cdots = \mu_k$ <span class="pp">|</span> Slope test $H_0: \beta_1 = 0$ <span class="pp">|</span> Logistic slope $H_0: \beta_1 = 0$ (or relevant coefficient $= 0$) <span class="pp">|</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Infer parameter: test R code** <span class="pp">|</span> <span class="in">`binom.test()`</span> (exact) or <span class="in">`prop.test()`</span> <span class="pp">|</span> <span class="in">`t.test(x)`</span> or paired <span class="in">`t.test(x,y,paired=TRUE)`</span> <span class="pp">|</span> <span class="in">`chisq.test(tab)`</span> <span class="pp">|</span> <span class="in">`t.test(y ~ group, var.equal = FALSE)`</span> or <span class="in">`prop.test(...)`</span> <span class="pp">|</span> <span class="in">`fit &lt;- lm(y ~ group); anova(fit)`</span> <span class="pp">|</span> <span class="in">`fit &lt;- lm(y ~ x); summary(fit)`</span> <span class="pp">|</span> <span class="in">`fit &lt;- glm(y ~ x_or_group, family = binomial); summary(fit)`</span> <span class="pp">|</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Infer parameter: test conditions** <span class="pp">|</span> Binomial / SRS; for $z$ approx need $np \ge 10$ and $n(1-p) \ge 10$ <span class="pp">|</span> Random sample (or paired) + large $n$ or roughly normal population/differences <span class="pp">|</span> Independent obs.; expected counts typically $\ge 5$ <span class="pp">|</span> Two samples or random assignment; conditions for chosen method <span class="pp">|</span> Independent obs.; roughly normal within groups; similar spread <span class="pp">|</span> Linear form; independent obs.; residual assumptions for $t$-based inference <span class="pp">|</span> Binary RV; independent obs.; appropriate model form <span class="pp">|</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Infer parameter: CI name** <span class="pp">|</span> One-proportion CI <span class="pp">|</span> One-sample (or paired) $t$-interval <span class="pp">|</span> Context-dependent (cell/row/column or follow-up) <span class="pp">|</span> Two-sample $t$-interval or two-proportion CI <span class="pp">|</span> Post-hoc / group-mean intervals after ANOVA <span class="pp">|</span> CI for $\beta_1$; CI for mean response at $x_0$ <span class="pp">|</span> CI for logistic $\beta$ <span class="pp">|</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Infer parameter: CI R code** <span class="pp">|</span> <span class="in">`prop.test()`</span> <span class="pp">|</span> <span class="in">`t.test()`</span> <span class="pp">|</span> (Context-dependent; often not a single omnibus CI) <span class="pp">|</span> <span class="in">`t.test(...)`</span> or <span class="in">`prop.test(...)`</span> <span class="pp">|</span> <span class="in">`fit &lt;- lm(...);`</span> then follow-up contrasts/intervals as needed <span class="pp">|</span> <span class="in">`confint(fit, "x")`</span>; <span class="in">`predict(fit, newdata=..., interval="confidence")`</span> <span class="pp">|</span> <span class="in">`confint(fit, "x_or_group")`</span> <span class="pp">|</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Infer parameter: CI conditions** <span class="pp">|</span> Same as proportion-test approximation <span class="pp">|</span> Same as t-test conditions <span class="pp">|</span> Depends on interval used; independence remains key <span class="pp">|</span> Same as chosen two-group method <span class="pp">|</span> Same assumptions as ANOVA model <span class="pp">|</span> Same regression assumptions as above <span class="pp">|</span> Same logistic-model assumptions as above <span class="pp">|</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Infer individual value: notation** <span class="pp">|</span> Individual category outcome (usually not main target) <span class="pp">|</span> Individual future RV <span class="pp">|</span> Individual future cell/category (usually not main target) <span class="pp">|</span> Individual future RV in a selected EV group <span class="pp">|</span> Individual future RV in selected EV group level <span class="pp">|</span> Individual future RV at $x_0$ <span class="pp">|</span> Individual $P(\text{RV}=1 \mid \text{EV})$ and class after cutoff <span class="pp">|</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Infer individual value: method name** <span class="pp">|</span> (Usually classify/report probability) <span class="pp">|</span> Prediction interval for one value <span class="pp">|</span> (Usually classify/report probability) <span class="pp">|</span> EV-group-based prediction interval for one value <span class="pp">|</span> EV-group-based prediction interval for one value <span class="pp">|</span> Linear-model prediction interval <span class="pp">|</span> Logistic probability prediction + cutoff classification <span class="pp">|</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Infer individual value: R code** <span class="pp">|</span> <span class="in">`prop.test`</span>/model-based probability methods <span class="pp">|</span> <span class="in">`predict(fit, newdata=..., interval="prediction")`</span> <span class="pp">|</span> <span class="in">`chisq`</span> context not usually individual prediction <span class="pp">|</span> <span class="in">`fit &lt;- lm(y ~ group); predict(fit, newdata=..., interval="prediction")`</span> <span class="pp">|</span> <span class="in">`fit &lt;- lm(y ~ group); predict(fit, newdata=..., interval="prediction")`</span> <span class="pp">|</span> <span class="in">`fit &lt;- lm(y ~ x); predict(fit, newdata=..., interval="prediction")`</span> <span class="pp">|</span> <span class="in">`fit &lt;- glm(..., family=binomial); predict(fit, newdata=..., type="response")`</span> <span class="pp">|</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Infer individual value: conditions** | Use caution; not usually central target | Linear-model assumptions; interval is for **individual** not mean <span class="pp">|</span> Not usually the main inferential target <span class="pp">|</span> Independent observations; prediction interval for individual not mean <span class="pp">|</span> Same as linear-model assumptions across groups <span class="pp">|</span> Linear form + residual diagnostics; independent observations <span class="pp">|</span> Binary outcome; independent observations; choose and justify cutoff <span class="pp">|</span></span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="sc">\[</span>Content to be added<span class="sc">\]</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">### Two Categorical Variables {#M-I-2C}</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">## Notes</span></span>
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="sc">\[</span>Content to be added<span class="sc">\]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**EV** = explanatory variable (sometimes called treatment/predictor, depending on context).</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**RV** = response variable (aka outcome variable).</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>For any inferential row, always check:</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="ss">    1.  </span>sample size(s),</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">    2.  </span>sampling method (random sample or independent/binomial trials),</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">    3.  </span>study design (observational vs experimental, paired vs independent),</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">    4.  </span>model assumptions where relevant.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
