@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -73,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-4897d45d2f75ed4f519693be625836c5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-94b323657c735dfe3b1bf6ebb2c33a55.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -105,35 +105,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../assets/css/humboldt-theme.css">
 <link rel="stylesheet" href="../assets/css/labs-forest-night-minimal.css">
@@ -149,12 +120,16 @@ window.Quarto = {
     <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
-  <li><a href="#lab-8-sampling-and-confidence-intervals" id="toc-lab-8-sampling-and-confidence-intervals" class="nav-link active" data-scroll-target="#lab-8-sampling-and-confidence-intervals">Lab 8: Sampling and Confidence Intervals</a>
   <ul class="collapse">
-  <li><a href="#gettysburg-address-convenience-vs-random-sampling-rossman-chance" id="toc-gettysburg-address-convenience-vs-random-sampling-rossman-chance" class="nav-link" data-scroll-target="#gettysburg-address-convenience-vs-random-sampling-rossman-chance">1. Gettysburg Address: Convenience vs random sampling (Rossman Chance)</a></li>
-  <li><a href="#r-code-five-methods-for-confidence-intervals" id="toc-r-code-five-methods-for-confidence-intervals" class="nav-link" data-scroll-target="#r-code-five-methods-for-confidence-intervals">2. R code: Five methods for confidence intervals</a></li>
-  <li><a href="#sample-project-2" id="toc-sample-project-2" class="nav-link" data-scroll-target="#sample-project-2">3. Sample Project 2</a></li>
+  <li><a href="#lab-8-tidyverse-data-skills-mpg-demo-diamonds-exercise" id="toc-lab-8-tidyverse-data-skills-mpg-demo-diamonds-exercise" class="nav-link active" data-scroll-target="#lab-8-tidyverse-data-skills-mpg-demo-diamonds-exercise">Lab 8: Tidyverse data skills (mpg demo, diamonds exercise)</a>
+  <ul class="collapse">
+  <li><a href="#how-to-use-this-lab" id="toc-how-to-use-this-lab" class="nav-link" data-scroll-target="#how-to-use-this-lab">How to use this lab</a></li>
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
+  <li><a href="#function-reference" id="toc-function-reference" class="nav-link" data-scroll-target="#function-reference">Function reference</a></li>
+  <li><a href="#demo-notebook-mpg-five-parts" id="toc-demo-notebook-mpg-five-parts" class="nav-link" data-scroll-target="#demo-notebook-mpg-five-parts">Demo notebook (<code>mpg</code>) — five parts</a></li>
+  <li><a href="#student-notebook-diamonds-five-questions" id="toc-student-notebook-diamonds-five-questions" class="nav-link" data-scroll-target="#student-notebook-diamonds-five-questions">Student notebook (<code>diamonds</code>) — five questions</a></li>
+  <li><a href="#project-2-same-week" id="toc-project-2-same-week" class="nav-link" data-scroll-target="#project-2-same-week">Project 2 (same week)</a></li>
+  <li><a href="#whats-next" id="toc-whats-next" class="nav-link" data-scroll-target="#whats-next">What’s next</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -169,7 +144,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Lab 8</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">STAT 109: Introductory Biostatistics</p>
+<p class="subtitle lead">STAT 109: Tidyverse summaries, types, filter, and group_by</p>
 </div>
 
 
@@ -178,6 +153,12 @@ window.Quarto = {
 
     
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">May 30, 2026</p>
+    </div>
+  </div>
     
   </div>
   
@@ -186,40 +167,189 @@ window.Quarto = {
 </header>
 
 
-<section id="lab-8-sampling-and-confidence-intervals" class="level1">
-<h1>Lab 8: Sampling and Confidence Intervals</h1>
-<p><strong>Topics:</strong> Lectures 19–20 — Confidence intervals, sampling methods (convenience vs random), bias, and computing CIs in R (Wald, Plus Four, FPC for proportion and mean).</p>
-<hr>
-<section id="gettysburg-address-convenience-vs-random-sampling-rossman-chance" class="level2">
-<h2 class="anchored" data-anchor-id="gettysburg-address-convenience-vs-random-sampling-rossman-chance">1. Gettysburg Address: Convenience vs random sampling (Rossman Chance)</h2>
-<p><em>Placeholder: Material to be added.</em></p>
-<p>Use the <strong>Gettysburg Address</strong> activity from Rossman Chance to compare <strong>convenience sampling</strong> (e.g.&nbsp;taking the first sentence or the first 30 words) with <strong>simple random sampling</strong> (e.g.&nbsp;randomly selecting 30 words from the full text). Compare estimates of a population parameter (e.g.&nbsp;mean word length, proportion of long words) and the impact on bias and generalizability.</p>
+<section id="lab-8-tidyverse-data-skills-mpg-demo-diamonds-exercise" class="level1">
+<h1>Lab 8: Tidyverse data skills (mpg demo, diamonds exercise)</h1>
+<p><strong>Topics:</strong> Week 9 — describing variables with the <strong>tidyverse</strong>; numerical vs categorical summaries; <code>filter()</code> and <code>group_by()</code> + <code>summarise()</code>. Builds skills used in <a href="../labs/lab-9.html">Lab 9</a> and <a href="../projects/project-3.html">Project 3</a>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Open in Google Colab (R)
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li>Link or handout: [Rossman Chance applet/activity — to be inserted]</li>
-<li>Questions: How do the two sampling methods differ? Which gives a more trustworthy estimate for the full address? Why?</li>
+<li><a href="https://colab.research.google.com/github/roverhol/stat109-public/blob/main/labs/lab-8-demo.ipynb">Open <strong>demo</strong> in Colab</a> — walk-through with the <strong><code>mpg</code></strong> dataset</li>
+<li><a href="https://colab.research.google.com/github/roverhol/stat109-public/blob/main/labs/lab-8-student.ipynb">Open <strong>student exercise</strong> in Colab</a> — prompts with the <strong><code>diamonds</code></strong> dataset</li>
 </ul>
+<p>After a notebook opens, use <strong>Runtime → Change runtime type</strong> and select <strong>R</strong> if needed. Save a copy to your Drive (<code>File → Save a copy in Drive</code>) before editing the student notebook.</p>
+</div>
+</div>
 <hr>
-</section>
-<section id="r-code-five-methods-for-confidence-intervals" class="level2">
-<h2 class="anchored" data-anchor-id="r-code-five-methods-for-confidence-intervals">2. R code: Five methods for confidence intervals</h2>
-<p><em>Placeholder: R code to be added.</em></p>
-<p>Provide R code that computes 95% confidence intervals using all <strong>five</strong> methods covered in the course:</p>
+<section id="how-to-use-this-lab" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-use-this-lab">How to use this lab</h2>
 <ol type="1">
-<li><strong>Proportion — Wald (z-interval):</strong> <span class="math inline">\(\hat{p} \pm 2\sqrt{\hat{p}(1-\hat{p})/n}\)</span> (or equivalent R function).</li>
-<li><strong>Proportion — Plus Four:</strong> <span class="math inline">\(\tilde{p} = (x+2)/(n+4)\)</span>, then <span class="math inline">\(\tilde{p} \pm 2\sqrt{\tilde{p}(1-\tilde{p})/(n+4)}\)</span>.</li>
-<li><strong>Proportion — with finite population correction (FPC):</strong> Wald formula multiplied by <span class="math inline">\(\sqrt{(N-n)/(N-1)}\)</span>.</li>
-<li><strong>Mean — normal (z) or t-interval:</strong> <span class="math inline">\(\bar{x} \pm 2 \cdot s/\sqrt{n}\)</span> (or <code>t.test</code> / equivalent).</li>
-<li><strong>Mean — with finite population correction (FPC):</strong> Mean interval multiplied by <span class="math inline">\(\sqrt{(N-n)/(N-1)}\)</span>.</li>
+<li><strong>Demo notebook</strong> (<a href="lab-8-demo.ipynb"><code>lab-8-demo.ipynb</code></a>) — follow along in Thursday lab using <strong><code>mpg</code></strong> (highway MPG, drive type, vehicle class, cylinders).</li>
+<li><strong>Student notebook</strong> (<a href="lab-8-student.ipynb"><code>lab-8-student.ipynb</code></a>) — complete five questions on <strong><code>diamonds</code></strong> and turn in on Canvas by <strong>Tuesday</strong> (see <a href="../assessments.html">Assessments</a>).</li>
 </ol>
-<p>Use a single example dataset (e.g.&nbsp;St.&nbsp;Joe’s mortality or a small numeric vector) so students can compare the same data across methods where applicable.</p>
 <hr>
 </section>
-<section id="sample-project-2" class="level2">
-<h2 class="anchored" data-anchor-id="sample-project-2">3. Sample Project 2</h2>
-<p><em>Placeholder: Material to be added.</em></p>
-<p>Show a <strong>sample Project 2</strong> (or excerpt) so students can see the expected format, level of detail, and how to integrate sampling concepts with confidence interval interpretation.</p>
+<section id="learning-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="learning-outcomes">Learning outcomes</h2>
+<p>By the end of this lab, you should be able to:</p>
+<ol type="1">
+<li>Load a tidyverse dataset and inspect variables with <code>glimpse()</code>.</li>
+<li>Identify whether a variable is <strong>numerical</strong> or <strong>categorical</strong> (<code>class()</code>, <code>levels()</code>).</li>
+<li>Recode a variable when numeric values are really <strong>category codes</strong> (<code>factor()</code>, <code>mutate()</code>).</li>
+<li>For one <strong>numerical</strong> variable: compute <strong>mean</strong> and <strong>SD</strong> and make a <strong>histogram</strong>.</li>
+<li>For one <strong>categorical</strong> variable: compute <strong>count</strong> and <strong>proportion</strong> by level.</li>
+<li>Use <strong><code>filter()</code></strong> to subset rows with conditions.</li>
+<li>Use <strong><code>group_by()</code></strong> with <strong><code>summarise()</code></strong> to compare groups (mean, SD, <code>n()</code>).</li>
+</ol>
 <hr>
-<p><em>Instructor: Insert the Gettysburg Address activity, R code chunks, and sample Project 2 in the sections above.</em></p>
+</section>
+<section id="function-reference" class="level2">
+<h2 class="anchored" data-anchor-id="function-reference">Function reference</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>library(tidyverse)</code></td>
+<td>Loads core tidyverse packages</td>
+</tr>
+<tr class="even">
+<td><code>glimpse(df)</code></td>
+<td>Quick view of names and types</td>
+</tr>
+<tr class="odd">
+<td><code>class(x)</code>, <code>levels(x)</code></td>
+<td>Type and category levels</td>
+</tr>
+<tr class="even">
+<td><code>mutate()</code>, <code>factor()</code></td>
+<td>Create or recode variables</td>
+</tr>
+<tr class="odd">
+<td><code>mean()</code>, <code>sd()</code></td>
+<td>Center and spread for numerical data</td>
+</tr>
+<tr class="even">
+<td><code>count()</code>, <code>summarise()</code>, <code>n()</code></td>
+<td>Counts and grouped summaries</td>
+</tr>
+<tr class="odd">
+<td><code>filter()</code></td>
+<td>Keep rows matching conditions</td>
+</tr>
+<tr class="even">
+<td><code>group_by()</code></td>
+<td>Define groups before summarizing</td>
+</tr>
+<tr class="odd">
+<td><code>ggplot() + geom_histogram()</code></td>
+<td>Histogram for numerical data</td>
+</tr>
+<tr class="even">
+<td><code>as.numeric()</code>, <code>as.factor()</code></td>
+<td>Convert between types</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="demo-notebook-mpg-five-parts" class="level2">
+<h2 class="anchored" data-anchor-id="demo-notebook-mpg-five-parts">Demo notebook (<code>mpg</code>) — five parts</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 42%">
+<col style="width: 57%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Part</th>
+<th>Topic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Numerical variable — <code>hwy</code>: type, mean, SD, histogram</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Categorical variable — <code>drv</code>: levels, counts, proportions</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Type change — treat <code>cyl</code> as categories</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><code>filter()</code> — subset by MPG and drive type</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><code>group_by()</code> + <code>summarise()</code> — mean highway MPG by <code>drv</code> and by <code>class</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="student-notebook-diamonds-five-questions" class="level2">
+<h2 class="anchored" data-anchor-id="student-notebook-diamonds-five-questions">Student notebook (<code>diamonds</code>) — five questions</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>Topic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Numerical — <code>carat</code>: type, mean, SD, histogram</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Categorical — <code>cut</code>: levels, counts, proportions</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Type change — <code>color</code> as codes → factor</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><code>filter()</code> — large carat and Premium/Ideal cut</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><code>group_by()</code> — price summaries by <code>cut</code>, sorted by mean</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="project-2-same-week" class="level2">
+<h2 class="anchored" data-anchor-id="project-2-same-week">Project 2 (same week)</h2>
+<p><a href="../projects/project-2.html">Project 2</a> is due <strong>Sunday, March 29</strong>. Before or during this lab, review the sample write-up and notebooks:</p>
+<ul>
+<li><a href="../projects/project-2-sample.pdf">Sample PDF</a> · <a href="../projects/project-2-example-ca-high-schools.html">HTML example</a></li>
+<li><a href="../projects/project-2-estimation-mean-fpc.ipynb">Mean + FPC notebook</a> · <a href="https://colab.research.google.com/github/roverhol/stat109-public/blob/main/projects/project-2-estimation-mean-fpc.ipynb">Colab</a></li>
+<li><a href="../projects/project-2-proportion-fpc.ipynb">Proportion + FPC notebook</a> · <a href="https://colab.research.google.com/github/roverhol/stat109-public/blob/main/projects/project-2-proportion-fpc.ipynb">Colab</a></li>
+</ul>
+<p>Use <a href="../labs/lab-7.html">Lab 7</a> for the five confidence-interval situations (Wald, Plus Four, FPC for mean and proportion).</p>
+<hr>
+</section>
+<section id="whats-next" class="level2">
+<h2 class="anchored" data-anchor-id="whats-next">What’s next</h2>
+<p><a href="../labs/lab-9.html">Lab 9</a> extends these tidyverse workflows on <strong><code>diamonds</code></strong> with more practice before <a href="../projects/project-3.html">Project 3</a> (descriptive analysis of a TidyTuesday-style dataset).</p>
 
 
 <!-- -->
@@ -686,51 +816,109 @@ window.Quarto = {
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab 8"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "STAT 109: Introductory Biostatistics"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Lab 8: Sampling and Confidence Intervals</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>**Topics:** Lectures 19–20 — Confidence intervals, sampling methods (convenience vs random), bias, and computing CIs in R (Wald, Plus Four, FPC for proportion and mean).</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. Gettysburg Address: Convenience vs random sampling (Rossman Chance)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "STAT 109: Tidyverse summaries, types, filter, and group_by"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> "2026-05-30"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-depth: 2</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="an">resources:</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">  - lab-8-demo.ipynb</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">  - lab-8-student.ipynb</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>*Placeholder: Material to be added.*</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu"># Lab 8: Tidyverse data skills (mpg demo, diamonds exercise)</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Use the **Gettysburg Address** activity from Rossman Chance to compare **convenience sampling** (e.g. taking the first sentence or the first 30 words) with **simple random sampling** (e.g. randomly selecting 30 words from the full text). Compare estimates of a population parameter (e.g. mean word length, proportion of long words) and the impact on bias and generalizability.</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>**Topics:** Week 9 — describing variables with the **tidyverse**; numerical vs categorical summaries; <span class="in">`filter()`</span> and <span class="in">`group_by()`</span> + <span class="in">`summarise()`</span>. Builds skills used in <span class="co">[</span><span class="ot">Lab 9</span><span class="co">](lab-9.qmd)</span> and <span class="co">[</span><span class="ot">Project 3</span><span class="co">](../projects/project-3.qmd)</span>.</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Link or handout: <span class="sc">\[</span>Rossman Chance applet/activity — to be inserted<span class="sc">\]</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Questions: How do the two sampling methods differ? Which gives a more trustworthy estimate for the full address? Why?</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>:::: callout-note</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## Open in Google Colab (R)</span></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. R code: Five methods for confidence intervals</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>*Placeholder: R code to be added.*</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Open **demo** in Colab</span><span class="co">](https://colab.research.google.com/github/roverhol/stat109-public/blob/main/labs/lab-8-demo.ipynb)</span> — walk-through with the **`mpg`** dataset</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Open **student exercise** in Colab</span><span class="co">](https://colab.research.google.com/github/roverhol/stat109-public/blob/main/labs/lab-8-student.ipynb)</span> — prompts with the **`diamonds`** dataset</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>After a notebook opens, use **Runtime → Change runtime type** and select **R** if needed. Save a copy to your Drive (<span class="in">`File → Save a copy in Drive`</span>) before editing the student notebook.</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>::::</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>Provide R code that computes 95% confidence intervals using all **five** methods covered in the course:</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Proportion — Wald (z-interval):** $\hat{p} \pm 2\sqrt{\hat{p}(1-\hat{p})/n}$ (or equivalent R function).</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Proportion — Plus Four:** $\tilde{p} = (x+2)/(n+4)$, then $\tilde{p} \pm 2\sqrt{\tilde{p}(1-\tilde{p})/(n+4)}$.</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Proportion — with finite population correction (FPC):** Wald formula multiplied by $\sqrt{(N-n)/(N-1)}$.</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Mean — normal (z) or t-interval:** $\bar{x} \pm 2 \cdot s/\sqrt{n}$ (or <span class="in">`t.test`</span> / equivalent).</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Mean — with finite population correction (FPC):** Mean interval multiplied by $\sqrt{(N-n)/(N-1)}$.</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>Use a single example dataset (e.g. St. Joe's mortality or a small numeric vector) so students can compare the same data across methods where applicable.</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. Sample Project 2</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>*Placeholder: Material to be added.*</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>Show a **sample Project 2** (or excerpt) so students can see the expected format, level of detail, and how to integrate sampling concepts with confidence interval interpretation.</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>*Instructor: Insert the Gettysburg Address activity, R code chunks, and sample Project 2 in the sections above.*</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## How to use this lab</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Demo notebook** ([`lab-8-demo.ipynb`](lab-8-demo.ipynb)) — follow along in Thursday lab using **`mpg`** (highway MPG, drive type, vehicle class, cylinders).</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Student notebook** ([`lab-8-student.ipynb`](lab-8-student.ipynb)) — complete five questions on **`diamonds`** and turn in on Canvas by **Tuesday** (see <span class="co">[</span><span class="ot">Assessments</span><span class="co">](../assessments.qmd)</span>).</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning outcomes</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>By the end of this lab, you should be able to:</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Load a tidyverse dataset and inspect variables with <span class="in">`glimpse()`</span>.</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Identify whether a variable is **numerical** or **categorical** (<span class="in">`class()`</span>, <span class="in">`levels()`</span>).</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Recode a variable when numeric values are really **category codes** (<span class="in">`factor()`</span>, <span class="in">`mutate()`</span>).</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>For one **numerical** variable: compute **mean** and **SD** and make a **histogram**.</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>For one **categorical** variable: compute **count** and **proportion** by level.</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Use **`filter()`** to subset rows with conditions.</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Use **`group_by()`** with **`summarise()`** to compare groups (mean, SD, <span class="in">`n()`</span>).</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## Function reference</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Function <span class="pp">|</span> What it does <span class="pp">|</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------|----------------|</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`library(tidyverse)`</span> <span class="pp">|</span> Loads core tidyverse packages <span class="pp">|</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`glimpse(df)`</span> <span class="pp">|</span> Quick view of names and types <span class="pp">|</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`class(x)`</span>, <span class="in">`levels(x)`</span> <span class="pp">|</span> Type and category levels <span class="pp">|</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`mutate()`</span>, <span class="in">`factor()`</span> <span class="pp">|</span> Create or recode variables <span class="pp">|</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`mean()`</span>, <span class="in">`sd()`</span> <span class="pp">|</span> Center and spread for numerical data <span class="pp">|</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`count()`</span>, <span class="in">`summarise()`</span>, <span class="in">`n()`</span> <span class="pp">|</span> Counts and grouped summaries <span class="pp">|</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`filter()`</span> <span class="pp">|</span> Keep rows matching conditions <span class="pp">|</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`group_by()`</span> <span class="pp">|</span> Define groups before summarizing <span class="pp">|</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`ggplot() + geom_histogram()`</span> <span class="pp">|</span> Histogram for numerical data <span class="pp">|</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`as.numeric()`</span>, <span class="in">`as.factor()`</span> <span class="pp">|</span> Convert between types <span class="pp">|</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## Demo notebook (`mpg`) — five parts</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Part <span class="pp">|</span> Topic <span class="pp">|</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|--------|</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1 <span class="pp">|</span> Numerical variable — <span class="in">`hwy`</span>: type, mean, SD, histogram <span class="pp">|</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2 <span class="pp">|</span> Categorical variable — <span class="in">`drv`</span>: levels, counts, proportions <span class="pp">|</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 3 <span class="pp">|</span> Type change — treat <span class="in">`cyl`</span> as categories <span class="pp">|</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 4 <span class="pp">|</span> <span class="in">`filter()`</span> — subset by MPG and drive type <span class="pp">|</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 5 <span class="pp">|</span> <span class="in">`group_by()`</span> + <span class="in">`summarise()`</span> — mean highway MPG by <span class="in">`drv`</span> and by <span class="in">`class`</span> <span class="pp">|</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="fu">## Student notebook (`diamonds`) — five questions</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Question <span class="pp">|</span> Topic <span class="pp">|</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------|--------|</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1 <span class="pp">|</span> Numerical — <span class="in">`carat`</span>: type, mean, SD, histogram <span class="pp">|</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2 <span class="pp">|</span> Categorical — <span class="in">`cut`</span>: levels, counts, proportions <span class="pp">|</span></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 3 <span class="pp">|</span> Type change — <span class="in">`color`</span> as codes → factor <span class="pp">|</span></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 4 <span class="pp">|</span> <span class="in">`filter()`</span> — large carat and Premium/Ideal cut <span class="pp">|</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 5 <span class="pp">|</span> <span class="in">`group_by()`</span> — price summaries by <span class="in">`cut`</span>, sorted by mean <span class="pp">|</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="fu">## Project 2 (same week)</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Project 2</span><span class="co">](../projects/project-2.qmd)</span> is due **Sunday, March 29**. Before or during this lab, review the sample write-up and notebooks:</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Sample PDF</span><span class="co">](../projects/project-2-sample.pdf)</span> · <span class="co">[</span><span class="ot">HTML example</span><span class="co">](../projects/project-2-example-ca-high-schools.qmd)</span></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Mean + FPC notebook</span><span class="co">](../projects/project-2-estimation-mean-fpc.ipynb)</span> · <span class="co">[</span><span class="ot">Colab</span><span class="co">](https://colab.research.google.com/github/roverhol/stat109-public/blob/main/projects/project-2-estimation-mean-fpc.ipynb)</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Proportion + FPC notebook</span><span class="co">](../projects/project-2-proportion-fpc.ipynb)</span> · <span class="co">[</span><span class="ot">Colab</span><span class="co">](https://colab.research.google.com/github/roverhol/stat109-public/blob/main/projects/project-2-proportion-fpc.ipynb)</span></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>Use <span class="co">[</span><span class="ot">Lab 7</span><span class="co">](lab-7.qmd)</span> for the five confidence-interval situations (Wald, Plus Four, FPC for mean and proportion).</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="fu">## What's next</span></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lab 9</span><span class="co">](lab-9.qmd)</span> extends these tidyverse workflows on **`diamonds`** with more practice before <span class="co">[</span><span class="ot">Project 3</span><span class="co">](../projects/project-3.qmd)</span> (descriptive analysis of a TidyTuesday-style dataset).</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
